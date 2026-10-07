@@ -16,6 +16,7 @@
     "remotion": "^4.0.534"
   },
   "devDependencies": {
+    "@remotion/cli": "^4.0.534",
     "@types/node": "^26.6.4",
     "@types/react": "^19.3.0",
     "typescript": "^7.0.2"
