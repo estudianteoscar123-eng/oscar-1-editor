@@ -71,3 +71,38 @@ Las medidas en px están referidas a un lienzo de 1080x1920.
 - **v2 · Marcas de agua:** ninguna. Recortar las del material de origen (TikTok, números grabados) y no añadir textos de marca propios encima (nada de "SINLIMITESLIFE" en el vídeo).
 - **v2 · Espacio:** zona útil y 130–1360 en planos de cámara (subtítulos arriba en y 130, tarjeta de cámara cuadrada 920 px en y 440, progreso debajo). En b-roll, contenido centrado en y 330–1330 y subtítulos en y 1370. Los 380 px inferiores quedan libres (interfaz de TikTok).
 - **v2 · Acento tipográfico:** serif cursiva azul (Instrument Serif Italic) para frases de apoyo dentro del b-roll.
+
+---
+
+# Estilo B — motion graphics "foco azul" (refC f9e65181, refD dd1085e4)
+
+## Ritmo
+- refC: cambio de plano cada **≈1,1 s** (54 cortes en 59,5 s). refD: cada **≈2,0 s**.
+- Proporción: **≈65 % ilustración / 35 % cámara** (refC). Ilustraciones seguidas sin volver a cámara son normales.
+
+## Ilustraciones
+- Fondo: degradado radial **#0A2A66 → #051333 → #02060F**, centrado arriba.
+- **Foco cenital**: cono de luz trapezoidal desde el centro superior (blanco-cian **rgba(110,200,255,0.55)** → transparente), con fuente brillante arriba y elipse de luz en el suelo + línea de horizonte fina.
+- Ilustración plana **azul monocroma** (rampa #030A1E → #08286E → #145FDC → #46A5FF → #CDF0FF) con brillo `drop-shadow(0 0 40px rgba(40,150,255,0.75))`. Principal centrada (≈520–620 px, y≈1010) flotando ±12 px; 2–4 objetos secundarios alrededor (150–250 px) con parallax, los lejanos desenfocados 3 px.
+- Formas orgánicas azules (#1C78FF → #0A3FA8) en las esquinas, girando despacio. Partículas de polvo dentro del foco. Lluvia diagonal 18° en frases negativas.
+- Entrada de objetos escalonada cada 3 fotogramas, escala 0,4 → 1 con rebote ligero.
+- Prohibido: aro cian con barra a −45°, centro transparente, entra girando −25° → 0°.
+- Empuje lento de toda la escena 1,00 → 1,06.
+
+## Transiciones
+- Cámara → ilustración: **destello blanco-cian** (pico 0,9) de 2 fotogramas antes a 5 después del corte; la ilustración entra con desenfoque **22 → 0 px** y escala **1,14 → 1** en 8 fotogramas.
+- Ilustración → cámara: destello suave (0,45); cámara desenfoque **16 → 0 px**, escala **1,10 → 1** en 6 fotogramas.
+
+## Subtítulos (mecánica de v2 aprobada + tipografía de refC)
+- Fuente **Poppins**. Línea: 600, **54 px**, blanca con brillo `0 0 22px rgba(120,190,255,0.55)`.
+- Palabra destacada: **Poppins 900 cursiva, MAYÚSCULAS, 122 px**, degradado **#B8F6FF → #3BE3FF → #0A7BFF**, brillo cian; entra con escala 1,3 → 1 y desenfoque 16 → 0 en 4–5 fotogramas.
+- Posición: en ilustración **y = 280** (dentro del foco); en cámara **y = 1150** (sobre el pecho).
+
+## Cámara
+- A pantalla completa: fondo = el mismo plano desenfocado (40 px, brillo 0,22); delante, el plano nítido 1080 px fundido arriba y abajo con máscara; viñeta radial.
+
+## Sonido (efectos sintetizados en `tools/make_sfx.py`)
+- **whoosh** en cada corte (empieza 7 fotogramas antes; volumen 0,42 a ilustración, 0,28 a cámara).
+- **pop** al aparecer cada palabra destacada (0,32).
+- **impacto** grave al inicio (0,55). **brillo** en la frase final (0,4).
+- Sin música. Mezcla final ≈ −18 LUFS.
