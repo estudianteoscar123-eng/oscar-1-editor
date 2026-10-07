@@ -37,13 +37,12 @@ export const Captions: React.FC<{ top: number }> = ({ top }) => {
         right: 60,
         textAlign: "center",
         fontFamily: SANS,
-        color: C.white,
+        color: C.ink,
         opacity: exitOpacity,
         filter: `blur(${exitBlur}px)`,
-        textShadow: "0 2px 12px rgba(0,0,0,0.35)",
       }}
     >
-      <div style={{ fontSize: 50, fontWeight: 700, lineHeight: 1.15, letterSpacing: -0.5 }}>
+      <div style={{ fontSize: 48, fontWeight: 700, lineHeight: 1.15, letterSpacing: -0.6 }}>
         {p.line.map((i) => (
           <span key={i} style={wordStyle(i, 2, 8)}>
             {data.words[i].text}
@@ -53,11 +52,11 @@ export const Captions: React.FC<{ top: number }> = ({ top }) => {
       {p.hl.length > 0 && (
         <div
           style={{
-            fontSize: 124,
-            fontWeight: 900,
-            lineHeight: 1,
-            letterSpacing: -3,
-            color: C.red,
+            fontSize: 118,
+            fontWeight: 800,
+            lineHeight: 1.02,
+            letterSpacing: -3.5,
+            color: C.blue,
             marginTop: 6,
           }}
         >
@@ -71,7 +70,7 @@ export const Captions: React.FC<{ top: number }> = ({ top }) => {
                   scale: interpolate(frame, [at, at + 4], [1.08, 1], { ...clamp, easing: EASE }),
                 }}
               >
-                {clean(data.words[i].text)}
+                {clean(data.words[i].text ?? "")}
               </span>
             );
           })}

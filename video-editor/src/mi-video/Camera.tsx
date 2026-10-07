@@ -1,20 +1,45 @@
 import { Video } from "@remotion/media";
 import { interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import data from "../../public/mi-video/data.json";
-import { C, MONO, SANS, cardStyle } from "./theme";
+import { C, MONO, cardStyle, monoLabel } from "./theme";
 
-const TOTAL_RULES = 15;
+export const TOTAL_RULES = 15;
+export const CARD = { left: 80, top: 440, size: 920 };
 
-// Escena a cámara: el vídeo va dentro de una tarjeta (estilo.md §4) con jump zoom 100 % ↔ 115 % (§6)
+export const Pill: React.FC<{ children: React.ReactNode; style?: React.CSSProperties }> = ({ children, style }) => (
+  <div
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 14,
+      background: C.ink,
+      color: C.white,
+      borderRadius: 999,
+      padding: "14px 26px",
+      fontFamily: MONO,
+      fontWeight: 500,
+      fontSize: 24,
+      letterSpacing: 2,
+      textTransform: "uppercase",
+      boxShadow: "0 10px 30px rgba(17,17,17,0.18)",
+      ...style,
+    }}
+  >
+    <span style={{ width: 10, height: 10, borderRadius: 99, background: C.blue }} />
+    {children}
+  </div>
+);
+
+// Cámara dentro de tarjeta (estilo.md §4) con jump zoom 100 % ↔ 112 % por frase y empuje lento (§6)
 export const Camera: React.FC<{ startSec: number }> = ({ startSec }) => {
-  const frame = useCurrentFrame(); // relativo a la escena
+  const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = startSec + frame / fps;
   const idx = Math.max(0, data.phrases.findIndex((p) => t >= p.start && t < p.end));
   const p = data.phrases[idx];
   const local = (t - p.start) / Math.max(0.1, p.end - p.start);
-  const base = idx % 2 === 0 ? 1 : 1.15;
-  const push = interpolate(local, [0, 1], [0, 0.04], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const base = idx % 2 === 0 ? 1 : 1.12;
+  const push = interpolate(local, [0, 1], [0, 0.03], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   return (
     <>
@@ -22,11 +47,14 @@ export const Camera: React.FC<{ startSec: number }> = ({ startSec }) => {
         style={{
           ...cardStyle,
           position: "absolute",
-          left: 60,
-          top: 450,
-          width: 960,
-          height: 796,
+          left: CARD.left,
+          top: CARD.top,
+          width: CARD.size,
+          height: CARD.size,
+          borderRadius: 36,
           overflow: "hidden",
+          border: "none",
+          boxShadow: "0 30px 80px rgba(20,40,120,0.18)",
         }}
       >
         <Video
@@ -38,70 +66,42 @@ export const Camera: React.FC<{ startSec: number }> = ({ startSec }) => {
             height: "100%",
             objectFit: "cover",
             scale: base + push,
-            transformOrigin: "52% 38%",
-            filter: "brightness(1.15) contrast(1.06) saturate(1.05)",
+            transformOrigin: "50% 32%",
+            filter: "brightness(1.12) contrast(1.04)",
           }}
         />
+      </div>
+      <div style={{ position: "absolute", left: 0, right: 0, top: CARD.top - 30, display: "flex", justifyContent: "center" }}>
+        <Pill>
+          Regla {String(p.rule).padStart(2, "0")} · {TOTAL_RULES}
+        </Pill>
       </div>
       <div
         style={{
           position: "absolute",
-          left: 60,
-          right: 60,
-          top: 1290,
+          left: CARD.left,
+          width: CARD.size,
+          top: CARD.top + CARD.size + 44,
           display: "flex",
-          justifyContent: "space-between",
+          flexDirection: "column",
           alignItems: "center",
+          gap: 20,
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-            background: "#1A2040",
-            borderRadius: 999,
-            padding: "14px 26px",
-            fontFamily: MONO,
-            fontWeight: 700,
-            fontSize: 24,
-            letterSpacing: 1,
-            color: C.white,
-          }}
-        >
-          <span style={{ width: 10, height: 10, borderRadius: 99, background: C.red }} />
-          WINTER ARC · DÍA 3/90
+        <div style={{ display: "flex", gap: 8 }}>
+          {Array.from({ length: TOTAL_RULES }, (_, k) => (
+            <div
+              key={k}
+              style={{
+                width: 40,
+                height: 8,
+                borderRadius: 8,
+                background: k < p.rule ? C.blue : "#D5DCEA",
+              }}
+            />
+          ))}
         </div>
-        <div style={{ fontFamily: MONO, fontSize: 26, fontWeight: 700, color: C.muted, letterSpacing: 2 }}>
-          REGLA <span style={{ color: C.white }}>{String(p.rule).padStart(2, "0")}</span>/{TOTAL_RULES}
-        </div>
-      </div>
-      <div style={{ position: "absolute", left: 60, right: 60, top: 1380, height: 6, borderRadius: 6, background: "#1A2040" }}>
-        <div
-          style={{
-            width: `${(p.rule / TOTAL_RULES) * 100}%`,
-            height: "100%",
-            borderRadius: 6,
-            background: C.red,
-            boxShadow: `0 0 18px ${C.red}`,
-          }}
-        />
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: 1440,
-          textAlign: "center",
-          fontFamily: SANS,
-          fontWeight: 800,
-          fontSize: 30,
-          letterSpacing: 6,
-          color: "rgba(255,255,255,0.18)",
-        }}
-      >
-        SINLIMITESLIFE
+        <div style={monoLabel}>Winter Arc · día 3 de 90</div>
       </div>
     </>
   );

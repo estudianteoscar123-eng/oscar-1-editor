@@ -1,15 +1,15 @@
 """Corta silencios >0.3 s, recorta la franja útil del vídeo y genera public/mi-video/*.
-Uso: python3 -I tools/prep_mi_video.py <video> <whisper.json> <musica>"""
+Uso: python3 -I tools/prep_mi_video.py <video> <whisper.json>"""
 import json, subprocess, sys, pathlib
 
-VIDEO, WJSON, MUSIC = sys.argv[1:4]
+VIDEO, WJSON = sys.argv[1:3]
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "public" / "mi-video"
 OUT.mkdir(parents=True, exist_ok=True)
 FPS = 30
 GAP = 0.30   # silencio máximo permitido
 PAD = 0.06   # aire que se deja a cada lado del corte
-CROP = "crop=386:320:190:352"  # franja de cámara sin números ni marca de agua
+CROP = "crop=320:320:200:352"  # franja de cámara sin números ni marcas de agua de TikTok
 
 FIXES = {1: "bebas", 62: "Sé", 63: None}  # errores de Whisper ("evas", "Se ha")
 
@@ -52,15 +52,11 @@ for x in w:
 # Vídeo y voz recortados
 vparts = "".join(f"[0:v]trim={s}:{e},setpts=PTS-STARTPTS[v{k}];[0:a]atrim={s}:{e},asetpts=PTS-STARTPTS[a{k}];" for k, (s, e) in enumerate(segs))
 concat = "".join(f"[v{k}][a{k}]" for k in range(len(segs)))
-fc = vparts + f"{concat}concat=n={len(segs)}:v=1:a=1[v][a];[v]{CROP},scale=1158:960:flags=lanczos,unsharp=5:5:0.6,fps={FPS}[vo];[a]loudnorm=I=-18:TP=-1.5:LRA=7[ao]"
+fc = vparts + f"{concat}concat=n={len(segs)}:v=1:a=1[v][a];[v]{CROP},hqdn3d=1.5:1.5:4:4,scale=1000:1000:flags=lanczos,unsharp=5:5:0.7:3:3:0.3,eq=brightness=0.04:contrast=1.05:saturation=1.04,fps={FPS}[vo];[a]loudnorm=I=-18:TP=-1.5:LRA=7[ao]"
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", VIDEO, "-filter_complex", fc, "-map", "[vo]", "-an",
                 "-c:v", "libx264", "-crf", "14", "-preset", "slow", "-pix_fmt", "yuv420p", str(OUT / "camara.mp4"),
                 "-map", "[ao]", "-ar", "48000", str(OUT / "voz.wav")], check=True)
 
-# Música de fondo: bucle, ≈12 dB por debajo de la voz, fundido final
-subprocess.run(["ffmpeg", "-v", "error", "-y", "-stream_loop", "3", "-i", MUSIC, "-vn", "-af",
-                f"atrim=0:{total:.3f},loudnorm=I=-31:TP=-6,afade=t=in:d=0.3,afade=t=out:st={total-1.2:.3f}:d=1.2",
-                "-ar", "48000", str(OUT / "musica.wav")], check=True)
 
 phrases = []
 for k, (line, hl, rule) in enumerate(PHRASES):

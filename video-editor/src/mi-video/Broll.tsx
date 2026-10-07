@@ -1,165 +1,222 @@
-import { AbsoluteFill, Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
+import { Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 import data from "../../public/mi-video/data.json";
-import { C, MONO, SANS, cardStyle, enter, monoLabel } from "./theme";
+import { Pill } from "./Camera";
+import { C, MONO, SANS, SERIF, cardStyle, enter, monoLabel } from "./theme";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 const EASE = Easing.bezier(0.16, 1, 0.3, 1);
 
-// fotograma (relativo a la escena) en que se dice la palabra i
 const useWordFrame = (startSec: number) => {
   const { fps } = useVideoConfig();
   return (i: number) => Math.round((data.words[i].s - startSec) * fps);
 };
 
-const Label: React.FC<{ text: string; at: number }> = ({ text, at }) => {
-  const frame = useCurrentFrame();
-  return <div style={{ ...monoLabel, textAlign: "center", ...enter(frame, at) }}>{text}</div>;
-};
-
-const Column: React.FC<{ children: React.ReactNode; top?: number }> = ({ children, top = 420 }) => (
-  <div style={{ position: "absolute", left: 90, right: 90, top, display: "flex", flexDirection: "column", gap: 28 }}>
+// Bloque de contenido centrado en la zona útil (y 380–1300); los subtítulos van debajo
+const Stage: React.FC<{ children: React.ReactNode; gap?: number }> = ({ children, gap = 36 }) => (
+  <div
+    style={{
+      position: "absolute",
+      left: 90,
+      right: 90,
+      top: 330,
+      height: 1000,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      gap,
+    }}
+  >
     {children}
   </div>
 );
 
-// 1 · Lista de lo que se elimina (alcohol, drogas, móvil)
+const Label: React.FC<{ text: string; at?: number }> = ({ text, at = 0 }) => {
+  const frame = useCurrentFrame();
+  return <div style={{ ...monoLabel, textAlign: "center", ...enter(frame, at) }}>{text}</div>;
+};
+
+const Accent: React.FC<{ text: string; at: number; size?: number }> = ({ text, at, size = 84 }) => {
+  const frame = useCurrentFrame();
+  return (
+    <div
+      style={{
+        fontFamily: SERIF,
+        fontStyle: "italic",
+        fontSize: size,
+        lineHeight: 1,
+        color: C.blue,
+        textAlign: "center",
+        ...enter(frame, at, 8),
+      }}
+    >
+      {text}
+    </div>
+  );
+};
+
+const Icon: React.FC<{ d: string }> = ({ d }) => (
+  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke={C.ink} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d={d} />
+  </svg>
+);
+const ICONS = {
+  glass: "M8 22h8M12 15v7M7 2h10l-1 7a4 4 0 0 1-8 0L7 2z",
+  smoke: "M2 16h15v4H2zM19 16v4M22 16v4M18 12c0-2-2-2-2-4s2-2 2-4",
+  phone: "M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM11 18h2",
+};
+
+// 1 · Lo que se elimina
 export const BrollElimina: React.FC<{ startSec: number }> = ({ startSec }) => {
   const frame = useCurrentFrame();
   const wf = useWordFrame(startSec);
   const items = [
-    { text: "Alcohol", at: 2 },
-    { text: "Tabaco y drogas", at: 7 },
-    { text: "Móvil al despertar", at: wf(11) },
+    { text: "Alcohol", icon: ICONS.glass, at: 2 },
+    { text: "Tabaco y drogas", icon: ICONS.smoke, at: 6 },
+    { text: "Móvil al despertar", icon: ICONS.phone, at: wf(11) },
   ];
   return (
-    <Column>
-      <Label text="Winter Arc · lo que eliminas" at={0} />
-      <div style={{ ...cardStyle, padding: "18px 36px", ...enter(frame, 0) }}>
+    <Stage>
+      <Label text="Winter Arc · lo que eliminas" />
+      <div style={{ ...cardStyle, padding: "10px 34px", ...enter(frame, 0) }}>
         {items.map((it, k) => {
-          const strike = interpolate(frame, [it.at + 6, it.at + 14], [0, 100], { ...clamp, easing: EASE });
+          const off = it.at + 10;
+          const strike = interpolate(frame, [off, off + 8], [0, 100], { ...clamp, easing: EASE });
+          const done = interpolate(frame, [off, off + 8], [0, 1], clamp);
           return (
             <div
               key={it.text}
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: 28,
-                padding: "26px 0",
-                borderTop: k ? `1px solid ${C.cardBorder}` : "none",
+                gap: 26,
+                padding: "28px 0",
+                borderTop: k ? `1px solid ${C.line}` : "none",
                 ...enter(frame, it.at),
               }}
             >
               <div
                 style={{
-                  width: 56,
-                  height: 56,
-                  borderRadius: 99,
-                  background: "rgba(230,57,70,0.15)",
-                  color: C.red,
-                  fontFamily: SANS,
-                  fontWeight: 900,
-                  fontSize: 34,
+                  width: 72,
+                  height: 72,
+                  borderRadius: 20,
+                  background: "#F3F5FA",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                 }}
               >
-                ✕
+                <Icon d={it.icon} />
               </div>
-              <div style={{ position: "relative", fontFamily: SANS, fontWeight: 700, fontSize: 48, color: C.white }}>
+              <div
+                style={{
+                  position: "relative",
+                  fontFamily: SANS,
+                  fontWeight: 700,
+                  fontSize: 44,
+                  letterSpacing: -0.6,
+                  color: done > 0.5 ? C.muted : C.ink,
+                }}
+              >
                 {it.text}
-                <div
-                  style={{
-                    position: "absolute",
-                    left: 0,
-                    top: "52%",
-                    height: 5,
-                    width: `${strike}%`,
-                    background: C.red,
-                    borderRadius: 4,
-                  }}
-                />
+                <div style={{ position: "absolute", left: 0, top: "53%", height: 4, width: `${strike}%`, background: C.ink, borderRadius: 4 }} />
+              </div>
+              <div
+                style={{
+                  marginLeft: "auto",
+                  fontFamily: MONO,
+                  fontSize: 20,
+                  letterSpacing: 2,
+                  color: C.blue,
+                  background: C.blueSoft,
+                  borderRadius: 999,
+                  padding: "10px 18px",
+                  opacity: done,
+                  scale: interpolate(done, [0, 1], [0.9, 1]),
+                }}
+              >
+                FUERA
               </div>
             </div>
           );
         })}
       </div>
-    </Column>
+    </Stage>
   );
 };
 
-// 2 · "bajo ningún concepto": 0 fiestas en 90 días
+// 2 · "bajo ningún concepto"
 export const BrollCeroFiestas: React.FC<{ startSec: number }> = () => {
   const frame = useCurrentFrame();
   return (
-    <Column top={360}>
-      <Label text="Fiestas en 90 días" at={0} />
+    <Stage gap={10}>
+      <Label text="Regla 05 · salir de fiesta" />
       <div
         style={{
           textAlign: "center",
           fontFamily: SANS,
-          fontWeight: 900,
-          fontSize: 420,
+          fontWeight: 800,
+          fontSize: 440,
           lineHeight: 1,
-          letterSpacing: -12,
-          color: C.white,
+          letterSpacing: -16,
+          color: C.ink,
           ...enter(frame, 2, 9),
-          scale: interpolate(frame, [2, 11], [1.15, 1], { ...clamp, easing: EASE }),
+          scale: interpolate(frame, [2, 12], [1.12, 1], { ...clamp, easing: EASE }),
         }}
       >
         0
       </div>
-      <div style={{ display: "flex", justifyContent: "center", ...enter(frame, 10) }}>
-        <div
-          style={{
-            background: C.red,
-            color: C.white,
-            fontFamily: MONO,
-            fontWeight: 700,
-            fontSize: 28,
-            letterSpacing: 2,
-            padding: "16px 30px",
-            borderRadius: 999,
-          }}
-        >
-          SIN EXCEPCIONES
-        </div>
+      <Accent text="fiestas en 90 días" at={8} />
+      <div style={{ display: "flex", justifyContent: "center", marginTop: 40, ...enter(frame, 14) }}>
+        <Pill>Sin excepciones</Pill>
       </div>
-    </Column>
+    </Stage>
   );
 };
 
-// 3 · Rutina: fe + horario de sueño
+// 3 · Rutina: fe y horario de sueño
 export const BrollRutina: React.FC<{ startSec: number }> = ({ startSec }) => {
   const frame = useCurrentFrame();
   const wf = useWordFrame(startSec);
   const rows = [
-    { time: "DIARIO", text: "Seguir el camino de Dios", at: 0 },
+    { time: "Siempre", text: "Seguir el camino de Dios", at: 0 },
     { time: "22:00", text: "Dormir", at: wf(38) },
-    { time: "06:00", text: "Levantarse", at: wf(38) + 18 },
+    { time: "06:00", text: "Levantarse", at: wf(38) + 16 },
   ];
   return (
-    <Column>
-      <Label text="Rutina diaria" at={0} />
-      <div style={{ ...cardStyle, padding: "14px 36px", ...enter(frame, 0) }}>
+    <Stage>
+      <Label text="Rutina diaria" />
+      <div style={{ ...cardStyle, padding: "10px 34px", ...enter(frame, 0) }}>
         {rows.map((r, k) => (
           <div
             key={r.text}
             style={{
               display: "flex",
               alignItems: "center",
-              gap: 30,
+              gap: 28,
               padding: "30px 0",
-              borderTop: k ? `1px solid ${C.cardBorder}` : "none",
+              borderTop: k ? `1px solid ${C.line}` : "none",
               ...enter(frame, r.at),
             }}
           >
-            <div style={{ ...monoLabel, width: 150, color: C.blue, fontWeight: 700 }}>{r.time}</div>
-            <div style={{ fontFamily: SANS, fontWeight: 700, fontSize: 46, color: C.white }}>{r.text}</div>
+            <div
+              style={{
+                ...monoLabel,
+                fontSize: 22,
+                color: C.blue,
+                background: C.blueSoft,
+                borderRadius: 14,
+                padding: "12px 0",
+                width: 170,
+                textAlign: "center",
+              }}
+            >
+              {r.time}
+            </div>
+            <div style={{ fontFamily: SANS, fontWeight: 700, fontSize: 44, letterSpacing: -0.6, color: C.ink }}>{r.text}</div>
           </div>
         ))}
       </div>
-    </Column>
+    </Stage>
   );
 };
 
@@ -172,65 +229,49 @@ export const BrollSemana: React.FC<{ startSec: number }> = ({ startSec }) => {
   const fillStart = wf(44);
   const count = on.filter((_, k) => frame >= fillStart + k * 4).length;
   return (
-    <Column top={440}>
-      <Label text="Entreno · semana" at={0} />
-      <div style={{ display: "flex", justifyContent: "space-between", ...enter(frame, 0) }}>
+    <Stage gap={44}>
+      <Label text="Entreno · semana" />
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         {days.map((d, k) => {
           const order = on.indexOf(k);
-          const fill =
-            order < 0 ? 0 : interpolate(frame, [fillStart + order * 4, fillStart + order * 4 + 6], [0, 1], clamp);
+          const fill = order < 0 ? 0 : interpolate(frame, [fillStart + order * 4, fillStart + order * 4 + 6], [0, 1], clamp);
           return (
             <div
               key={d}
               style={{
                 ...cardStyle,
-                width: 118,
-                height: 170,
-                borderRadius: 22,
-                display: "flex",
-                alignItems: "flex-end",
-                justifyContent: "center",
-                paddingBottom: 20,
+                width: 116,
+                height: 156,
+                borderRadius: 24,
                 position: "relative",
                 overflow: "hidden",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
                 ...enter(frame, k * 2),
               }}
             >
-              <div
+              <div style={{ position: "absolute", inset: 0, background: C.blue, opacity: fill }} />
+              <span
                 style={{
-                  position: "absolute",
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  height: `${fill * 100}%`,
-                  background: C.red,
-                  boxShadow: `0 0 30px ${C.red}`,
+                  position: "relative",
+                  fontFamily: SANS,
+                  fontWeight: 700,
+                  fontSize: 40,
+                  color: fill > 0.5 ? C.white : C.muted,
                 }}
-              />
-              <span style={{ position: "relative", fontFamily: MONO, fontWeight: 700, fontSize: 30, color: C.white }}>
+              >
                 {d}
               </span>
             </div>
           );
         })}
       </div>
-      <div
-        style={{
-          textAlign: "center",
-          fontFamily: SANS,
-          fontWeight: 900,
-          fontSize: 200,
-          lineHeight: 1,
-          letterSpacing: -6,
-          color: C.white,
-          marginTop: 30,
-          ...enter(frame, fillStart),
-        }}
-      >
-        {count}
-        <span style={{ color: C.muted, fontSize: 110 }}>/7</span>
+      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "center", gap: 16, ...enter(frame, fillStart) }}>
+        <span style={{ fontFamily: SANS, fontWeight: 800, fontSize: 220, lineHeight: 1, letterSpacing: -8, color: C.ink }}>{count}</span>
+        <span style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: 84, color: C.blue }}>días</span>
       </div>
-    </Column>
+    </Stage>
   );
 };
 
@@ -241,79 +282,79 @@ export const BrollGratitud: React.FC<{ startSec: number }> = ({ startSec }) => {
   const plus = wf(70);
   const day = frame >= plus ? 4 : 3;
   return (
-    <Column top={420}>
-      <Label text="Gratitud · cada día cuenta" at={0} />
+    <Stage>
+      <Label text="Gratitud · Winter Arc" />
       <div style={{ ...cardStyle, padding: "44px 48px", ...enter(frame, 0) }}>
-        <div style={{ display: "flex", alignItems: "baseline", gap: 18, fontFamily: SANS, color: C.white }}>
-          <span style={{ ...monoLabel, fontSize: 28 }}>DÍA</span>
-          <span style={{ fontWeight: 900, fontSize: 180, lineHeight: 1, letterSpacing: -6 }}>{day}</span>
-          <span style={{ fontWeight: 800, fontSize: 70, color: C.muted }}>/90</span>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 14, fontFamily: SANS, color: C.ink }}>
+          <span style={{ ...monoLabel, fontSize: 24, marginRight: 8 }}>Día</span>
+          <span
+            style={{
+              fontWeight: 800,
+              fontSize: 190,
+              lineHeight: 1,
+              letterSpacing: -7,
+              display: "inline-block",
+              ...enter(frame, day === 4 ? plus : 2, 6),
+            }}
+          >
+            {day}
+          </span>
+          <span style={{ fontWeight: 700, fontSize: 72, color: C.muted, letterSpacing: -2 }}>/90</span>
         </div>
-        <div style={{ height: 10, borderRadius: 10, background: "#1A2040", marginTop: 34 }}>
+        <div style={{ height: 10, borderRadius: 10, background: "#E3E7F0", marginTop: 36 }}>
           <div
             style={{
               height: "100%",
               borderRadius: 10,
-              background: C.red,
-              boxShadow: `0 0 18px ${C.red}`,
+              background: C.blue,
               width: `${interpolate(frame, [plus, plus + 10], [3 / 90, 4 / 90], { ...clamp, easing: EASE }) * 100}%`,
             }}
           />
         </div>
       </div>
       <div style={{ display: "flex", justifyContent: "center", ...enter(frame, plus) }}>
-        <div
-          style={{
-            background: C.blue,
-            color: C.white,
-            fontFamily: MONO,
-            fontWeight: 700,
-            fontSize: 28,
-            letterSpacing: 2,
-            padding: "16px 30px",
-            borderRadius: 999,
-          }}
-        >
-          +1 DÍA
-        </div>
+        <Pill>+1 día</Pill>
       </div>
-    </Column>
+      <Accent text="cada día cuenta" at={plus + 4} size={72} />
+    </Stage>
   );
 };
 
-// 6 · Cierre de marca
-export const BrollCierre: React.FC<{ startSec: number }> = () => {
+const SOCIAL = [
+  { name: "TikTok", d: "M9 12a4 4 0 1 0 4 4V3c1 2 3 3 5 3" },
+  { name: "Instagram", d: "M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zM12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM17.5 6.5h.01" },
+  { name: "YouTube", d: "M3 7a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3zM10 9l5 3-5 3z" },
+];
+
+// 6 · Cierre: "sígueme en mis redes sociales"
+export const BrollRedes: React.FC<{ startSec: number }> = () => {
   const frame = useCurrentFrame();
   return (
-    <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", paddingBottom: 380 }}>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 34 }}>
-        <div
-          style={{
-            width: 150,
-            height: 150,
-            borderRadius: 40,
-            background: C.red,
-            boxShadow: `0 0 60px rgba(230,57,70,0.6)`,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontFamily: SANS,
-            fontWeight: 900,
-            fontSize: 96,
-            color: C.white,
-            ...enter(frame, 0, 9),
-            scale: interpolate(frame, [0, 9], [0.85, 1], { ...clamp, easing: EASE }),
-          }}
-        >
-          ➜
-        </div>
-        <div
-          style={{ fontFamily: SANS, fontWeight: 900, fontSize: 92, letterSpacing: -2, color: C.white, ...enter(frame, 5) }}
-        >
-          SINLIMITESLIFE
-        </div>
-        <div style={{ ...monoLabel, ...enter(frame, 10) }}>Mentalidad · Hábitos · Acción</div>
+    <Stage gap={50}>
+      <Label text="Sígueme" />
+      <div style={{ display: "flex", justifyContent: "center", gap: 36 }}>
+        {SOCIAL.map((s, k) => (
+          <div key={s.name} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 22, ...enter(frame, 3 + k * 5) }}>
+            <div
+              style={{
+                ...cardStyle,
+                width: 220,
+                height: 220,
+                borderRadius: 52,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <svg width="96" height="96" viewBox="0 0 24 24" fill="none" stroke={C.blue} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <path d={s.d} />
+              </svg>
+            </div>
+            <div style={{ ...monoLabel, color: C.ink }}>{s.name}</div>
+          </div>
+        ))}
       </div>
-    </AbsoluteFill>
+      <Accent text="te espero dentro" at={20} size={78} />
+    </Stage>
   );
 };

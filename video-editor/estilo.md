@@ -65,8 +65,9 @@ Las medidas en px están referidas a un lienzo de 1080x1920.
 
 ---
 
-## Adaptación a SinLimitesLife (pendiente de confirmar)
-La referencia es clara (blanco/azul). La marca definida es oscura (#0A0E27 + rojo #E63946 + azul #1E90FF). Opción por defecto hasta que digas otra cosa: **mantener toda la mecánica de la referencia** (tamaños, tiempos, animaciones) y sustituir solo la paleta del b-roll por la de la marca.
-
 ## Correcciones aprobadas
-(Se irán añadiendo aquí las correcciones que me hagas y te gusten.)
+- **v2 · Paleta:** usar la paleta clara de la referencia (fondo #FBFAFD + manchas #D3E0FE, texto #111111, acento #0051FF). No usar la paleta oscura/roja.
+- **v2 · Audio:** solo el audio original del vídeo. **Nunca** música ni audio externo.
+- **v2 · Marcas de agua:** ninguna. Recortar las del material de origen (TikTok, números grabados) y no añadir textos de marca propios encima (nada de "SINLIMITESLIFE" en el vídeo).
+- **v2 · Espacio:** zona útil y 130–1360 en planos de cámara (subtítulos arriba en y 130, tarjeta de cámara cuadrada 920 px en y 440, progreso debajo). En b-roll, contenido centrado en y 330–1330 y subtítulos en y 1370. Los 380 px inferiores quedan libres (interfaz de TikTok).
+- **v2 · Acento tipográfico:** serif cursiva azul (Instrument Serif Italic) para frases de apoyo dentro del b-roll.
