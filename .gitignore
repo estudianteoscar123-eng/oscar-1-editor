@@ -10,3 +10,6 @@ dist/
 *.mov
 .remotion/
 video-editor/analysis/
+video-editor/tools/whisper/models/
+video-editor/public/mi-video/*.mp4
+video-editor/public/mi-video/*.wav

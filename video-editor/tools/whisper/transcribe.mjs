@@ -1,0 +1,15 @@
+import { pipeline, env } from "@huggingface/transformers";
+import wavefile from "wavefile";
+import fs from "node:fs";
+env.allowRemoteModels = false;
+env.localModelPath = new URL("./models/", import.meta.url).pathname;
+const [,, wavPath, outPath, lang = "spanish"] = process.argv;
+const wav = new wavefile.WaveFile(fs.readFileSync(wavPath));
+wav.toBitDepth("32f"); wav.toSampleRate(16000);
+let samples = wav.getSamples();
+if (Array.isArray(samples)) samples = samples[0];
+const asr = await pipeline("automatic-speech-recognition", "Xenova/whisper-small", { dtype: "q8" });
+const out = await asr(samples, { language: lang, task: "transcribe", return_timestamps: "word", chunk_length_s: 30, stride_length_s: 5 });
+fs.writeFileSync(outPath, JSON.stringify(out, null, 2));
+console.log(out.text);
+console.log("palabras:", out.chunks?.length);
