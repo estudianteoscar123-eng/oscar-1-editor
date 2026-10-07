@@ -1,0 +1,11 @@
+node_modules/
+output/
+dist/
+.env
+.env.local
+.DS_Store
+*.log
+*.mp4
+*.webm
+*.mov
+.remotion/
