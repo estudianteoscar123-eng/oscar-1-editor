@@ -101,8 +101,10 @@ Las medidas en px están referidas a un lienzo de 1080x1920.
 ## Cámara
 - A pantalla completa: fondo = el mismo plano desenfocado (40 px, brillo 0,22); delante, el plano nítido 1080 px fundido arriba y abajo con máscara; viñeta radial.
 
-## Sonido (efectos sintetizados en `tools/make_sfx.py`)
-- **whoosh** en cada corte (empieza 7 fotogramas antes; volumen 0,42 a ilustración, 0,28 a cámara).
-- **pop** al aparecer cada palabra destacada (0,32).
-- **impacto** grave al inicio (0,55). **brillo** en la frase final (0,4).
-- Sin música. Mezcla final ≈ −18 LUFS.
+## Sonido — librería `@wubbleai/community-sfx` (CC0, 936 sonidos en 12 estilos; copias en `public/sfx/lib/`)
+- Corte a ilustración: **cinematic/swipe** (vol 0,55), empieza 3 fotogramas antes del corte.
+- Corte a cámara: **scifi/swipe** (0,40), 3 fotogramas antes.
+- Cada palabra destacada: **scifi/snap** (0,38) en el fotograma exacto de la palabra.
+- Señal de prohibido: **cinematic/drop** (0,50) cuando cae la señal (fotograma 8 de la escena).
+- Inicio: **cinematic/start** (0,50). Cierre ("redes sociales"): **cinematic/achievement** (0,45).
+- Sin música. Mezcla final ≈ −18 LUFS, pico ≤ −0,5 dBFS.

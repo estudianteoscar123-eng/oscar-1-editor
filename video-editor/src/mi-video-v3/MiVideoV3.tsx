@@ -108,26 +108,35 @@ const Flash: React.FC = () => {
   return <AbsoluteFill style={{ background: "radial-gradient(circle at 50% 40%, #FFFFFF 0%, #BDF3FF 45%, #3BE3FF 100%)", opacity: o, pointerEvents: "none" }} />;
 };
 
+// Efectos de sonido CC0 de @wubbleai/community-sfx (estilo.md · Estilo B · Sonido)
+const sfx = (n: string) => staticFile(`sfx/lib/${n}.mp3`);
+
 const Sfx: React.FC = () => {
   const { fps } = useVideoConfig();
   const hlStarts = data.phrases.filter((p) => p.hl.length).map((p) => data.words[p.hl[0]].s);
+  const at = (sec: number, off = 0) => Math.max(0, Math.round(sec * fps) + off);
   return (
     <>
-      <Sequence from={0} durationInFrames={2 * fps}>
-        <Audio src={staticFile("sfx/impact.wav")} volume={0.55} />
+      <Sequence from={0} durationInFrames={fps}>
+        <Audio src={sfx("cinematic-start")} volume={0.5} />
       </Sequence>
       {SCENES.slice(1).map((s) => (
-        <Sequence key={`w${s.from}`} from={Math.max(0, Math.round(s.from * fps) - 7)} durationInFrames={Math.round(0.6 * fps)}>
-          <Audio src={staticFile("sfx/whoosh.wav")} volume={s.spot ? 0.42 : 0.28} />
+        <Sequence key={`w${s.from}`} from={at(s.from, -3)} durationInFrames={fps}>
+          <Audio src={sfx(s.spot ? "cinematic-swipe" : "scifi-swipe")} volume={s.spot ? 0.55 : 0.4} />
+        </Sequence>
+      ))}
+      {SCENES.filter((s) => s.spot?.overlay).map((s) => (
+        <Sequence key={`d${s.from}`} from={at(s.from, 8)} durationInFrames={fps}>
+          <Audio src={sfx("cinematic-drop")} volume={0.5} />
         </Sequence>
       ))}
       {hlStarts.map((t) => (
-        <Sequence key={`p${t}`} from={Math.round(t * fps)} durationInFrames={Math.round(0.2 * fps)}>
-          <Audio src={staticFile("sfx/pop.wav")} volume={0.32} />
+        <Sequence key={`p${t}`} from={at(t)} durationInFrames={Math.round(0.4 * fps)}>
+          <Audio src={sfx("scifi-snap")} volume={0.38} />
         </Sequence>
       ))}
-      <Sequence from={Math.round(data.words[88].s * fps)} durationInFrames={Math.round(1.5 * fps)}>
-        <Audio src={staticFile("sfx/shimmer.wav")} volume={0.4} />
+      <Sequence from={at(data.words[88].s)} durationInFrames={2 * fps}>
+        <Audio src={sfx("cinematic-achievement")} volume={0.45} />
       </Sequence>
     </>
   );
