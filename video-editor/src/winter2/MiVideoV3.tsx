@@ -46,7 +46,21 @@ export const MiVideoV3: React.FC = () => {
           {s.spot ? <Spot accent={s.accent} {...s.spot} /> : <Camera startSec={s.from} />}
         </Sequence>
       ))}
+      {Array.from({ length: 22 }, (_, k) => {
+        const x = (k * 311) % 1080;
+        const y = ((k * 547 - frame * (2 + (k % 4))) % 2100 + 2100) % 2100 - 100;
+        return (
+          <div key={`b${k}`} style={{ position: "absolute", left: x, top: y, width: 18 + (k % 5) * 14, height: 18 + (k % 5) * 14, borderRadius: 99,
+            background: ACC[k % ACC.length], opacity: 0.22, filter: "blur(6px)", mixBlendMode: "screen" }} />
+        );
+      })}
       <Captions top={scene.spot ? 280 : 1150} />
+      <svg width="1080" height="1920" style={{ position: "absolute", left: 0, top: 0, opacity: 0.09, mixBlendMode: "overlay", pointerEvents: "none" }}>
+        <filter id="grain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed={Math.floor(frame / 2)} />
+        </filter>
+        <rect width="1080" height="1920" filter="url(#grain)" />
+      </svg>
       <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 40%, #FFF4E0 0%, ${scene.accent} 50%, transparent 75%)`, opacity: flash, mixBlendMode: "screen", pointerEvents: "none" }} />
       <Audio src={staticFile("pieza/voz.wav")} />
     </AbsoluteFill>

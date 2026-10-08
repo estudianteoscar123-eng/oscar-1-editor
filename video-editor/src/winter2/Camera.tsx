@@ -45,7 +45,7 @@ export const Camera: React.FC<{ startSec: number }> = ({ startSec }) => {
           style={{
             width: "100%",
             height: "100%",
-            scale: base + interpolate(local, [0, 1], [0, 0.035], clamp),
+            scale: base + interpolate(local, [0, 1], [0, 0.07], clamp),
             transformOrigin: "50% 32%",
             filter: "brightness(1.12) contrast(1.08) saturate(1.06)",
           }}

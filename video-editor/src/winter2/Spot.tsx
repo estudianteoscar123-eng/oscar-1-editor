@@ -102,6 +102,22 @@ export const Spot: React.FC<SpotProps> = ({ accent, main, mainSize = 560, overla
           return <div key={i} style={{ position: "absolute", left: x, top: y, width: 5 + (i % 3) * 2, height: 5 + (i % 3) * 2, borderRadius: 9, background: "rgba(170,225,255,0.7)", filter: "blur(1px)" }} />;
         })}
 
+        <svg width="1080" height="1920" style={{ position: "absolute", left: 0, top: 0, pointerEvents: "none" }}>
+          {items.map((it, i) => {
+            const at = 3 + (it.delay ?? i * 3);
+            return (
+              <line key={`c${i}`} x1={540} y1={MAIN_Y} x2={it.x} y2={it.y} stroke={accent} strokeWidth={2.5} strokeDasharray="10 14"
+                strokeDashoffset={-frame * 2} strokeLinecap="round" opacity={interpolate(frame, [at + 4, at + 14], [0, 0.7], clamp)} />
+            );
+          })}
+          <circle cx={540} cy={MAIN_Y} r={mainSize * 0.62} fill="none" stroke={accent} strokeOpacity={0.45} strokeWidth={2}
+            strokeDasharray="4 22" transform={`rotate(${frame * 0.6} 540 ${MAIN_Y})`} />
+          {[0, 1, 2].map((k) => {
+            const a = frame * 0.02 + (k * 2 * Math.PI) / 3;
+            const r = mainSize * 0.62;
+            return <circle key={k} cx={540 + Math.cos(a) * r} cy={MAIN_Y + Math.sin(a) * r} r={7} fill={accent} style={{ filter: `drop-shadow(0 0 10px ${accent})` }} />;
+          })}
+        </svg>
         {items.map((it, i) => {
           const at = 3 + (it.delay ?? i * 3);
           const depth = it.depth ?? 1;
@@ -131,6 +147,8 @@ export const Spot: React.FC<SpotProps> = ({ accent, main, mainSize = 560, overla
             left: 540 - mainSize / 2,
             top: MAIN_Y - mainSize / 2 + bob,
             scale: interpolate(frame, [0, 10], [0.86, 1], { ...clamp, easing: POP }),
+            rotate: `y ${Math.sin(frame / 34) * 12}deg`,
+            transformOrigin: "50% 50%",
             filter: `drop-shadow(0 0 40px ${accent}aa) drop-shadow(0 20px 30px rgba(0,0,0,0.5))`,
           }}
         />

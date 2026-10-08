@@ -4,6 +4,7 @@ import { B, POPPINS, clamp } from "./theme";
 
 const EASE = Easing.bezier(0.16, 1, 0.3, 1);
 const PAL = ["#5AC8FA", "#FFB547", "#E8457C", "#5CE1B0", "#B388FF", "#FF8A5C"];
+const wf_ = (i: number) => Math.round(data.words[i].s * 30);
 const clean = (t: string) => t.replace(/[.,]$/, "");
 
 // Misma mecánica que los subtítulos aprobados en v2 (palabra a palabra con desenfoque),
@@ -70,7 +71,9 @@ export const Captions: React.FC<{ top: number }> = ({ top }) => {
                 display: "inline-block",
                 padding: "0 0.12em",
                 textTransform: "uppercase",
-                backgroundImage: `linear-gradient(180deg, #FFF4E0 0%, ${acc} 60%, ${acc} 100%)`,
+                backgroundImage: `linear-gradient(100deg, ${acc} 0%, #FFF4E0 45%, ${acc} 60%, ${acc} 100%)`,
+                backgroundSize: "250% 100%",
+                backgroundPosition: `${100 - ((frame - wf_(i)) * 3) % 150}% 0`,
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",
