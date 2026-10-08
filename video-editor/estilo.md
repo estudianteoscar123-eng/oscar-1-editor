@@ -108,3 +108,44 @@ Las medidas en px están referidas a un lienzo de 1080x1920.
 - Señal de prohibido: **cinematic/drop** (0,50) cuando cae la señal (fotograma 8 de la escena).
 - Inicio: **cinematic/start** (0,50). Cierre ("redes sociales"): **cinematic/achievement** (0,45).
 - Sin música. Mezcla final ≈ −18 LUFS, pico ≤ −0,5 dBFS.
+
+---
+
+# Estilo C — "Product motion" premium (5 refs: Claude, Spotify 2.0, Portfolio, Opal, Apple-style UI)
+
+Fuentes: v1 5804b7c5 (14,2 s), v2 681bb645 (16,1 s), v3 9e133b28 (24,2 s), v4 c77047b5 (12,0 s), v5 c7ace7d9 (33,0 s). Todas 16:9 y sin persona en cámara.
+
+## Concepto
+- La **interfaz es la protagonista**: tarjetas, píldoras, contadores, campos de texto, iconos de app, móviles. Cuenta una historia de producto en 12–33 s y termina en **logo + frase**.
+- **Plano secuencia**: casi sin cortes (v1, v2, v4, v5: 0–1 cortes). Las escenas cambian moviendo la cámara (dolly, giro 3D, zoom a través de un elemento) o **transformando** un elemento en el siguiente (morphing). v3 sí corta (cada 1,5 s) con destellos blancos.
+- Ritmo de "evento" cada **0,5–1,2 s**: siempre está pasando algo, nunca hay un fotograma quieto.
+
+## Color y luz
+- Fondo casi negro **#0A0A0C–#121214**, nunca negro puro; una sola **luz suave de color** desde arriba o una esquina (degradado radial muy difuminado) + viñeta.
+- **Un único color de acento por pieza**: naranja Claude **#E8552C→#FF8A3D** (v1), verde Spotify **#1ED760** (v2), lila-gris **#B9AEDB** (v4), rojo-naranja **#FF4A1C** (v3), azul iOS **#0A84FF** (v5). El resto en blanco y grises.
+- Los elementos activos **brillan**: borde de 1–2 px con resplandor del acento (blur 20–40 px). Estados de alerta con halo rojo **#E0242A**.
+- v5 usa la variante clara: fondo **#F2F2F4**, tarjetas blancas y sombras suaves.
+
+## Tipografía
+- Sans neutra tipo **SF Pro / Inter**, pesos 400–600, tamaños pequeños (frases ≈ 3–4 % de la altura). Títulos de marca más grandes (≈ 8–10 %).
+- Texto que entra **letra a letra con desenfoque** (cada letra 2–3 fotogramas, desenfoque 6 → 0 px) o como **máquina de escribir** dentro de un campo de texto con cursor.
+- Una palabra clave de la frase en el color de acento ("portfolio", "blue", "playing", "Portofolio", "life").
+
+## Movimiento
+- Curvas: entradas **ease-out fuerte** (tipo spring sin rebote); los elementos llegan rápido y frenan largo. Contadores: 0 → 67 en ≈ 0,8 s desacelerando (41, 51, 57, 62, 65, 66, 67).
+- **Desenfoque de movimiento** marcado en todo lo que se mueve rápido (estelas horizontales o verticales).
+- **3D real**: tarjetas y pantallas inclinadas 20–35° en X/Y con perspectiva, cámara que vuela entre ellas; profundidad de campo (lo lejano desenfocado).
+- Aparición de elementos: escala 0,85 → 1 + desenfoque 12 → 0 + opacidad, escalonada 3–5 fotogramas entre hermanos.
+- Morphing: una píldora se estira hasta convertirse en un campo o tarjeta; un icono se pixela/glitch y se convierte en candado.
+- Interacciones simuladas: **cursor** que pulsa (la píldora se hunde a 0,95 y vuelve), toggles, botones "Start".
+- Partículas o pixel-glitch solo como transición puntual (v4: TikTok → candado).
+
+## Composición
+- Un foco por plano, centrado o en tercios; mucho aire negativo. Los elementos secundarios se reparten en filas o abanico (3 píldoras, 3 tarjetas).
+- Cierre: 1–2 s de **logo** con un brillo leve + frase corta ("Create anything.").
+
+## Sonido
+- Música electrónica suave y efectos UI (clics, whooshes cortos, "ticks" en contadores) sincronizados con cada evento. [SUPOSICIÓN: los efectos van alineados a cada aparición/pulsación]
+
+## Adaptación a 9:16 (pendiente de confirmar)
+- Las piezas son horizontales: para TikTok se recompone en vertical (los elementos se apilan en columna, tamaños ×1,6).
