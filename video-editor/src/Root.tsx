@@ -3,6 +3,7 @@ import { SinLimitesLifeIntro } from "./compositions/SinLimitesLifeIntro";
 import { SinLimitesLifeVideoEdit } from "./compositions/SinLimitesLifeVideoEdit";
 import { MiVideoEditado } from "./mi-video/MiVideoEditado";
 import { MiVideoV3 } from "./mi-video-v3/MiVideoV3";
+import { Suerte } from "./suerte/Suerte";
 
 export const Main = () => {
   return (
@@ -11,6 +12,14 @@ export const Main = () => {
         id="sinlimiteslife-intro"
         component={SinLimitesLifeIntro}
         durationInFrames={300}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Suerte"
+        component={Suerte}
+        durationInFrames={606}
         fps={30}
         width={1080}
         height={1920}

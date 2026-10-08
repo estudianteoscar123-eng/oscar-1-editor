@@ -1,0 +1,509 @@
+{
+  "text": " ¿Suerte? ¿En serio sigues creyendo que la gente exitosa lo es por suerte? Esa suerte que ves es el resultado de horas de esfuerzo, sacrificios y un sinfín de fracasos. Si sigues esperando que la suerte te toque, sigue esperando. El éxito es el resultado de lo que haces cuando nadie te está mirando. Ya sigues a mucha gente que te da contenido basura. Seguirme al menos te hará recordar tus objetivos.",
+  "chunks": [
+    {
+      "text": " ¿Suerte?",
+      "timestamp": [
+        0.16,
+        1.02
+      ]
+    },
+    {
+      "text": " ¿En",
+      "timestamp": [
+        1.16,
+        1.36
+      ]
+    },
+    {
+      "text": " serio",
+      "timestamp": [
+        1.36,
+        1.58
+      ]
+    },
+    {
+      "text": " sigues",
+      "timestamp": [
+        1.58,
+        1.78
+      ]
+    },
+    {
+      "text": " creyendo",
+      "timestamp": [
+        1.78,
+        2.1
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        2.1,
+        2.2
+      ]
+    },
+    {
+      "text": " la",
+      "timestamp": [
+        2.2,
+        2.38
+      ]
+    },
+    {
+      "text": " gente",
+      "timestamp": [
+        2.38,
+        2.64
+      ]
+    },
+    {
+      "text": " exitosa",
+      "timestamp": [
+        2.64,
+        2.92
+      ]
+    },
+    {
+      "text": " lo",
+      "timestamp": [
+        2.92,
+        3.02
+      ]
+    },
+    {
+      "text": " es",
+      "timestamp": [
+        3.02,
+        3.12
+      ]
+    },
+    {
+      "text": " por",
+      "timestamp": [
+        3.12,
+        3.28
+      ]
+    },
+    {
+      "text": " suerte?",
+      "timestamp": [
+        3.28,
+        3.58
+      ]
+    },
+    {
+      "text": " Esa",
+      "timestamp": [
+        4.14,
+        4.3
+      ]
+    },
+    {
+      "text": " suerte",
+      "timestamp": [
+        4.3,
+        4.56
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        4.56,
+        4.7
+      ]
+    },
+    {
+      "text": " ves",
+      "timestamp": [
+        4.7,
+        4.82
+      ]
+    },
+    {
+      "text": " es",
+      "timestamp": [
+        4.82,
+        4.96
+      ]
+    },
+    {
+      "text": " el",
+      "timestamp": [
+        4.96,
+        5.28
+      ]
+    },
+    {
+      "text": " resultado",
+      "timestamp": [
+        5.28,
+        5.5
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        5.5,
+        5.64
+      ]
+    },
+    {
+      "text": " horas",
+      "timestamp": [
+        5.64,
+        5.78
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        5.78,
+        6.02
+      ]
+    },
+    {
+      "text": " esfuerzo,",
+      "timestamp": [
+        6.02,
+        6.5
+      ]
+    },
+    {
+      "text": " sacrificios",
+      "timestamp": [
+        6.76,
+        7.42
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        7.42,
+        7.52
+      ]
+    },
+    {
+      "text": " un",
+      "timestamp": [
+        7.52,
+        7.66
+      ]
+    },
+    {
+      "text": " sinfín",
+      "timestamp": [
+        7.66,
+        7.94
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        7.94,
+        8.08
+      ]
+    },
+    {
+      "text": " fracasos.",
+      "timestamp": [
+        8.08,
+        8.58
+      ]
+    },
+    {
+      "text": " Si",
+      "timestamp": [
+        9,
+        9.16
+      ]
+    },
+    {
+      "text": " sigues",
+      "timestamp": [
+        9.16,
+        9.54
+      ]
+    },
+    {
+      "text": " esperando",
+      "timestamp": [
+        9.54,
+        9.74
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        9.74,
+        9.82
+      ]
+    },
+    {
+      "text": " la",
+      "timestamp": [
+        9.82,
+        9.96
+      ]
+    },
+    {
+      "text": " suerte",
+      "timestamp": [
+        9.96,
+        10.26
+      ]
+    },
+    {
+      "text": " te",
+      "timestamp": [
+        10.26,
+        10.42
+      ]
+    },
+    {
+      "text": " toque,",
+      "timestamp": [
+        10.42,
+        10.84
+      ]
+    },
+    {
+      "text": " sigue",
+      "timestamp": [
+        11.1,
+        11.44
+      ]
+    },
+    {
+      "text": " esperando.",
+      "timestamp": [
+        11.44,
+        11.74
+      ]
+    },
+    {
+      "text": " El",
+      "timestamp": [
+        11.98,
+        12.14
+      ]
+    },
+    {
+      "text": " éxito",
+      "timestamp": [
+        12.14,
+        12.78
+      ]
+    },
+    {
+      "text": " es",
+      "timestamp": [
+        12.78,
+        12.9
+      ]
+    },
+    {
+      "text": " el",
+      "timestamp": [
+        12.9,
+        13.24
+      ]
+    },
+    {
+      "text": " resultado",
+      "timestamp": [
+        13.24,
+        13.44
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        13.44,
+        13.54
+      ]
+    },
+    {
+      "text": " lo",
+      "timestamp": [
+        13.54,
+        13.64
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        13.64,
+        13.76
+      ]
+    },
+    {
+      "text": " haces",
+      "timestamp": [
+        13.76,
+        14.04
+      ]
+    },
+    {
+      "text": " cuando",
+      "timestamp": [
+        14.04,
+        14.32
+      ]
+    },
+    {
+      "text": " nadie",
+      "timestamp": [
+        14.32,
+        14.46
+      ]
+    },
+    {
+      "text": " te",
+      "timestamp": [
+        14.46,
+        14.58
+      ]
+    },
+    {
+      "text": " está",
+      "timestamp": [
+        14.58,
+        14.74
+      ]
+    },
+    {
+      "text": " mirando.",
+      "timestamp": [
+        14.74,
+        15.08
+      ]
+    },
+    {
+      "text": " Ya",
+      "timestamp": [
+        15.46,
+        15.66
+      ]
+    },
+    {
+      "text": " sigues",
+      "timestamp": [
+        15.66,
+        15.86
+      ]
+    },
+    {
+      "text": " a",
+      "timestamp": [
+        15.86,
+        15.98
+      ]
+    },
+    {
+      "text": " mucha",
+      "timestamp": [
+        15.98,
+        16.28
+      ]
+    },
+    {
+      "text": " gente",
+      "timestamp": [
+        16.28,
+        16.42
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        16.42,
+        16.54
+      ]
+    },
+    {
+      "text": " te",
+      "timestamp": [
+        16.54,
+        16.62
+      ]
+    },
+    {
+      "text": " da",
+      "timestamp": [
+        16.62,
+        16.92
+      ]
+    },
+    {
+      "text": " contenido",
+      "timestamp": [
+        16.92,
+        17.2
+      ]
+    },
+    {
+      "text": " basura.",
+      "timestamp": [
+        17.2,
+        17.6
+      ]
+    },
+    {
+      "text": " Seguirme",
+      "timestamp": [
+        17.96,
+        18.28
+      ]
+    },
+    {
+      "text": " al",
+      "timestamp": [
+        18.28,
+        18.42
+      ]
+    },
+    {
+      "text": " menos",
+      "timestamp": [
+        18.42,
+        18.62
+      ]
+    },
+    {
+      "text": " te",
+      "timestamp": [
+        18.62,
+        18.7
+      ]
+    },
+    {
+      "text": " hará",
+      "timestamp": [
+        18.7,
+        18.98
+      ]
+    },
+    {
+      "text": " recordar",
+      "timestamp": [
+        18.98,
+        19.26
+      ]
+    },
+    {
+      "text": " tus",
+      "timestamp": [
+        19.26,
+        19.48
+      ]
+    },
+    {
+      "text": " objetivos.",
+      "timestamp": [
+        19.48,
+        19.92
+      ]
+    }
+  ]
+}
