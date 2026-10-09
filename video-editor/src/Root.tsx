@@ -5,6 +5,7 @@ import { MiVideoEditado } from "./mi-video/MiVideoEditado";
 import { MiVideoV3 } from "./mi-video-v3/MiVideoV3";
 import { Suerte } from "./suerte/Suerte";
 import { Pieza } from "./pieza/Pieza";
+import { D8C } from "./d8c/Main";
 import { MiVideoV3 as Winter } from "./winter/MiVideoV3";
 import { MiVideoV3 as Winter2 } from "./winter2/MiVideoV3";
 
@@ -15,6 +16,14 @@ export const Main = () => {
         id="sinlimiteslife-intro"
         component={SinLimitesLifeIntro}
         durationInFrames={300}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="D8C"
+        component={D8C}
+        durationInFrames={958}
         fps={30}
         width={1080}
         height={1920}
