@@ -174,3 +174,36 @@ Fuentes: v1 5804b7c5 (14,2 s), v2 681bb645 (16,1 s), v3 9e133b28 (24,2 s), v4 c7
   - Serif itálica (Instrument Serif) para la palabra de mayor peso emocional; caps con espaciado para las de énfasis.
   - Sombra de color suave (≤ 20 px) solo en la palabra activa; nada de filtros de pantalla completa.
 - Ningún efecto cambia el encuadre ni tapa el rostro.
+
+---
+
+# Estilo F — "Talking head + B-roll ilustrado con luz" (refs 7531532876 · 23,5 s y 7692626710 · 59,5 s, aprobado 9 Oct 2026)
+
+## Estructura
+- Alterna **A-roll** (persona a cámara) con **B-roll ilustrado a pantalla completa** cada 1,5–4 s. v1: 8 cortes en 23 s; v2: ~28 cortes en 60 s.
+- Gancho en el primer segundo: palabra clave enorme + objeto en 3D (tarjeta de invitación con un tajo) sobre el pecho.
+- Estructura por capítulos cuando el guion lo permite ("De los 14 a los 17: NO VICIOS"), con una tarjeta de cristal arriba como título fijo.
+- Cierre: monograma que se **dibuja con trazo** y luego se rellena, más "SÍGUEME PARA MÁS" en mayúsculas pequeñas con mucho espaciado.
+
+## A-roll y cámara
+- La cara siempre libre: los subtítulos van en el pecho o micrófono (≈ 55–65 % de la altura), nunca sobre el rostro.
+- Cambios de encuadre entre frases (plano medio ↔ punch-in de ~1,2×), con push-in lento y continuo. Movimientos suaves, con ease-out, sin sacudidas.
+- El fondo del A-roll contrasta con el B-roll: v2 usa pared cálida (naranja) frente a B-roll azul; v1 usa mármol negro.
+
+## B-roll ilustrado
+- Ilustración plana **monocroma de un solo tono** (azul) con bloom suave, fondo azul marino casi negro y un cono de luz cenital.
+- Objetos sueltos en 3D (dados, cartas, piezas de puzzle, relojes) flotando con desenfoque de profundidad, deriva lenta y parallax.
+- Los elementos entran escalonados (burbujas de chat, iconos) y la cámara empuja despacio.
+- Texto en el tercio superior, en el espacio negativo encima de la ilustración.
+
+## Subtítulos
+- Revelado palabra a palabra: las palabras siguientes esperan en gris al 40 % y se encienden al pronunciarse.
+- Dos jerarquías: línea de contexto pequeña (sentence case, peso ligero o medio) + **PALABRA CLAVE** en mayúsculas condensadas, extra bold e itálica, debajo ("¿No te contaron? / NO PREGUNTES").
+- Mezcla de pesos dentro de una frase ("Aquí es donde más **desarrollas**"); la clave lleva degradado y brillo del color de la escena.
+- El color de la palabra clave acompaña al plano: azul en B-roll azul, cálido sobre fondo cálido. (Regla propia: nunca amarillo; usar las paletas aprobadas.)
+
+## Transiciones
+- **Destello de luz**: el plano se sobreexpone a cian y blanco en 3–4 fotogramas y el siguiente aparece teñido de azul, que se disipa en ~0,3 s.
+- **Glitch de texto**: la frase sale con líneas de escaneo horizontales y desenfoque de movimiento justo antes del corte.
+- **Desenfoque**: el A-roll entra desenfocado y se enfoca.
+- El texto nunca corta en seco: se disuelve, se pixela o sale con desenfoque.
