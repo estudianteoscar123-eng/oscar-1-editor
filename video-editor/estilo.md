@@ -149,3 +149,28 @@ Fuentes: v1 5804b7c5 (14,2 s), v2 681bb645 (16,1 s), v3 9e133b28 (24,2 s), v4 c7
 
 ## Adaptación a 9:16 (pendiente de confirmar)
 - Las piezas son horizontales: para TikTok se recompone en vertical (los elementos se apilan en columna, tamaños ×1,6).
+
+---
+
+# Reglas EE46 — subtítulos, color y resaltado (aprobadas 9 Oct 2026)
+
+## Regla de rostro (obligatoria)
+- Los subtítulos **nunca tocan la cara** de la persona, jamás. Se calcula la caja del rostro por escena y el texto se coloca fuera de ella (arriba o abajo del rostro, o en un costado si hay aire). Si no hay espacio libre, se reduce el texto antes que invadir el rostro.
+
+## Color (sin amarillo)
+- **Nunca amarillo ni dorado brillante.** Se evita también el ámbar.
+- Cada pieza usa **cuatro tonos** para las palabras clave, rotando entre ellos según la escena, nunca un solo color fijo.
+- Paletas de referencia aprobadas (una por pieza, no mezcladas):
+  - **Old Money:** negro #000000, gris carbón #5C5A59, gris cálido #98948F, burdeos #640F12, crema #F2EFE8.
+  - **Elegant:** negro #000000, azul marino #222052, plata #B7B7B7, camel #D2B68A (solo como acento suave), marfil #EEE5D3.
+  - **Rojo y negro:** rojo #DA0D12, vino #80060B, carbón #161616, grafito #424141, perla #CBCAC8.
+  - **Azul nieve:** rojo #D90B1A (acento puntual), azul medianoche #061D33, azul acero #68899C, hielo #CED9D8, blanco hueso #F6F5EE.
+  - **Verde bosque:** verde oscuro #195609, verde musgo #1D302C, pizarra #435559, gris salvia #6B8383, lima #87C53A (solo en un acento pequeño).
+
+## Resaltado de palabra clave (textura y efecto, no genérico)
+- Premium = contenido, no decorativo: un único efecto por palabra clave, sobrio.
+  - Relleno en degradado sutil del tono de la paleta (de blanco cálido a color), no neón.
+  - Trazo fino o subrayado de 1–2 px en el mismo tono, con retardo de entrada.
+  - Serif itálica (Instrument Serif) para la palabra de mayor peso emocional; caps con espaciado para las de énfasis.
+  - Sombra de color suave (≤ 20 px) solo en la palabra activa; nada de filtros de pantalla completa.
+- Ningún efecto cambia el encuadre ni tapa el rostro.
