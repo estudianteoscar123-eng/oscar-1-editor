@@ -71,3 +71,19 @@ export const Label: React.FC<{ y: number; size: number; fill: string; children: 
     {children}
   </text>
 );
+
+// Manos ahuecadas vistas de frente: un cuenco de luz con los dedos insinuados
+export const CuppedHands: React.FC<{ fill: string; stroke: string }> = ({ fill, stroke }) => (
+  <g>
+    <path d="M-340 -40 C-330 120 -170 190 0 190 C170 190 330 120 340 -40 C300 40 180 96 0 96 C-180 96 -300 40 -340 -40 Z" fill={fill} stroke={stroke} strokeWidth={3} />
+    {[-1, 1].map((sd) => (
+      <g key={sd}>
+        {[0, 1, 2, 3].map((k) => (
+          <path key={k} d={`M${sd * (300 - k * 26)} ${-30 + k * 22} q${sd * 22} -40 ${sd * 6} -70`} stroke={fill} strokeWidth={24} strokeLinecap="round" fill="none" />
+        ))}
+        <path d={`M${sd * 120} 150 C${sd * 160} 120 ${sd * 210} 90 ${sd * 250} 40`} stroke={stroke} strokeWidth={3} fill="none" opacity={0.5} />
+      </g>
+    ))}
+    <path d="M0 110 L0 180" stroke={stroke} strokeWidth={3} opacity={0.5} />
+  </g>
+);

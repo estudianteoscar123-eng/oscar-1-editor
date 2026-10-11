@@ -4,7 +4,7 @@ import { Layer, Shell, Tilt, popSvg } from "../ee46f/Scenes";
 import { Bubble, Clock, Figure, POSES, Phone, Pose } from "../ee46f/shapes";
 import { BACK, DISPLAY, INOUT, Pal, SANS, alpha, ip, mix } from "../ee46f/theme";
 import { Glass, Splash } from "./Glass";
-import { Card, Coin, Hand, Heart, Label, Moon, Person, Star, Trophy } from "./icons";
+import { Card, Coin, CuppedHands, Heart, Label, Moon, Person, Star, Trophy } from "./icons";
 import { SceneId, TOTAL, wf } from "./timeline";
 
 export type P = { f: number; dur: number; from: number; pal: Pal };
@@ -537,7 +537,7 @@ const Manos: React.FC<P> = ({ f, dur, from, pal }) => {
   const handsA = at(175, from);
   const rise = ip(f, [handsA - 8, handsA + 14], [0, 1], Easing.out(Easing.cubic));
   const beam = 1 + ip(f, [at(172, from), at(175, from)], [0, 0.6]);
-  const hy = 2150 - rise * 510;
+  const hy = 2150 - rise * 470;
   const skin = mix(pal.l, "#ffffff", 0.15);
   return (
     <Shell id={id} pal={pal} f={f} dur={dur}>
@@ -554,12 +554,7 @@ const Manos: React.FC<P> = ({ f, dur, from, pal }) => {
           <Glass id="vhg" hue={pal.l} f={f} shatter={0.42} />
         </G>
         <g transform={`translate(540 ${hy})`} filter={`url(#${id}-glow)`} opacity={rise}>
-          <g transform="translate(14 0)">
-            <Hand fill={skin} stroke={alpha(pal.m, 0.6)} />
-          </g>
-          <g transform="translate(-14 0) scale(-1 1)">
-            <Hand fill={skin} stroke={alpha(pal.m, 0.6)} />
-          </g>
+          <CuppedHands fill={skin} stroke={alpha(pal.m, 0.6)} />
         </g>
       </Layer>
     </Shell>
@@ -596,13 +591,8 @@ const Rehace: React.FC<P> = ({ f, dur, from, pal }) => {
         <G x={540} y={gy} s={0.95}>
           <Glass id="vqg" hue={pal.l} f={f} shatter={shatter} seams={seams} level={level} glow={1 + beam * 0.4} />
         </G>
-        <g transform="translate(540 1640)" filter={`url(#${id}-glow)`}>
-          <g transform="translate(190 0)">
-            <Hand fill={skin} stroke={alpha(pal.m, 0.6)} />
-          </g>
-          <g transform="translate(-190 0) scale(-1 1)">
-            <Hand fill={skin} stroke={alpha(pal.m, 0.6)} />
-          </g>
+        <g transform="translate(540 1610)" filter={`url(#${id}-glow)`} opacity={0.9}>
+          <CuppedHands fill={skin} stroke={alpha(pal.m, 0.6)} />
         </g>
       </Layer>
     </Shell>
