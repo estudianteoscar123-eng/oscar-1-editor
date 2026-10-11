@@ -7,7 +7,7 @@ import { SCENE_PAL, SceneId } from "./timeline";
 type P = { f: number; dur: number; from: number };
 
 // Objeto con perspectiva 3D real (tarjetas, móviles, relojes inclinados)
-const Tilt: React.FC<{ x: number; y: number; w: number; h: number; rx?: number; ry?: number; rz?: number; blur?: number; o?: number; s?: number; children: React.ReactNode }> = ({
+export const Tilt: React.FC<{ x: number; y: number; w: number; h: number; rx?: number; ry?: number; rz?: number; blur?: number; o?: number; s?: number; children: React.ReactNode }> = ({
   x,
   y,
   w,
@@ -38,16 +38,24 @@ const Tilt: React.FC<{ x: number; y: number; w: number; h: number; rx?: number; 
   </div>
 );
 
-const Layer: React.FC<{ children: React.ReactNode; style?: React.CSSProperties }> = ({ children, style }) => (
+export const Layer: React.FC<{ children: React.ReactNode; style?: React.CSSProperties }> = ({ children, style }) => (
   <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{ position: "absolute", inset: 0, overflow: "visible", ...style }}>
     {children}
   </svg>
 );
 
 // Escenario común: fondo del color de la escena, cono de luz cenital, suelo iluminado y empuje de cámara
-const Shell: React.FC<{ id: string; pal: Pal; f: number; dur: number; children: React.ReactNode }> = ({ id, pal, f, dur, children }) => {
-  const push = interpolate(f, [0, dur], [1, 1.07]);
-  const out = ip(f, [dur - 5, dur], [0, 1], INOUT);
+export const Shell: React.FC<{ id: string; pal: Pal; f: number; dur: number; children: React.ReactNode; push?: [number, number]; exit?: boolean }> = ({
+  id,
+  pal,
+  f,
+  dur,
+  children,
+  push: range = [1, 1.07],
+  exit = true,
+}) => {
+  const push = interpolate(f, [0, dur], range);
+  const out = exit ? ip(f, [dur - 5, dur], [0, 1], INOUT) : 0;
   const flick = 0.92 + Math.sin(f / 13) * 0.05;
   return (
     <AbsoluteFill style={{ background: mix(pal.m, "#000000", 0.9), overflow: "hidden" }}>
@@ -155,7 +163,7 @@ const Metas: React.FC<P> = ({ f, dur, from }) => {
 };
 
 // pop() para elementos SVG (transform-box para escalar desde su centro)
-function popSvg(f: number, a: number, d = 9): React.CSSProperties {
+export function popSvg(f: number, a: number, d = 9): React.CSSProperties {
   return {
     opacity: ip(f, [a, a + d * 0.6], [0, 1]),
     scale: `${ip(f, [a, a + d], [0.8, 1], BACK)}`,
