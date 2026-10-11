@@ -492,8 +492,8 @@ const SeFue: React.FC<P> = ({ f, dur, from, pal }) => {
           const x = ((f * 26 + k * 180) % 1400) - 200;
           return <line key={k} x1={x} y1={700 + k * 140} x2={x + 220} y2={660 + k * 140} stroke={pal.l} strokeWidth={3} opacity={0.35 * wind} strokeLinecap="round" />;
         })}
-        <G x={540} y={1200}>
-          <Calendar id="afc" pal={pal} label={"ALGÚN\nDÍA"} next="" nextSub=" " tear={tear} fly={[900, -1300]} />
+        <G x={540} y={1380}>
+          <Calendar id="afc" pal={pal} label={"ALGÚN\nDÍA"} next="" nextSub=" " tear={tear} fly={[1250, -220]} />
         </G>
       </Layer>
     </Shell>

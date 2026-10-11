@@ -118,7 +118,7 @@ export const GROUPS: Grp[] = [
   g(288, 290, [290]),
   g(291, 299, [299]),
   g(300, 305, [305]),
-  g(306, 307, [306, 307], "center"),
+  g(306, 307, [306, 307]),
 ];
 
 export const WIN = GROUPS.map((gr, k) => {
