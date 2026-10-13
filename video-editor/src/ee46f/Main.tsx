@@ -162,7 +162,6 @@ const Outro: React.FC = () => {
         SÍGUEME PARA MÁS
       </div>
       <div style={{ position: "absolute", top: 1166, left: 0, right: 0, textAlign: "center", fontFamily: SANS, fontWeight: 500, fontSize: 26, letterSpacing: 2, color: "rgba(244,242,238,0.5)", opacity: ip(f, [24, 34], [0, 1]) }}>
-        @sinlimiteslife
       </div>
     </AbsoluteFill>
   );
@@ -194,7 +193,6 @@ export const EE46F: React.FC = () => {
       <Captions f={f} />
       <Pill f={f} />
       <div style={{ position: "absolute", bottom: 64, left: 0, right: 0, textAlign: "center", fontFamily: SANS, fontWeight: 600, fontSize: 24, letterSpacing: 2, color: "rgba(244,242,238,0.38)", opacity: ip(f, [OUTSEG.from - 6, OUTSEG.from], [1, 0]) }}>
-        @sinlimiteslife
       </div>
       <Flash f={f} />
       <Sequence from={OUTSEG.from}>

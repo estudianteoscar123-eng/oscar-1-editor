@@ -156,7 +156,7 @@ function html(s) {
   if (!f) throw new Error(`Formato desconocido: ${s.formato}. Usa: ${Object.keys(FORMATOS).join(", ")}`);
   return `<!doctype html><html><head><meta charset="utf-8"><style>${base(p)}</style></head>
   <body>${f(s, p)}
-    <div class="brand"><span>${esc(s.marca || "@sinlimiteslife")}</span></div>
+    ${s.marca ? `<div class="brand"><span>${esc(s.marca)}</span></div>` : ""}
   </body></html>`;
 }
 

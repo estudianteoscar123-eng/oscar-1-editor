@@ -43,7 +43,6 @@ export const AlgunDia: React.FC = () => {
         </Sequence>
       ))}
       <Captions f={f} />
-      <div style={{ position: "absolute", bottom: 64, left: 0, right: 0, textAlign: "center", fontFamily: SANS, fontWeight: 600, fontSize: 24, letterSpacing: 2, color: "rgba(244,242,238,0.38)" }}>@sinlimiteslife</div>
       <Flash f={f} />
 
       <Audio src={staticFile("algundia/voz.wav")} />
