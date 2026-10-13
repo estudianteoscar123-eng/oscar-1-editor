@@ -146,7 +146,7 @@ function objeto(s, p) {
     ${s.sub ? `<div style="font-weight:600; font-size:40px; margin-top:26px; opacity:.75;">${esc(s.sub)}</div>` : ""}
   </div>
   ${s.imagen
-    ? `<img src="file://${path.resolve(ROOT, s.imagen)}" style="position:absolute; left:172px; top:478px; width:736px; height:920px; object-fit:cover; mix-blend-mode:screen; -webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%, #000 58%, transparent 100%); mask-image:radial-gradient(ellipse 50% 50% at 50% 50%, #000 58%, transparent 100%);">`
+    ? `<img src="file://${path.resolve(ROOT, s.imagen)}" style="position:absolute; left:200px; top:470px; width:680px; height:850px; object-fit:cover; mix-blend-mode:screen; -webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%, #000 58%, transparent 100%); mask-image:radial-gradient(ellipse 50% 50% at 50% 50%, #000 58%, transparent 100%);">`
     : `<svg viewBox="-300 -300 600 600" width="560" height="560" style="position:absolute; left:260px; top:560px;">${svg}</svg>`}`;
 }
 
@@ -158,6 +158,7 @@ function html(s) {
   if (!f) throw new Error(`Formato desconocido: ${s.formato}. Usa: ${Object.keys(FORMATOS).join(", ")}`);
   return `<!doctype html><html><head><meta charset="utf-8"><style>${base(p)}</style></head>
   <body>${f(s, p)}
+    ${s.cta ? `<div style="position:absolute; left:50%; bottom:40px; transform:translateX(-50%); padding:16px 40px; border-radius:999px; border:2px solid ${p.tones[0]}; font-weight:600; font-size:36px; letter-spacing:1px; white-space:nowrap;">${esc(s.cta)}</div>` : ""}
     ${s.marca ? `<div class="brand"><span>${esc(s.marca)}</span></div>` : ""}
   </body></html>`;
 }
