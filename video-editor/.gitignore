@@ -5,3 +5,5 @@ public/ee46/voz.wav
 public/ee46/aroll.mp4
 public/vaso/*.wav
 public/algundia/*.wav
+tools/fb-img/node_modules/
+tools/fb-img/out/
