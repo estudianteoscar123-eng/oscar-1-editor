@@ -145,7 +145,9 @@ function objeto(s, p) {
     <div style="font-weight:800; font-size:${s.tam || 104}px; line-height:1.02; letter-spacing:-2px; text-transform:uppercase;">${titular}</div>
     ${s.sub ? `<div style="font-weight:600; font-size:40px; margin-top:26px; opacity:.75;">${esc(s.sub)}</div>` : ""}
   </div>
-  <svg viewBox="-300 -300 600 600" width="560" height="560" style="position:absolute; left:260px; top:560px;">${svg}</svg>`;
+  ${s.imagen
+    ? `<img src="file://${path.resolve(ROOT, s.imagen)}" style="position:absolute; left:172px; top:478px; width:736px; height:920px; object-fit:cover; mix-blend-mode:screen; -webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%, #000 58%, transparent 100%); mask-image:radial-gradient(ellipse 50% 50% at 50% 50%, #000 58%, transparent 100%);">`
+    : `<svg viewBox="-300 -300 600 600" width="560" height="560" style="position:absolute; left:260px; top:560px;">${svg}</svg>`}`;
 }
 
 const FORMATOS = { pregunta, contraste, lista, cita, objeto };
