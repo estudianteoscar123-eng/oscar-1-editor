@@ -168,13 +168,8 @@ function escena(s, p) {
   <div style="position:absolute; left:0; right:0; top:${s.fondoY || 470}px; text-align:center; font-weight:800; font-size:${fsz}px; line-height:1; letter-spacing:-8px; color:rgba(255,255,255,.07);">${fondo}</div>
   <img src="file://${path.resolve(ROOT, s.imagen)}" style="position:absolute; left:0; top:${s.imgY || 0}px; width:${W}px; height:${H}px; object-fit:cover; mix-blend-mode:screen;">
   <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(5,5,5,.85) 0%, rgba(5,5,5,.35) 30%, rgba(5,5,5,0) 46%);"></div>
-  <div style="position:absolute; inset:44px; border:1px solid rgba(255,255,255,.10);"></div>
-  ${[[44, 44, "0 0"], [W - 44, 44, "-100% 0"], [44, H - 44, "0 -100%"], [W - 44, H - 44, "-100% -100%"]]
-    .map(([x, y, tr]) => `<div style="position:absolute; left:${x}px; top:${y}px; width:26px; height:26px; translate:${tr}; border-${x < W / 2 ? "left" : "right"}:3px solid ${tono}; border-${y < H / 2 ? "top" : "bottom"}:3px solid ${tono};"></div>`)
-    .join("")}
   <div style="position:absolute; left:96px; right:96px; top:110px; display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:24px; letter-spacing:5px; text-transform:uppercase;">
     <span style="display:flex; align-items:center; gap:16px; color:${tono};"><span style="width:44px; height:2px; background:${tono};"></span>${esc(s.etiqueta || "")}</span>
-    <span style="opacity:.45;">${esc(s.serie || "")}</span>
   </div>
   <div style="position:absolute; left:96px; right:96px; top:176px;">
     <div style="font-weight:800; font-size:${s.tam || 116}px; line-height:.98; letter-spacing:-3.5px; text-transform:uppercase; text-shadow:0 8px 40px rgba(0,0,0,.6);">${marcar(s.titular, tono)}</div>
