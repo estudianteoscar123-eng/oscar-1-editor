@@ -35,6 +35,9 @@ function base(p) {
   @font-face { font-family: "Sans"; src: url("${FONTS}/inter-tight-latin-800-normal.woff2"); font-weight: 800; }
   @font-face { font-family: "Sans"; src: url("${FONTS}/inter-tight-latin-600-normal.woff2"); font-weight: 600; }
   @font-face { font-family: "Serif"; src: url("${FONTS}/instrument-serif-latin-400-italic.woff2"); font-style: italic; }
+  @font-face { font-family: "Pop"; src: url("${FONTS}/poppins-latin-800-italic.woff2"); font-weight: 800; font-style: italic; }
+  @font-face { font-family: "Pop"; src: url("${FONTS}/poppins-latin-900-italic.woff2"); font-weight: 900; font-style: italic; }
+  @font-face { font-family: "Mono"; src: url("${FONTS}/jetbrains-mono-latin-700-normal.woff2"); font-weight: 700; }
   * { box-sizing: border-box; margin: 0; }
   html, body { width: ${W}px; height: ${H}px; overflow: hidden; }
   body { background: ${p.bg}; color: ${p.ink}; font-family: "Sans", sans-serif; position: relative; }
@@ -161,7 +164,10 @@ function marcar(t, tono) {
     .replace(/\|/g, "<br>");
 }
 function escena(s, p) {
-  const tono = p.tones[0];
+  const tono = s.acento || p.tones[0];
+  const tipoTitular = s.titular_fuente || "'Sans', sans-serif";
+  const estiloTitular = s.titular_estilo || "normal";
+  const tipoEtiqueta = s.etiqueta_fuente || "'Sans', sans-serif";
   const fondo = esc(s.fondo || "");
   const fsz = Math.min(420, Math.floor(1000 / Math.max(1, fondo.length) / 0.62));
   return `
@@ -169,10 +175,10 @@ function escena(s, p) {
   <img src="file://${path.resolve(ROOT, s.imagen)}" style="position:absolute; left:0; top:${s.imgY || 0}px; width:${W}px; height:${H}px; object-fit:cover; mix-blend-mode:screen;">
   <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(5,5,5,.85) 0%, rgba(5,5,5,.35) 30%, rgba(5,5,5,0) 46%);"></div>
   <div style="position:absolute; left:96px; right:96px; top:110px; display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:24px; letter-spacing:5px; text-transform:uppercase;">
-    <span style="display:flex; align-items:center; gap:16px; color:${tono};"><span style="width:44px; height:2px; background:${tono};"></span>${esc(s.etiqueta || "")}</span>
+    <span style="display:flex; align-items:center; gap:16px; color:${tono}; font-family:${tipoEtiqueta};"><span style="width:44px; height:2px; background:${tono};"></span>${esc(s.etiqueta || "")}</span>
   </div>
   <div style="position:absolute; left:96px; right:96px; top:176px;">
-    <div style="font-weight:800; font-size:${s.tam || 116}px; line-height:.98; letter-spacing:-3.5px; text-transform:uppercase; text-shadow:0 8px 40px rgba(0,0,0,.6);">${marcar(s.titular, tono)}</div>
+    <div style="font-family:${tipoTitular}; font-style:${estiloTitular}; font-weight:800; font-size:${s.tam || 116}px; line-height:.98; letter-spacing:-3.5px; text-transform:uppercase; text-shadow:0 8px 40px rgba(0,0,0,.6);">${marcar(s.titular, tono)}</div>
     ${s.sub ? `<div style="font-weight:600; font-size:38px; line-height:1.3; margin-top:30px; max-width:820px; color:rgba(244,242,238,.72); text-shadow:0 4px 20px rgba(0,0,0,.8);">${marcar(s.sub, "#FFFFFF")}</div>` : ""}
   </div>
   ${s.flecha ? `<div style="position:absolute; right:96px; bottom:92px; font-weight:600; font-size:44px; color:${tono};">→</div>` : ""}`;

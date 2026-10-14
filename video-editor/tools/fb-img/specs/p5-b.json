@@ -1,1 +1,1 @@
-{"formato": "escena", "paleta": "rojo", "imagen": "assets/h5-apagada.jpg", "etiqueta": "Principio 05", "titular": "Apaga el ruido.|[Escucha tu voz.]", "sub": "Lo que necesitas ya lo sabes. Falta escucharlo.", "fondo": "VOZ", "fondoY": 640}
+{"formato": "escena", "paleta": "rojo", "imagen": "assets/h5-apagada.jpg", "etiqueta": "Principio 05", "titular": "Apaga el ruido.|[Escucha tu voz.]", "sub": "Lo que necesitas ya lo sabes. Falta escucharlo.", "fondo": "VOZ", "fondoY": 640, "acento": "#CFE4EC", "etiqueta_fuente": "'Mono', monospace"}
