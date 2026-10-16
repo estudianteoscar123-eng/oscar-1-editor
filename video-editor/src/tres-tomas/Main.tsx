@@ -40,10 +40,31 @@ const Captions: React.FC<{ f: number }> = ({ f }) => (
   </>
 );
 
+// Presencia de voz (0 a 1) suavizada en ±5 cuadros para que la música no haga clic al cambiar
+const speaking = (f: number) => {
+  let s = 0;
+  for (let d = -5; d <= 5; d++) {
+    const g = f + d;
+    if (CAMS.some((c) => g >= c.from && g < c.from + (c.n ?? 0))) s++;
+  }
+  return s / 11;
+};
+
+// Gráfico sobre el hablante: se congela el último cuadro del tramo anterior (o el primero del siguiente) bajo un velo
 const BeatWrap: React.FC<{ b: Beat }> = ({ b }) => {
   const f = useCurrentFrame();
   const C = SCENES[b.scene];
-  return <C f={f} dur={b.to - b.from} from={b.from} pal={b.pal} />;
+  const before = CAMS.find((c) => c.from + (c.n ?? 0) === b.from);
+  const still = before ? (before.src ?? 0) + (before.n ?? 0) - 1 : (CAMS.find((c) => c.from === b.to)?.src ?? 0);
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill>
+        <Video src={staticFile("tres-tomas/sincortes.mp4")} trimBefore={still} muted style={{ width: 1080, height: 1920 }} />
+      </AbsoluteFill>
+      <AbsoluteFill style={{ background: "rgba(7,10,18,0.62)" }} />
+      <C f={f} dur={b.to - b.from} from={b.from} pal={b.pal} clear />
+    </AbsoluteFill>
+  );
 };
 
 // Destello de luz en cada paso de cámara a gráfico
@@ -87,7 +108,9 @@ export const TresTomas: React.FC = () => {
           <Audio src={staticFile("tres-tomas/voz.wav")} trimBefore={c.src} />
         </Sequence>
       ))}
-      <Audio src={staticFile("tres-tomas/musica.wav")} />
+      {/* Música: mientras hablas se oye ahogada (paso bajo) y baja; en gráficos y pausas sube a banda completa */}
+      <Audio src={staticFile("tres-tomas/musica-ahogada.wav")} volume={(f) => 0.32 * speaking(f)} />
+      <Audio src={staticFile("tres-tomas/musica-full.wav")} volume={(f) => 0.85 * (1 - speaking(f)) + 0.04 * speaking(f)} />
     </AbsoluteFill>
   );
 };

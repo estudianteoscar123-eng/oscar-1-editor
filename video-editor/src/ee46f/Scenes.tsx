@@ -45,7 +45,7 @@ export const Layer: React.FC<{ children: React.ReactNode; style?: React.CSSPrope
 );
 
 // Escenario común: fondo del color de la escena, cono de luz cenital, suelo iluminado y empuje de cámara
-export const Shell: React.FC<{ id: string; pal: Pal; f: number; dur: number; children: React.ReactNode; push?: [number, number]; exit?: boolean }> = ({
+export const Shell: React.FC<{ id: string; pal: Pal; f: number; dur: number; children: React.ReactNode; push?: [number, number]; exit?: boolean; clear?: boolean }> = ({
   id,
   pal,
   f,
@@ -53,12 +53,14 @@ export const Shell: React.FC<{ id: string; pal: Pal; f: number; dur: number; chi
   children,
   push: range = [1, 1.07],
   exit = true,
+  clear = false,
 }) => {
   const push = interpolate(f, [0, dur], range);
   const out = exit ? ip(f, [dur - 5, dur], [0, 1], INOUT) : 0;
   const flick = 0.92 + Math.sin(f / 13) * 0.05;
+  // clear: sin fondo opaco, para superponer el gráfico sobre lo que haya debajo (p. ej. al hablante)
   return (
-    <AbsoluteFill style={{ background: mix(pal.m, "#000000", 0.9), overflow: "hidden" }}>
+    <AbsoluteFill style={{ background: clear ? "transparent" : mix(pal.m, "#000000", 0.9), overflow: "hidden" }}>
       <AbsoluteFill style={{ scale: push + out * 0.05, filter: out > 0.01 ? `blur(${out * 7}px)` : undefined }}>
         <AbsoluteFill style={{ background: `radial-gradient(ellipse 75% 45% at 50% 0%, ${alpha(pal.m, 0.6)}, rgba(0,0,0,0) 72%)` }} />
         <Layer style={{ filter: "blur(28px)", opacity: flick }}>

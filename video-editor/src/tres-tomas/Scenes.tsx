@@ -5,16 +5,16 @@ import { Clock, Target } from "../ee46f/shapes";
 import { BACK, INOUT, Pal, alpha, ip, mix } from "../ee46f/theme";
 import { SceneId } from "./timeline";
 
-export type P = { f: number; dur: number; from: number; pal: Pal };
+export type P = { f: number; dur: number; from: number; pal: Pal; clear?: boolean };
 
 // 1 · "No estoy estancado": cadena con ancla que se tensa y se suelta
-const Ancla: React.FC<P> = ({ f, dur, from, pal }) => {
+const Ancla: React.FC<P> = ({ f, dur, from, pal, clear }) => {
   const id = "ta";
   const ink = mix(pal.l, "#ffffff", 0.3);
   const tense = ip(f, [20, 40], [0, 1], INOUT);
   const links = Array.from({ length: 6 }, (_, k) => k);
   return (
-    <Shell id={id} pal={pal} f={f} dur={dur}>
+    <Shell id={id} pal={pal} f={f} dur={dur} clear={clear}>
       <Layer>
         {links.map((k) => {
           const y = 560 + k * 120 - tense * 40;
@@ -37,14 +37,14 @@ const Ancla: React.FC<P> = ({ f, dur, from, pal }) => {
 };
 
 // 2 · "No estoy perdido": brújula cuya aguja busca el norte
-const Brujula: React.FC<P> = ({ f, dur, from, pal }) => {
+const Brujula: React.FC<P> = ({ f, dur, from, pal, clear }) => {
   const id = "tb";
   const ink = mix(pal.l, "#ffffff", 0.3);
   const settle = ip(f, [0, 30], [0, 1], Easing.out(Easing.cubic));
   const angle = (1 - settle) * 300 + Math.sin(f / 6) * (1 - settle) * 8;
   const ticks = Array.from({ length: 48 }, (_, k) => k);
   return (
-    <Shell id={id} pal={pal} f={f} dur={dur}>
+    <Shell id={id} pal={pal} f={f} dur={dur} clear={clear}>
       <Layer>
         <g transform="translate(540 1000)" filter={`url(#${id}-glow)`}>
           <circle r={300} fill="none" stroke={ink} strokeWidth={8} opacity={0.8} />
@@ -66,11 +66,11 @@ const Brujula: React.FC<P> = ({ f, dur, from, pal }) => {
 };
 
 // 3 · "No voy demasiado tarde / justo a tiempo": reloj con el arco de tiempo que se cierra
-const Reloj: React.FC<P> = ({ f, dur, from, pal }) => {
+const Reloj: React.FC<P> = ({ f, dur, from, pal, clear }) => {
   const id = "tr";
   const sweep = ip(f, [0, 40], [0, 0.92], INOUT);
   return (
-    <Shell id={id} pal={pal} f={f} dur={dur}>
+    <Shell id={id} pal={pal} f={f} dur={dur} clear={clear}>
       <Layer>
         <g transform="translate(540 1000)" filter={`url(#${id}-glow)`} style={popSvg(f, 0, 10)}>
           <Clock id={id} r={300} t={360 * sweep + f * 0.4} arc={sweep} arcColor={pal.l} />
@@ -81,13 +81,13 @@ const Reloj: React.FC<P> = ({ f, dur, from, pal }) => {
 };
 
 // 4 · "Encontrando mis propios caminos": bifurcación; el camino de la derecha se ilumina
-const Bifurcacion: React.FC<P> = ({ f, dur, from, pal }) => {
+const Bifurcacion: React.FC<P> = ({ f, dur, from, pal, clear }) => {
   const id = "tf";
   const draw = ip(f, [0, 28], [0, 1], INOUT);
   const pick = ip(f, [24, 44], [0, 1], INOUT);
   const L = 1200;
   return (
-    <Shell id={id} pal={pal} f={f} dur={dur}>
+    <Shell id={id} pal={pal} f={f} dur={dur} clear={clear}>
       <Layer>
         <path d="M540 1800 L540 1250 Q540 1150 400 1020 L260 880" fill="none" stroke={alpha(pal.l, 0.45)} strokeWidth={30} strokeLinecap="round" strokeDasharray={L} strokeDashoffset={L * (1 - draw)} />
         <path d="M540 1250 Q540 1150 680 1020 L820 880" fill="none" stroke={pal.l} strokeWidth={36} strokeLinecap="round" strokeDasharray={L} strokeDashoffset={L * (1 - pick)} filter={`url(#${id}-glow)`} />
