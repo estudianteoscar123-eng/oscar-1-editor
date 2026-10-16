@@ -1,4 +1,5 @@
 import { Composition } from "remotion";
+import { TresTomas } from "./tres-tomas/Main";
 import { AlgunDia } from "./algundia/Main";
 import { Vaso } from "./vaso/Main";
 import { SinLimitesLifeIntro } from "./compositions/SinLimitesLifeIntro";
@@ -16,6 +17,14 @@ import { MiVideoV3 as Winter2 } from "./winter2/MiVideoV3";
 export const Main = () => {
   return (
     <>
+      <Composition
+        id="TresTomas"
+        component={TresTomas}
+        durationInFrames={890}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
       <Composition
         id="AlgunDia"
         component={AlgunDia}
