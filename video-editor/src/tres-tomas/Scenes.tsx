@@ -3,16 +3,15 @@ import { Easing } from "remotion";
 import { Layer, Shell, popSvg } from "../ee46f/Scenes";
 import { Clock, Target } from "../ee46f/shapes";
 import { BACK, INOUT, Pal, alpha, ip, mix } from "../ee46f/theme";
-import { SceneId, wf } from "./timeline";
+import { SceneId } from "./timeline";
 
 export type P = { f: number; dur: number; from: number; pal: Pal };
-const at = (i: number, from: number) => wf(i) - from;
 
 // 1 · "No estoy estancado": cadena con ancla que se tensa y se suelta
 const Ancla: React.FC<P> = ({ f, dur, from, pal }) => {
   const id = "ta";
   const ink = mix(pal.l, "#ffffff", 0.3);
-  const tense = ip(f, [at(9, from), at(10, from) + 12], [0, 1], INOUT);
+  const tense = ip(f, [20, 40], [0, 1], INOUT);
   const links = Array.from({ length: 6 }, (_, k) => k);
   return (
     <Shell id={id} pal={pal} f={f} dur={dur}>
@@ -26,7 +25,7 @@ const Ancla: React.FC<P> = ({ f, dur, from, pal }) => {
             </g>
           );
         })}
-        <g transform={`translate(540 ${1460 + tense * 30})`} filter={`url(#${id}-glow)`} style={popSvg(f, at(8, from), 12)}>
+        <g transform={`translate(540 ${1460 + tense * 30})`} filter={`url(#${id}-glow)`} style={popSvg(f, 6, 12)}>
           <circle cy={-180} r={34} fill="none" stroke={ink} strokeWidth={12} />
           <line x1={0} y1={-146} x2={0} y2={150} stroke={ink} strokeWidth={14} strokeLinecap="round" />
           <line x1={-120} y1={-70} x2={120} y2={-70} stroke={ink} strokeWidth={14} strokeLinecap="round" />
@@ -41,7 +40,7 @@ const Ancla: React.FC<P> = ({ f, dur, from, pal }) => {
 const Brujula: React.FC<P> = ({ f, dur, from, pal }) => {
   const id = "tb";
   const ink = mix(pal.l, "#ffffff", 0.3);
-  const settle = ip(f, [at(15, from), at(15, from) + 26], [0, 1], Easing.out(Easing.cubic));
+  const settle = ip(f, [0, 30], [0, 1], Easing.out(Easing.cubic));
   const angle = (1 - settle) * 300 + Math.sin(f / 6) * (1 - settle) * 8;
   const ticks = Array.from({ length: 48 }, (_, k) => k);
   return (
@@ -69,11 +68,11 @@ const Brujula: React.FC<P> = ({ f, dur, from, pal }) => {
 // 3 · "No voy demasiado tarde / justo a tiempo": reloj con el arco de tiempo que se cierra
 const Reloj: React.FC<P> = ({ f, dur, from, pal }) => {
   const id = "tr";
-  const sweep = ip(f, [at(21, from), at(26, from)], [0, 0.92], INOUT);
+  const sweep = ip(f, [0, 40], [0, 0.92], INOUT);
   return (
     <Shell id={id} pal={pal} f={f} dur={dur}>
       <Layer>
-        <g transform="translate(540 1000)" filter={`url(#${id}-glow)`} style={popSvg(f, at(20, from), 10)}>
+        <g transform="translate(540 1000)" filter={`url(#${id}-glow)`} style={popSvg(f, 0, 10)}>
           <Clock id={id} r={300} t={360 * sweep + f * 0.4} arc={sweep} arcColor={pal.l} />
         </g>
       </Layer>
@@ -84,15 +83,15 @@ const Reloj: React.FC<P> = ({ f, dur, from, pal }) => {
 // 4 · "Encontrando mis propios caminos": bifurcación; el camino de la derecha se ilumina
 const Bifurcacion: React.FC<P> = ({ f, dur, from, pal }) => {
   const id = "tf";
-  const draw = ip(f, [at(28, from), at(31, from) + 20], [0, 1], INOUT);
-  const pick = ip(f, [at(33, from), at(33, from) + 20], [0, 1], INOUT);
+  const draw = ip(f, [0, 28], [0, 1], INOUT);
+  const pick = ip(f, [24, 44], [0, 1], INOUT);
   const L = 1200;
   return (
     <Shell id={id} pal={pal} f={f} dur={dur}>
       <Layer>
         <path d="M540 1800 L540 1250 Q540 1150 400 1020 L260 880" fill="none" stroke={alpha(pal.l, 0.45)} strokeWidth={30} strokeLinecap="round" strokeDasharray={L} strokeDashoffset={L * (1 - draw)} />
         <path d="M540 1250 Q540 1150 680 1020 L820 880" fill="none" stroke={pal.l} strokeWidth={36} strokeLinecap="round" strokeDasharray={L} strokeDashoffset={L * (1 - pick)} filter={`url(#${id}-glow)`} />
-        <g transform="translate(820 880)" style={popSvg(f, at(33, from) + 14, 10)} filter={`url(#${id}-glow)`}>
+        <g transform="translate(820 880)" style={popSvg(f, 40, 10)} filter={`url(#${id}-glow)`}>
           <Target color={mix(pal.l, "#ffffff", 0.3)} s={0.9} />
         </g>
       </Layer>

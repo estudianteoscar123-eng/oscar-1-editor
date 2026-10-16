@@ -20,7 +20,7 @@ export const Main = () => {
       <Composition
         id="TresTomas"
         component={TresTomas}
-        durationInFrames={890}
+        durationInFrames={604}
         fps={30}
         width={1080}
         height={1920}
