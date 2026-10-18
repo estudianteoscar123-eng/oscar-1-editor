@@ -27,13 +27,9 @@ const Frag: React.FC<{ src: string; start: number; sec: number; i: number; dur: 
   const shake = f < 4 ? Math.sin(f * 2.3 + i) * 14 * (1 - f / 4) : 0;
   return (
     <AbsoluteFill style={{ background: "#07080B", overflow: "hidden" }}>
-      {/* fondo: el mismo clip, desenfocado, para llenar el 9:16 sin recortar la imagen */}
-      <AbsoluteFill style={{ filter: "blur(42px) brightness(0.42) saturate(1.2)", transform: "scale(1.25)" }}>
-        <Video src={staticFile(`sopa/${src}.mp4`)} trimBefore={Math.round(start * FPS)} muted style={{ width: 1080, height: 1920, objectFit: "cover" }} />
-      </AbsoluteFill>
-      {/* primer plano: el clip completo en su proporción original */}
+      {/* encuadre a pantalla completa 9:16: el clip llena todo el cuadro, recortando los lados */}
       <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", transform: `translateX(${shake}px) scale(${zoom})` }}>
-        <Video src={staticFile(`sopa/${src}.mp4`)} trimBefore={Math.round(start * FPS)} muted style={{ width: 1080, height: 810, objectFit: "contain" }} />
+        <Video src={staticFile(`sopa/${src}.mp4`)} trimBefore={Math.round(start * FPS)} muted style={{ position: "absolute", left: -1167, top: 0, width: 3414, height: 1920 }} />
       </AbsoluteFill>
       {/* destello de color al entrar cada fragmento */}
       <AbsoluteFill style={{ background: `radial-gradient(ellipse 80% 60% at 50% 50%, ${alpha(color, 0.9)}, ${alpha(color, 0.2)} 70%)`, opacity: flash, mixBlendMode: "screen" }} />
