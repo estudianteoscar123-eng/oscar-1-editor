@@ -1,5 +1,6 @@
 import { Composition } from "remotion";
 import { Disciplina } from "./disciplina/Main";
+import { Sopa } from "./sopa/Main";
 import { Atraccion } from "./atraccion/Main";
 import { TresTomas } from "./tres-tomas/Main";
 import { AlgunDia } from "./algundia/Main";
@@ -19,6 +20,14 @@ import { MiVideoV3 as Winter2 } from "./winter2/MiVideoV3";
 export const Main = () => {
   return (
     <>
+      <Composition
+        id="Sopa"
+        component={Sopa}
+        durationInFrames={2241}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
       <Composition
         id="Disciplina"
         component={Disciplina}
