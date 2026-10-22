@@ -15,3 +15,5 @@ public/disciplina/*.mp4
 public/disciplina/*.wav
 public/sopa/*.mp4
 public/sopa/*.mp3
+video-editor/public/sopa2/*.mp4
+video-editor/public/sopa2/*.wav
