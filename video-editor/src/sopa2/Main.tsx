@@ -75,7 +75,7 @@ const Caption: React.FC<{ cap: Cap; from: number; dur: number }> = ({ cap, from,
   );
 };
 
-export const Sopa2: React.FC = () => {
+export const Sopa2: React.FC<{ subtitulos?: boolean }> = ({ subtitulos = true }) => {
   const step = cutData.step;
   const total = cutData.total;
   return (
@@ -89,7 +89,7 @@ export const Sopa2: React.FC = () => {
           </Sequence>
         );
       })}
-      {(captions as Cap[]).map((c, k, arr) => {
+      {subtitulos && (captions as Cap[]).map((c, k, arr) => {
         const from = Math.round(c.t0 * FPS);
         const next = arr[k + 1] ? Math.round(arr[k + 1].t0 * FPS) : total;
         const dur = Math.min(next - from, Math.max(10, Math.round((c.t1 - c.t0) * FPS) + 4));

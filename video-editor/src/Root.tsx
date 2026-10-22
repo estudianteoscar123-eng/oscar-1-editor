@@ -30,6 +30,15 @@ export const Main = () => {
         height={1920}
       />
       <Composition
+        id="Sopa2Sin"
+        component={Sopa2}
+        defaultProps={{ subtitulos: false }}
+        durationInFrames={2805}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
         id="Sopa"
         component={Sopa}
         durationInFrames={2241}
