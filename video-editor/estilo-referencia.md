@@ -16,13 +16,21 @@ Medido sobre los 5 archivos con voz (R2–R6) y el de solo texto (R1). Valores m
 - Primera palabra a los 0,12–0,18 s: el gancho empieza sin silencio inicial.
 - Pausas de más de 0,3 s: entre 1 y 7 por vídeo, en total menos de 3 s. Se recortan dejando 0,3 s.
 
-## Subtítulos
-- Palabra por palabra. Cada palabra aparece al pronunciarse.
-- Bloques de 3 a 6 palabras. Palabra destacada en caja de color (rojo, rojo intenso, a veces blanco con fondo).
-- Posición: centro vertical de la pantalla (~50–60 % de la altura) [SUPOSICIÓN].
-- Fuente: sans-serif gruesa, mayúsculas en la palabra destacada [SUPOSICIÓN: tipo Inter/Montserrat Black].
-- Tamaño de la palabra destacada: el doble que el resto [SUPOSICIÓN].
-- Sombra/contorno oscuro para legibilidad sobre imagen [SUPOSICIÓN].
+## Subtítulos (corregido por el usuario — regla fija)
+- 1 a 3 palabras a la vez, cambian de golpe con la voz. Nunca bloques de 5–6 palabras.
+- Blancos, en minúscula tal como se pronuncian (con su puntuación).
+- Tipografía redondeada y gruesa: Poppins SemiBold (600), 68 px a 1080 de ancho.
+- Sombra suave negra (0 4px 14px, 75 %). Sin cajas, sin contorno, sin tarjetas grandes.
+- Palabra destacada: solo cambia de color (rojo #FF3B3B; la referencia usa amarillo, pero el amarillo está prohibido).
+- Altura según el plano: cámara completa 1180 px (debajo del mentón), cámara en tarjeta 1360 px (debajo de la tarjeta), imagen completa 960 px, pantalla partida sobre la línea divisoria (1104 px), tarjeta roja 1460 px.
+- Nunca encima de la cara.
+
+## Tipos de plano (medido en la referencia)
+1. Cámara a pantalla completa.
+2. Cámara en tarjeta redondeada (radio 30 px) sobre fondo gris claro degradado.
+3. Imagen a pantalla completa con zoom lento y viñeta.
+4. Pantalla partida: imagen arriba (0–1104 px), cámara abajo, línea blanca de 12 px con brillo.
+5. Imagen en tarjeta redondeada sobre fondo rojo.
 
 ## Textos en pantalla
 - Tarjetas rojas a pantalla completa o en bloque central, con una palabra o cifra clave (R2, R6).

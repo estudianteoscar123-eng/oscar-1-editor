@@ -4,6 +4,7 @@ import { Sopa } from "./sopa/Main";
 import { Sopa2 } from "./sopa2/Main";
 import { AnimeMix } from "./animemix/Main";
 import { Frankl } from "./frankl/Main";
+import { FranklRef } from "./frankl/Ref";
 import { Atraccion } from "./atraccion/Main";
 import { TresTomas } from "./tres-tomas/Main";
 import { AlgunDia } from "./algundia/Main";
@@ -23,6 +24,14 @@ import { MiVideoV3 as Winter2 } from "./winter2/MiVideoV3";
 export const Main = () => {
   return (
     <>
+      <Composition
+        id="FranklRef"
+        component={FranklRef}
+        durationInFrames={1218}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
       <Composition
         id="Frankl"
         component={Frankl}
