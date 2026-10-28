@@ -21,3 +21,5 @@ public/sopa2/*.wav
 public/animemix/*.mp4
 video-editor/public/frankl/*.mp4
 public/maniqui/*.glb
+public/pelea/frames/
+public/pelea/*.wav
