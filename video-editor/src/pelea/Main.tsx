@@ -183,13 +183,13 @@ const MoveLabel: React.FC<{ s: Shot; f: number }> = ({ s, f }) => {
 const Flash: React.FC<{ f: number }> = ({ f }) => {
   let o = 0;
   for (const s of SHOTS) {
-    if (s.from > 0) o = Math.max(o, ip(f - s.from, [0, 5], [0.55, 0]));
+    if (s.from > 0 && f >= s.from) o = Math.max(o, ip(f - s.from, [0, 5], [0.55, 0]));
     if (s.impact !== undefined) {
       const imp = s.from + (s.speed ? (s.impact - (s.start ?? 0)) / s.speed : s.impact);
-      o = Math.max(o, ip(f - imp, [0, 4], [0.75, 0]));
+      if (f >= imp) o = Math.max(o, ip(f - imp, [0, 4], [0.75, 0]));
     }
   }
-  for (const p of PRE) o = Math.max(o, ip(f - p, [0, 6], [0.8, 0]));
+  for (const p of PRE) if (f >= p) o = Math.max(o, ip(f - p, [0, 6], [0.8, 0]));
   return <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 45%, rgba(255,255,255,${o}), rgba(255,40,30,${o * 0.8}) 60%, rgba(120,0,0,${o * 0.6}))`, mixBlendMode: "screen" }} />;
 };
 
@@ -217,9 +217,9 @@ export const Pelea: React.FC = () => {
       {/* intro */}
       {f < 64 ? (
         <>
-          <Title text="BOXEO" f={f} at={4} y={330} size={150} />
-          <Title text="vs" f={f} at={20} y={470} size={70} />
-          <Title text="MMA" f={f} at={34} y={540} size={170} color={RED} />
+          <Title text="BOXEO" f={f} at={4} y={1330} size={150} />
+          <Title text="vs" f={f} at={20} y={1480} size={70} />
+          <Title text="MMA" f={f} at={34} y={1550} size={170} color={RED} />
         </>
       ) : null}
       {f >= 90 && f < B(0) ? <Title text="BOXEO" f={f} at={108} y={820} size={210} /> : null}
@@ -227,9 +227,9 @@ export const Pelea: React.FC = () => {
       {f >= B(8) && f < B(9) ? <Title text="MMA" f={f} at={B(8)} y={800} size={260} color={RED} /> : null}
       {f >= B(15) ? (
         <>
-          <Title text="¿BOXEO" f={f} at={B(15)} y={330} size={150} />
-          <Title text="o MMA?" f={f} at={B(16)} y={480} size={150} color={RED} />
-          <Title text="comenta tu estilo" f={f} at={B(17)} y={1500} size={74} />
+          <Title text="¿BOXEO" f={f} at={B(15)} y={1290} size={140} />
+          <Title text="o MMA?" f={f} at={B(16)} y={1430} size={140} color={RED} />
+          <Title text="comenta tu estilo" f={f} at={B(17)} y={1620} size={70} />
         </>
       ) : null}
       <MoveLabel s={s} f={f} />
