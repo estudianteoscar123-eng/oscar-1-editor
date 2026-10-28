@@ -158,7 +158,7 @@ const MoveLabel: React.FC<{ s: Shot; f: number }> = ({ s, f }) => {
             fontFamily: DISPLAY,
             fontStyle: "italic",
             fontWeight: 900,
-            fontSize: s.label.length > 10 ? 118 : 150,
+            fontSize: s.label.length > 12 ? 96 : s.label.length > 10 ? 108 : 150,
             letterSpacing: -3,
             color: "#fff",
             opacity: out,
