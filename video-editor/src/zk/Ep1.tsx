@@ -142,13 +142,13 @@ const Mark: React.FC<{ f: number; at: number; end: number; ok: boolean }> = ({ f
     <div
       style={{
         position: "absolute",
-        top: 260,
+        top: 1120,
         left: 0,
         right: 0,
         textAlign: "center",
         fontFamily: DISPLAY,
         fontWeight: 900,
-        fontSize: 220,
+        fontSize: 190,
         color: ok ? "#3BFF7A" : RED,
         scale: ip(t, [0, 6], [2, 1]),
         opacity: ip(t, [0, 3], [0, 1]) * ip(f, [end - 4, end], [1, 0]),
