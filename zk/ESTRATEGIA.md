@@ -16,6 +16,17 @@ Proyecto separado del resto del canal. Todo lo de ZK (personaje, golpes, guiones
 - **Capacidades (temporadas):** potencia de golpe, resistencia, explosividad, agarre y antebrazo, núcleo de impacto (abdomen), cuello, piernas y patada, movilidad y defensa.
 - **Estructura de cada episodio:** el problema en el combate → el músculo o la cadena que lo resuelve (iluminado en ZK) → cómo lo usa un peleador real (movimiento copiado) → el ejercicio para entrenarlo → el anuncio de la siguiente capacidad.
 
+## Serie
+Un mismo mensaje ("construye el cuerpo de un peleador") con un envoltorio distinto en cada video. Cada episodio añade un segmento nuevo del físico.
+
+| Ep. | Segmento | Envoltorio |
+|-----|----------|------------|
+| 1 | Potencia de golpe | Revelación: "Tu fuerza no sale del brazo" (la cadena pies → cadera → puño) |
+| 2 | Abdomen de impacto | Contraste: abdomen de gimnasio frente a abdomen de peleador |
+| 3 | Cuello | Miedo: "El músculo que decide si caes KO" |
+| 4 | Agarre y antebrazo | Reto: "Si no aguantas 60 segundos colgado, no controlas a nadie" |
+| 5 | Resistencia | Historia: "Por qué el campeón no se cansa en el quinto asalto" |
+
 ## Diferencia frente al resto
 - **Los demás** enseñan ejercicios ("haz esto para el pecho").
 - **ZK enseña el porqué:** qué músculo se activa, cómo la fuerza viaja de los pies al puño, y por qué un golpe noquea y otro no.
