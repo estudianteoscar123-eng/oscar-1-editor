@@ -4,8 +4,9 @@ Proyecto separado del resto del canal. Todo lo de ZK (personaje, golpes, guiones
 
 ## Macro, sector y nicho
 - **Macro:** deportes de combate y fitness.
-- **Sector:** contenido educativo-entretenido sobre boxeo y MMA.
-- **Nicho:** la biomecánica del combate. Qué pasa dentro del cuerpo en cada golpe, explicado con un maniquí 3D (ZK).
+- **Sector:** combate cuerpo a cuerpo (boxeo, Muay Thai, MMA/UFC, kickboxing, defensa personal) y el entrenamiento físico del peleador.
+- **Nicho:** la biomecánica del combate. Qué pasa dentro del cuerpo en cada golpe y en cada ejercicio, explicado con un maniquí 3D (ZK).
+- **Dos ejes:** 1) técnica y estilos de pelea; 2) ejercicios de peleador: abdomen, brazos, puños y nudillos, fuerza de agarre, cuello y explosividad.
 
 ## Diferencia frente al resto
 - **Los demás** enseñan ejercicios ("haz esto para el pecho").
@@ -22,7 +23,8 @@ Proyecto separado del resto del canal. Todo lo de ZK (personaje, golpes, guiones
 1. **Anatomía del golpe:** el músculo que se ilumina en rojo en cada movimiento.
 2. **Bien contra mal:** el error común junto a la técnica correcta.
 3. **KOs famosos en 3D:** el movimiento recreado con ZK. Sin usar imágenes ni logos de terceros.
-4. **Estilo contra estilo:** boxeo frente a MMA, quién gana y por qué.
+4. **Estilo contra estilo:** boxeo, Muay Thai y MMA, quién gana y por qué.
+5. **Entrena como peleador:** ejercicios de abdomen, brazos, puños, agarre y cuello, con el músculo iluminado y para qué sirve en la pelea.
 
 ## Identidad
 - Personaje ZK: maniquí gris, pantalonera azul y luz roja.
@@ -37,5 +39,12 @@ Proyecto separado del resto del canal. Todo lo de ZK (personaje, golpes, guiones
 | 1 | "Por qué este golpe apaga a cualquiera": la cadena cadera → hombro → puño, iluminada | 93 |
 | 2 | "Tu jab está mal y no lo sabes": error frente a técnica correcta, con el músculo que falla | 91 |
 | 3 | "El músculo secreto del KO": el golpe se ve por dentro y revela el músculo que nadie entrena (serrato, oblicuos) | 92 |
+| 4 | "Boxeador vs peleador de Muay Thai: ¿quién gana?": los dos ZK frente a frente, cada uno con sus armas | 92 |
+| 5 | "Por qué la patada de Muay Thai rompe piernas": la cadera gira y la espinilla impacta, a cámara lenta | 90 |
+| 6 | "Abdomen de peleador: no es para verse, es para aguantar golpes": el abdomen se tensa en el impacto | 89 |
+| 7 | "El agarre que te hace pegar más fuerte": antebrazo y puño cerrándose, con un ejercicio | 88 |
+| 8 | "3 errores que te dejan KO": guardia baja, mentón arriba, pies cruzados, con el castigo de cada uno | 91 |
+| 9 | "Cuello de luchador: el músculo que evita el KO": el impacto en la cabeza con el cuello fuerte y débil | 90 |
+| 10 | "Qué músculo usa cada golpe": jab, gancho, uppercut y patada, en serie | 87 |
 
 Las puntuaciones son una estimación propia, no una medición.
