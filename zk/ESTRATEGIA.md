@@ -8,6 +8,14 @@ Proyecto separado del resto del canal. Todo lo de ZK (personaje, golpes, guiones
 - **Nicho:** la biomecánica del combate. Qué pasa dentro del cuerpo en cada golpe y en cada ejercicio, explicado con un maniquí 3D (ZK).
 - **Dos ejes:** 1) técnica y estilos de pelea; 2) ejercicios de peleador: abdomen, brazos, puños y nudillos, fuerza de agarre, cuello y explosividad.
 
+## Concepto central (todo gira en torno a esto)
+**"El cuerpo de un peleador":** fitness con propósito. No se entrena para verse grande, sino para que el cuerpo sirva: fuerza que pega, resistencia que aguanta asaltos, agarre que controla y un abdomen y un cuello que absorben golpes. El tamaño es una consecuencia, no el objetivo.
+
+- **Temática:** fitness y ejercicio, siempre a través de la lente del combate (UFC, boxeo, Muay Thai).
+- **Videos vinculados:** ZK es un peleador que construye su cuerpo capacidad por capacidad. Cada video es un episodio de la misma serie y remite al siguiente.
+- **Capacidades (temporadas):** potencia de golpe, resistencia, explosividad, agarre y antebrazo, núcleo de impacto (abdomen), cuello, piernas y patada, movilidad y defensa.
+- **Estructura de cada episodio:** el problema en el combate → el músculo o la cadena que lo resuelve (iluminado en ZK) → cómo lo usa un peleador real (movimiento copiado) → el ejercicio para entrenarlo → el anuncio de la siguiente capacidad.
+
 ## Diferencia frente al resto
 - **Los demás** enseñan ejercicios ("haz esto para el pecho").
 - **ZK enseña el porqué:** qué músculo se activa, cómo la fuerza viaja de los pies al puño, y por qué un golpe noquea y otro no.
