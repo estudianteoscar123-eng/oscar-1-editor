@@ -45,6 +45,11 @@ Un mismo mensaje ("construye el cuerpo de un peleador") con un envoltorio distin
 4. **Estilo contra estilo:** boxeo, Muay Thai y MMA, quién gana y por qué.
 5. **Entrena como peleador:** ejercicios de abdomen, brazos, puños, agarre y cuello, con el músculo iluminado y para qué sirve en la pelea.
 
+## Reglas de formato (fijadas por el usuario)
+- Sin etiquetas de episodio ("EP. 01"), sin "mañana..." ni anuncios del siguiente video.
+- Sin marcas de agua ni logos en pantalla.
+- Solo ZK en pantalla: los videos de referencia solo aportan el movimiento, nunca aparecen.
+
 ## Identidad
 - Personaje ZK: maniquí gris, pantalonera azul y luz roja.
 - Videos de 15 a 30 s. El gancho entra en el primer segundo.
