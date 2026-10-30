@@ -143,21 +143,37 @@ export type FigProps = {
   lean?: number; // grados
   glow?: number; // aura de luz
   o?: number;
+  f?: number; // fotograma: respiración, balanceo y tela que ondea
+  head?: number; // giro/inclinación de la cabeza en grados
+  shadow?: boolean;
+  arm2?: number; // segundo brazo
 };
-export const Figure: React.FC<FigProps> = ({ x, y, h = 520, rim = "#FFB25A", rimSide = 1, cloth, arm = 0, armSide = 1, flip, hood = true, kneel = 0, lean = 0, glow = 0, o = 1 }) => {
+export const Figure: React.FC<FigProps> = ({ x, y, h = 520, rim = "#FFB25A", rimSide = 1, cloth, arm = 0, armSide = 1, flip, hood = true, kneel = 0, lean = 0, glow = 0, o = 1, f = 0, head = 0, shadow = true, arm2 = 0 }) => {
   const s = h / 520;
+  const ph = (x * 0.013) % 6; // fase propia para que no respiren todos a la vez
+  const breathe = 1 + 0.014 * Math.sin(f / 19 + ph);
+  const sway = 7 * Math.sin(f / 13 + ph);
+  const idleArm = 3 * Math.sin(f / 17 + ph);
   const body = (fill: string) => (
     <g fill={fill}>
-      <ellipse cx={100} cy={hood ? 70 : 74} rx={hood ? 40 : 34} ry={hood ? 46 : 40} />
-      <path d={`M48 120 Q100 98 152 120 L${170 - kneel * 10} ${380 - kneel * 120} L${180 + kneel * 20} 520 L${20 - kneel * 20} 520 L${30 + kneel * 10} ${380 - kneel * 120} Z`} />
-      <g transform={`rotate(${-arm * armSide} ${armSide > 0 ? 140 : 60} 140)`}>
+      <g transform={`rotate(${head} 100 112)`}>
+        <ellipse cx={100} cy={hood ? 70 : 74} rx={hood ? 40 : 34} ry={hood ? 46 : 40} />
+        {hood ? <path d="M60 60 Q100 10 140 60 L146 120 L54 120 Z" /> : null}
+      </g>
+      <path d={`M48 120 Q100 98 152 120 L${170 - kneel * 10} ${380 - kneel * 120} Q${178 + kneel * 20 + sway} ${460} ${182 + kneel * 20 + sway * 1.4} 520 Q100 ${528 + sway * 0.4} ${18 - kneel * 20 + sway * 1.1} 520 Q${24 - kneel * 20 + sway} 460 ${30 + kneel * 10} ${380 - kneel * 120} Z`} />
+      <g transform={`rotate(${-(arm + idleArm) * armSide} ${armSide > 0 ? 140 : 60} 140)`}>
         <path d={armSide > 0 ? "M128 128 L158 132 L168 300 L144 304 Z" : "M72 128 L42 132 L32 300 L56 304 Z"} />
         <ellipse cx={armSide > 0 ? 156 : 44} cy={306} rx={16} ry={18} />
+      </g>
+      <g transform={`rotate(${(arm2 - idleArm) * armSide} ${armSide > 0 ? 60 : 140} 140)`}>
+        <path d={armSide > 0 ? "M72 128 L42 132 L32 300 L56 304 Z" : "M128 128 L158 132 L168 300 L144 304 Z"} />
+        <ellipse cx={armSide > 0 ? 44 : 156} cy={306} rx={16} ry={18} />
       </g>
     </g>
   );
   return (
-    <div style={{ position: "absolute", left: x, top: y, width: 200 * s, height: 520 * s, transform: `translate(-50%,-100%) scaleX(${flip ? -1 : 1}) rotate(${lean}deg)`, transformOrigin: "50% 100%", opacity: o }}>
+    <div style={{ position: "absolute", left: x, top: y, width: 200 * s, height: 520 * s, transform: `translate(-50%,-100%) scaleX(${flip ? -1 : 1}) rotate(${lean}deg) scaleY(${breathe})`, transformOrigin: "50% 100%", opacity: o }}>
+      {shadow ? <div style={{ position: "absolute", left: -60 * s, top: 500 * s, width: 320 * s, height: 44 * s, borderRadius: "50%", background: "radial-gradient(ellipse, rgba(0,0,0,0.7), rgba(0,0,0,0) 70%)" }} /> : null}
       {glow > 0 ? <div style={{ position: "absolute", left: -200 * s, top: -150 * s, width: 600 * s, height: 800 * s, borderRadius: "50%", background: `radial-gradient(circle, rgba(255,226,170,${0.45 * glow}), rgba(255,226,170,0) 60%)` }} /> : null}
       <svg width={200 * s} height={520 * s} viewBox="0 0 200 520" style={{ overflow: "visible", position: "absolute", inset: 0 }}>
         <defs>
@@ -279,3 +295,63 @@ export const Captions: React.FC<{ f: number; groups: Word[][]; keys: Set<string>
     </div>
   );
 };
+
+// capa con parallax: d < 1 se mueve menos que la cámara (fondo), d > 1 más (primer plano)
+export type Cam = [number, number, number, number];
+export const Layer: React.FC<{ cam: Cam; d: number; cx0?: number; cy0?: number; shake?: number; children: React.ReactNode }> = ({ cam, d, cx0 = 950, cy0 = 1250, shake = 0, children }) => {
+  const [, x, y, z] = cam;
+  const zz = 1 + (z - 1) * d;
+  const cx = cx0 + (x - cx0) * d;
+  const cy = cy0 + (y - cy0) * d;
+  return (
+    <div style={{ position: "absolute", left: 0, top: 0, width: 1900, height: 2400, transformOrigin: "0 0", transform: `translate(${540 - cx * zz + shake * d}px, ${960 - cy * zz + shake * 0.6 * d}px) scale(${zz})` }}>{children}</div>
+  );
+};
+// humo que sube y se disipa
+export const Smoke: React.FC<{ f: number; x: number; y: number; n?: number; seed?: string; color?: string }> = ({ f, x, y, n = 10, seed = "sm", color = "120,110,120" }) => (
+  <>
+    {Array.from({ length: n }, (_, i) => {
+      const life = 90;
+      const t = (f + i * (life / n)) % life;
+      const u = t / life;
+      return <div key={i} style={{ position: "absolute", left: x + Math.sin(u * 4 + i) * 40 * u + (random(`${seed}${i}`) - 0.5) * 30, top: y - u * 520, width: 80 + u * 200, height: 80 + u * 200, translate: "-50% -50%", borderRadius: "50%", background: `radial-gradient(circle, rgba(${color},${0.22 * (1 - u)}), rgba(${color},0) 70%)`, filter: "blur(6px)" }} />;
+    })}
+  </>
+);
+// antorcha de pared o en mano
+export const Torch: React.FC<{ f: number; x: number; y: number; s?: number }> = ({ f, x, y, s = 1 }) => (
+  <>
+    <div style={{ position: "absolute", left: x - 150 * s, top: y - 150 * s, width: 300 * s, height: 300 * s, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,160,70,0.38), rgba(255,160,70,0) 65%)", opacity: 0.8 + 0.2 * Math.sin(f / 3 + x) }} />
+    <svg width={40 * s} height={70 * s} viewBox="0 0 40 70" style={{ position: "absolute", left: x - 20 * s, top: y - 50 * s, overflow: "visible" }}>
+      <path d={`M8 50 Q4 ${30 + 4 * Math.sin(f / 2 + x)} ${20 + 5 * Math.sin(f / 3 + x)} ${4 + 3 * Math.sin(f / 2.5)} Q36 30 32 50 Z`} fill="#FF9A2E" style={{ filter: "drop-shadow(0 0 10px #FF8A2A)" }} />
+      <path d={`M14 50 Q12 38 ${20 + 3 * Math.sin(f / 2 + x)} 22 Q28 38 26 50 Z`} fill="#FFE08A" />
+      <rect x={16} y={48} width={8} height={22} fill="#2A160E" />
+    </svg>
+  </>
+);
+// soldado con lanza
+export const Soldier: React.FC<{ f: number; x: number; y: number; h?: number; rim?: string; torch?: boolean; flip?: boolean }> = ({ f, x, y, h = 380, rim = "#FFB25A", torch, flip }) => (
+  <>
+    <div style={{ position: "absolute", left: x + (flip ? -1 : 1) * h * 0.2, top: y - h * 1.25, width: 5, height: h * 1.25, background: "#07080C", boxShadow: `1px 0 0 ${rim}` }} />
+    <svg width={30} height={40} viewBox="0 0 30 40" style={{ position: "absolute", left: x + (flip ? -1 : 1) * h * 0.2 - 12, top: y - h * 1.25 - 34 }}>
+      <path d="M15 0 L28 40 L2 40 Z" fill="#B9C0CC" />
+    </svg>
+    <Figure x={x} y={y} h={h} rim={rim} rimSide={flip ? -1 : 1} hood={false} f={f} flip={flip} arm={torch ? 70 : 10} armSide={-1} />
+    {torch ? <Torch f={f} x={x - (flip ? -1 : 1) * h * 0.32} y={y - h * 0.86} s={h / 380} /> : null}
+  </>
+);
+// pájaros en vuelo
+export const Birds: React.FC<{ f: number; x0: number; y0: number; n?: number }> = ({ f, x0, y0, n = 6 }) => (
+  <svg width={1080} height={1920} style={{ position: "absolute", inset: 0 }}>
+    {Array.from({ length: n }, (_, i) => {
+      const x = x0 + f * (3 + i * 0.4) + i * 50;
+      const y = y0 - f * 0.8 + Math.sin(f / 9 + i) * 10 + i * 24;
+      const w = 10 * Math.sin(f / 4 + i * 2);
+      return <path key={i} d={`M${x - 18} ${y - w} Q${x - 8} ${y - 6} ${x} ${y} Q${x + 8} ${y - 6} ${x + 18} ${y - w}`} stroke="#1A0E18" strokeWidth={4} fill="none" strokeLinecap="round" />;
+    })}
+  </svg>
+);
+// entrada de escena: llega con un leve empuje y desenfoque
+export const Enter: React.FC<{ f: number; children: React.ReactNode }> = ({ f, children }) => (
+  <AbsoluteFill style={{ transform: `scale(${ip(f, [0, 9], [1.1, 1])})`, filter: f < 9 ? `blur(${ip(f, [0, 9], [9, 0])}px)` : undefined }}>{children}</AbsoluteFill>
+);
