@@ -3,7 +3,7 @@ import { Audio } from "@remotion/media";
 import { AbsoluteFill, Sequence, random, staticFile, useCurrentFrame } from "remotion";
 import data from "../../public/pedro/words.json";
 import {
-  Big, Birds, Bubble, Cam, Captions, Chip, Dust, Embers, Enter, Figure, Fire, Fog, FPS, GodRays, Grain, Layer, Moon, Olive, Rain, Rooster, S, Sheep, Smoke, Soldier, Stars, Torch, Vignette, Word, ease, groupWords, ip, pop,
+  Big, Birds, Bubble, Cam, Captions, CaptionsCine, CaptionsImpacto, CaptionsResaltador, Chip, Dust, Embers, Enter, Figure, Fire, Fog, FPS, GodRays, Grain, Layer, Moon, Olive, Rain, Rooster, S, Sheep, Smoke, Soldier, Stars, Torch, Vignette, Word, ease, groupWords, ip, pop,
 } from "../kit/Kit";
 
 // "Pedro negó a Jesús tres veces… y aun así lo eligió". Todo dibujado con código y medido contra las referencias:
@@ -380,7 +380,7 @@ const Sfx: React.FC<{ t: number; name: string; v: number }> = ({ t, name, v }) =
   </Sequence>
 );
 
-export const Pedro: React.FC = () => {
+export const Pedro: React.FC<{ cap?: "actual" | "impacto" | "cine" | "resaltador" }> = ({ cap = "actual" }) => {
   const f = useCurrentFrame();
   return (
     <AbsoluteFill style={{ background: "#000" }}>
@@ -390,7 +390,10 @@ export const Pedro: React.FC = () => {
       <Sequence from={S(24.95)} durationInFrames={S(27.5) - S(24.95)}><Llanto /></Sequence>
       <Sequence from={S(27.5)} durationInFrames={PEDRO_TOTAL - S(27.5)}><Orilla /></Sequence>
       </AbsoluteFill>
-      <Captions f={f} groups={GROUPS} keys={KEYS} />
+      {cap === "actual" ? <Captions f={f} groups={GROUPS} keys={KEYS} /> : null}
+      {cap === "impacto" ? <CaptionsImpacto f={f} words={WORDS} keys={KEYS} /> : null}
+      {cap === "cine" ? <CaptionsCine f={f} groups={GROUPS} keys={KEYS} /> : null}
+      {cap === "resaltador" ? <CaptionsResaltador f={f} groups={GROUPS} keys={KEYS} /> : null}
       <Audio src={staticFile("pedro/mezcla.wav")} />
       {SFX.map(([t, n, v], i) => <Sfx key={i} t={t} name={n} v={v} />)}
     </AbsoluteFill>

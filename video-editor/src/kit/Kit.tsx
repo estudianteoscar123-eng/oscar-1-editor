@@ -355,3 +355,74 @@ export const Birds: React.FC<{ f: number; x0: number; y0: number; n?: number }> 
 export const Enter: React.FC<{ f: number; children: React.ReactNode }> = ({ f, children }) => (
   <AbsoluteFill style={{ transform: `scale(${ip(f, [0, 9], [1.1, 1])})`, filter: f < 9 ? `blur(${ip(f, [0, 9], [9, 0])}px)` : undefined }}>{children}</AbsoluteFill>
 );
+
+// ---------- 3 estilos de subtítulo alternativos ----------
+const KSERIF = "Kit Serif";
+loadFont({ family: KSERIF, url: staticFile("fonts/instrument-serif-latin-400-italic.woff2"), weight: "400", style: "italic" });
+const KINTER = "Kit Inter Tight";
+loadFont({ family: KINTER, url: staticFile("fonts/inter-tight-latin-800-normal.woff2"), weight: "800" });
+const clean = (w: string) => w.replace(/[^\wáéíóúñÁÉÍÓÚÑ]/g, "").toLowerCase();
+const activeGroup = (t: number, groups: Word[][]) => groups.findIndex((g, i) => t >= g[0].s - 0.06 && t < (groups[i + 1]?.[0].s ?? 999) - 0.06);
+
+// A · "Impacto": una palabra a la vez, enorme, cursiva negra; la clave en dorado con brillo; rebote al entrar
+export const CaptionsImpacto: React.FC<{ f: number; words: Word[]; keys: Set<string>; y?: number }> = ({ f, words, keys, y = 1430 }) => {
+  const t = f / FPS;
+  const i = words.findIndex((w, k) => t >= w.s - 0.04 && t < (words[k + 1]?.s ?? w.e + 0.6) - 0.04);
+  if (i < 0) return null;
+  const w = words[i];
+  const k = keys.has(clean(w.w));
+  const lt = f - Math.round((w.s - 0.04) * FPS);
+  return (
+    <div style={{ position: "absolute", top: y, left: 0, right: 0, textAlign: "center" }}>
+      <span style={{ display: "inline-block", fontFamily: KFONTB, fontStyle: "italic", fontWeight: 900, fontSize: k ? 150 : 120, letterSpacing: -3, textTransform: "uppercase", color: k ? "#FFC85A" : "#fff", transform: `scale(${pop(lt + 2)}) rotate(${k ? -3 : 0}deg)`, WebkitTextStroke: "3px rgba(0,0,0,0.55)", textShadow: k ? "0 0 40px rgba(255,180,60,0.85), 0 10px 30px rgba(0,0,0,0.9)" : "0 10px 30px rgba(0,0,0,0.9)" }}>
+        {w.w.replace(/[«»,.:]/g, "")}
+      </span>
+    </div>
+  );
+};
+
+// B · "Cine": serif cursiva elegante, 2–3 palabras que aparecen con desenfoque; la clave en ámbar cálido
+export const CaptionsCine: React.FC<{ f: number; groups: Word[][]; keys: Set<string>; y?: number }> = ({ f, groups, keys, y = 1400 }) => {
+  const t = f / FPS;
+  const gi = activeGroup(t, groups);
+  if (gi < 0) return null;
+  const g = groups[gi];
+  return (
+    <div style={{ position: "absolute", top: y, left: 60, right: 60, textAlign: "center", fontFamily: KSERIF, fontStyle: "italic", fontWeight: 400, fontSize: 92, lineHeight: 1.1, color: "#F6EFE4", textShadow: "0 4px 24px rgba(0,0,0,0.85)" }}>
+      {g.map((w, i) => {
+        const wt = f - Math.round((w.s - 0.06) * FPS);
+        const k = keys.has(clean(w.w));
+        return (
+          <span key={i} style={{ display: "inline-block", margin: "0 10px", opacity: ip(wt, [0, 6], [0, 1]), filter: `blur(${ip(wt, [0, 6], [8, 0])}px)`, transform: `translateY(${ip(wt, [0, 8], [18, 0])}px)`, color: k ? "#FFB257" : undefined, textShadow: k ? "0 0 30px rgba(255,170,80,0.6), 0 4px 24px rgba(0,0,0,0.85)" : undefined }}>
+            {w.w}
+          </span>
+        );
+      })}
+    </div>
+  );
+};
+
+// C · "Resaltador": bloque de 2–3 palabras; una píldora roja se desliza bajo la palabra que se está diciendo
+export const CaptionsResaltador: React.FC<{ f: number; groups: Word[][]; keys: Set<string>; y?: number }> = ({ f, groups, keys, y = 250 }) => {
+  const t = f / FPS;
+  const gi = activeGroup(t, groups);
+  if (gi < 0) return null;
+  const g = groups[gi];
+  const gt = f - Math.round((g[0].s - 0.06) * FPS);
+  return (
+    <div style={{ position: "absolute", top: y, left: 50, right: 50, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "8px 6px", transform: `scale(${ip(gt, [0, 5], [0.9, 1])})`, opacity: ip(gt, [0, 4], [0, 1]) }}>
+      {g.map((w, i) => {
+        const on = t >= w.s - 0.06 && t < (g[i + 1]?.s ?? 999) - 0.06;
+        const said = t >= w.s - 0.06;
+        const k = keys.has(clean(w.w));
+        const wt = f - Math.round((w.s - 0.06) * FPS);
+        return (
+          <span key={i} style={{ position: "relative", padding: "6px 18px", fontFamily: KINTER, fontWeight: 800, fontSize: 70, letterSpacing: -1, color: said ? "#fff" : "rgba(255,255,255,0.4)", textShadow: "0 4px 14px rgba(0,0,0,0.8)" }}>
+            {on ? <span style={{ position: "absolute", inset: 0, borderRadius: 14, background: k ? "#FF3B3B" : "rgba(255,255,255,0.18)", transform: `scaleX(${ip(wt, [0, 4], [0.4, 1])})`, boxShadow: k ? "0 0 30px rgba(255,59,59,0.7)" : undefined, zIndex: -1 }} /> : null}
+            <span style={{ position: "relative" }}>{w.w}</span>
+          </span>
+        );
+      })}
+    </div>
+  );
+};
