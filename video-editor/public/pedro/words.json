@@ -1,0 +1,649 @@
+{
+  "text": " Pedro le juró a Jesús que nunca lo negaría. Esa misma noche, alrededor de una fogata, una sirvienta lo miró y dijo, Tú estabas con él. ¿No lo conozco? Otro lo señaló. ¿No lo conozco? Un tercero insistió y Pedro gritó. No sé quién es ese hombre. Entonces cantó el gallo. Jesús se giró y lo miró. Pedro salió y lloró amargamente. Semanas después, Jesús le preguntó tres veces, ¿me amas? Una vez por cada negación. Y le dijo, apacienta mis ovejas. No eligió al que nunca cayó, eligió al que volvió.",
+  "chunks": [
+    {
+      "text": " Pedro",
+      "timestamp": [
+        0.32,
+        0.54
+      ]
+    },
+    {
+      "text": " le",
+      "timestamp": [
+        0.54,
+        0.68
+      ]
+    },
+    {
+      "text": " juró",
+      "timestamp": [
+        0.68,
+        0.88
+      ]
+    },
+    {
+      "text": " a",
+      "timestamp": [
+        0.88,
+        1.04
+      ]
+    },
+    {
+      "text": " Jesús",
+      "timestamp": [
+        1.04,
+        1.28
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        1.28,
+        1.52
+      ]
+    },
+    {
+      "text": " nunca",
+      "timestamp": [
+        1.52,
+        1.72
+      ]
+    },
+    {
+      "text": " lo",
+      "timestamp": [
+        1.72,
+        1.92
+      ]
+    },
+    {
+      "text": " negaría.",
+      "timestamp": [
+        1.92,
+        3.04
+      ]
+    },
+    {
+      "text": " Esa",
+      "timestamp": [
+        3.26,
+        3.48
+      ]
+    },
+    {
+      "text": " misma",
+      "timestamp": [
+        3.48,
+        3.82
+      ]
+    },
+    {
+      "text": " noche,",
+      "timestamp": [
+        3.82,
+        4.08
+      ]
+    },
+    {
+      "text": " alrededor",
+      "timestamp": [
+        4.28,
+        4.64
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        4.64,
+        4.78
+      ]
+    },
+    {
+      "text": " una",
+      "timestamp": [
+        4.78,
+        5.04
+      ]
+    },
+    {
+      "text": " fogata,",
+      "timestamp": [
+        5.04,
+        5.84
+      ]
+    },
+    {
+      "text": " una",
+      "timestamp": [
+        6.08,
+        6.26
+      ]
+    },
+    {
+      "text": " sirvienta",
+      "timestamp": [
+        6.26,
+        6.64
+      ]
+    },
+    {
+      "text": " lo",
+      "timestamp": [
+        6.64,
+        6.82
+      ]
+    },
+    {
+      "text": " miró",
+      "timestamp": [
+        6.82,
+        7.04
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        7.04,
+        7.26
+      ]
+    },
+    {
+      "text": " dijo,",
+      "timestamp": [
+        7.26,
+        8.04
+      ]
+    },
+    {
+      "text": " Tú",
+      "timestamp": [
+        8.22,
+        8.48
+      ]
+    },
+    {
+      "text": " estabas",
+      "timestamp": [
+        8.48,
+        8.84
+      ]
+    },
+    {
+      "text": " con",
+      "timestamp": [
+        8.84,
+        9.06
+      ]
+    },
+    {
+      "text": " él.",
+      "timestamp": [
+        9.06,
+        9.84
+      ]
+    },
+    {
+      "text": " ¿No",
+      "timestamp": [
+        10,
+        10.18
+      ]
+    },
+    {
+      "text": " lo",
+      "timestamp": [
+        10.18,
+        10.34
+      ]
+    },
+    {
+      "text": " conozco?",
+      "timestamp": [
+        10.34,
+        11.36
+      ]
+    },
+    {
+      "text": " Otro",
+      "timestamp": [
+        11.9,
+        12.14
+      ]
+    },
+    {
+      "text": " lo",
+      "timestamp": [
+        12.14,
+        12.38
+      ]
+    },
+    {
+      "text": " señaló.",
+      "timestamp": [
+        12.38,
+        13.54
+      ]
+    },
+    {
+      "text": " ¿No",
+      "timestamp": [
+        13.7,
+        13.84
+      ]
+    },
+    {
+      "text": " lo",
+      "timestamp": [
+        13.84,
+        14.02
+      ]
+    },
+    {
+      "text": " conozco?",
+      "timestamp": [
+        14.02,
+        15.06
+      ]
+    },
+    {
+      "text": " Un",
+      "timestamp": [
+        15.48,
+        15.7
+      ]
+    },
+    {
+      "text": " tercero",
+      "timestamp": [
+        15.7,
+        16.18
+      ]
+    },
+    {
+      "text": " insistió",
+      "timestamp": [
+        16.18,
+        16.96
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        16.96,
+        17.24
+      ]
+    },
+    {
+      "text": " Pedro",
+      "timestamp": [
+        17.24,
+        17.52
+      ]
+    },
+    {
+      "text": " gritó.",
+      "timestamp": [
+        17.52,
+        18.28
+      ]
+    },
+    {
+      "text": " No",
+      "timestamp": [
+        18.5,
+        18.64
+      ]
+    },
+    {
+      "text": " sé",
+      "timestamp": [
+        18.64,
+        18.82
+      ]
+    },
+    {
+      "text": " quién",
+      "timestamp": [
+        18.82,
+        19
+      ]
+    },
+    {
+      "text": " es",
+      "timestamp": [
+        19,
+        19.14
+      ]
+    },
+    {
+      "text": " ese",
+      "timestamp": [
+        19.14,
+        19.44
+      ]
+    },
+    {
+      "text": " hombre.",
+      "timestamp": [
+        19.44,
+        20.4
+      ]
+    },
+    {
+      "text": " Entonces",
+      "timestamp": [
+        20.94,
+        21.24
+      ]
+    },
+    {
+      "text": " cantó",
+      "timestamp": [
+        21.24,
+        21.54
+      ]
+    },
+    {
+      "text": " el",
+      "timestamp": [
+        21.54,
+        21.7
+      ]
+    },
+    {
+      "text": " gallo.",
+      "timestamp": [
+        21.7,
+        22.24
+      ]
+    },
+    {
+      "text": " Jesús",
+      "timestamp": [
+        22.52,
+        22.74
+      ]
+    },
+    {
+      "text": " se",
+      "timestamp": [
+        22.74,
+        22.96
+      ]
+    },
+    {
+      "text": " giró",
+      "timestamp": [
+        22.96,
+        23.64
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        23.64,
+        23.78
+      ]
+    },
+    {
+      "text": " lo",
+      "timestamp": [
+        23.78,
+        23.92
+      ]
+    },
+    {
+      "text": " miró.",
+      "timestamp": [
+        23.92,
+        24.7
+      ]
+    },
+    {
+      "text": " Pedro",
+      "timestamp": [
+        25.06,
+        25.36
+      ]
+    },
+    {
+      "text": " salió",
+      "timestamp": [
+        25.36,
+        25.62
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        25.62,
+        25.72
+      ]
+    },
+    {
+      "text": " lloró",
+      "timestamp": [
+        25.72,
+        26.04
+      ]
+    },
+    {
+      "text": " amargamente.",
+      "timestamp": [
+        26.04,
+        26.8
+      ]
+    },
+    {
+      "text": " Semanas",
+      "timestamp": [
+        27.62,
+        28.08
+      ]
+    },
+    {
+      "text": " después,",
+      "timestamp": [
+        28.08,
+        28.22
+      ]
+    },
+    {
+      "text": " Jesús",
+      "timestamp": [
+        28.44,
+        28.62
+      ]
+    },
+    {
+      "text": " le",
+      "timestamp": [
+        28.62,
+        28.88
+      ]
+    },
+    {
+      "text": " preguntó",
+      "timestamp": [
+        28.88,
+        29.26
+      ]
+    },
+    {
+      "text": " tres",
+      "timestamp": [
+        29.26,
+        29.64
+      ]
+    },
+    {
+      "text": " veces,",
+      "timestamp": [
+        29.64,
+        29.84
+      ]
+    },
+    {
+      "text": " ¿me",
+      "timestamp": [
+        30.42,
+        30.74
+      ]
+    },
+    {
+      "text": " amas?",
+      "timestamp": [
+        30.74,
+        31.62
+      ]
+    },
+    {
+      "text": " Una",
+      "timestamp": [
+        32.12,
+        32.32
+      ]
+    },
+    {
+      "text": " vez",
+      "timestamp": [
+        32.32,
+        32.52
+      ]
+    },
+    {
+      "text": " por",
+      "timestamp": [
+        32.52,
+        32.72
+      ]
+    },
+    {
+      "text": " cada",
+      "timestamp": [
+        32.72,
+        32.96
+      ]
+    },
+    {
+      "text": " negación.",
+      "timestamp": [
+        32.96,
+        33.36
+      ]
+    },
+    {
+      "text": " Y",
+      "timestamp": [
+        34.18,
+        34.28
+      ]
+    },
+    {
+      "text": " le",
+      "timestamp": [
+        34.28,
+        34.54
+      ]
+    },
+    {
+      "text": " dijo,",
+      "timestamp": [
+        34.54,
+        35.22
+      ]
+    },
+    {
+      "text": " apacienta",
+      "timestamp": [
+        35.34,
+        35.8
+      ]
+    },
+    {
+      "text": " mis",
+      "timestamp": [
+        35.8,
+        35.96
+      ]
+    },
+    {
+      "text": " ovejas.",
+      "timestamp": [
+        35.96,
+        36.44
+      ]
+    },
+    {
+      "text": " No",
+      "timestamp": [
+        37.48,
+        37.64
+      ]
+    },
+    {
+      "text": " eligió",
+      "timestamp": [
+        37.64,
+        37.86
+      ]
+    },
+    {
+      "text": " al",
+      "timestamp": [
+        37.86,
+        37.98
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        37.98,
+        38.24
+      ]
+    },
+    {
+      "text": " nunca",
+      "timestamp": [
+        38.24,
+        38.56
+      ]
+    },
+    {
+      "text": " cayó,",
+      "timestamp": [
+        38.56,
+        39.52
+      ]
+    },
+    {
+      "text": " eligió",
+      "timestamp": [
+        39.7,
+        40.02
+      ]
+    },
+    {
+      "text": " al",
+      "timestamp": [
+        40.02,
+        40.14
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        40.14,
+        40.36
+      ]
+    },
+    {
+      "text": " volvió.",
+      "timestamp": [
+        40.36,
+        40.72
+      ]
+    }
+  ]
+}
