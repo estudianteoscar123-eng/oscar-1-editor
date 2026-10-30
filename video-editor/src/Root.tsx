@@ -8,6 +8,7 @@ import { ManiquiTest } from "./maniqui/Test";
 import { TiposPelea } from "./maniqui/Tipos";
 import { Pelea, TOTAL as PELEA_TOTAL } from "./pelea/Main";
 import { Ep1, EP1_TOTAL } from "./zk/Ep1";
+import { Vesna, VESNA_TOTAL } from "./vesna/Main";
 import { FranklRef } from "./frankl/Ref";
 import { Atraccion } from "./atraccion/Main";
 import { TresTomas } from "./tres-tomas/Main";
@@ -28,6 +29,14 @@ import { MiVideoV3 as Winter2 } from "./winter2/MiVideoV3";
 export const Main = () => {
   return (
     <>
+      <Composition
+        id="Vesna"
+        component={Vesna}
+        durationInFrames={VESNA_TOTAL}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
       <Composition
         id="ZKEp1"
         component={Ep1}

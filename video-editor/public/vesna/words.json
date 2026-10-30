@@ -1,0 +1,509 @@
+{
+  "text": " cayó de 10.000 metros. Sin paracaídas. Era 1972. Besna tenía 22 años y era a Zafata. A mitad del vuelo, una bomba partió el avión en tres. Todos murieron. Ella quedó atrapada en un trozo del fuselaje. El trozo cayó sobre una montaña nevada, en ángulo, como un trineo. Estuvo en coma 27 días. Los médicos dijeron que no volvería a caminar. Caminó y volvió a volar. ¿Tú qué excusa tienes?",
+  "chunks": [
+    {
+      "text": " cayó",
+      "timestamp": [
+        0.26,
+        0.44
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        0.44,
+        0.66
+      ]
+    },
+    {
+      "text": " 10",
+      "timestamp": [
+        0.66,
+        0.7
+      ]
+    },
+    {
+      "text": ".000",
+      "timestamp": [
+        0.7,
+        1.06
+      ]
+    },
+    {
+      "text": " metros.",
+      "timestamp": [
+        1.06,
+        1.72
+      ]
+    },
+    {
+      "text": " Sin",
+      "timestamp": [
+        2.1,
+        2.26
+      ]
+    },
+    {
+      "text": " paracaídas.",
+      "timestamp": [
+        2.26,
+        3.14
+      ]
+    },
+    {
+      "text": " Era",
+      "timestamp": [
+        3.3,
+        4.1
+      ]
+    },
+    {
+      "text": " 1972.",
+      "timestamp": [
+        4.1,
+        4.76
+      ]
+    },
+    {
+      "text": " Besna",
+      "timestamp": [
+        5.22,
+        5.6
+      ]
+    },
+    {
+      "text": " tenía",
+      "timestamp": [
+        5.6,
+        5.94
+      ]
+    },
+    {
+      "text": " 22",
+      "timestamp": [
+        5.94,
+        6.26
+      ]
+    },
+    {
+      "text": " años",
+      "timestamp": [
+        6.26,
+        6.46
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        6.46,
+        6.6
+      ]
+    },
+    {
+      "text": " era",
+      "timestamp": [
+        6.6,
+        6.7
+      ]
+    },
+    {
+      "text": " a",
+      "timestamp": [
+        6.7,
+        6.78
+      ]
+    },
+    {
+      "text": " Zafata.",
+      "timestamp": [
+        6.78,
+        7.52
+      ]
+    },
+    {
+      "text": " A",
+      "timestamp": [
+        7.6,
+        7.76
+      ]
+    },
+    {
+      "text": " mitad",
+      "timestamp": [
+        7.76,
+        7.98
+      ]
+    },
+    {
+      "text": " del",
+      "timestamp": [
+        7.98,
+        8.16
+      ]
+    },
+    {
+      "text": " vuelo,",
+      "timestamp": [
+        8.16,
+        8.54
+      ]
+    },
+    {
+      "text": " una",
+      "timestamp": [
+        8.64,
+        8.84
+      ]
+    },
+    {
+      "text": " bomba",
+      "timestamp": [
+        8.84,
+        9.16
+      ]
+    },
+    {
+      "text": " partió",
+      "timestamp": [
+        9.16,
+        9.34
+      ]
+    },
+    {
+      "text": " el",
+      "timestamp": [
+        9.34,
+        9.42
+      ]
+    },
+    {
+      "text": " avión",
+      "timestamp": [
+        9.42,
+        9.64
+      ]
+    },
+    {
+      "text": " en",
+      "timestamp": [
+        9.64,
+        9.8
+      ]
+    },
+    {
+      "text": " tres.",
+      "timestamp": [
+        9.8,
+        10.08
+      ]
+    },
+    {
+      "text": " Todos",
+      "timestamp": [
+        10.64,
+        10.9
+      ]
+    },
+    {
+      "text": " murieron.",
+      "timestamp": [
+        10.9,
+        11.72
+      ]
+    },
+    {
+      "text": " Ella",
+      "timestamp": [
+        11.86,
+        12.04
+      ]
+    },
+    {
+      "text": " quedó",
+      "timestamp": [
+        12.04,
+        12.24
+      ]
+    },
+    {
+      "text": " atrapada",
+      "timestamp": [
+        12.24,
+        12.54
+      ]
+    },
+    {
+      "text": " en",
+      "timestamp": [
+        12.54,
+        12.64
+      ]
+    },
+    {
+      "text": " un",
+      "timestamp": [
+        12.64,
+        12.78
+      ]
+    },
+    {
+      "text": " trozo",
+      "timestamp": [
+        12.78,
+        13.02
+      ]
+    },
+    {
+      "text": " del",
+      "timestamp": [
+        13.02,
+        13.18
+      ]
+    },
+    {
+      "text": " fuselaje.",
+      "timestamp": [
+        13.18,
+        13.72
+      ]
+    },
+    {
+      "text": " El",
+      "timestamp": [
+        14.06,
+        14.18
+      ]
+    },
+    {
+      "text": " trozo",
+      "timestamp": [
+        14.18,
+        14.44
+      ]
+    },
+    {
+      "text": " cayó",
+      "timestamp": [
+        14.44,
+        14.7
+      ]
+    },
+    {
+      "text": " sobre",
+      "timestamp": [
+        14.7,
+        14.86
+      ]
+    },
+    {
+      "text": " una",
+      "timestamp": [
+        14.86,
+        15.08
+      ]
+    },
+    {
+      "text": " montaña",
+      "timestamp": [
+        15.08,
+        15.42
+      ]
+    },
+    {
+      "text": " nevada,",
+      "timestamp": [
+        15.42,
+        15.98
+      ]
+    },
+    {
+      "text": " en",
+      "timestamp": [
+        16.12,
+        16.32
+      ]
+    },
+    {
+      "text": " ángulo,",
+      "timestamp": [
+        16.32,
+        16.82
+      ]
+    },
+    {
+      "text": " como",
+      "timestamp": [
+        16.96,
+        17.12
+      ]
+    },
+    {
+      "text": " un",
+      "timestamp": [
+        17.12,
+        17.22
+      ]
+    },
+    {
+      "text": " trineo.",
+      "timestamp": [
+        17.22,
+        17.96
+      ]
+    },
+    {
+      "text": " Estuvo",
+      "timestamp": [
+        18.1,
+        18.36
+      ]
+    },
+    {
+      "text": " en",
+      "timestamp": [
+        18.36,
+        18.5
+      ]
+    },
+    {
+      "text": " coma",
+      "timestamp": [
+        18.5,
+        18.94
+      ]
+    },
+    {
+      "text": " 27",
+      "timestamp": [
+        18.94,
+        19.34
+      ]
+    },
+    {
+      "text": " días.",
+      "timestamp": [
+        19.34,
+        19.64
+      ]
+    },
+    {
+      "text": " Los",
+      "timestamp": [
+        19.92,
+        20.1
+      ]
+    },
+    {
+      "text": " médicos",
+      "timestamp": [
+        20.1,
+        20.44
+      ]
+    },
+    {
+      "text": " dijeron",
+      "timestamp": [
+        20.44,
+        20.72
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        20.72,
+        20.84
+      ]
+    },
+    {
+      "text": " no",
+      "timestamp": [
+        20.84,
+        21.08
+      ]
+    },
+    {
+      "text": " volvería",
+      "timestamp": [
+        21.08,
+        21.38
+      ]
+    },
+    {
+      "text": " a",
+      "timestamp": [
+        21.38,
+        21.5
+      ]
+    },
+    {
+      "text": " caminar.",
+      "timestamp": [
+        21.5,
+        21.96
+      ]
+    },
+    {
+      "text": " Caminó",
+      "timestamp": [
+        22.32,
+        23.18
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        23.18,
+        23.32
+      ]
+    },
+    {
+      "text": " volvió",
+      "timestamp": [
+        23.32,
+        23.54
+      ]
+    },
+    {
+      "text": " a",
+      "timestamp": [
+        23.54,
+        23.64
+      ]
+    },
+    {
+      "text": " volar.",
+      "timestamp": [
+        23.64,
+        24.04
+      ]
+    },
+    {
+      "text": " ¿Tú",
+      "timestamp": [
+        24.38,
+        24.48
+      ]
+    },
+    {
+      "text": " qué",
+      "timestamp": [
+        24.48,
+        24.7
+      ]
+    },
+    {
+      "text": " excusa",
+      "timestamp": [
+        24.7,
+        25.06
+      ]
+    },
+    {
+      "text": " tienes?",
+      "timestamp": [
+        25.06,
+        25.36
+      ]
+    }
+  ]
+}
