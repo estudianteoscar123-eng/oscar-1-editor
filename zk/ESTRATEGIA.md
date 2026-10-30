@@ -45,6 +45,9 @@ Un mismo mensaje ("construye el cuerpo de un peleador") con un envoltorio distin
 4. **Estilo contra estilo:** boxeo, Muay Thai y MMA, quién gana y por qué.
 5. **Entrena como peleador:** ejercicios de abdomen, brazos, puños, agarre y cuello, con el músculo iluminado y para qué sirve en la pelea.
 
+## Estilo aprobado
+El estándar visual y de sonido de ZK está en `zk/ESTILO_ZK.md` (referencia: "Pedro v2").
+
 ## Reglas de formato (fijadas por el usuario)
 - Sin etiquetas de episodio ("EP. 01"), sin "mañana..." ni anuncios del siguiente video.
 - Sin marcas de agua ni logos en pantalla.
