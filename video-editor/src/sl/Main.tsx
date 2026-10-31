@@ -9,9 +9,9 @@ import words2 from "../../public/sl/words2.json";
 // SL: biografías con material de anime. Subtítulos estilo referencias: gancho repartido alrededor de la tarjeta,
 // después bloques que se construyen palabra a palabra con jerarquía de tamaños y color por emoción.
 const FPS = 30;
-const P8 = "SL Poppins 800";
-const P9 = "SL Poppins 900";
-const SERIF = "SL Serif";
+const P8 = "SLPoppinsXB";
+const P9 = "SLPoppinsBlack";
+const SERIF = "SLSerif";
 loadFont({ family: P8, url: staticFile("fonts/poppins-latin-800-normal.woff2"), weight: "800" });
 loadFont({ family: P9, url: staticFile("fonts/poppins-latin-900-normal.woff2"), weight: "900" });
 loadFont({ family: SERIF, url: staticFile("fonts/instrument-serif-latin-400-italic.woff2"), weight: "400", style: "italic" });
@@ -131,7 +131,7 @@ const Word: React.FC<{ w: W; f: number; size: number; upper: boolean; last: bool
   if (t < 0) return null;
   const pop = ip(t, [0, 3, 6], [1.35, 0.94, 1]);
   const col = w.c ? COLORS[w.c] : "#fff";
-  const txt = upper ? w.w.toUpperCase() : w.w;
+  const txt = (upper ? w.w.toUpperCase() : w.w).replace(/[,;]$/, "");
   const under = last && blockDone && w.c === "y";
   const glow = last && blockDone && (w.c === "w" || (!w.c && size > 90));
   return (
