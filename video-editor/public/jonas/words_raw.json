@@ -1,0 +1,565 @@
+{
+  "text": " Estás en medio del mar, la tormenta parte del barco en dos, y es por tu culpa. Huiste de Dios, te lanzan al agua, te hundes, diez metros, veinte, sin aire, y entonces, algo enorme abre la boca, oscuridad total, tres días dentro de un pez, sin luz, sin salida, y aun así, desde el fondo, horas, Y el pestes cupe en la orilla. Jonas aprendió algo. No hay lugar tan hondo donde Dios no te encuentre. ¿Dónde estás tú?",
+  "chunks": [
+    {
+      "text": " Estás",
+      "timestamp": [
+        0.22,
+        0.44
+      ]
+    },
+    {
+      "text": " en",
+      "timestamp": [
+        0.44,
+        0.6
+      ]
+    },
+    {
+      "text": " medio",
+      "timestamp": [
+        0.6,
+        0.84
+      ]
+    },
+    {
+      "text": " del",
+      "timestamp": [
+        0.84,
+        1.04
+      ]
+    },
+    {
+      "text": " mar,",
+      "timestamp": [
+        1.04,
+        1.68
+      ]
+    },
+    {
+      "text": " la",
+      "timestamp": [
+        1.78,
+        2
+      ]
+    },
+    {
+      "text": " tormenta",
+      "timestamp": [
+        2,
+        2.42
+      ]
+    },
+    {
+      "text": " parte",
+      "timestamp": [
+        2.42,
+        2.62
+      ]
+    },
+    {
+      "text": " del",
+      "timestamp": [
+        2.62,
+        2.76
+      ]
+    },
+    {
+      "text": " barco",
+      "timestamp": [
+        2.76,
+        3.02
+      ]
+    },
+    {
+      "text": " en",
+      "timestamp": [
+        3.02,
+        3.22
+      ]
+    },
+    {
+      "text": " dos,",
+      "timestamp": [
+        3.22,
+        3.78
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        3.94,
+        4.06
+      ]
+    },
+    {
+      "text": " es",
+      "timestamp": [
+        4.06,
+        4.22
+      ]
+    },
+    {
+      "text": " por",
+      "timestamp": [
+        4.22,
+        4.36
+      ]
+    },
+    {
+      "text": " tu",
+      "timestamp": [
+        4.36,
+        4.68
+      ]
+    },
+    {
+      "text": " culpa.",
+      "timestamp": [
+        4.68,
+        5.44
+      ]
+    },
+    {
+      "text": " Huiste",
+      "timestamp": [
+        5.56,
+        5.9
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        5.9,
+        6.14
+      ]
+    },
+    {
+      "text": " Dios,",
+      "timestamp": [
+        6.14,
+        6.74
+      ]
+    },
+    {
+      "text": " te",
+      "timestamp": [
+        6.84,
+        7.06
+      ]
+    },
+    {
+      "text": " lanzan",
+      "timestamp": [
+        7.06,
+        7.34
+      ]
+    },
+    {
+      "text": " al",
+      "timestamp": [
+        7.34,
+        7.58
+      ]
+    },
+    {
+      "text": " agua,",
+      "timestamp": [
+        7.58,
+        7.76
+      ]
+    },
+    {
+      "text": " te",
+      "timestamp": [
+        7.8,
+        7.94
+      ]
+    },
+    {
+      "text": " hundes,",
+      "timestamp": [
+        7.94,
+        8.82
+      ]
+    },
+    {
+      "text": " diez",
+      "timestamp": [
+        9.02,
+        9.44
+      ]
+    },
+    {
+      "text": " metros,",
+      "timestamp": [
+        9.44,
+        9.76
+      ]
+    },
+    {
+      "text": " veinte,",
+      "timestamp": [
+        9.9,
+        10.74
+      ]
+    },
+    {
+      "text": " sin",
+      "timestamp": [
+        10.94,
+        11.22
+      ]
+    },
+    {
+      "text": " aire,",
+      "timestamp": [
+        11.22,
+        11.88
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        11.96,
+        12.32
+      ]
+    },
+    {
+      "text": " entonces,",
+      "timestamp": [
+        12.32,
+        13.2
+      ]
+    },
+    {
+      "text": " algo",
+      "timestamp": [
+        13.38,
+        13.64
+      ]
+    },
+    {
+      "text": " enorme",
+      "timestamp": [
+        13.64,
+        13.9
+      ]
+    },
+    {
+      "text": " abre",
+      "timestamp": [
+        13.9,
+        14.06
+      ]
+    },
+    {
+      "text": " la",
+      "timestamp": [
+        14.06,
+        14.32
+      ]
+    },
+    {
+      "text": " boca,",
+      "timestamp": [
+        14.32,
+        14.9
+      ]
+    },
+    {
+      "text": " oscuridad",
+      "timestamp": [
+        15.06,
+        15.7
+      ]
+    },
+    {
+      "text": " total,",
+      "timestamp": [
+        15.7,
+        16.38
+      ]
+    },
+    {
+      "text": " tres",
+      "timestamp": [
+        16.54,
+        16.76
+      ]
+    },
+    {
+      "text": " días",
+      "timestamp": [
+        16.76,
+        16.98
+      ]
+    },
+    {
+      "text": " dentro",
+      "timestamp": [
+        16.98,
+        17.2
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        17.2,
+        17.32
+      ]
+    },
+    {
+      "text": " un",
+      "timestamp": [
+        17.32,
+        17.48
+      ]
+    },
+    {
+      "text": " pez,",
+      "timestamp": [
+        17.48,
+        18.14
+      ]
+    },
+    {
+      "text": " sin",
+      "timestamp": [
+        18.4,
+        18.64
+      ]
+    },
+    {
+      "text": " luz,",
+      "timestamp": [
+        18.64,
+        19.3
+      ]
+    },
+    {
+      "text": " sin",
+      "timestamp": [
+        19.5,
+        19.54
+      ]
+    },
+    {
+      "text": " salida,",
+      "timestamp": [
+        19.72,
+        20.56
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        20.64,
+        20.74
+      ]
+    },
+    {
+      "text": " aun",
+      "timestamp": [
+        20.74,
+        21.04
+      ]
+    },
+    {
+      "text": " así,",
+      "timestamp": [
+        21.04,
+        21.42
+      ]
+    },
+    {
+      "text": " desde",
+      "timestamp": [
+        21.58,
+        21.8
+      ]
+    },
+    {
+      "text": " el",
+      "timestamp": [
+        21.8,
+        22.1
+      ]
+    },
+    {
+      "text": " fondo,",
+      "timestamp": [
+        22.1,
+        22.64
+      ]
+    },
+    {
+      "text": " horas,",
+      "timestamp": [
+        22.92,
+        23.56
+      ]
+    },
+    {
+      "text": " Y",
+      "timestamp": [
+        23.78,
+        23.92
+      ]
+    },
+    {
+      "text": " el",
+      "timestamp": [
+        23.92,
+        24.08
+      ]
+    },
+    {
+      "text": " pestes",
+      "timestamp": [
+        24.08,
+        24.52
+      ]
+    },
+    {
+      "text": " cupe",
+      "timestamp": [
+        24.52,
+        24.78
+      ]
+    },
+    {
+      "text": " en",
+      "timestamp": [
+        24.78,
+        24.88
+      ]
+    },
+    {
+      "text": " la",
+      "timestamp": [
+        24.88,
+        24.98
+      ]
+    },
+    {
+      "text": " orilla.",
+      "timestamp": [
+        24.98,
+        25.74
+      ]
+    },
+    {
+      "text": " Jonas",
+      "timestamp": [
+        25.94,
+        26.28
+      ]
+    },
+    {
+      "text": " aprendió",
+      "timestamp": [
+        26.28,
+        26.74
+      ]
+    },
+    {
+      "text": " algo.",
+      "timestamp": [
+        26.74,
+        27.48
+      ]
+    },
+    {
+      "text": " No",
+      "timestamp": [
+        27.72,
+        27.84
+      ]
+    },
+    {
+      "text": " hay",
+      "timestamp": [
+        27.84,
+        28.08
+      ]
+    },
+    {
+      "text": " lugar",
+      "timestamp": [
+        28.08,
+        28.4
+      ]
+    },
+    {
+      "text": " tan",
+      "timestamp": [
+        28.4,
+        28.66
+      ]
+    },
+    {
+      "text": " hondo",
+      "timestamp": [
+        28.66,
+        28.98
+      ]
+    },
+    {
+      "text": " donde",
+      "timestamp": [
+        28.98,
+        29.3
+      ]
+    },
+    {
+      "text": " Dios",
+      "timestamp": [
+        29.3,
+        29.5
+      ]
+    },
+    {
+      "text": " no",
+      "timestamp": [
+        29.5,
+        29.62
+      ]
+    },
+    {
+      "text": " te",
+      "timestamp": [
+        29.62,
+        29.9
+      ]
+    },
+    {
+      "text": " encuentre.",
+      "timestamp": [
+        29.9,
+        30.62
+      ]
+    },
+    {
+      "text": " ¿Dónde",
+      "timestamp": [
+        30.74,
+        31.08
+      ]
+    },
+    {
+      "text": " estás",
+      "timestamp": [
+        31.08,
+        31.36
+      ]
+    },
+    {
+      "text": " tú?",
+      "timestamp": [
+        31.36,
+        31.44
+      ]
+    }
+  ]
+}
