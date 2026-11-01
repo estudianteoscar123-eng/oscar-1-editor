@@ -1,0 +1,670 @@
+{
+  "text": " El único hombre al que Jesús le prometió el paraíso era un criminal. Estaba clavado a su lado, condenado a muerte. Nunca había orado, nunca se había hecho una obra buena. El otro ladrón se burlaba de Jesús, pero él dijo, nosotros merecemos esto. Él no hizo nada malo, y luego susurró. Jesús, acuérdate de mí. Y Jesús le respondió, hoy estarás conmigo en el paraíso. No le pidió méritos, no le pidió tiempo, solo que lo mirara. Así que si crees que para ti ya es tarde, recuerda al criminal que llegó a tiempo.",
+  "chunks": [
+    {
+      "text": " El",
+      "timestamp": [
+        0.08,
+        0.3
+      ]
+    },
+    {
+      "text": " único",
+      "timestamp": [
+        0.3,
+        0.6
+      ]
+    },
+    {
+      "text": " hombre",
+      "timestamp": [
+        0.6,
+        0.8
+      ]
+    },
+    {
+      "text": " al",
+      "timestamp": [
+        0.8,
+        0.94
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        0.94,
+        1.26
+      ]
+    },
+    {
+      "text": " Jesús",
+      "timestamp": [
+        1.26,
+        1.66
+      ]
+    },
+    {
+      "text": " le",
+      "timestamp": [
+        1.66,
+        1.94
+      ]
+    },
+    {
+      "text": " prometió",
+      "timestamp": [
+        1.94,
+        2.3
+      ]
+    },
+    {
+      "text": " el",
+      "timestamp": [
+        2.3,
+        2.52
+      ]
+    },
+    {
+      "text": " paraíso",
+      "timestamp": [
+        2.52,
+        3.66
+      ]
+    },
+    {
+      "text": " era",
+      "timestamp": [
+        3.66,
+        3.84
+      ]
+    },
+    {
+      "text": " un",
+      "timestamp": [
+        3.84,
+        4.24
+      ]
+    },
+    {
+      "text": " criminal.",
+      "timestamp": [
+        4.24,
+        5.04
+      ]
+    },
+    {
+      "text": " Estaba",
+      "timestamp": [
+        5.2,
+        5.54
+      ]
+    },
+    {
+      "text": " clavado",
+      "timestamp": [
+        5.54,
+        5.9
+      ]
+    },
+    {
+      "text": " a",
+      "timestamp": [
+        5.9,
+        5.96
+      ]
+    },
+    {
+      "text": " su",
+      "timestamp": [
+        5.96,
+        6.24
+      ]
+    },
+    {
+      "text": " lado,",
+      "timestamp": [
+        6.24,
+        6.76
+      ]
+    },
+    {
+      "text": " condenado",
+      "timestamp": [
+        6.86,
+        7.24
+      ]
+    },
+    {
+      "text": " a",
+      "timestamp": [
+        7.24,
+        7.52
+      ]
+    },
+    {
+      "text": " muerte.",
+      "timestamp": [
+        7.52,
+        8.24
+      ]
+    },
+    {
+      "text": " Nunca",
+      "timestamp": [
+        8.4,
+        8.72
+      ]
+    },
+    {
+      "text": " había",
+      "timestamp": [
+        8.72,
+        9.06
+      ]
+    },
+    {
+      "text": " orado,",
+      "timestamp": [
+        9.06,
+        9.94
+      ]
+    },
+    {
+      "text": " nunca",
+      "timestamp": [
+        10.14,
+        10.34
+      ]
+    },
+    {
+      "text": " se",
+      "timestamp": [
+        10.34,
+        10.54
+      ]
+    },
+    {
+      "text": " había",
+      "timestamp": [
+        10.54,
+        10.8
+      ]
+    },
+    {
+      "text": " hecho",
+      "timestamp": [
+        10.8,
+        11.02
+      ]
+    },
+    {
+      "text": " una",
+      "timestamp": [
+        11.02,
+        11.28
+      ]
+    },
+    {
+      "text": " obra",
+      "timestamp": [
+        11.28,
+        11.6
+      ]
+    },
+    {
+      "text": " buena.",
+      "timestamp": [
+        11.6,
+        12.36
+      ]
+    },
+    {
+      "text": " El",
+      "timestamp": [
+        12.52,
+        12.68
+      ]
+    },
+    {
+      "text": " otro",
+      "timestamp": [
+        12.68,
+        12.88
+      ]
+    },
+    {
+      "text": " ladrón",
+      "timestamp": [
+        12.88,
+        13.16
+      ]
+    },
+    {
+      "text": " se",
+      "timestamp": [
+        13.16,
+        13.32
+      ]
+    },
+    {
+      "text": " burlaba",
+      "timestamp": [
+        13.32,
+        13.7
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        13.7,
+        13.94
+      ]
+    },
+    {
+      "text": " Jesús,",
+      "timestamp": [
+        13.94,
+        14.62
+      ]
+    },
+    {
+      "text": " pero",
+      "timestamp": [
+        14.8,
+        15.02
+      ]
+    },
+    {
+      "text": " él",
+      "timestamp": [
+        15.02,
+        15.28
+      ]
+    },
+    {
+      "text": " dijo,",
+      "timestamp": [
+        15.28,
+        15.96
+      ]
+    },
+    {
+      "text": " nosotros",
+      "timestamp": [
+        16.16,
+        16.42
+      ]
+    },
+    {
+      "text": " merecemos",
+      "timestamp": [
+        16.42,
+        17.04
+      ]
+    },
+    {
+      "text": " esto.",
+      "timestamp": [
+        17.04,
+        17.64
+      ]
+    },
+    {
+      "text": " Él",
+      "timestamp": [
+        17.88,
+        18.32
+      ]
+    },
+    {
+      "text": " no",
+      "timestamp": [
+        18.32,
+        18.52
+      ]
+    },
+    {
+      "text": " hizo",
+      "timestamp": [
+        18.52,
+        18.74
+      ]
+    },
+    {
+      "text": " nada",
+      "timestamp": [
+        18.74,
+        19.02
+      ]
+    },
+    {
+      "text": " malo,",
+      "timestamp": [
+        19.02,
+        19.68
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        19.92,
+        20.14
+      ]
+    },
+    {
+      "text": " luego",
+      "timestamp": [
+        20.14,
+        20.38
+      ]
+    },
+    {
+      "text": " susurró.",
+      "timestamp": [
+        20.38,
+        21.18
+      ]
+    },
+    {
+      "text": " Jesús,",
+      "timestamp": [
+        21.4,
+        21.7
+      ]
+    },
+    {
+      "text": " acuérdate",
+      "timestamp": [
+        21.78,
+        22.26
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        22.26,
+        22.4
+      ]
+    },
+    {
+      "text": " mí.",
+      "timestamp": [
+        22.4,
+        23.16
+      ]
+    },
+    {
+      "text": " Y",
+      "timestamp": [
+        23.34,
+        23.56
+      ]
+    },
+    {
+      "text": " Jesús",
+      "timestamp": [
+        23.56,
+        23.76
+      ]
+    },
+    {
+      "text": " le",
+      "timestamp": [
+        23.76,
+        24.04
+      ]
+    },
+    {
+      "text": " respondió,",
+      "timestamp": [
+        24.04,
+        24.8
+      ]
+    },
+    {
+      "text": " hoy",
+      "timestamp": [
+        24.94,
+        25.2
+      ]
+    },
+    {
+      "text": " estarás",
+      "timestamp": [
+        25.2,
+        25.54
+      ]
+    },
+    {
+      "text": " conmigo",
+      "timestamp": [
+        25.54,
+        25.92
+      ]
+    },
+    {
+      "text": " en",
+      "timestamp": [
+        26.08,
+        26.18
+      ]
+    },
+    {
+      "text": " el",
+      "timestamp": [
+        26.18,
+        26.4
+      ]
+    },
+    {
+      "text": " paraíso.",
+      "timestamp": [
+        26.4,
+        27.48
+      ]
+    },
+    {
+      "text": " No",
+      "timestamp": [
+        27.84,
+        27.94
+      ]
+    },
+    {
+      "text": " le",
+      "timestamp": [
+        27.94,
+        28.1
+      ]
+    },
+    {
+      "text": " pidió",
+      "timestamp": [
+        28.1,
+        28.38
+      ]
+    },
+    {
+      "text": " méritos,",
+      "timestamp": [
+        28.38,
+        29.08
+      ]
+    },
+    {
+      "text": " no",
+      "timestamp": [
+        29.16,
+        29.24
+      ]
+    },
+    {
+      "text": " le",
+      "timestamp": [
+        29.24,
+        29.4
+      ]
+    },
+    {
+      "text": " pidió",
+      "timestamp": [
+        29.4,
+        29.84
+      ]
+    },
+    {
+      "text": " tiempo,",
+      "timestamp": [
+        29.84,
+        30.38
+      ]
+    },
+    {
+      "text": " solo",
+      "timestamp": [
+        30.56,
+        30.74
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        30.74,
+        30.84
+      ]
+    },
+    {
+      "text": " lo",
+      "timestamp": [
+        30.84,
+        31.04
+      ]
+    },
+    {
+      "text": " mirara.",
+      "timestamp": [
+        31.04,
+        31.96
+      ]
+    },
+    {
+      "text": " Así",
+      "timestamp": [
+        32.1,
+        32.12
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        32.26,
+        32.36
+      ]
+    },
+    {
+      "text": " si",
+      "timestamp": [
+        32.36,
+        32.56
+      ]
+    },
+    {
+      "text": " crees",
+      "timestamp": [
+        32.56,
+        32.78
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        32.78,
+        33
+      ]
+    },
+    {
+      "text": " para",
+      "timestamp": [
+        33,
+        33.22
+      ]
+    },
+    {
+      "text": " ti",
+      "timestamp": [
+        33.22,
+        33.36
+      ]
+    },
+    {
+      "text": " ya",
+      "timestamp": [
+        33.36,
+        33.56
+      ]
+    },
+    {
+      "text": " es",
+      "timestamp": [
+        33.56,
+        33.76
+      ]
+    },
+    {
+      "text": " tarde,",
+      "timestamp": [
+        33.76,
+        34.44
+      ]
+    },
+    {
+      "text": " recuerda",
+      "timestamp": [
+        34.78,
+        35.06
+      ]
+    },
+    {
+      "text": " al",
+      "timestamp": [
+        35.06,
+        35.36
+      ]
+    },
+    {
+      "text": " criminal",
+      "timestamp": [
+        35.36,
+        35.56
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        35.56,
+        35.76
+      ]
+    },
+    {
+      "text": " llegó",
+      "timestamp": [
+        35.76,
+        35.86
+      ]
+    },
+    {
+      "text": " a",
+      "timestamp": [
+        35.86,
+        36.1
+      ]
+    },
+    {
+      "text": " tiempo.",
+      "timestamp": [
+        36.1,
+        36.24
+      ]
+    }
+  ]
+}
