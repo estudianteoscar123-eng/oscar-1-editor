@@ -1,0 +1,649 @@
+{
+  "text": " delante de ti hay un gigante de tres metros y tú solo tienes cinco piedras eres apenas un muchacho detrás de ti un ejército entero tiembla nadie se atreve no tienes espada no tienes armadura el gigante se ríe de ti y empieza a caminar cada paso hace temblar la tierra tu corazón laté tan fuerte que lo escuchas, y aun así, corres hacia él. Una piedra, un disparo, silencio y el gigante cae. Ese día, David entendió algo, no importa el tamaño de tu gigante, importa el tamaño de tu dios.",
+  "chunks": [
+    {
+      "text": " delante",
+      "timestamp": [
+        0.24,
+        0.6
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        0.6,
+        0.78
+      ]
+    },
+    {
+      "text": " ti",
+      "timestamp": [
+        0.78,
+        0.92
+      ]
+    },
+    {
+      "text": " hay",
+      "timestamp": [
+        0.92,
+        1.04
+      ]
+    },
+    {
+      "text": " un",
+      "timestamp": [
+        1.04,
+        1.2
+      ]
+    },
+    {
+      "text": " gigante",
+      "timestamp": [
+        1.2,
+        1.6
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        1.6,
+        1.88
+      ]
+    },
+    {
+      "text": " tres",
+      "timestamp": [
+        1.88,
+        2.26
+      ]
+    },
+    {
+      "text": " metros",
+      "timestamp": [
+        2.26,
+        3.16
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        3.16,
+        3.28
+      ]
+    },
+    {
+      "text": " tú",
+      "timestamp": [
+        3.28,
+        3.48
+      ]
+    },
+    {
+      "text": " solo",
+      "timestamp": [
+        3.48,
+        3.76
+      ]
+    },
+    {
+      "text": " tienes",
+      "timestamp": [
+        3.76,
+        4.16
+      ]
+    },
+    {
+      "text": " cinco",
+      "timestamp": [
+        4.16,
+        4.46
+      ]
+    },
+    {
+      "text": " piedras",
+      "timestamp": [
+        4.46,
+        5.48
+      ]
+    },
+    {
+      "text": " eres",
+      "timestamp": [
+        5.48,
+        5.86
+      ]
+    },
+    {
+      "text": " apenas",
+      "timestamp": [
+        5.86,
+        6.14
+      ]
+    },
+    {
+      "text": " un",
+      "timestamp": [
+        6.14,
+        6.38
+      ]
+    },
+    {
+      "text": " muchacho",
+      "timestamp": [
+        6.38,
+        6.64
+      ]
+    },
+    {
+      "text": " detrás",
+      "timestamp": [
+        7.36,
+        7.68
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        7.68,
+        7.84
+      ]
+    },
+    {
+      "text": " ti",
+      "timestamp": [
+        7.84,
+        8.52
+      ]
+    },
+    {
+      "text": " un",
+      "timestamp": [
+        8.52,
+        8.72
+      ]
+    },
+    {
+      "text": " ejército",
+      "timestamp": [
+        8.72,
+        9.3
+      ]
+    },
+    {
+      "text": " entero",
+      "timestamp": [
+        9.3,
+        9.78
+      ]
+    },
+    {
+      "text": " tiembla",
+      "timestamp": [
+        9.78,
+        11.04
+      ]
+    },
+    {
+      "text": " nadie",
+      "timestamp": [
+        11.04,
+        11.24
+      ]
+    },
+    {
+      "text": " se",
+      "timestamp": [
+        11.24,
+        11.42
+      ]
+    },
+    {
+      "text": " atreve",
+      "timestamp": [
+        11.42,
+        12.62
+      ]
+    },
+    {
+      "text": " no",
+      "timestamp": [
+        12.62,
+        12.9
+      ]
+    },
+    {
+      "text": " tienes",
+      "timestamp": [
+        12.9,
+        13.18
+      ]
+    },
+    {
+      "text": " espada",
+      "timestamp": [
+        13.18,
+        13.88
+      ]
+    },
+    {
+      "text": " no",
+      "timestamp": [
+        13.88,
+        14.12
+      ]
+    },
+    {
+      "text": " tienes",
+      "timestamp": [
+        14.12,
+        14.36
+      ]
+    },
+    {
+      "text": " armadura",
+      "timestamp": [
+        14.36,
+        14.72
+      ]
+    },
+    {
+      "text": " el",
+      "timestamp": [
+        15.86,
+        16.02
+      ]
+    },
+    {
+      "text": " gigante",
+      "timestamp": [
+        16.02,
+        16.36
+      ]
+    },
+    {
+      "text": " se",
+      "timestamp": [
+        16.36,
+        16.52
+      ]
+    },
+    {
+      "text": " ríe",
+      "timestamp": [
+        16.52,
+        16.7
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        16.7,
+        16.92
+      ]
+    },
+    {
+      "text": " ti",
+      "timestamp": [
+        16.92,
+        17.62
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        17.62,
+        18.02
+      ]
+    },
+    {
+      "text": " empieza",
+      "timestamp": [
+        18.02,
+        18.18
+      ]
+    },
+    {
+      "text": " a",
+      "timestamp": [
+        18.18,
+        18.34
+      ]
+    },
+    {
+      "text": " caminar",
+      "timestamp": [
+        18.34,
+        19.6
+      ]
+    },
+    {
+      "text": " cada",
+      "timestamp": [
+        19.6,
+        19.92
+      ]
+    },
+    {
+      "text": " paso",
+      "timestamp": [
+        19.92,
+        20.14
+      ]
+    },
+    {
+      "text": " hace",
+      "timestamp": [
+        20.14,
+        20.4
+      ]
+    },
+    {
+      "text": " temblar",
+      "timestamp": [
+        20.4,
+        20.76
+      ]
+    },
+    {
+      "text": " la",
+      "timestamp": [
+        20.76,
+        21.04
+      ]
+    },
+    {
+      "text": " tierra",
+      "timestamp": [
+        21.04,
+        22.06
+      ]
+    },
+    {
+      "text": " tu",
+      "timestamp": [
+        22.06,
+        22.38
+      ]
+    },
+    {
+      "text": " corazón",
+      "timestamp": [
+        22.38,
+        22.44
+      ]
+    },
+    {
+      "text": " laté",
+      "timestamp": [
+        22.66,
+        22.94
+      ]
+    },
+    {
+      "text": " tan",
+      "timestamp": [
+        22.94,
+        23.26
+      ]
+    },
+    {
+      "text": " fuerte",
+      "timestamp": [
+        23.26,
+        23.46
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        23.46,
+        23.6
+      ]
+    },
+    {
+      "text": " lo",
+      "timestamp": [
+        23.6,
+        23.9
+      ]
+    },
+    {
+      "text": " escuchas,",
+      "timestamp": [
+        23.9,
+        24.76
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        24.96,
+        25.06
+      ]
+    },
+    {
+      "text": " aun",
+      "timestamp": [
+        25.06,
+        25.34
+      ]
+    },
+    {
+      "text": " así,",
+      "timestamp": [
+        25.34,
+        25.94
+      ]
+    },
+    {
+      "text": " corres",
+      "timestamp": [
+        26.2,
+        26.5
+      ]
+    },
+    {
+      "text": " hacia",
+      "timestamp": [
+        26.5,
+        26.5
+      ]
+    },
+    {
+      "text": " él.",
+      "timestamp": [
+        26.8,
+        27.42
+      ]
+    },
+    {
+      "text": " Una",
+      "timestamp": [
+        27.58,
+        27.8
+      ]
+    },
+    {
+      "text": " piedra,",
+      "timestamp": [
+        27.8,
+        28.86
+      ]
+    },
+    {
+      "text": " un",
+      "timestamp": [
+        28.96,
+        29.22
+      ]
+    },
+    {
+      "text": " disparo,",
+      "timestamp": [
+        29.22,
+        30.16
+      ]
+    },
+    {
+      "text": " silencio",
+      "timestamp": [
+        30.48,
+        31.26
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        31.26,
+        31.36
+      ]
+    },
+    {
+      "text": " el",
+      "timestamp": [
+        31.36,
+        31.52
+      ]
+    },
+    {
+      "text": " gigante",
+      "timestamp": [
+        31.52,
+        31.94
+      ]
+    },
+    {
+      "text": " cae.",
+      "timestamp": [
+        31.94,
+        33.04
+      ]
+    },
+    {
+      "text": " Ese",
+      "timestamp": [
+        33.18,
+        33.54
+      ]
+    },
+    {
+      "text": " día,",
+      "timestamp": [
+        33.54,
+        33.98
+      ]
+    },
+    {
+      "text": " David",
+      "timestamp": [
+        34.14,
+        34.44
+      ]
+    },
+    {
+      "text": " entendió",
+      "timestamp": [
+        34.44,
+        35
+      ]
+    },
+    {
+      "text": " algo,",
+      "timestamp": [
+        35,
+        35.64
+      ]
+    },
+    {
+      "text": " no",
+      "timestamp": [
+        35.74,
+        36.04
+      ]
+    },
+    {
+      "text": " importa",
+      "timestamp": [
+        36.04,
+        36.2
+      ]
+    },
+    {
+      "text": " el",
+      "timestamp": [
+        36.2,
+        36.38
+      ]
+    },
+    {
+      "text": " tamaño",
+      "timestamp": [
+        36.38,
+        36.7
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        36.7,
+        36.84
+      ]
+    },
+    {
+      "text": " tu",
+      "timestamp": [
+        36.84,
+        37.04
+      ]
+    },
+    {
+      "text": " gigante,",
+      "timestamp": [
+        37.04,
+        38.02
+      ]
+    },
+    {
+      "text": " importa",
+      "timestamp": [
+        38.8,
+        39.3
+      ]
+    },
+    {
+      "text": " el",
+      "timestamp": [
+        39.3,
+        39.52
+      ]
+    },
+    {
+      "text": " tamaño",
+      "timestamp": [
+        39.52,
+        39.86
+      ]
+    },
+    {
+      "text": " de",
+      "timestamp": [
+        39.86,
+        40
+      ]
+    },
+    {
+      "text": " tu",
+      "timestamp": [
+        40,
+        40.18
+      ]
+    },
+    {
+      "text": " dios.",
+      "timestamp": [
+        40.18,
+        40.46
+      ]
+    }
+  ]
+}

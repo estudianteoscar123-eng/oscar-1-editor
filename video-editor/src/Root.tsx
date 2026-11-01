@@ -12,6 +12,7 @@ import { Vesna, VESNA_TOTAL } from "./vesna/Main";
 import { Pedro, PEDRO_TOTAL } from "./pedro/Main";
 import { SL, SL_TOTAL } from "./sl/Main";
 import { Ladron, LADRON_TOTAL } from "./ladron/Main";
+import { David, DAVID_TOTAL } from "./david/Main";
 import { FranklRef } from "./frankl/Ref";
 import { Atraccion } from "./atraccion/Main";
 import { TresTomas } from "./tres-tomas/Main";
@@ -32,6 +33,7 @@ import { MiVideoV3 as Winter2 } from "./winter2/MiVideoV3";
 export const Main = () => {
   return (
     <>
+      <Composition id="David" component={David} durationInFrames={DAVID_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Ladron" component={Ladron} durationInFrames={LADRON_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLVegeta" component={SL} defaultProps={{ video: "vegeta" as const }} durationInFrames={SL_TOTAL.vegeta} fps={30} width={1080} height={1920} />
       <Composition id="SLLee" component={SL} defaultProps={{ video: "lee" as const }} durationInFrames={SL_TOTAL.lee} fps={30} width={1080} height={1920} />
