@@ -37,4 +37,12 @@ Video de referencia: `video-editor/output/pedro-volvio-v2.mp4` · código: `vide
 Medir con `ficha-referencias.md`: volumen de la voz, fondo, efectos por cada 10 s, cambio visual cada X s, % de imagen quieta y movimiento. No se entrega hasta que cuadre.
 
 ## Flujo
-1. Guion → 2. voz → 3. Whisper (tiempo de cada palabra) → 4. lista de eventos por palabra clave → 5. escenas con el kit → 6. mezcla de sonido → 7. render → 8. medición → 9. entrega.
+1. Guion → 2. voz → 3. Whisper (tiempo de cada palabra) → 4. lista de eventos por palabra clave → 5. escenas con el kit → 6. mezcla de sonido → 7. render → 8. medición → 9. entrega → 10. título.
+
+## Título (regla fija)
+Al terminar cada video se entrega su título: corto, en forma de pregunta y pensado para que lo abran (alto CTR).
+
+## Nivel de inmersión (desde "David contra Goliat")
+- Punto de vista en segunda persona ("tú"): el espectador vive la escena.
+- Un cambio visual cada 0,7–1 s, con ganchos encadenados y un silencio antes del clímax.
+- Final que enlaza con el inicio, para que el video se vea en bucle.
