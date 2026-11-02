@@ -24,7 +24,7 @@ const CUTS = [4.5, 5.9, 6.7, 8.9, 10.2, 11.6, 12.6, 13.4];
 const PHASE2 = 4.6, PHASE3 = 12.0;
 
 // texturas: desgaste fuerte (palabra grande) y leve (línea media)
-const Filters: React.FC = () => (
+export const Filters: React.FC = () => (
   <svg width={0} height={0} style={{ position: "absolute" }}>
     {/* palabra grande: manchas grandes irregulares + salpicadura fina */}
     <filter id="s2grunge" x="-5%" y="-10%" width="110%" height="120%">
@@ -44,7 +44,7 @@ const Filters: React.FC = () => (
   </svg>
 );
 
-type Line = { txt: string; at: number; kind: "small" | "mid" | "big"; color?: string; italic?: boolean };
+export type Line = { txt: string; at: number; kind: "small" | "mid" | "big"; color?: string; italic?: boolean };
 const Small: React.FC<{ l: Line }> = ({ l }) => (
   <div style={{ fontFamily: MARK, fontWeight: 700, fontSize: 64, color: "#F2F2F2", textAlign: "left", paddingLeft: 30, transform: "skewX(-10deg)", letterSpacing: 2, lineHeight: 1.0 }}>{l.txt}</div>
 );
@@ -54,7 +54,7 @@ const Mid: React.FC<{ l: Line }> = ({ l }) => (
 const Big: React.FC<{ l: Line }> = ({ l }) => (
   <div style={{ fontFamily: l.italic ? FATI : FAT, fontStyle: l.italic ? "italic" : "normal", fontWeight: 900, fontSize: Math.min(210, 900 / (l.txt.length * (l.italic ? 0.8 : 0.74))), color: l.color, whiteSpace: "nowrap", textAlign: "center", lineHeight: 0.92, letterSpacing: 3, filter: "url(#s2grunge)" }}>{l.txt}</div>
 );
-const Card: React.FC<{ t: number; lines: Line[] }> = ({ t, lines }) => (
+export const Card: React.FC<{ t: number; lines: Line[] }> = ({ t, lines }) => (
   <div style={{ position: "absolute", left: 70, right: 70, top: 720 }}>
     {lines.map((l, i) => (t >= l.at ? (l.kind === "small" ? <Small key={i} l={l} /> : l.kind === "mid" ? <Mid key={i} l={l} /> : <Big key={i} l={l} />) : <div key={i} style={{ height: 0 }} />))}
   </div>
