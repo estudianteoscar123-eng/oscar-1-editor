@@ -18,6 +18,7 @@ import { Giants, GIANTS_TOTAL } from "./giants/Main";
 import { RockLee, ROCKLEE_TOTAL } from "./rocklee/Main";
 import { Pedro2, PEDRO2_TOTAL } from "./pedro2/Main";
 import { Thorfinn, THORFINN_TOTAL } from "./thorfinn/Main";
+import { SubTest, SUBTEST_TOTAL } from "./thorfinn/SubTest";
 import { FranklRef } from "./frankl/Ref";
 import { Atraccion } from "./atraccion/Main";
 import { TresTomas } from "./tres-tomas/Main";
@@ -44,6 +45,9 @@ export const Main = () => {
       <Composition id="RockLee" component={RockLee} durationInFrames={ROCKLEE_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Pedro2" component={Pedro2} durationInFrames={PEDRO2_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Thorfinn" component={Thorfinn} durationInFrames={THORFINN_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="SubTestA" component={SubTest} defaultProps={{ v: "A" as const }} durationInFrames={SUBTEST_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="SubTestB" component={SubTest} defaultProps={{ v: "B" as const }} durationInFrames={SUBTEST_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="SubTestC" component={SubTest} defaultProps={{ v: "C" as const }} durationInFrames={SUBTEST_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Ladron" component={Ladron} durationInFrames={LADRON_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLVegeta" component={SL} defaultProps={{ video: "vegeta" as const }} durationInFrames={SL_TOTAL.vegeta} fps={30} width={1080} height={1920} />
       <Composition id="SLLee" component={SL} defaultProps={{ video: "lee" as const }} durationInFrames={SL_TOTAL.lee} fps={30} width={1080} height={1920} />
