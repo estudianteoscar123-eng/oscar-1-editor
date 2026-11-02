@@ -16,6 +16,9 @@ const SANS = "StSans", SCRIPT = "StScript", SERIF = "StSerif";
 loadFont({ family: SANS, url: staticFile("fonts/poppins-latin-900-normal.woff2"), weight: "900" });
 loadFont({ family: SCRIPT, url: staticFile("fonts/kaushan-script-latin-400-normal.woff2"), weight: "400" });
 loadFont({ family: SERIF, url: staticFile("fonts/cinzel-latin-900-normal.woff2"), weight: "900" });
+const P8 = "StPoppins8", BEBAS = "StBebas";
+loadFont({ family: P8, url: staticFile("fonts/poppins-latin-800-normal.woff2"), weight: "800" });
+loadFont({ family: BEBAS, url: staticFile("fonts/bebas-neue-latin-400-normal.woff2"), weight: "400" });
 
 type Wd = [string, number, number];
 const W = (words as Wd[]).filter((w) => w[1] >= T0 - 0.05 && w[1] < T0 + 6).map((w) => [w[0].replace(/[.,]/g, ""), w[1] - T0, w[2] - T0] as Wd);
@@ -115,7 +118,56 @@ const StyleC: React.FC<{ f: number }> = ({ f }) => {
   );
 };
 
-export const SubTest: React.FC<{ v: "A" | "B" | "C" }> = ({ v }) => {
+
+// ---------- R1 · referencia 1 (podcast): frase entera en minúsculas, clave en caligráfica cian ----------
+const groupsBy = (max: number, chars: number) => {
+  const gs: number[][] = []; let cur: number[] = [];
+  W.forEach((w, i) => {
+    cur.push(i);
+    const txt = cur.map((j) => W[j][0]).join(" ");
+    const nx = W[i + 1];
+    if (!nx || cur.length >= max || txt.length >= chars || (nx && nx[1] - w[2] > 0.35) || (words as Wd[]).find((x) => Math.abs(x[1] - T0 - w[1]) < 0.01)?.[0].match(/[.,]$/)) { gs.push(cur); cur = []; }
+  });
+  return gs;
+};
+const G1 = groupsBy(4, 16);
+const curGroup = (gs: number[][], t: number) => { let g = -1; gs.forEach((x, i) => { if (t >= W[x[0]][1] - 0.05) g = i; }); return g; };
+const StyleR1: React.FC<{ f: number }> = ({ f }) => {
+  const t = f / FPS, g = curGroup(G1, t);
+  if (g < 0) return null;
+  const idx = G1[g], d = f - S(W[idx[0]][1] - 0.05);
+  const k = out(ip(d, [0, 3], [0, 1]));
+  return (
+    <div style={{ position: "absolute", left: 40, right: 40, top: 1150, textAlign: "center", whiteSpace: "nowrap", opacity: k, transform: `scale(${0.92 + 0.08 * k})` }}>
+      {idx.map((i) => {
+        const w = W[i][0], c = key(w);
+        return c ? (
+          <span key={i} style={{ fontFamily: SCRIPT, fontSize: 92, color: "#2FE0D2", margin: "0 10px", textShadow: "0 3px 10px rgba(0,0,0,0.55)" }}>{w.toLowerCase()}</span>
+        ) : (
+          <span key={i} style={{ fontFamily: P8, fontWeight: 800, fontSize: 70, color: "#fff", letterSpacing: -2, margin: "0 9px", textShadow: "0 3px 10px rgba(0,0,0,0.55)" }}>{w.toLowerCase()}</span>
+        );
+      })}
+    </div>
+  );
+};
+
+// ---------- R2 · referencia 2 (deporte): 1–2 palabras que se suman, mayúsculas condensadas, clave en rojo/azul ----------
+const G2 = groupsBy(2, 14);
+const R2C: Record<string, string> = { thorfinn: "#2F8CFF", secuelas: "#E0242F", odio: "#E0242F", pronto: "#2F8CFF", seis: "#E0242F" };
+const StyleR2: React.FC<{ f: number }> = ({ f }) => {
+  const t = f / FPS, g = curGroup(G2, t);
+  if (g < 0) return null;
+  return (
+    <div style={{ position: "absolute", left: 40, right: 40, top: 880, textAlign: "center", whiteSpace: "nowrap" }}>
+      {G2[g].filter((i) => t >= W[i][1] - 0.05).map((i) => {
+        const w = W[i][0], c = R2C[w.toLowerCase()];
+        return <span key={i} style={{ fontFamily: BEBAS, fontSize: 132, color: c ?? "#fff", letterSpacing: 1, margin: "0 14px", textShadow: "0 4px 14px rgba(0,0,0,0.6)" }}>{w.toUpperCase()}</span>;
+      })}
+    </div>
+  );
+};
+
+export const SubTest: React.FC<{ v: "A" | "B" | "C" | "R1" | "R2" }> = ({ v }) => {
   const f = useCurrentFrame();
   const sh = v === "A" ? shakeA(f) : 0;
   return (
@@ -124,7 +176,7 @@ export const SubTest: React.FC<{ v: "A" | "B" | "C" }> = ({ v }) => {
         <Footage />
       </AbsoluteFill>
       <AbsoluteFill style={{ background: "radial-gradient(ellipse 80% 65% at 50% 50%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.6) 100%)" }} />
-      {v === "A" ? <StyleA f={f} /> : v === "B" ? <StyleB f={f} /> : <StyleC f={f} />}
+      {v === "A" ? <StyleA f={f} /> : v === "B" ? <StyleB f={f} /> : v === "C" ? <StyleC f={f} /> : v === "R1" ? <StyleR1 f={f} /> : <StyleR2 f={f} />}
       <Audio src={staticFile("thorfinn/mezcla.wav")} trimBefore={S(T0)} />
     </AbsoluteFill>
   );

@@ -48,6 +48,8 @@ export const Main = () => {
       <Composition id="SubTestA" component={SubTest} defaultProps={{ v: "A" as const }} durationInFrames={SUBTEST_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SubTestB" component={SubTest} defaultProps={{ v: "B" as const }} durationInFrames={SUBTEST_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SubTestC" component={SubTest} defaultProps={{ v: "C" as const }} durationInFrames={SUBTEST_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="SubTestR1" component={SubTest} defaultProps={{ v: "R1" as const }} durationInFrames={SUBTEST_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="SubTestR2" component={SubTest} defaultProps={{ v: "R2" as const }} durationInFrames={SUBTEST_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Ladron" component={Ladron} durationInFrames={LADRON_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLVegeta" component={SL} defaultProps={{ video: "vegeta" as const }} durationInFrames={SL_TOTAL.vegeta} fps={30} width={1080} height={1920} />
       <Composition id="SLLee" component={SL} defaultProps={{ video: "lee" as const }} durationInFrames={SL_TOTAL.lee} fps={30} width={1080} height={1920} />
