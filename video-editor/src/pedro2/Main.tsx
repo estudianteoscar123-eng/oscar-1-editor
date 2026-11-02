@@ -18,7 +18,7 @@ const ip = (v: number, i: number[], o: number[]) => interpolate(v, i, o, { extra
 const out = Easing.out(Easing.cubic);
 const ease = (x: number) => 1 - Math.pow(1 - Math.min(1, Math.max(0, x)), 3);
 
-const C = { dolor: "#FF3B3B", capaz: "#A6FF2E", accion: "#FFC21A", logro: "#62C8FF", tu: "#F27BFF", blanco: "#FFFFFF" };
+const C = { dolor: "#D3122B", capaz: "#16A34A", accion: "#D4A017", logro: "#2563EB", tu: "#9333EA", blanco: "#F1EEE8" };
 
 // ---------- escenario ----------
 const Night: React.FC<{ f: number; moon?: boolean }> = ({ f, moon = true }) => (
@@ -140,7 +140,7 @@ const Word: React.FC<{ w: W; f: number; big: boolean; size: number }> = ({ w, f,
   const c = w[2] ?? C.blanco;
   const k = out(ip(t, [0, 5], [0, 1]));
   return (
-    <span style={{ display: "inline-block", marginRight: big ? size * 0.22 : 14, opacity: ip(t, [0, 3], [0, 1]), transform: `translateY(${(1 - k) * (big ? 26 : 12)}px) scale(${1 + (1 - k) * (big ? 0.35 : 0.2)})`, filter: `blur(${(1 - k) * 8}px)`, color: c, textShadow: big ? `0 0 14px ${c}CC, 0 0 38px ${c}77, 0 6px 18px rgba(0,0,0,0.9)` : "0 0 10px rgba(255,255,255,0.35), 0 4px 12px rgba(0,0,0,0.95)" }}>
+    <span style={{ display: "inline-block", marginRight: big ? size * 0.22 : 14, opacity: ip(t, [0, 3], [0, 1]), transform: `translateY(${(1 - k) * (big ? 26 : 12)}px) scale(${1 + (1 - k) * (big ? 0.35 : 0.2)})`, filter: `blur(${(1 - k) * 8}px)`, color: c, textShadow: big ? "0 2px 0 rgba(0,0,0,0.85), 0 6px 22px rgba(0,0,0,0.95), 0 0 46px rgba(0,0,0,0.8)" : "0 2px 0 rgba(0,0,0,0.8), 0 4px 14px rgba(0,0,0,0.95)", WebkitTextStroke: big ? "1.5px rgba(0,0,0,0.55)" : undefined }}>
       {w[0]}
     </span>
   );
@@ -173,8 +173,8 @@ const Captions: React.FC<{ f: number }> = ({ f }) => (
 
 // ---------- escenas ----------
 // 0 · 0–3,1: estás afuera del barco, con el viento en contra
-const Scene0: React.FC = () => {
-  const f = useCurrentFrame();
+const Scene0: React.FC<{ o?: number }> = ({ o = 0 }) => {
+  const f = useCurrentFrame() + o;
   return (
     <AbsoluteFill>
       <Night f={f} />
@@ -187,8 +187,8 @@ const Scene0: React.FC = () => {
   );
 };
 // 1 · 3,1–6,95: caminas sobre el agua (cámara baja, pies sobre el agua)
-const Scene1: React.FC = () => {
-  const f = useCurrentFrame();
+const Scene1: React.FC<{ o?: number }> = ({ o = 0 }) => {
+  const f = useCurrentFrame() + o;
   const push = ip(f, [0, 110], [1.0, 1.45]);
   return (
     <AbsoluteFill>
@@ -207,8 +207,8 @@ const Scene1: React.FC = () => {
   );
 };
 // 2 · 6,95–9,5: la ola (miras la ola) y el viento (sólo ves el viento)
-const Scene2: React.FC = () => {
-  const f = useCurrentFrame();
+const Scene2: React.FC<{ o?: number }> = ({ o = 0 }) => {
+  const f = useCurrentFrame() + o;
   const rise = ease(ip(f, [0, 22], [0, 1]));
   const shake = f > 36 ? 12 * (1 - Math.min(1, (f - 36) / 18)) : 0;
   return (
@@ -221,8 +221,8 @@ const Scene2: React.FC = () => {
   );
 };
 // 3 · 9,5–12,0: te hundes… y una mano te toma
-const Scene3: React.FC = () => {
-  const f = useCurrentFrame();
+const Scene3: React.FC<{ o?: number }> = ({ o = 0 }) => {
+  const f = useCurrentFrame() + o;
   const sink = ip(f, [0, 60], [1500, 1080]);
   const hand = ip(f, [40, 62], [0, 1]);
   return (
@@ -243,8 +243,8 @@ const Scene3: React.FC = () => {
   );
 };
 // 4 · 12,0–16,7: Jesús no te grita, te pregunta
-const Scene4: React.FC = () => {
-  const f = useCurrentFrame();
+const Scene4: React.FC<{ o?: number }> = ({ o = 0 }) => {
+  const f = useCurrentFrame() + o;
   const lift = ease(ip(f, [0, 30], [0, 1]));
   return (
     <AbsoluteFill>
@@ -260,8 +260,8 @@ const Scene4: React.FC = () => {
   );
 };
 // 5 · 16,7–19,7: ¿por qué dudaste?
-const Scene5: React.FC = () => {
-  const f = useCurrentFrame();
+const Scene5: React.FC<{ o?: number }> = ({ o = 0 }) => {
+  const f = useCurrentFrame() + o;
   const pulse = ip(f, [0, 4, 30], [0, 1, 0.6]);
   return (
     <AbsoluteFill style={{ background: "#020408" }}>
@@ -269,16 +269,14 @@ const Scene5: React.FC = () => {
       <Sea f={f} y={1400} amp={0.6} />
       <Figure f={f} x={520} y={1450} h={420} rim="#FFF6DA" rimSide={1} cloth="#F4EEE2" hood={false} glow={0.6} shadow={false} />
       <Figure f={f} x={360} y={1500} h={300} rim="#9FD8FF" rimSide={-1} cloth="#3A4650" hood={false} head={16} o={0.9} />
-      <div style={{ position: "absolute", left: 540 - 120, top: 1000, fontFamily: SERIF_XB, fontStyle: "italic", fontWeight: 800, fontSize: 320, color: `rgba(255,59,59,${0.25 + 0.25 * pulse})`, textShadow: "0 0 60px rgba(255,59,59,0.5)" }}>?</div>
       <Vignette s={0.8} />
     </AbsoluteFill>
   );
 };
 // 6 · 19,7–22,4: la ola o él
-const Scene6: React.FC = () => {
-  const f = useCurrentFrame();
-  const t = f / FPS;
-  const toHim = t >= 21.2;
+const Scene6: React.FC<{ o?: number }> = ({ o = 0 }) => {
+  const f = useCurrentFrame() + o;
+  const toHim = f >= S(21.2 - 19.7);
   return (
     <AbsoluteFill style={{ background: "#03060B" }}>
       {/* lado de la ola (izquierda) */}
@@ -295,9 +293,101 @@ const Scene6: React.FC = () => {
   );
 };
 
-const CUTS: [number, React.FC][] = [[0, Scene0], [3.1, Scene1], [6.95, Scene2], [9.5, Scene3], [12.0, Scene4], [16.7, Scene5], [19.7, Scene6]];
+// ---------- montaje dinámico: un plano cada ~0,9 s ----------
+const SCENES: React.FC<{ o?: number }>[] = [Scene0, Scene1, Scene2, Scene3, Scene4, Scene5, Scene6];
+const SC = [0, 3.1, 6.95, 9.5, 12.0, 16.7, 19.7];
+// [inicio, escena, zoom inicial, zoom final, punto x, punto y, giro]
+type Shot = [number, number, number, number, number, number, number];
+const SHOTS: Shot[] = [
+  [0, 0, 1.25, 1.05, 540, 1150, -2],
+  [0.9, 0, 2.3, 2.6, 760, 1240, 1],
+  [1.8, 0, 1.9, 1.7, 300, 1180, -1],
+  [2.32, 0, 1.15, 1.3, 540, 1100, -5],
+  [3.1, 1, 2.2, 1.9, 540, 1560, 0],
+  [3.94, 1, 1.15, 1.35, 540, 1300, 2],
+  [5.22, 1, 2.8, 3.1, 540, 1580, -1],
+  [6.12, 1, 2.4, 2.7, 540, 1040, 1],
+  [6.92, 2, 1.0, 1.25, 540, 1200, 3],
+  [7.6, 2, 2.3, 2.5, 540, 1180, -2],
+  [8.58, 2, 1.3, 1.5, 540, 1250, -6],
+  [9.5, 3, 1.3, 1.5, 540, 1300, 0],
+  [10.06, 3, 2.1, 2.4, 540, 1280, 4],
+  [10.96, 3, 1.6, 1.4, 540, 1150, -2],
+  [11.44, 3, 1.0, 1.15, 540, 900, 0],
+  [12.0, 4, 1.45, 1.05, 540, 1000, 0],
+  [13.18, 4, 2.2, 2.4, 600, 720, 1],
+  [14.02, 4, 1.35, 1.5, 500, 1000, -1],
+  [15.18, 4, 1.9, 2.1, 470, 1180, 1],
+  [16.7, 5, 1.0, 1.2, 540, 1200, 0],
+  [17.16, 5, 1.6, 1.8, 480, 1250, -3],
+  [18.36, 5, 1.0, 1.35, 540, 1100, 0],
+  [19.7, 6, 1.05, 1.0, 540, 960, 0],
+  [20.12, 6, 1.7, 1.9, 270, 1250, -2],
+  [21.2, 6, 1.7, 1.5, 810, 1150, 2],
+  [21.6, 6, 1.25, 1.1, 540, 1050, 0],
+];
+// palabras clave: sacudida + golpe de zoom
+const IMPACTS = [0.0, 2.32, 6.92, 8.58, 10.06, 11.98, 14.02, 17.16, 18.96, 21.6];
+const impactAt = (f: number) => IMPACTS.reduce((o, t) => { const d = f - S(t); return d >= 0 && d < 10 ? Math.max(o, 1 - d / 10) : o; }, 0);
 
-const SFX: [number, string, number][] = [[6.9, "sfx/whoosh", 0.45], [9.7, "sfx/drop", 0.6], [12.0, "sfx/shimmer", 0.4], [16.7, "sfx/crack", 0.3], [21.6, "sfx/impact", 0.5]];
+const Shot: React.FC<{ sh: Shot; len: number }> = ({ sh, len }) => {
+  const f = useCurrentFrame();
+  const [t, k, z0, z1, ox, oy, rot] = sh;
+  const Cmp = SCENES[k];
+  const z = interpolate(f, [0, len], [z0, z1], { extrapolateRight: "clamp" }) * ip(f, [0, 6], [1.12, 1]);
+  const pan = Math.min(1, (z - 1) * 1.1);
+  const jx = Math.sin(f / 7 + t) * 5 + Math.sin(f / 3.1) * 2;
+  const jy = Math.cos(f / 8 + t) * 5;
+  const blur = ip(f, [0, 3], [10, 0]);
+  return (
+    <AbsoluteFill style={{ overflow: "hidden" }}>
+      <AbsoluteFill style={{ transformOrigin: `${ox}px ${oy}px`, transform: `translate(${(540 - ox) * pan + jx}px, ${(960 - oy) * pan + jy}px) scale(${z}) rotate(${rot * ip(f, [0, len], [0.4, 1])}deg)`, filter: `blur(${blur}px)` }}>
+        <Cmp o={S(t - SC[k]) + f} />
+      </AbsoluteFill>
+    </AbsoluteFill>
+  );
+};
+
+// rayo de tormenta (cielo) en el gancho y en "sólo ves el viento"
+const BOLTS = [0.1, 2.3, 8.55];
+const Lightning: React.FC<{ f: number }> = ({ f }) => {
+  const b = BOLTS.find((t) => f >= S(t) && f < S(t) + 9);
+  if (b === undefined) return null;
+  const d = f - S(b);
+  let x = 200 + random(`bx${b}`) * 680;
+  let path = `M${x} -20`;
+  for (let i = 1; i <= 8; i++) { x += (random(`b${b}${i}`) - 0.5) * 170; path += ` L${x} ${i * 120}`; }
+  const o = d < 2 ? 1 : d < 4 ? 0.3 : d < 5 ? 0.8 : ip(d, [5, 9], [0.6, 0]);
+  return (
+    <AbsoluteFill style={{ pointerEvents: "none" }}>
+      <AbsoluteFill style={{ background: `rgba(170,200,255,${0.32 * o})`, mixBlendMode: "screen" }} />
+      <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, opacity: o }}>
+        <path d={path} stroke="#EAF2FF" strokeWidth={7} fill="none" style={{ filter: "drop-shadow(0 0 18px #9CC8FF) drop-shadow(0 0 44px #6AA8FF)" }} />
+      </svg>
+    </AbsoluteFill>
+  );
+};
+
+// salpicadura al hundirse
+const Splash: React.FC<{ f: number }> = ({ f }) => {
+  const d = f - S(10.06);
+  if (d < 0 || d > 40) return null;
+  return (
+    <AbsoluteFill style={{ pointerEvents: "none" }}>
+      {Array.from({ length: 46 }, (_, i) => {
+        const a = Math.PI * (0.1 + 0.8 * random(`sa${i}`));
+        const v = 14 + random(`sv${i}`) * 26;
+        const r = 6 + random(`sr${i}`) * 16;
+        return <div key={i} style={{ position: "absolute", left: 540 + Math.cos(a) * v * d * (random(`sd${i}`) > 0.5 ? 1 : -1), top: 1250 - Math.sin(a) * v * d + 0.9 * d * d, width: r, height: r, borderRadius: "50%", background: "rgba(205,235,250,0.9)", opacity: ip(d, [0, 30, 40], [1, 0.8, 0]) }} />;
+      })}
+    </AbsoluteFill>
+  );
+};
+
+const SFX: [number, string, number][] = [
+  [0.05, "jonas/trueno", 0.4], [6.88, "sfx/whoosh", 0.45], [8.5, "jonas/trueno", 0.3],
+  [10.0, "jonas/agua", 0.55], [11.95, "sfx/shimmer", 0.4], [21.58, "sfx/impact", 0.5],
+];
 const Sfx: React.FC<{ t: number; name: string; v: number }> = ({ t, name, v }) => (
   <Sequence from={S(t)} durationInFrames={90}>
     <Audio src={staticFile(`${name}.wav`)} volume={v} />
@@ -306,22 +396,25 @@ const Sfx: React.FC<{ t: number; name: string; v: number }> = ({ t, name, v }) =
 
 export const Pedro2: React.FC = () => {
   const f = useCurrentFrame();
-  const flash = CUTS.slice(1).reduce((o, [c]) => (f >= S(c) ? Math.max(o, ip(f - S(c), [0, 3], [0.22, 0])) : o), 0);
+  const imp = impactAt(f);
+  const warm = ip(f - S(11.98), [0, 2, 12], [0, 0.55, 0]);
   return (
     <AbsoluteFill style={{ background: "#000" }}>
-      <AbsoluteFill style={{ filter: "contrast(1.08) saturate(1.1)" }}>
-        {CUTS.map(([c, Cmp], i) => {
-          const end = CUTS[i + 1]?.[0] ?? 22.4;
+      <AbsoluteFill style={{ filter: "contrast(1.1) saturate(1.12)", transform: `translate(${(random(`ix${f}`) - 0.5) * 22 * imp}px, ${(random(`iy${f}`) - 0.5) * 22 * imp}px) scale(${1 + 0.05 * imp})` }}>
+        {SHOTS.map((sh, i) => {
+          const end = SHOTS[i + 1]?.[0] ?? 22.4;
           return (
-            <Sequence key={i} from={S(c)} durationInFrames={S(end) - S(c)}>
-              <Cmp />
+            <Sequence key={i} from={S(sh[0])} durationInFrames={S(end) - S(sh[0])}>
+              <Shot sh={sh} len={S(end) - S(sh[0])} />
             </Sequence>
           );
         })}
+        <Lightning f={f} />
+        <Splash f={f} />
       </AbsoluteFill>
-      <AbsoluteFill style={{ background: `rgba(255,255,255,${flash})`, pointerEvents: "none" }} />
+      <AbsoluteFill style={{ background: `rgba(255,232,190,${warm})`, mixBlendMode: "screen", pointerEvents: "none" }} />
       <Grain f={f} />
-      <Vignette s={0.7} />
+      <Vignette s={0.75} />
       <Captions f={f} />
       <Audio src={staticFile("pedro2/mezcla.wav")} />
       {SFX.map(([t, n, v], i) => <Sfx key={i} t={t} name={n} v={v} />)}
