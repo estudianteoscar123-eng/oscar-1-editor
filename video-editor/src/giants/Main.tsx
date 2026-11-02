@@ -125,10 +125,10 @@ const Clip: React.FC<{ f: number }> = ({ f }) => {
   const len = S((CUTS[k + 1] ?? 22.42) - CUTS[k]);
   const reveal = k === CUTS.length - 1;
   // golpe de entrada en cada corte + deriva lenta; el plano aéreo se abre despacio para mostrar el campo entero
-  const punch = ip(since, [0, 6], [1.07, 1]);
+  const punch = ip(since, [0, 8], [1.025, 1]);
   const drift = reveal ? ip(since, [0, len], [1.18, 1.0]) : ip(since, [0, len], [1.0, 1.06]);
   const ox = [50, 45, 55, 50, 40, 50, 55, 50, 45, 60][k];
-  const flash = k > 0 && k !== 7 ? ip(since, [0, 1, 5], [0.22, 0.22, 0]) : 0;
+  const flash = 0;
   // el desplome entra en cámara lenta visual: leve desaturado
   const grade = k === 7 ? "saturate(0.6) contrast(1.1) brightness(0.9)" : reveal ? `brightness(${ip(since, [0, 20], [1.5, 1.05])}) saturate(1.1)` : "contrast(1.04)";
   return (
