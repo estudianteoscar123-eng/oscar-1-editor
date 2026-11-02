@@ -160,7 +160,7 @@ export const Thorfinn: React.FC = () => {
       </AbsoluteFill>
       <AbsoluteFill style={{ background: `rgba(0,0,0,${dark})` }} />
       {/* gancho: tarjeta entre el fondo y la figura recortada */}
-      {t < CARDS[0].end ? <Card f={f} t0={CARDS[0].t0} small={CARDS[0].small} big={CARDS[0].big} size={CARDS[0].size} y={760} /> : null}
+      {t < CARDS[0].end ? <Card f={f} t0={CARDS[0].t0} small={CARDS[0].small} big={CARDS[0].big} size={CARDS[0].size} y={1150} /> : null}
       <Sequence from={0} durationInFrames={S(1.1)}>
         <HookFg />
       </Sequence>
