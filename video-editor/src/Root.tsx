@@ -17,6 +17,7 @@ import { Jonas, JONAS_TOTAL } from "./jonas/Main";
 import { Giants, GIANTS_TOTAL } from "./giants/Main";
 import { RockLee, ROCKLEE_TOTAL } from "./rocklee/Main";
 import { Pedro2, PEDRO2_TOTAL } from "./pedro2/Main";
+import { Thorfinn, THORFINN_TOTAL } from "./thorfinn/Main";
 import { FranklRef } from "./frankl/Ref";
 import { Atraccion } from "./atraccion/Main";
 import { TresTomas } from "./tres-tomas/Main";
@@ -42,6 +43,7 @@ export const Main = () => {
       <Composition id="Giants" component={Giants} durationInFrames={GIANTS_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="RockLee" component={RockLee} durationInFrames={ROCKLEE_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Pedro2" component={Pedro2} durationInFrames={PEDRO2_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="Thorfinn" component={Thorfinn} durationInFrames={THORFINN_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Ladron" component={Ladron} durationInFrames={LADRON_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLVegeta" component={SL} defaultProps={{ video: "vegeta" as const }} durationInFrames={SL_TOTAL.vegeta} fps={30} width={1080} height={1920} />
       <Composition id="SLLee" component={SL} defaultProps={{ video: "lee" as const }} durationInFrames={SL_TOTAL.lee} fps={30} width={1080} height={1920} />
