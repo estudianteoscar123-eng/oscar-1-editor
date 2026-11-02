@@ -26,13 +26,21 @@ const PHASE2 = 4.6, PHASE3 = 12.0;
 // texturas: desgaste fuerte (palabra grande) y leve (línea media)
 const Filters: React.FC = () => (
   <svg width={0} height={0} style={{ position: "absolute" }}>
-    {[["s2grunge", 0.55, "-3.4 0 0 0 2.35"], ["s2soft", 1.6, "-2.2 0 0 0 2.05"]].map(([id, fq, m]) => (
-      <filter key={id as string} id={id as string} x="-5%" y="-10%" width="110%" height="120%">
-        <feTurbulence type="fractalNoise" baseFrequency={fq as number} numOctaves={4} seed={11} result="n" />
-        <feColorMatrix in="n" type="matrix" values={`0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  ${m}`} result="m" />
-        <feComposite in="SourceGraphic" in2="m" operator="in" />
-      </filter>
-    ))}
+    {/* palabra grande: manchas grandes irregulares + salpicadura fina */}
+    <filter id="s2grunge" x="-5%" y="-10%" width="110%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves={4} seed={5} result="b" />
+      <feColorMatrix in="b" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -10 0 0 0 7.1" result="bm" />
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves={2} seed={9} result="s" />
+      <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -8 0 0 0 6.2" result="sm" />
+      <feComposite in="bm" in2="sm" operator="arithmetic" k1={1} k2={0} k3={0} k4={0} result="m" />
+      <feComposite in="SourceGraphic" in2="m" operator="in" />
+    </filter>
+    {/* línea media: casi limpia */}
+    <filter id="s2soft" x="-5%" y="-10%" width="110%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves={2} seed={3} result="s" />
+      <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -8 0 0 0 5.6" result="sm" />
+      <feComposite in="SourceGraphic" in2="sm" operator="in" />
+    </filter>
   </svg>
 );
 
@@ -41,10 +49,10 @@ const Small: React.FC<{ l: Line }> = ({ l }) => (
   <div style={{ fontFamily: MARK, fontWeight: 700, fontSize: 64, color: "#F2F2F2", textAlign: "left", paddingLeft: 30, transform: "skewX(-10deg)", letterSpacing: 2, lineHeight: 1.0 }}>{l.txt}</div>
 );
 const Mid: React.FC<{ l: Line }> = ({ l }) => (
-  <div style={{ fontFamily: MID, fontWeight: 700, fontSize: 104, color: "#F4F4F4", textAlign: "right", paddingRight: 20, lineHeight: 0.98, letterSpacing: 1, filter: "url(#s2soft)" }}>{l.txt}</div>
+  <div style={{ fontFamily: MID, fontWeight: 700, fontSize: l.txt.length > 12 ? 86 : 104, color: "#F4F4F4", textAlign: "right", paddingRight: 20, lineHeight: 0.98, whiteSpace: "nowrap", letterSpacing: 1, filter: "url(#s2soft)" }}>{l.txt}</div>
 );
 const Big: React.FC<{ l: Line }> = ({ l }) => (
-  <div style={{ fontFamily: l.italic ? FATI : FAT, fontStyle: l.italic ? "italic" : "normal", fontWeight: 900, fontSize: l.txt.length > 7 ? 168 : 210, color: l.color, textAlign: "center", lineHeight: 0.92, letterSpacing: 3, filter: "url(#s2grunge)" }}>{l.txt}</div>
+  <div style={{ fontFamily: l.italic ? FATI : FAT, fontStyle: l.italic ? "italic" : "normal", fontWeight: 900, fontSize: Math.min(210, 900 / (l.txt.length * (l.italic ? 0.8 : 0.74))), color: l.color, whiteSpace: "nowrap", textAlign: "center", lineHeight: 0.92, letterSpacing: 3, filter: "url(#s2grunge)" }}>{l.txt}</div>
 );
 const Card: React.FC<{ t: number; lines: Line[] }> = ({ t, lines }) => (
   <div style={{ position: "absolute", left: 70, right: 70, top: 720 }}>
@@ -63,13 +71,16 @@ const R4_CARD: Line[] = [
 
 // fase 2 · títulos fijos
 const DenjiTitle: React.FC = () => (
-  <div style={{ position: "absolute", left: 0, right: 0, top: 830, textAlign: "center", fontFamily: TRAJ, fontWeight: 700, fontSize: 168, letterSpacing: 2, color: "#E8891E", textShadow: "-7px 9px 0 rgba(28,24,22,0.78), -7px 9px 10px rgba(0,0,0,0.45)" }}>THORFINN</div>
+  <div style={{ position: "absolute", left: 0, right: 0, top: 830, textAlign: "center", fontFamily: TRAJ, fontWeight: 700, fontSize: 132, letterSpacing: 1, color: "#E8891E", textShadow: "-7px 9px 0 rgba(28,24,22,0.78), -7px 9px 10px rgba(0,0,0,0.45)" }}>THORFINN</div>
 );
 const VsTitle: React.FC = () => (
   <div style={{ position: "absolute", left: 0, right: 0, top: 790, textAlign: "center", fontFamily: MID, fontWeight: 700, lineHeight: 1.02 }}>
     <div style={{ fontSize: 118, color: "#C41E2A", textShadow: "-4px 6px 0 rgba(20,10,10,0.7), 0 6px 16px rgba(0,0,0,0.6)" }}>HOMBRE</div>
     <div style={{ fontSize: 84, color: "#FFFFFF", textShadow: "-4px 6px 0 rgba(20,20,20,0.7)" }}>VS</div>
-    <div style={{ fontSize: 118, paddingTop: 4, background: "linear-gradient(#FFFFFF 15%, #9A9A9A 85%)", WebkitBackgroundClip: "text", color: "transparent", filter: "drop-shadow(-4px 6px 0 rgba(20,20,20,0.7))" }}>SÍ MISMO</div>
+    <div style={{ position: "relative", fontSize: 118, paddingTop: 4 }}>
+      <div style={{ position: "absolute", left: -4, right: 4, top: 10, color: "rgba(20,20,20,0.7)" }}>SÍ MISMO</div>
+      <div style={{ position: "relative", paddingTop: 26, marginTop: -26, background: "linear-gradient(#FFFFFF 30%, #9A9A9A 90%)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>SÍ MISMO</div>
+    </div>
   </div>
 );
 
