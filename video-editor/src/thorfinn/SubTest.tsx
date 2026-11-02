@@ -17,7 +17,9 @@ loadFont({ family: SANS, url: staticFile("fonts/poppins-latin-900-normal.woff2")
 loadFont({ family: SCRIPT, url: staticFile("fonts/kaushan-script-latin-400-normal.woff2"), weight: "400" });
 loadFont({ family: SERIF, url: staticFile("fonts/cinzel-latin-900-normal.woff2"), weight: "900" });
 const P8 = "StPoppins8", BEBAS = "StBebas";
-loadFont({ family: P8, url: staticFile("fonts/poppins-latin-800-normal.woff2"), weight: "800" });
+loadFont({ family: P8, url: staticFile("fonts/poppins-latin-700-normal.woff2"), weight: "700" });
+const YT = "StYellowtail";
+loadFont({ family: YT, url: staticFile("fonts/yellowtail-latin-400-normal.woff2"), weight: "400" });
 loadFont({ family: BEBAS, url: staticFile("fonts/bebas-neue-latin-400-normal.woff2"), weight: "400" });
 
 type Wd = [string, number, number];
@@ -130,7 +132,7 @@ const groupsBy = (max: number, chars: number) => {
   });
   return gs;
 };
-const G1 = groupsBy(4, 16);
+const G1 = groupsBy(4, 15);
 const curGroup = (gs: number[][], t: number) => { let g = -1; gs.forEach((x, i) => { if (t >= W[x[0]][1] - 0.05) g = i; }); return g; };
 const StyleR1: React.FC<{ f: number }> = ({ f }) => {
   const t = f / FPS, g = curGroup(G1, t);
@@ -138,13 +140,13 @@ const StyleR1: React.FC<{ f: number }> = ({ f }) => {
   const idx = G1[g], d = f - S(W[idx[0]][1] - 0.05);
   const k = out(ip(d, [0, 3], [0, 1]));
   return (
-    <div style={{ position: "absolute", left: 40, right: 40, top: 1150, textAlign: "center", whiteSpace: "nowrap", opacity: k, transform: `scale(${0.92 + 0.08 * k})` }}>
+    <div style={{ position: "absolute", left: 40, right: 40, top: 960, textAlign: "center", whiteSpace: "nowrap", opacity: k, transform: `scale(${0.94 + 0.06 * k})` }}>
       {idx.map((i) => {
         const w = W[i][0], c = key(w);
         return c ? (
-          <span key={i} style={{ fontFamily: SCRIPT, fontSize: 92, color: "#2FE0D2", margin: "0 10px", textShadow: "0 3px 10px rgba(0,0,0,0.55)" }}>{w.toLowerCase()}</span>
+          <span key={i} style={{ fontFamily: YT, fontSize: 96, color: "#33DCEB", margin: "0 6px", letterSpacing: -1, textShadow: "0 0 14px rgba(51,220,235,0.55), 0 3px 8px rgba(0,0,0,0.45)" }}>{w.toLowerCase()}</span>
         ) : (
-          <span key={i} style={{ fontFamily: P8, fontWeight: 800, fontSize: 70, color: "#fff", letterSpacing: -2, margin: "0 9px", textShadow: "0 3px 10px rgba(0,0,0,0.55)" }}>{w.toLowerCase()}</span>
+          <span key={i} style={{ fontFamily: P8, fontWeight: 700, fontSize: 64, color: "#fff", letterSpacing: -4, margin: "0 6px", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}>{w.toLowerCase()}</span>
         );
       })}
     </div>
@@ -161,7 +163,7 @@ const StyleR2: React.FC<{ f: number }> = ({ f }) => {
     <div style={{ position: "absolute", left: 40, right: 40, top: 880, textAlign: "center", whiteSpace: "nowrap" }}>
       {G2[g].filter((i) => t >= W[i][1] - 0.05).map((i) => {
         const w = W[i][0], c = R2C[w.toLowerCase()];
-        return <span key={i} style={{ fontFamily: BEBAS, fontSize: 132, color: c ?? "#fff", letterSpacing: 1, margin: "0 14px", textShadow: "0 4px 14px rgba(0,0,0,0.6)" }}>{w.toUpperCase()}</span>;
+        return <span key={i} style={{ fontFamily: BEBAS, fontSize: 104, color: c ?? "#fff", letterSpacing: 0.5, margin: "0 11px", textShadow: "0 4px 6px rgba(0,0,0,0.55), 0 0 2px rgba(0,0,0,0.4)" }}>{w.toUpperCase()}</span>;
       })}
     </div>
   );
