@@ -50,5 +50,6 @@ Al terminar cada video se entrega su título: corto, en forma de pregunta y pens
 ## Estándar dinámico (desde "Pedro camina sobre el agua" v2)
 - Un plano cada ~0,9 s: la misma escena se corta en varios encuadres (general, primer plano, detalle) con zoom en movimiento, giro leve y pulso de mano.
 - Cada palabra clave lleva impacto: sacudida + golpe de zoom; efectos de escena (rayo, salpicadura, destello cálido).
-- Subtítulos de dos niveles en colores profundos (rojo #D3122B, verde #16A34A, dorado #D4A017, morado #9333EA) con sombra negra, nunca con brillo blanco.
+- Subtítulos: siempre los de ZK (arriba, 1–3 palabras, clave enmarcada en azul). Los de dos niveles son solo de SL; nunca mezclarlos.
+- Canciones sacadas de TikTok: cortar antes del sonido del logo final.
 - Regla del usuario: cada video debe superar claramente al anterior.

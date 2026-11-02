@@ -1,18 +1,14 @@
 import React from "react";
 import { Audio } from "@remotion/media";
-import { loadFont } from "@remotion/fonts";
 import { AbsoluteFill, Easing, Sequence, interpolate, random, staticFile, useCurrentFrame } from "remotion";
-import { Figure, GodRays, Dust, Rain, Stars, Grain, Vignette } from "../kit/Kit";
+import { Figure, GodRays, Dust, Rain, Stars, Grain, Vignette, Captions, groupWords, Word as KWord } from "../kit/Kit";
+import data from "../../public/pedro2/words.json";
 
 // ZK · "Pedro camina sobre el agua" (Mateo 14:22–33). Noche, viento, la ola que hunde y la mano que rescata.
 const FPS = 30;
 export const PEDRO2_TOTAL = Math.round(22.4 * FPS);
 const S = (t: number) => Math.round(t * FPS);
 
-const SERIF = "PedroSerifB";
-const SERIF_XB = "PedroSerifXB";
-loadFont({ family: SERIF, url: staticFile("fonts/playfair-display-latin-700-italic.woff2"), weight: "700", style: "italic" });
-loadFont({ family: SERIF_XB, url: staticFile("fonts/playfair-display-latin-800-italic.woff2"), weight: "800", style: "italic" });
 
 const ip = (v: number, i: number[], o: number[]) => interpolate(v, i, o, { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 const out = Easing.out(Easing.cubic);
@@ -103,73 +99,11 @@ const Halo: React.FC<{ f: number; x: number; y: number; r: number; o?: number }>
   <div style={{ position: "absolute", left: x - r, top: y - r, width: r * 2, height: r * 2, borderRadius: "50%", background: `radial-gradient(circle, rgba(255,246,220,${0.55 * o}), rgba(255,236,190,${0.18 * o}) 45%, rgba(255,230,170,0) 70%)`, transform: `scale(${1 + 0.03 * Math.sin(f / 18)})` }} />
 );
 
-// ---------- subtítulos de dos niveles ----------
-type W = [string, number, string?];
-type Zone = "A" | "B" | "C" | "D";
-type Block = { small?: W[]; big: W[]; zone: Zone; size?: number };
-const BLOCKS: Block[] = [
-  { small: [["Estás", 0.26], ["afuera", 0.62]], big: [["del", 0.94, C.blanco], ["barco,", 1.12, C.blanco]], zone: "C", size: 130 },
-  { small: [["con", 2.04], ["el", 2.2]], big: [["viento", 2.32, C.dolor]], zone: "A", size: 140 },
-  { small: [["en", 2.66]], big: [["contra,", 3.06, C.dolor]], zone: "B", size: 140 },
-  { small: [["y", 3.94]], big: [["caminas", 4.18, C.accion]], zone: "C", size: 140 },
-  { small: [["sobre", 4.68], ["el", 4.94]], big: [["agua,", 5.22, C.capaz]], zone: "A", size: 150 },
-  { small: [["hasta", 6.12], ["que", 6.28]], big: [["miras", 6.42, C.accion]], zone: "B", size: 140 },
-  { small: [["la", 6.72]], big: [["ola.", 6.92, C.tu]], zone: "C", size: 170 },
-  { small: [["Sólo", 8.06], ["ves", 8.28], ["el", 8.46]], big: [["viento,", 8.58, C.dolor]], zone: "A", size: 150 },
-  { small: [["y", 9.76], ["te", 9.92]], big: [["hundes,", 10.06, C.dolor]], zone: "C", size: 170 },
-  { small: [["pero", 10.96], ["una", 11.18]], big: [["mano", 11.44, C.capaz]], zone: "B", size: 150 },
-  { small: [["te", 11.9]], big: [["toma.", 11.98, C.capaz]], zone: "A", size: 150 },
-  { small: [["Jesús", 13.18], ["no", 13.66], ["te", 13.84]], big: [["grita,", 14.02, C.blanco]], zone: "C", size: 150 },
-  { small: [["te", 15.18]], big: [["pregunta,", 15.62, C.accion]], zone: "B", size: 150 },
-  { small: [["¿por", 16.82], ["qué", 16.98]], big: [["dudaste?", 17.16, C.dolor]], zone: "C", size: 150 },
-  { small: [["¿Tú", 18.36], ["qué", 18.58], ["ves", 18.72]], big: [["hoy?", 18.96, C.accion]], zone: "A", size: 150 },
-  { small: [["¿La", 19.72]], big: [["ola", 20.12, C.tu]], zone: "C", size: 170 },
-  { big: [["o", 21.2, C.blanco], ["a", 21.36, C.blanco], ["él?", 21.6, C.capaz]], zone: "C", size: 170 },
-];
-const blockStart = (b: Block) => (b.small?.[0]?.[1] ?? b.big[0][1]);
-const blockLast = (b: Block) => b.big[b.big.length - 1][1];
-const ZONES: Record<Zone, React.CSSProperties> = {
-  A: { top: 560, right: 96, textAlign: "right", alignItems: "flex-end" },
-  B: { top: 1120, left: 96, textAlign: "left", alignItems: "flex-start" },
-  C: { top: 820, left: 90, right: 90, textAlign: "center", alignItems: "center" },
-  D: { top: 1210, left: 90, right: 90, textAlign: "center", alignItems: "center" },
-};
-const Word: React.FC<{ w: W; f: number; big: boolean; size: number }> = ({ w, f, big, size }) => {
-  const t = f - S(w[1]);
-  if (t < 0) return <span style={{ opacity: 0, marginRight: big ? size * 0.22 : 14 }}>{w[0]}</span>;
-  const c = w[2] ?? C.blanco;
-  const k = out(ip(t, [0, 5], [0, 1]));
-  return (
-    <span style={{ display: "inline-block", marginRight: big ? size * 0.22 : 14, opacity: ip(t, [0, 3], [0, 1]), transform: `translateY(${(1 - k) * (big ? 26 : 12)}px) scale(${1 + (1 - k) * (big ? 0.35 : 0.2)})`, filter: `blur(${(1 - k) * 8}px)`, color: c, textShadow: big ? "0 2px 0 rgba(0,0,0,0.85), 0 6px 22px rgba(0,0,0,0.95), 0 0 46px rgba(0,0,0,0.8)" : "0 2px 0 rgba(0,0,0,0.8), 0 4px 14px rgba(0,0,0,0.95)", WebkitTextStroke: big ? "1.5px rgba(0,0,0,0.55)" : undefined }}>
-      {w[0]}
-    </span>
-  );
-};
-const Captions: React.FC<{ f: number }> = ({ f }) => (
-  <>
-    {BLOCKS.map((b, i) => {
-      const s = S(blockStart(b));
-      const next = BLOCKS[i + 1];
-      const end = next ? S(blockStart(next)) : PEDRO2_TOTAL + 10;
-      if (f < s || f >= end) return null;
-      const size = b.size ?? 112;
-      const dim = ip(f - S(blockLast(b)), [S(0.7), S(1.0)], [1, 0.55]);
-      const exit = ip(end - f, [0, 3], [0, 1]);
-      return (
-        <div key={i} style={{ position: "absolute", display: "flex", flexDirection: "column", ...ZONES[b.zone], opacity: Math.min(dim, exit) }}>
-          {b.small ? (
-            <div style={{ fontFamily: SERIF, fontStyle: "italic", fontWeight: 700, fontSize: 54, lineHeight: 1.05, color: "#fff", whiteSpace: "nowrap" }}>
-              {b.small.map((w, j) => <Word key={j} w={w} f={f} big={false} size={size} />)}
-            </div>
-          ) : null}
-          <div style={{ fontFamily: SERIF_XB, fontStyle: "italic", fontWeight: 800, fontSize: size, lineHeight: 1.0, letterSpacing: -1, marginTop: b.small ? -6 : 0, whiteSpace: "nowrap" }}>
-            {b.big.map((w, j) => <Word key={j} w={w} f={f} big size={size} />)}
-          </div>
-        </div>
-      );
-    })}
-  </>
-);
+// ---------- subtítulos ZK (estilo fijo: arriba, 1–3 palabras, clave enmarcada en azul) ----------
+const RAW = (data as unknown as { chunks: { text: string; timestamp: [number, number] }[] }).chunks;
+const WORDS: KWord[] = RAW.map((c) => ({ w: c.text.trim().replace("Sólo", "Solo"), s: c.timestamp[0], e: c.timestamp[1] ?? c.timestamp[0] + 0.3 }));
+const GROUPS = groupWords(WORDS);
+const KEYS = new Set(["barco", "viento", "contra", "caminas", "agua", "ola", "hundes", "mano", "toma", "jesús", "grita", "pregunta", "dudaste", "hoy", "él"]);
 
 // ---------- escenas ----------
 // 0 · 0–3,1: estás afuera del barco, con el viento en contra
@@ -415,7 +349,7 @@ export const Pedro2: React.FC = () => {
       <AbsoluteFill style={{ background: `rgba(255,232,190,${warm})`, mixBlendMode: "screen", pointerEvents: "none" }} />
       <Grain f={f} />
       <Vignette s={0.75} />
-      <Captions f={f} />
+      <Captions f={f} groups={GROUPS} keys={KEYS} />
       <Audio src={staticFile("pedro2/mezcla.wav")} />
       {SFX.map(([t, n, v], i) => <Sfx key={i} t={t} name={n} v={v} />)}
     </AbsoluteFill>

@@ -1,0 +1,348 @@
+{
+  "text": " Estás afuera del barco, con el viento en contra, y caminas sobre el agua, hasta que miras la ola. Sólo ves el viento, y te hundes, pero una mano te toma. Jesús no te grita, te pregunta, ¿por qué dudaste? ¿Tú qué ves hoy? ¿La ola o a él?",
+  "chunks": [
+    {
+      "text": " Estás",
+      "timestamp": [
+        0.26,
+        0.62
+      ]
+    },
+    {
+      "text": " afuera",
+      "timestamp": [
+        0.62,
+        0.94
+      ]
+    },
+    {
+      "text": " del",
+      "timestamp": [
+        0.94,
+        1.12
+      ]
+    },
+    {
+      "text": " barco,",
+      "timestamp": [
+        1.12,
+        1.8
+      ]
+    },
+    {
+      "text": " con",
+      "timestamp": [
+        2.04,
+        2.2
+      ]
+    },
+    {
+      "text": " el",
+      "timestamp": [
+        2.2,
+        2.32
+      ]
+    },
+    {
+      "text": " viento",
+      "timestamp": [
+        2.32,
+        2.66
+      ]
+    },
+    {
+      "text": " en",
+      "timestamp": [
+        2.66,
+        3.06
+      ]
+    },
+    {
+      "text": " contra,",
+      "timestamp": [
+        3.06,
+        3.72
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        3.94,
+        4.18
+      ]
+    },
+    {
+      "text": " caminas",
+      "timestamp": [
+        4.18,
+        4.68
+      ]
+    },
+    {
+      "text": " sobre",
+      "timestamp": [
+        4.68,
+        4.94
+      ]
+    },
+    {
+      "text": " el",
+      "timestamp": [
+        4.94,
+        5.22
+      ]
+    },
+    {
+      "text": " agua,",
+      "timestamp": [
+        5.22,
+        5.84
+      ]
+    },
+    {
+      "text": " hasta",
+      "timestamp": [
+        6.12,
+        6.28
+      ]
+    },
+    {
+      "text": " que",
+      "timestamp": [
+        6.28,
+        6.42
+      ]
+    },
+    {
+      "text": " miras",
+      "timestamp": [
+        6.42,
+        6.72
+      ]
+    },
+    {
+      "text": " la",
+      "timestamp": [
+        6.72,
+        6.92
+      ]
+    },
+    {
+      "text": " ola.",
+      "timestamp": [
+        6.92,
+        7.2
+      ]
+    },
+    {
+      "text": " Sólo",
+      "timestamp": [
+        8.06,
+        8.28
+      ]
+    },
+    {
+      "text": " ves",
+      "timestamp": [
+        8.28,
+        8.46
+      ]
+    },
+    {
+      "text": " el",
+      "timestamp": [
+        8.46,
+        8.58
+      ]
+    },
+    {
+      "text": " viento,",
+      "timestamp": [
+        8.58,
+        9.48
+      ]
+    },
+    {
+      "text": " y",
+      "timestamp": [
+        9.76,
+        9.92
+      ]
+    },
+    {
+      "text": " te",
+      "timestamp": [
+        9.92,
+        10.06
+      ]
+    },
+    {
+      "text": " hundes,",
+      "timestamp": [
+        10.06,
+        10.74
+      ]
+    },
+    {
+      "text": " pero",
+      "timestamp": [
+        10.96,
+        11.18
+      ]
+    },
+    {
+      "text": " una",
+      "timestamp": [
+        11.18,
+        11.44
+      ]
+    },
+    {
+      "text": " mano",
+      "timestamp": [
+        11.44,
+        11.64
+      ]
+    },
+    {
+      "text": " te",
+      "timestamp": [
+        11.64,
+        11.98
+      ]
+    },
+    {
+      "text": " toma.",
+      "timestamp": [
+        11.98,
+        12.2
+      ]
+    },
+    {
+      "text": " Jesús",
+      "timestamp": [
+        13.18,
+        13.66
+      ]
+    },
+    {
+      "text": " no",
+      "timestamp": [
+        13.66,
+        13.84
+      ]
+    },
+    {
+      "text": " te",
+      "timestamp": [
+        13.84,
+        14.02
+      ]
+    },
+    {
+      "text": " grita,",
+      "timestamp": [
+        14.02,
+        15.02
+      ]
+    },
+    {
+      "text": " te",
+      "timestamp": [
+        15.18,
+        15.62
+      ]
+    },
+    {
+      "text": " pregunta,",
+      "timestamp": [
+        15.62,
+        16.7
+      ]
+    },
+    {
+      "text": " ¿por",
+      "timestamp": [
+        16.82,
+        16.98
+      ]
+    },
+    {
+      "text": " qué",
+      "timestamp": [
+        16.98,
+        17.16
+      ]
+    },
+    {
+      "text": " dudaste?",
+      "timestamp": [
+        17.16,
+        18.36
+      ]
+    },
+    {
+      "text": " ¿Tú",
+      "timestamp": [
+        18.36,
+        18.58
+      ]
+    },
+    {
+      "text": " qué",
+      "timestamp": [
+        18.58,
+        18.72
+      ]
+    },
+    {
+      "text": " ves",
+      "timestamp": [
+        18.72,
+        18.96
+      ]
+    },
+    {
+      "text": " hoy?",
+      "timestamp": [
+        18.96,
+        19.64
+      ]
+    },
+    {
+      "text": " ¿La",
+      "timestamp": [
+        19.72,
+        20.12
+      ]
+    },
+    {
+      "text": " ola",
+      "timestamp": [
+        20.12,
+        21.2
+      ]
+    },
+    {
+      "text": " o",
+      "timestamp": [
+        21.2,
+        21.36
+      ]
+    },
+    {
+      "text": " a",
+      "timestamp": [
+        21.36,
+        21.6
+      ]
+    },
+    {
+      "text": " él?",
+      "timestamp": [
+        21.6,
+        21.8
+      ]
+    }
+  ]
+}
