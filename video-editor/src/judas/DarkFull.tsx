@@ -24,7 +24,7 @@ const Serif: React.FC<{ txt: string; y: number; size: number; o?: number; color?
 );
 // fondo rojo pintado a brochazos (para las siluetas)
 const RedPaint: React.FC<{ p: number }> = ({ p }) => (
-  <Svg>{Array.from({ length: 9 }, (_, i) => <Brush key={i} d={`M-80 ${300 + i * 170} L1160 ${330 + i * 170}`} p={ip(p, [i * 0.06, 0.45 + i * 0.06], [0, 1])} w={230} len={1260} />)}</Svg>
+  <Svg>{Array.from({ length: 13 }, (_, i) => { const y = 120 + i * 140 + (random(`rp${i}`) - 0.5) * 60; const dy = (random(`rq${i}`) - 0.5) * 120; return <Brush key={i} d={i % 2 ? `M1300 ${y + dy} L-220 ${y - dy}` : `M-220 ${y - dy} L1300 ${y + dy}`} p={ip(p, [i * 0.04, 0.4 + i * 0.04], [0, 1])} w={240 + random(`rw${i}`) * 80} len={1560} />; })}</Svg>
 );
 // silueta encapuchada (Judas)
 const Hooded: React.FC<{ x: number; y: number; s: number; color?: string; tilt?: number }> = ({ x, y, s, color = "#050505", tilt = 0 }) => (
@@ -97,18 +97,25 @@ const C4: React.FC<{ t0: number }> = ({ t0 }) => {
     </AbsoluteFill>
   );
 };
-// 5 · macro: el puño que se cierra
+// 5 · macro: el puño que se cierra (los dedos giran sobre los nudillos)
 const C5: React.FC<{ t0: number }> = ({ t0 }) => {
   const { t } = useT(t0);
   const c = eo(ip(t, [13.3, 14.1], [0, 1]));
   return (
-    <AbsoluteFill style={{ transform: `scale(${ip(t, [13.1, 14.5], [1.1, 1.25])})`, transformOrigin: "540px 1000px" }}>
+    <AbsoluteFill style={{ transform: `scale(${ip(t, [13.1, 14.5], [1.05, 1.2])})`, transformOrigin: "540px 1000px" }}>
       <Svg>
-        <g filter="url(#ink)" transform="translate(540 1000)">
-          <path d={`M-300 ${-40 + c * 60} Q-320 300 0 360 Q320 300 300 ${-40 + c * 60} Z`} fill="url(#h2)" opacity={0.6} />
-          <Draw d={`M-300 ${-40 + c * 60} Q-320 300 0 360 Q320 300 300 ${-40 + c * 60}`} p={1} w={8} />
-          {[-210, -70, 70, 210].map((x, i) => <path key={i} d={`M${x - 65} ${-40 + c * 60} Q${x - 70} ${-260 + c * 230} ${x} ${-280 + c * 240} Q${x + 70} ${-260 + c * 230} ${x + 65} ${-40 + c * 60}`} fill="#050505" stroke="#F2F2F2" strokeWidth={7} />)}
-          {[-210, -70, 70, 210].map((x, i) => <path key={`k${i}`} d={`M${x - 40} ${-10 + c * 60} Q${x} ${10 + c * 60} ${x + 40} ${-10 + c * 60}`} stroke="#F2F2F2" strokeWidth={4} fill="none" opacity={c} />)}
+        {Array.from({ length: 7 }, (_, i) => <CoinG key={i} cx={380 + i * 54} cy={1000 - (i % 2) * 14} r={40} p={1} />)}
+        <g filter="url(#ink)" transform="translate(540 1040)">
+          <path d="M-280 0 Q-300 330 -40 380 Q240 380 290 120 L280 0 Z" fill="#050505" />
+          <path d="M-280 0 Q-300 330 -40 380 Q240 380 290 120 L280 0 Z" fill="url(#h2)" opacity={0.55} />
+          <path d="M-280 0 Q-300 330 -40 380 Q240 380 290 120 L280 0" fill="none" stroke="#F2F2F2" strokeWidth={8} />
+          {[-210, -70, 70, 210].map((x, i) => (
+            <g key={i} transform={`rotate(${ip(c, [0, 1], [-8 + i * 4, 165])} ${x} 0)`}>
+              <rect x={x - 62} y={-250 + i * 12 * (1 - c)} width={124} height={250 - i * 12 * (1 - c)} rx={60} fill="#050505" stroke="#F2F2F2" strokeWidth={7} />
+              <path d={`M${x - 40} -170 Q${x} -150 ${x + 40} -170 M${x - 40} -90 Q${x} -70 ${x + 40} -90`} stroke="#F2F2F2" strokeWidth={3} fill="none" />
+            </g>
+          ))}
+          <g transform={`rotate(${ip(c, [0, 1], [-50, 25])} -280 140)`}><rect x={-420} y={90} width={220} height={110} rx={55} fill="#050505" stroke="#F2F2F2" strokeWidth={7} /></g>
         </g>
       </Svg>
     </AbsoluteFill>
@@ -196,9 +203,10 @@ const C10: React.FC<{ t0: number }> = ({ t0 }) => {
       <Svg>
         <g transform={`translate(${540 + walk} 1150)`} fill="#050505">
           {[-180, -90, 90, 180].map((x, i) => <rect key={i} x={x - 24} y={60} width={48} height={200} rx={12} transform={`rotate(${i % 2 ? leg : -leg} ${x} 60)`} />)}
-          <ellipse cx={0} cy={0} rx={290} ry={160} />
-          <path d="M250 -70 Q350 -110 410 -40 Q430 50 350 80 Q290 70 250 30 Z" />
-          <path d="M350 -90 Q390 -175 450 -165 M310 -95 Q280 -180 230 -172" stroke="#050505" strokeWidth={18} fill="none" strokeLinecap="round" />
+          <path d="M-300 20 Q-320 -120 -200 -140 Q-40 -160 120 -200 Q200 -230 250 -170 Q300 -130 330 -60 Q350 0 300 60 Q220 150 60 150 L-200 150 Q-300 140 -300 20 Z" />
+          <path d="M260 -150 Q360 -140 420 -60 Q460 10 430 90 Q400 130 360 110 Q330 60 300 40 Z" />
+          <path d="M380 -100 Q440 -190 500 -170 Q470 -140 430 -90 M320 -130 Q300 -210 250 -230" stroke="#050505" strokeWidth={20} fill="none" strokeLinecap="round" />
+          <path d="M-300 10 Q-360 60 -340 180" stroke="#050505" strokeWidth={14} fill="none" strokeLinecap="round" />
         </g>
         {t >= 29.1 ? <g opacity={ip(t, [29.1, 29.4], [0, 1])}>{Array.from({ length: 10 }, (_, i) => <ellipse key={i} cx={100 + i * 92} cy={1560} rx={44} ry={26} fill="none" stroke="#050505" strokeWidth={14} />)}</g> : null}
         {t >= 30.8 ? <g transform={`translate(0 ${ip(t, [30.8, 31.1], [-200, 0])})`}><rect x={330} y={520} width={420} height={150} fill="#050505" /><text x={540} y={622} textAnchor="middle" fontFamily="Georgia, serif" fontWeight={700} fontSize={72} fill="#F2F2F2">30 SICLOS</text></g> : null}
@@ -225,7 +233,7 @@ const C13: React.FC<{ t0: number }> = ({ t0 }) => {
   return (
     <AbsoluteFill style={{ transform: `scale(${ip(t, [sh(34.5), sh(37.5)], [1, 1.06])})` }}>
       <Svg>
-        {Array.from({ length: 9 }, (_, i) => <CoinG key={i} cx={300 + (i % 3) * 240} cy={1040 + Math.floor(i / 3) * 200 - (i % 2) * 30} r={96} p={ip(t, [sh(34.5) + i * 0.06, sh(35.2) + i * 0.06], [0, 1])} />)}
+        {Array.from({ length: 8 }, (_, i) => <CoinG key={i} cx={i % 2 ? 830 : 250} cy={960 + Math.floor(i / 2) * 210} r={96} p={ip(t, [sh(34.5) + i * 0.06, sh(35.2) + i * 0.06], [0, 1])} />)}
         <Brush d="M540 380 L540 1720" p={eo(ip(t, [sh(35.2), sh(36.2)], [0, 1]))} w={140} len={1400} v />
         <Brush d="M190 760 L890 760" p={eo(ip(t, [sh(36.2), sh(36.9)], [0, 1]))} w={130} len={760} />
       </Svg>
@@ -287,9 +295,9 @@ const C16: React.FC<{ t0: number }> = ({ t0 }) => {
       <Svg>
         <g filter="url(#ink)">{Array.from({ length: 9 }, (_, i) => { const k = eo(ip(t, [sh(43.0) + i * 0.1, sh(43.3) + i * 0.1], [0, 1])); return <path key={i} d={`M${110 + (i % 5) * 190 + (i > 4 ? 90 : 0) - 45} ${(i > 4 ? 1500 : 1360) + (1 - k) * 200} l0 -90 q45 -60 90 0 l0 90 Z`} fill="#050505" stroke="#F2F2F2" strokeWidth={5} opacity={k} />; })}</g>
         <g opacity={ip(t, [sh(45.5), sh(45.8)], [0, 1])}>
-          <rect x={290} y={640} width={500} height={150} fill="#050505" stroke="#F2F2F2" strokeWidth={6} />
+          <rect x={250} y={640} width={580} height={150} fill="#050505" stroke="#F2F2F2" strokeWidth={6} />
           <rect x={525} y={790} width={30} height={480} fill="#050505" />
-          <text x={540} y={738} textAnchor="middle" fontFamily="Georgia, serif" fontWeight={700} fontSize={60} fill="#F2F2F2">CAMPO DE SANGRE</text>
+          <text x={540} y={738} textAnchor="middle" fontFamily="Georgia, serif" fontWeight={700} fontSize={50} fill="#F2F2F2">CAMPO DE SANGRE</text>
         </g>
         <Serif txt="EXTRANJEROS" y={1740} size={66} o={ip(t, [sh(43.9), sh(44.2)], [0, 1])} />
       </Svg>
@@ -356,6 +364,14 @@ const SCENES: Sc[] = [
   { t0: sh(39.1), C: C15 }, { t0: sh(41.6), C: C16 }, { t0: sh(47.1), C: C17 }, { t0: sh(50.7), C: C18 }, { t0: sh(52.3), C: C19 },
 ];
 
+const SFX: [number, string, number][] = [
+  [0.0, "judas/pluma.wav", 0.3], [1.05, "judas/pincel.wav", 0.35], [2.45, "judas/pincel.wav", 0.4], [3.1, "judas/monedas.wav", 0.3], [3.9, "judas/pincel.wav", 0.3],
+  [5.7, "judas/pluma.wav", 0.3], [9.9, "judas/pluma.wav", 0.22], [14.5, "judas/pluma.wav", 0.22], [21.4, "judas/pincel.wav", 0.35], [21.7, "judas/golpe.wav", 0.45],
+  [23.3, "judas/pluma.wav", 0.22], [27.9, "judas/pincel.wav", 0.3], [sh(33.3), "sfx/lib/cinematic-drop.mp3", 0.5], [sh(35.2), "judas/pincel.wav", 0.4],
+  [sh(37.6), "judas/latido.wav", 0.4], [sh(39.9), "judas/monedas.wav", 0.4], [sh(45.6), "judas/pincel.wav", 0.35], [sh(48.4), "judas/golpe.wav", 0.4],
+  [sh(49.4), "judas/pincel.wav", 0.35], [sh(50.7), "judas/latido.wav", 0.45],
+];
+
 export const JudasDark: React.FC = () => {
   const f = useCurrentFrame();
   const t = f / FPS;
@@ -375,6 +391,7 @@ export const JudasDark: React.FC = () => {
       <AbsoluteFill style={{ background: "radial-gradient(ellipse 80% 65% at 50% 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%)", pointerEvents: "none" }} />
       <Captions f={f} groups={groupWords(WORDS)} keys={KEYS} hl={RED} />
       <Audio src={staticFile("judas/mezcla_dark.wav")} />
+      {SFX.map(([at, n, v], i) => <Sequence key={i} from={S(at)} durationInFrames={60}><Audio src={staticFile(n)} volume={v} /></Sequence>)}
     </AbsoluteFill>
   );
 };
