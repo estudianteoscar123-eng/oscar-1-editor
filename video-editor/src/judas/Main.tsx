@@ -1,6 +1,8 @@
 import React from "react";
 import { Audio } from "@remotion/media";
-import { AbsoluteFill, Sequence, interpolate, random, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Easing, Sequence, interpolate, random, staticFile, useCurrentFrame } from "remotion";
+import { TransitionSeries, linearTiming } from "@remotion/transitions";
+import { Bokeh, Burst, Coin3D, T } from "./Fx";
 import data from "../../public/judas/words.json";
 import { Captions, Dust, FPS, Figure, GodRays, Grain, S, Vignette, Word, groupWords } from "../kit/Kit";
 
@@ -17,8 +19,9 @@ const pop = (d: number) => (d < 0 ? 0 : ip(d, [0, 5, 9], [0, 1.15, 1]));
 // ---------- piezas ----------
 const Bg: React.FC<{ a: string; b: string; f: number; dust?: string }> = ({ a, b, f, dust = "220,220,235" }) => (
   <AbsoluteFill>
-    <AbsoluteFill style={{ background: `radial-gradient(ellipse 90% 70% at 50% 55%, ${a}, ${b})` }} />
+    <AbsoluteFill style={{ background: `radial-gradient(ellipse 90% 70% at 50% 55%, ${a}, ${b})`, transform: `translateY(${-f * 0.35}px) scale(1.15)` }} />
     <Dust f={f} n={40} color={dust} />
+    <Bokeh n={8} color={dust} />
   </AbsoluteFill>
 );
 const Coin: React.FC<{ x: number; y: number; r: number; spin?: number; o?: number }> = ({ x, y, r, spin = 0, o = 1 }) => (
@@ -36,12 +39,17 @@ const Coin: React.FC<{ x: number; y: number; r: number; spin?: number; o?: numbe
 const Chip: React.FC<{ d: number; txt: string; y: number; color?: string; size?: number }> = ({ d, txt, y, color = "#4FA3FF", size = 64 }) =>
   d < 0 ? null : (
     <div style={{ position: "absolute", left: 0, right: 0, top: y, display: "flex", justifyContent: "center" }}>
-      <div style={{ transform: `scale(${pop(d)})`, padding: "14px 34px", borderRadius: 18, background: "rgba(8,10,16,0.86)", border: `4px solid ${color}`, fontFamily: "Kit Poppins Black", fontWeight: 900, fontSize: size, color: "#fff", boxShadow: `0 0 40px ${color}66` }}>{txt}</div>
+      <div style={{ position: "relative", overflow: "hidden", transform: `scale(${pop(d)})`, padding: "14px 34px", borderRadius: 18, background: "rgba(8,10,16,0.86)", border: `4px solid ${color}`, fontFamily: "Kit Poppins Black", fontWeight: 900, fontSize: size, color: "#fff", boxShadow: `0 0 40px ${color}66` }}>{txt}
+        <div style={{ position: "absolute", top: -20, bottom: -20, width: 120, left: ip(d, [4, 20], [-160, 900]), background: "linear-gradient(100deg, rgba(255,255,255,0), rgba(255,255,255,0.55), rgba(255,255,255,0))", transform: "skewX(-20deg)" }} />
+      </div>
     </div>
   );
 const Big: React.FC<{ d: number; txt: string; y: number; size?: number; color?: string }> = ({ d, txt, y, size = 260, color = "#F2F4F8" }) =>
   d < 0 ? null : (
-    <div style={{ position: "absolute", left: 0, right: 0, top: y, textAlign: "center", fontFamily: "Kit Poppins Black", fontStyle: "italic", fontWeight: 900, fontSize: size, color, transform: `scale(${pop(d)})`, textShadow: `0 0 50px ${color}88, 0 10px 30px rgba(0,0,0,0.9)`, whiteSpace: "pre", lineHeight: 1 }}>{txt}</div>
+    <div style={{ position: "absolute", left: 0, right: 0, top: y, textAlign: "center", fontFamily: "Kit Poppins Black", fontStyle: "italic", fontWeight: 900, fontSize: size, whiteSpace: "pre", lineHeight: 1 }}>
+      {[3, 2, 1].map((k) => (d < 10 ? <div key={k} style={{ position: "absolute", left: 0, right: 0, top: 0, color, opacity: 0.18 * (1 - d / 10), transform: `translateY(${k * 26 * (1 - d / 10)}px) scale(${pop(d) * (1 + k * 0.06)})` }}>{txt}</div> : null))}
+      <div style={{ position: "relative", color, transform: `scale(${pop(d)}) rotate(${ip(d, [0, 8], [-6, 0])}deg)`, textShadow: d < 8 ? `${-9 * (1 - d / 8)}px 0 rgba(255,40,80,0.8), ${9 * (1 - d / 8)}px 0 rgba(40,220,255,0.8), 0 0 50px ${color}88` : `0 0 50px ${color}88, 0 10px 30px rgba(0,0,0,0.9)` }}>{txt}</div>
+    </div>
   );
 const Counter: React.FC<{ d: number; dur: number; to: number; y: number; suffix?: string; size?: number; color?: string }> = ({ d, dur, to, y, suffix = "", size = 240, color }) =>
   d < 0 ? null : <Big d={d} txt={`${Math.round(ip(d, [0, dur], [0, to]))}${suffix}`} y={y} size={size} color={color} />;
@@ -103,7 +111,7 @@ const Siclo: React.FC<{ t0: number }> = ({ t0 }) => {
   return (
     <AbsoluteFill>
       <Bg a="#2A3040" b="#06080C" f={f} />
-      <Coin x={540} y={1080} r={260} spin={f / 12} />
+      <Coin3D size={980} top={590} spin={f / 14} tilt={0.18 + Math.sin(f / 30) * 0.12} />
       <Chip d={d(6.5)} txt="SICLO DE TIRO" y={560} />
       <Big d={d(8.0)} txt="14 g" y={1400} size={200} color="#C9D6E8" />
     </AbsoluteFill>
@@ -334,23 +342,32 @@ const SFX: [number, string, number][] = [
   [33.3, "sfx/impact", 0.45], [40.0, "judas/monedas", 0.55], [46.0, "sfx/impact", 0.35], [52.3, "sfx/whoosh", 0.3],
 ];
 
+const TR = 10; // fotogramas de cada transición
+const KINDS = [T.whip, T.iris, T.zoom, T.whip, T.flash, T.whip, T.iris, T.zoom, T.flash, T.whip, T.zoom, T.whip, T.dip, T.zoom, T.whip, T.flash, T.dip, T.iris];
+const STARTS = SCENES.map((sc, i) => (i === 0 ? 0 : S(sc.t0) - TR / 2));
+const DURS = SCENES.map((_, i) => (i + 1 < SCENES.length ? STARTS[i + 1] + TR - STARTS[i] : S(END) - STARTS[i]));
+const SWOOSH = STARTS.slice(1).map((st, i) => [st / FPS - 0.12, i % 2 ? "sfx/whoosh.wav" : "sfx/lib/cinematic-swipe.mp3"] as [number, string]);
+
 export const Judas: React.FC = () => {
   const f = useCurrentFrame();
   const imp = IMPACTS.reduce((o, t) => { const dd = f - S(t); return dd >= 0 && dd < 9 ? Math.max(o, 1 - dd / 9) : o; }, 0);
   return (
     <AbsoluteFill style={{ background: "#000" }}>
-      <AbsoluteFill style={{ filter: "contrast(1.08) saturate(1.1)", transform: `translate(${(random(`ix${f}`) - 0.5) * 18 * imp}px, ${(random(`iy${f}`) - 0.5) * 18 * imp}px) scale(${1 + 0.035 * imp})` }}>
-        {SCENES.map((sc, i) => {
-          const end = SCENES[i + 1]?.t0 ?? END;
-          const dur = S(end) - S(sc.t0);
-          return (
-            <Sequence key={i} from={S(sc.t0)} durationInFrames={dur}>
-              <Cam dur={dur} ox={sc.ox} oy={sc.oy}><sc.C t0={sc.t0} /></Cam>
-            </Sequence>
-          );
-        })}
+      <AbsoluteFill style={{ filter: "contrast(1.08) saturate(1.12)", transform: `translate(${(random(`ix${f}`) - 0.5) * 20 * imp}px, ${(random(`iy${f}`) - 0.5) * 20 * imp}px) scale(${1 + 0.04 * imp})` }}>
+        <TransitionSeries>
+          {SCENES.flatMap((sc, i) => {
+            const el = (
+              <TransitionSeries.Sequence key={`s${i}`} durationInFrames={DURS[i]}>
+                <Cam dur={DURS[i]} ox={sc.ox} oy={sc.oy}><sc.C t0={STARTS[i] / FPS} /></Cam>
+              </TransitionSeries.Sequence>
+            );
+            return i + 1 < SCENES.length
+              ? [el, <TransitionSeries.Transition key={`t${i}`} presentation={KINDS[i]} timing={linearTiming({ durationInFrames: TR, easing: Easing.inOut(Easing.cubic) })} />]
+              : [el];
+          })}
+        </TransitionSeries>
+        {IMPACTS.map((t, i) => <Burst key={i} d={f - S(t)} y={i === 5 ? 1250 : 900} color={i === 5 || i === 8 ? "255,90,80" : "255,215,140"} />)}
       </AbsoluteFill>
-      <AbsoluteFill style={{ background: `rgba(255,255,255,${CUTF(f)})`, pointerEvents: "none" }} />
       <Grain f={f} />
       <Vignette s={0.7} />
       <Captions f={f} groups={GROUPS} keys={KEYS} />
@@ -358,7 +375,11 @@ export const Judas: React.FC = () => {
       {SFX.map(([t, n, v], i) => (
         <Sequence key={i} from={S(t)} durationInFrames={60}><Audio src={staticFile(`${n}.wav`)} volume={v} /></Sequence>
       ))}
+      {SWOOSH.map(([t, n], i) => (
+        <Sequence key={`w${i}`} from={Math.max(0, S(t))} durationInFrames={30}><Audio src={staticFile(n)} volume={0.16} /></Sequence>
+      ))}
+      <Sequence from={S(31.6)} durationInFrames={60}><Audio src={staticFile("sfx/lib/cinematic-start.mp3")} volume={0.3} /></Sequence>
+      <Sequence from={S(33.25)} durationInFrames={60}><Audio src={staticFile("sfx/lib/cinematic-drop.mp3")} volume={0.45} /></Sequence>
     </AbsoluteFill>
   );
 };
-const CUTF = (f: number) => SCENES.slice(1).reduce((o, sc) => { const dd = f - S(sc.t0); return dd >= 0 && dd < 4 ? Math.max(o, 0.16 * (1 - dd / 4)) : o; }, 0);
