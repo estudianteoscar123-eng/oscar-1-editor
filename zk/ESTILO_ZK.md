@@ -51,7 +51,7 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Explicar con comparaciones simples y cifras en pantalla.
 - Cerrar con una frase que reinterpreta todo ("No eligió al que nunca cayó, eligió al que volvió").
 - Cierre de reenvío dirigido: "Mándaselo a ese amigo que…" (motor de compartidos).
-- Duración 45–60 s, ~3 palabras por segundo, sin silencios largos. Historias muy conocidas (David, Jonás) solo si se cuenta un dato que casi nadie sabe.
+- Duración máxima 29 s (regla fija del usuario): ~80 palabras a ~3 palabras por segundo, sin silencios largos. Historias muy conocidas (David, Jonás) solo si se cuenta un dato que casi nadie sabe.
 
 ## Estándar dinámico (desde "Pedro camina sobre el agua" v2)
 - Un plano cada ~0,9 s: la misma escena se corta en varios encuadres (general, primer plano, detalle) con zoom en movimiento, giro leve y pulso de mano.
