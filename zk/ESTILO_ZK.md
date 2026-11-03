@@ -59,3 +59,11 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Subtítulos: siempre los de ZK (arriba, 1–3 palabras, clave enmarcada en azul). Los de dos niveles son solo de SL; nunca mezclarlos.
 - Canciones sacadas de TikTok: cortar antes del sonido del logo final.
 - Regla del usuario: cada video debe superar claramente al anterior.
+
+## Música (regla fija, nov. 2026)
+- Solo 3 canciones para ZK, en `video-editor/public/zk/songs/`:
+  - zk1 (60 s, Do mayor, 65 BPM): empieza suave, sube a los 20 s, pico en el 42 s → historias con giro (alinear el pico con el momento fuerte).
+  - zk2 (60 s, La menor, 65 BPM): oscura y pareja, corte a los 55 s → estilo Dark y tensión constante.
+  - zk3 (5:37, Mi mayor, 81 BPM): intro de 40 s y luego estable; golpe tipo logo al final (cortar antes de 5:30) → finales esperanzadores.
+- Una sola canción por video, elegida según cuál conecte más con el guion (potencial viral). Nunca otra fuera de estas 3.
+- Cortar siempre antes de cualquier sonido de logo final.
