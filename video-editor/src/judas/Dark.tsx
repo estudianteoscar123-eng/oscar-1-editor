@@ -13,7 +13,7 @@ const RED = "#D30F17";
 const KEYS = new Set(["judas", "30", "plata", "esclavo", "dios", "precio"]);
 
 // filtros: trazo de grabado tembloroso, pincel seco y pincel con bordes rotos
-const Defs: React.FC = () => (
+export const Defs: React.FC = () => (
   <svg width={0} height={0} style={{ position: "absolute" }}>
     <defs>
       <pattern id="h1" width={9} height={9} patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><line x1={0} y1={0} x2={0} y2={9} stroke="#fff" strokeWidth={1.8} /></pattern>
@@ -38,18 +38,18 @@ const Defs: React.FC = () => (
 );
 
 // trazo que se dibuja solo
-const Draw: React.FC<{ d: string; p: number; w?: number; color?: string; len?: number }> = ({ d, p, w = 5, color = "#fff", len = 3000 }) => (
+export const Draw: React.FC<{ d: string; p: number; w?: number; color?: string; len?: number }> = ({ d, p, w = 5, color = "#fff", len = 3000 }) => (
   <path d={d} fill="none" stroke={color} strokeWidth={w} strokeLinecap="round" strokeLinejoin="round" strokeDasharray={len} strokeDashoffset={len * (1 - p)} />
 );
 // pincelada roja pintándose
-const Brush: React.FC<{ d: string; p: number; w?: number; len?: number; v?: boolean }> = ({ d, p, w = 110, len = 2400, v }) => (
+export const Brush: React.FC<{ d: string; p: number; w?: number; len?: number; v?: boolean }> = ({ d, p, w = 110, len = 2400, v }) => (
   <g filter={`url(#${v ? "brushV" : "brushH"})`}>
     <path d={d} fill="none" stroke={RED} strokeWidth={w} strokeLinecap="butt" strokeDasharray={len} strokeDashoffset={len * (1 - p)} />
     <path d={d} fill="none" stroke={RED} strokeWidth={w * 0.55} strokeLinecap="butt" strokeDasharray={len} strokeDashoffset={len * (1 - p)} transform={v ? "translate(-26 0)" : "translate(0 -26)"} opacity={0.85} />
   </g>
 );
 // moneda grabada: contorno, anillo, águila y media sombra rayada
-const CoinG: React.FC<{ cx: number; cy: number; r: number; p: number }> = ({ cx, cy, r, p }) => (
+export const CoinG: React.FC<{ cx: number; cy: number; r: number; p: number }> = ({ cx, cy, r, p }) => (
   <g filter="url(#ink)">
     <clipPath id={`cc${cx}${cy}`}><path d={`M${cx} ${cy - r} A${r} ${r} 0 0 1 ${cx} ${cy + r} Z`} /></clipPath>
     <circle cx={cx} cy={cy} r={r} fill="#050505" />
@@ -60,7 +60,7 @@ const CoinG: React.FC<{ cx: number; cy: number; r: number; p: number }> = ({ cx,
   </g>
 );
 // bolsa de monedas grabada (pliegues + sombreado rayado)
-const BagG: React.FC<{ p: number; tilt: number }> = ({ p, tilt }) => {
+export const BagG: React.FC<{ p: number; tilt: number }> = ({ p, tilt }) => {
   const body = "M-170 -120 Q-270 40 -235 200 Q-200 335 0 345 Q200 335 235 200 Q270 40 170 -120 Q100 -168 0 -160 Q-100 -168 -170 -120 Z";
   return (
     <g filter="url(#ink)" transform={`translate(560 1230) rotate(${tilt})`}>
@@ -77,7 +77,7 @@ const BagG: React.FC<{ p: number; tilt: number }> = ({ p, tilt }) => {
   );
 };
 // etiqueta de precio grabada
-const TagG: React.FC<{ p: number; sw: number }> = ({ p, sw }) => (
+export const TagG: React.FC<{ p: number; sw: number }> = ({ p, sw }) => (
   <g filter="url(#ink)" transform={`translate(540 640) rotate(${sw})`}>
     <Draw d="M0 -260 L0 -40" p={p} w={5} len={300} />
     <path d="M-300 -40 L220 -40 L320 140 L220 320 L-300 320 Z" fill="url(#h1)" opacity={ip(p, [0.5, 1], [0, 0.35])} />
@@ -86,13 +86,13 @@ const TagG: React.FC<{ p: number; sw: number }> = ({ p, sw }) => (
   </g>
 );
 
-const Ash: React.FC<{ f: number }> = ({ f }) => (
+export const Ash: React.FC<{ f: number }> = ({ f }) => (
   <>{Array.from({ length: 40 }, (_, i) => {
     const s = 2 + random(`a${i}`) * 5;
     return <div key={i} style={{ position: "absolute", left: (random(`ax${i}`) * 1080 + Math.sin(f / 30 + i) * 30) % 1080, top: (random(`ay${i}`) * 1920 - f * (0.6 + random(`av${i}`) * 1.4) + 1920 * 2) % 1920, width: s, height: s, borderRadius: "50%", background: i % 6 ? "rgba(255,255,255,0.55)" : "rgba(211,15,23,0.8)" }} />;
   })}</>
 );
-const Paper: React.FC<{ f: number }> = ({ f }) => (
+export const Paper: React.FC<{ f: number }> = ({ f }) => (
   <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, opacity: 0.1, mixBlendMode: "screen", pointerEvents: "none" }}>
     <filter id="pp"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves={2} seed={f % 6} /><feColorMatrix type="saturate" values="0" /></filter>
     <rect width={1080} height={1920} filter="url(#pp)" />
