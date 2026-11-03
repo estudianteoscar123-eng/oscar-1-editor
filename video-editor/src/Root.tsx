@@ -22,6 +22,7 @@ import { SubTest, SUBTEST_TOTAL } from "./thorfinn/SubTest";
 import { SubTest2, SUBTEST2_TOTAL } from "./thorfinn/SubTest2";
 import { Prov, PROV_TOTAL } from "./prov/Main";
 import { Judas, JUDAS_TOTAL } from "./judas/Main";
+import { Judas3, JUDAS3_TOTAL } from "./judas/V3";
 import { FranklRef } from "./frankl/Ref";
 import { Atraccion } from "./atraccion/Main";
 import { TresTomas } from "./tres-tomas/Main";
@@ -57,6 +58,7 @@ export const Main = () => {
       <Composition id="SubTestR4" component={SubTest2} defaultProps={{ v: "R4" as const }} durationInFrames={SUBTEST2_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Prov" component={Prov} durationInFrames={PROV_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Judas" component={Judas} durationInFrames={JUDAS_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="Judas3" component={Judas3} durationInFrames={JUDAS3_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Ladron" component={Ladron} durationInFrames={LADRON_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLVegeta" component={SL} defaultProps={{ video: "vegeta" as const }} durationInFrames={SL_TOTAL.vegeta} fps={30} width={1080} height={1920} />
       <Composition id="SLLee" component={SL} defaultProps={{ video: "lee" as const }} durationInFrames={SL_TOTAL.lee} fps={30} width={1080} height={1920} />
