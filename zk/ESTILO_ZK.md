@@ -65,5 +65,5 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
   - zk1 (60 s, Do mayor, 65 BPM): empieza suave, sube a los 20 s, pico en el 42 s → historias con giro (alinear el pico con el momento fuerte).
   - zk2 (60 s, La menor, 65 BPM): oscura y pareja, corte a los 55 s → estilo Dark y tensión constante.
   - zk3 (5:37, Mi mayor, 81 BPM): intro de 40 s y luego estable; golpe tipo logo al final (cortar antes de 5:30) → finales esperanzadores.
-- Una sola canción por video, elegida según cuál conecte más con el guion (potencial viral). Nunca otra fuera de estas 3.
+- Una sola canción por video (nunca dos en el mismo video), elegida según cuál conecte más con el guion (potencial viral). Nunca otra fuera de estas 3.
 - Cortar siempre antes de cualquier sonido de logo final.
