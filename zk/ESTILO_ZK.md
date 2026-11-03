@@ -42,10 +42,16 @@ Medir con `ficha-referencias.md`: volumen de la voz, fondo, efectos por cada 10 
 ## Título (regla fija)
 Al terminar cada video se entrega su título: corto, en forma de pregunta y pensado para que lo abran (alto CTR).
 
-## Nivel de inmersión (desde "David contra Goliat")
-- Punto de vista en segunda persona ("tú"): el espectador vive la escena.
-- Un cambio visual cada 0,7–1 s, con ganchos encadenados y un silencio antes del clímax.
-- Final que enlaza con el inicio, para que el video se vea en bucle.
+## Fórmula viral (análisis de nov. 2026: nuestros 2 mejores frente a los 3 últimos y 7 refs de @detras_del_dato)
+Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre al que Jesús le prometió el paraíso") y lo que no (David, Jonás, Pedro sobre el agua en POV "tú"):
+- Gancho en 1,5 s: una pregunta que la gente ya se hace o una paradoja con nombre propio ("El único hombre… era un criminal"). Nunca empezar con una escena en POV ("Estás en medio del mar…").
+- La segunda frase rompe lo esperado ("Y no es por el humo", "ni entra en el top 10").
+- Un dato poco conocido y verificable (3 negaciones ↔ 3 "¿me amas?"), con cita bíblica exacta como prueba.
+- Narración en tercera persona con diálogos reales del texto, no "tú".
+- Explicar con comparaciones simples y cifras en pantalla.
+- Cerrar con una frase que reinterpreta todo ("No eligió al que nunca cayó, eligió al que volvió").
+- Cierre de reenvío dirigido: "Mándaselo a ese amigo que…" (motor de compartidos).
+- Duración 45–60 s, ~3 palabras por segundo, sin silencios largos. Historias muy conocidas (David, Jonás) solo si se cuenta un dato que casi nadie sabe.
 
 ## Estándar dinámico (desde "Pedro camina sobre el agua" v2)
 - Un plano cada ~0,9 s: la misma escena se corta en varios encuadres (general, primer plano, detalle) con zoom en movimiento, giro leve y pulso de mano.
