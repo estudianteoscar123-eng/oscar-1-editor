@@ -67,3 +67,11 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
   - zk3 (5:37, Mi mayor, 81 BPM): intro de 40 s y luego estable; golpe tipo logo al final (cortar antes de 5:30) → finales esperanzadores.
 - Una sola canción por video (nunca dos en el mismo video), elegida según cuál conecte más con el guion (potencial viral). Nunca otra fuera de estas 3.
 - Cortar siempre antes de cualquier sonido de logo final.
+
+## Miniatura dentro del video (regla fija, ZK y SL)
+- Elegir el fotograma de mayor CTR de todo el video: un solo foco grande, contraste fuerte, curiosidad, 1–3 palabras como máximo, dentro de la zona segura.
+- Renderizarlo limpio (sin subtítulos) e insertarlo al inicio durante 3 fotogramas (0,1 s); todo lo demás se corre 0,1 s y la primera palabra sigue antes de 0,25 s. El tercer fotograma funde con el primer plano.
+- Al publicar se elige el fotograma 0 como portada. Entregar también ese fotograma en PNG y decir qué momento se eligió.
+
+## Efectos de sonido (regla fija)
+- Pocos y estratégicos: solo donde suman (un giro, un dato clave, un golpe de rojo). Nunca de relleno ni en cada corte; dejar tramos sin efectos.
