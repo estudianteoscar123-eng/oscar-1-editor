@@ -123,10 +123,11 @@ const C1: React.FC<{ t0: number; frozen?: number }> = ({ t0, frozen }) => {
   return (
     <AbsoluteFill style={{ transform: `scale(${ip(t, [0, 3], [1.1, 1.0])})` }}>
       <Svg>
-        {[[130, 1660, -16], [330, 1740, -6], [750, 1740, 7], [950, 1660, 16]].map(([x, y, r], i) => <Fist key={i} x={x} y={y + ip(t, [0.1 + i * 0.12, 0.7 + i * 0.12], [400, 0])} s={0.8} rot={r} dim />)}
-        <Fist x={540} y={1800 - 420 * eo(ip(t, [0.1, 0.7], [0, 1]))} s={1.75} />
-        <Serif txt="LA PRIMERA" y={560} size={100} o={ip(t, [at("la") - 0.05, at("la") + 0.1], [0, 1])} ls={10} />
-        <BigRed txt="PIEDRA" y={790} p={eo(ip(t, [at("piedra") - 0.05, at("piedra") + 0.22], [0, 1]))} size={230} />
+        {[[90, 1560, -18], [260, 1660, -9], [820, 1660, 9], [990, 1560, 18], [170, 1900, -6], [910, 1900, 6]].map(([x, y, r], i) => <Fist key={i} x={x} y={y + ip(t, [0 + i * 0.08, 0.5 + i * 0.08], [400, 0])} s={0.85} rot={r + Math.sin(t * 9 + i) * 1.5} dim />)}
+        <Fist x={540} y={1840 - 440 * eo(ip(t, [0.1, 0.7], [0, 1]))} s={1.6} open={1} />
+        <circle cx={540} cy={1250} r={260} fill="rgba(242,242,242,0.07)" style={{ filter: "blur(30px)" }} />
+        <Serif txt="PENA:" y={560} size={100} o={ip(t, [0.15, 0.3], [0, 1])} ls={12} />
+        <BigRed txt="MUERTE" y={790} p={eo(ip(t, [0.35, 0.75], [0, 1]))} size={230} />
       </Svg>
     </AbsoluteFill>
   );
@@ -137,11 +138,9 @@ const C2: React.FC<{ t0: number }> = ({ t0 }) => {
   return (
     <AbsoluteFill>
       <Svg>
-        <Stone x={760} y={1560} r={80} seed="c2" />
-        <Ground y={1640} />
-        <Fist x={480} y={1180} s={1.6} open={eo(ip(t, [t0, t0 + 0.5], [0, 1]))} />
-        <Serif txt="EL ÚNICO" y={640} size={120} o={ip(t, [at("único", 1) - 0.05, at("único", 1) + 0.1], [0, 1])} ls={10} />
-        <BigRed txt="NO LA TIRÓ" y={1800} p={eo(ip(t, [at("no"), at("no") + 0.35], [0, 1]))} size={140} />
+        <Ground y={1700} />
+        <Fist x={540} y={1180} s={1.6} open={eo(ip(t, [t0, t0 + 0.4], [0, 1]))} stoneY={0.01 + 300 * Math.pow(ip(t, [at("no") - 0.1, at("tiró") + 0.2], [0, 1]), 2)} />
+        <Serif txt="JUAN 8" y={620} size={90} o={ip(t, [t0 + 0.1, t0 + 0.3], [0, 0.9])} ls={16} />
       </Svg>
     </AbsoluteFill>
   );
@@ -154,9 +153,10 @@ const C3: React.FC<{ t0: number }> = ({ t0 }) => {
       <Svg>
         <g filter="url(#ink)"><circle cx={540} cy={1180} r={360} fill="url(#h1)" opacity={0.25} /><Draw d="M900 1180 A360 360 0 1 1 899.9 1179.5" p={ip(t, [t0, t0 + 0.6], [0, 1])} w={5} len={2300} /></g>
         <Ground y={1500} />
-        <g filter="url(#ink)"><Kneel x={520} y={1470} s={1.5} color="#050505" /></g>
-        <g filter="url(#ink)" opacity={0.9}><path d="M450 1010 m-60 0 a60 60 0 1 0 120 0 a60 60 0 1 0 -120 0" fill="none" stroke="#F2F2F2" strokeWidth={5} /></g>
-        <Stamp txt="ADULTERIO" p={ip(t, [at("adulterio") - 0.05, at("adulterio") + 0.15], [0, 1])} y={700} />
+        <g filter="url(#ink)" stroke="#F2F2F2" strokeWidth={5}><Kneel x={520} y={1470} s={1.5} color="#050505" /></g>
+        <g style={{ opacity: 0.45 }} strokeDasharray="16 14"><Robe x={840} y={1500} s={1.25} /></g>
+        <Serif txt="¿Y EL" y={560} size={120} o={ip(t, [at("adulterio"), at("adulterio") + 0.12], [0, 1])} ls={8} />
+        <BigRed txt="HOMBRE?" y={770} p={eo(ip(t, [at("adulterio") + 0.1, at("adulterio") + 0.4], [0, 1]))} size={200} />
       </Svg>
     </AbsoluteFill>
   );
@@ -198,8 +198,9 @@ const C5: React.FC<{ t0: number }> = ({ t0 }) => {
             return <g key={sd}><path d={d} fill="#050505" /><path d={d} fill="url(#h2)" opacity={0.25} /><Draw d={d} p={ip(t, [t0, t0 + 0.5], [0, 1])} w={7} len={2300} />{[820, 920, 1020, 1120, 1220].map((y, i) => <Draw key={y} d={`M${x - 110} ${y} L${x + 110} ${y}`} p={ip(t, [t0 + 0.2 + i * 0.06, t0 + 0.4 + i * 0.06], [0, 1])} w={5} len={230} />)}</g>;
           })}
         </g>
-        <Serif txt="LEVÍTICO 20:10" y={1520} size={78} o={ip(t, [at("ley") + 0.1, at("ley") + 0.3], [0, 1])} ls={4} />
-        {Array.from({ length: 9 }, (_, i) => { const k = ip(t, [a0 + i * 0.07, a0 + 0.35 + i * 0.07], [0, 1]); return k > 0 ? <Stone key={i} x={150 + i * 98} y={-100 + k * (1760 - (i % 3) * 40)} r={46 + (i % 3) * 10} seed={`l${i}`} /> : null; })}
+        <Brush d="M560 560 L520 900 L580 1150 L530 1440" p={eo(ip(t, [a0 - 0.05, a0 + 0.3], [0, 1]))} w={46} len={950} v />
+        <Serif txt="LEVÍTICO 20:10" y={1540} size={78} o={ip(t, [at("ley") + 0.1, at("ley") + 0.3], [0, 1])} ls={4} />
+        <Serif txt="«MORIRÁN LOS DOS»" y={1640} size={60} o={ip(t, [a0, a0 + 0.2], [0, 0.9])} ls={4} color="#F2F2F2" />
       </Svg>
     </AbsoluteFill>
   );
@@ -216,11 +217,14 @@ const C6: React.FC<{ t0: number }> = ({ t0 }) => {
         <Point x={0} y={1040} s={0.9} rot={18} push={ip(t, [t0, t0 + 0.4], [-200, 140])} />
         <Point x={1080} y={980} s={0.9} rot={162} push={ip(t, [t0 + 0.1, t0 + 0.5], [-200, 140])} />
         <Point x={0} y={1380} s={0.8} rot={-8} push={ip(t, [t0 + 0.2, t0 + 0.6], [-200, 90])} />
-        <g transform={`translate(540 600) scale(${ip(q, [0, 1], [0.6, 1])})`} opacity={q}>
-          <rect x={-330} y={-80} width={660} height={150} rx={40} fill="#F2F2F2" />
-          <path d="M-30 68 L0 120 L30 68 Z" fill="#F2F2F2" />
-          <text x={0} y={22} textAnchor="middle" fontFamily="Kit Poppins Black" fontWeight={900} fontSize={70} fill="#050505">¿TÚ QUÉ DICES?</text>
-        </g>
+        <Serif txt="ERA UNA TRAMPA" y={500} size={88} o={ip(t, [at("preguntaron"), at("preguntaron") + 0.15], [0, 1])} ls={6} />
+        {[[-1, "SI DICE SÍ", "ROMA LO ACUSA"], [1, "SI DICE NO", "ROMPE LA LEY"]].map(([sd, a, b], i) => (
+          <g key={i} transform={`translate(${540 + (sd as number) * 250} 700) scale(${ip(q, [0, 1], [0.6, 1])})`} opacity={ip(q, [i * 0.3, i * 0.3 + 0.5], [0, 1])} filter="url(#ink)">
+            <rect x={-220} y={-70} width={440} height={170} fill="#050505" stroke="#F2F2F2" strokeWidth={6} />
+            <text x={0} y={-5} textAnchor="middle" fontFamily="Kit Poppins Black" fontWeight={900} fontSize={46} fill="#F2F2F2">{a}</text>
+            <text x={0} y={60} textAnchor="middle" fontFamily="Kit Poppins Black" fontWeight={900} fontSize={42} fill={RED}>{b}</text>
+          </g>
+        ))}
       </Svg>
     </AbsoluteFill>
   );
@@ -253,7 +257,7 @@ const C8: React.FC<{ t0: number }> = ({ t0 }) => {
     <AbsoluteFill style={{ transform: `scale(${ip(t, [t0, t0 + 2.2], [1.0, 1.12])})` }}>
       <Svg>
         <Face p={eo(ip(t, [t0, t0 + 0.9], [0.2, 1]))} s={1.05} />
-        <Serif txt="«SIN PECADO»" y={1760} size={110} o={ip(t, [at("sinpecado"), at("sinpecado") + 0.15], [0, 1])} />
+        {[[170, -10], [540, 0], [910, 10]].map(([x, r], i) => <Fist key={i} x={x} y={1780} s={0.8} rot={r + Math.sin(t * 40 + i) * ip(t, [at("sinpecado"), at("sinpecado") + 0.4], [0, 2.5])} dim />)}
       </Svg>
     </AbsoluteFill>
   );
@@ -284,7 +288,8 @@ const C10: React.FC<{ t0: number }> = ({ t0 }) => {
         <g opacity={1 - leave} transform={`translate(${leave * 200} 0)`}><Crowd y={1560} n={7} s={0.72} o={0.6} /></g>
         {drops.map((d, i) => { const k = ip(t, [d, d + 0.35], [0, 1]); const x = 120 + i * 140; return <Stone key={i} x={x} y={1150 + k * k * 380} r={40} seed={`d${i}`} />; })}
         <text x={540} y={900} textAnchor="middle" fontFamily="Kit Poppins Black" fontWeight={900} fontSize={330} fill={landed === 7 ? "#F2F2F2" : "#F2F2F2"} opacity={0.95} transform={`translate(540 800) scale(${1 + 0.12 * Math.exp(-(t - (drops[landed - 1] ?? -9) - 0.35) * 10)}) translate(-540 -800)`}>{7 - landed}</text>
-        <Serif txt="PIEDRAS" y={1020} size={60} o={0.8} ls={14} />
+        <Serif txt="DEL MÁS VIEJO AL MÁS JOVEN" y={1020} size={48} o={0.85} ls={4} />
+        <Serif txt="JUAN 8:9" y={1090} size={40} o={0.6} ls={6} />
       </Svg>
     </AbsoluteFill>
   );
@@ -299,7 +304,7 @@ const C11: React.FC<{ t0: number }> = ({ t0 }) => {
         <Ground y={1420} />
         {Array.from({ length: 7 }, (_, i) => <Stone key={i} x={120 + i * 140 + (i % 2) * 30} y={1440 + (i % 3) * 30} r={20} seed={`d${i}`} />)}
         <Robe x={600} y={1420} s={0.55} />
-        <g filter="url(#ink)"><Kneel x={450} y={1415} s={0.5} color="#050505" /></g>
+        <g filter="url(#ink)" stroke="#F2F2F2" strokeWidth={5}><Kneel x={450} y={1415} s={0.5} color="#050505" /></g>
       </Svg>
     </AbsoluteFill>
   );
@@ -312,7 +317,6 @@ const C12: React.FC<{ t0: number }> = ({ t0 }) => {
       <Svg>
         <Brush d="M540 420 L540 1640" p={eo(ip(t, [at("único", 2) - 0.05, at("único", 2) + 0.35], [0, 1]))} w={140} len={1300} v />
         <Brush d="M200 760 L880 760" p={eo(ip(t, [at("sin", 0) - 0.05, at("sin", 0) + 0.3], [0, 1]))} w={130} len={720} />
-        <Serif txt="EL ÚNICO" y={1780} size={110} o={ip(t, [t0, t0 + 0.15], [0, 1])} ls={10} />
       </Svg>
     </AbsoluteFill>
   );
@@ -383,7 +387,6 @@ const C17: React.FC<{ t0: number }> = ({ t0 }) => {
       <Svg>
         <Brush d="M-40 1010 Q540 900 1120 960" p={eo(ip(t, [at("condenarte") - 0.1, at("condenarte") + 0.3], [0, 1]))} w={170} len={1300} />
         <Fist x={540} y={1240} s={1.7} />
-        <Serif txt="DERECHO A CONDENARTE" y={1780} size={66} o={ip(t, [at("derecho"), at("derecho") + 0.15], [0, 1])} ls={4} />
       </Svg>
     </AbsoluteFill>
   );
@@ -398,7 +401,6 @@ const C18: React.FC<{ t0: number }> = ({ t0 }) => {
       <Svg>
         <Ground y={1700} />
         <Fist x={540} y={1240} s={1.7} open={o} stoneY={fall * fall * 260} />
-        <Serif txt="ELIGIÓ NO HACERLO" y={640} size={84} o={ip(t, [t0, t0 + 0.15], [0, 1])} ls={6} />
       </Svg>
     </AbsoluteFill>
   );
