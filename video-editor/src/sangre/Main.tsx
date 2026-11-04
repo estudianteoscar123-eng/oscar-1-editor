@@ -17,10 +17,10 @@ const ip = (v: number, i: number[], o: number[]) => interpolate(v, i, o, { extra
 const eo = Easing.out(Easing.cubic);
 const W = 1080, H = 1920;
 const Svg: React.FC<{ children: React.ReactNode; style?: React.CSSProperties }> = ({ children, style }) => <svg width={W} height={H} style={{ position: "absolute", inset: 0, ...style }}>{children}</svg>;
-const Serif: React.FC<{ txt: string; y: number; size: number; o?: number; color?: string; ls?: number }> = ({ txt, y, size, o = 1, color = "#F2F2F2", ls = 4 }) => (
+export const Serif: React.FC<{ txt: string; y: number; size: number; o?: number; color?: string; ls?: number }> = ({ txt, y, size, o = 1, color = "#F2F2F2", ls = 4 }) => (
   <text x={540} y={y} textAnchor="middle" fontFamily="Georgia, 'Times New Roman', serif" fontWeight={700} fontSize={size} fill={color} letterSpacing={ls} opacity={o} filter="url(#ink)">{txt}</text>
 );
-const Drop: React.FC<{ x: number; y: number; r: number; o?: number }> = ({ x, y, r, o = 1 }) => (
+export const Drop: React.FC<{ x: number; y: number; r: number; o?: number }> = ({ x, y, r, o = 1 }) => (
   <path d={`M${x} ${y - r * 1.6} Q${x + r} ${y - r * 0.2} ${x + r} ${y + r * 0.3} A${r} ${r} 0 1 1 ${x - r} ${y + r * 0.3} Q${x - r} ${y - r * 0.2} ${x} ${y - r * 1.6} Z`} fill={RED} opacity={o} />
 );
 const useT = (t0: number) => { const f = useCurrentFrame(); return { f, t: t0 + f / FPS }; };
@@ -28,7 +28,7 @@ const useT = (t0: number) => { const f = useCurrentFrame(); return { f, t: t0 + 
 const at = (word: string, nth = 0) => WORDS.filter((w) => w.w.toLowerCase().replace(/[^a-záéíóúñ]/g, "") === word)[nth]?.s ?? 0;
 
 // rostro de Jesús en grabado: pelo largo, barba, ojos cerrados
-const Face: React.FC<{ p: number; s?: number }> = ({ p, s = 1 }) => (
+export const Face: React.FC<{ p: number; s?: number }> = ({ p, s = 1 }) => (
   <g filter="url(#ink)" transform={`translate(540 1040) scale(${s})`}>
     <path d="M-260 -80 Q-250 -440 0 -470 Q250 -440 260 -80 L300 520 L-300 520 Z" fill="url(#h2)" opacity={ip(p, [0.5, 1], [0, 0.5])} />
     <Draw d="M-260 -80 Q-250 -440 0 -470 Q250 -440 260 -80 L300 520" p={p} w={7} len={2200} />
@@ -43,7 +43,7 @@ const Face: React.FC<{ p: number; s?: number }> = ({ p, s = 1 }) => (
   </g>
 );
 // figura arrodillada, de perfil
-const Kneel: React.FC<{ x: number; y: number; s: number; color?: string }> = ({ x, y, s, color = "#050505" }) => (
+export const Kneel: React.FC<{ x: number; y: number; s: number; color?: string }> = ({ x, y, s, color = "#050505" }) => (
   <g transform={`translate(${x} ${y}) scale(${s})`} fill={color}>
     <circle cx={30} cy={-330} r={52} />
     <path d="M-10 -280 Q90 -270 110 -170 Q130 -60 170 0 L210 60 L-150 60 Q-170 -20 -120 -60 Q-80 -110 -60 -200 Q-50 -270 -10 -280 Z" />
