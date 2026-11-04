@@ -78,5 +78,19 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Viralidad = 3 cosas a la vez: audio de calidad, imagen que entretiene y retiene (golpes dopamínicos visuales constantes) y una retención del 95 % del video.
 - Guion e idea pesan más del 60 % (gancho y storytelling), pero el empaquetado visual también decide: un buen mensaje mal empaquetado no se ve, y un buen empaquetado con un guion flojo tampoco funciona.
 
+## Curva de retención (regla fija)
+- Los 3 primeros segundos deciden: la primera palabra antes de 0,25 s, movimiento desde el fotograma 1, 2 o 3 cambios visuales y una pregunta abierta antes del segundo 3.
+- Después, la curva debe ser casi plana: un re-gancho cada 5–7 s (dato poco conocido, pregunta nueva, giro o contador) y ninguna pausa de más de 0,4 s.
+- El final empalma con el inicio (bucle).
+
+## Cero redundancia (regla fija)
+- Tres capas con tres trabajos distintos:
+  - El **subtítulo** es lo que se dice.
+  - El **título en pantalla** es lo que NO se dice: un dato, una cifra, una cita, un contraste o una pregunta que abre curiosidad.
+  - La **imagen** muestra el subtexto, la consecuencia o la metáfora, para que el espectador deduzca; no ilustra la palabra literal.
+- Prohibido que el título repita el subtítulo, o que la imagen sea literalmente lo que se dice (ej.: subtítulo "el poder del rayo" + título "EL PODER DEL RAYO" + una mano con un rayo).
+- Prueba de cada plano: si quito una capa, ¿se pierde información? Si no se pierde, esa capa sobra o se cambia.
+- Si no hay nada nuevo que decir, no hay título: la imagen sola.
+
 ## Efectos de sonido (regla fija)
 - Pocos y estratégicos: solo donde suman (un giro, un dato clave, un golpe de rojo). Nunca de relleno ni en cada corte; dejar tramos sin efectos.
