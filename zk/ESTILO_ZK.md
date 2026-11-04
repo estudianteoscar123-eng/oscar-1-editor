@@ -73,5 +73,10 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Renderizarlo limpio (sin subtítulos) e insertarlo al inicio durante 3 fotogramas (0,1 s); todo lo demás se corre 0,1 s y la primera palabra sigue antes de 0,25 s. El tercer fotograma funde con el primer plano.
 - Al publicar se elige el fotograma 0 como portada. Entregar también ese fotograma en PNG y decir qué momento se eligió.
 
+## Filosofía de marca (regla fija del usuario)
+- Como una marca de papas: el producto es siempre la Biblia; cada video es un "sabor" distinto (otro personaje, otro dato, otro ángulo), con la misma estructura viral.
+- Viralidad = 3 cosas a la vez: audio de calidad, imagen que entretiene y retiene (golpes dopamínicos visuales constantes) y una retención del 95 % del video.
+- Guion e idea pesan más del 60 % (gancho y storytelling), pero el empaquetado visual también decide: un buen mensaje mal empaquetado no se ve, y un buen empaquetado con un guion flojo tampoco funciona.
+
 ## Efectos de sonido (regla fija)
 - Pocos y estratégicos: solo donde suman (un giro, un dato clave, un golpe de rojo). Nunca de relleno ni en cada corte; dejar tramos sin efectos.
