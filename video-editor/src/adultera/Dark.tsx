@@ -26,7 +26,7 @@ const BigRed: React.FC<{ txt: string; y: number; p: number; size?: number }> = (
 );
 
 // ---------- dibujos ----------
-const Stone: React.FC<{ x: number; y: number; r: number; p?: number; seed?: string }> = ({ x, y, r, p = 1, seed = "s" }) => {
+export const Stone: React.FC<{ x: number; y: number; r: number; p?: number; seed?: string }> = ({ x, y, r, p = 1, seed = "s" }) => {
   const n = 8;
   const pts = Array.from({ length: n }, (_, i) => { const a = (i / n) * Math.PI * 2 + 0.3; const k = r * (0.72 + 0.4 * random(`${seed}${i}`)); return [x + Math.cos(a) * k * 1.12, y + Math.sin(a) * k * 0.8]; });
   const mid = (i: number) => { const a = pts[i % n], b = pts[(i + 1) % n]; return `${(a[0] + b[0]) / 2} ${(a[1] + b[1]) / 2}`; };
@@ -78,7 +78,7 @@ const Point: React.FC<{ x: number; y: number; s: number; rot: number; push?: num
   </g>
 );
 // figura de pie con túnica
-const Robe: React.FC<{ x: number; y: number; s: number; hood?: boolean; o?: number }> = ({ x, y, s, hood, o = 1 }) => (
+export const Robe: React.FC<{ x: number; y: number; s: number; hood?: boolean; o?: number }> = ({ x, y, s, hood, o = 1 }) => (
   <g transform={`translate(${x} ${y}) scale(${s})`} filter="url(#ink)" opacity={o}>
     <path d="M-44 -370 Q-115 -300 -125 -100 L-175 0 L175 0 L125 -100 Q115 -300 44 -370 Z" fill="#050505" stroke="#F2F2F2" strokeWidth={6} />
     <path d="M20 -350 Q90 -250 110 0 L175 0 L125 -100 Q115 -300 44 -370 Z" fill="url(#h1)" opacity={0.7} />
@@ -98,7 +98,7 @@ const Writer: React.FC<{ x: number; y: number; s: number }> = ({ x, y, s }) => (
     <path d="M60 -490 Q130 -480 135 -410" stroke="url(#h1)" strokeWidth={26} fill="none" opacity={0.7} />
   </g>
 );
-const Ground: React.FC<{ y: number }> = ({ y }) => (
+export const Ground: React.FC<{ y: number }> = ({ y }) => (
   <g filter="url(#ink)">
     <path d={`M-20 ${y} L1100 ${y} L1100 1940 L-20 1940 Z`} fill="#050505" />
     <path d={`M-20 ${y} L1100 ${y} L1100 ${y + 160} L-20 ${y + 160} Z`} fill="url(#h2)" opacity={0.22} />
