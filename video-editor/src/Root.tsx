@@ -30,6 +30,7 @@ import { Sangre, SANGRE_TOTAL } from "./sangre/Main";
 import { Adultera, ADULTERA_TOTAL } from "./adultera/Main";
 import { AdulteraDark, ADULTERA_DARK_TOTAL } from "./adultera/Dark";
 import { Navidad, NAVIDAD_TOTAL } from "./navidad/Main";
+import { SLIppo, SLIPPO_TOTAL } from "./slippo/Main";
 import { FranklRef } from "./frankl/Ref";
 import { Atraccion } from "./atraccion/Main";
 import { TresTomas } from "./tres-tomas/Main";
@@ -74,6 +75,7 @@ export const Main = () => {
       <Composition id="Adultera" component={Adultera} durationInFrames={ADULTERA_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="AdulteraDark" component={AdulteraDark} durationInFrames={ADULTERA_DARK_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Navidad" component={Navidad} durationInFrames={NAVIDAD_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="SLIppo" component={SLIppo} durationInFrames={SLIPPO_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Ladron" component={Ladron} durationInFrames={LADRON_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLVegeta" component={SL} defaultProps={{ video: "vegeta" as const }} durationInFrames={SL_TOTAL.vegeta} fps={30} width={1080} height={1920} />
       <Composition id="SLLee" component={SL} defaultProps={{ video: "lee" as const }} durationInFrames={SL_TOTAL.lee} fps={30} width={1080} height={1920} />
