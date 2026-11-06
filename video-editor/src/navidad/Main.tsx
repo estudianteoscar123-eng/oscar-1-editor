@@ -24,8 +24,8 @@ const Svg: React.FC<{ children: React.ReactNode }> = ({ children }) => <svg widt
 const Ink: React.FC<{ children: React.ReactNode }> = ({ children }) => <g filter="url(#ink)">{children}</g>;
 
 // encuadres dentro de una escena: [tiempo, escala, origen x %, origen y %, giro]
-type Cut = [number, number, number, number, number?];
-const Shot: React.FC<{ t0: number; cuts: Cut[]; kind: number; children: (t: number) => React.ReactNode }> = ({ t0, cuts, kind, children }) => {
+export type Cut = [number, number, number, number, number?];
+export const Shot: React.FC<{ t0: number; cuts: Cut[]; kind: number; children: (t: number) => React.ReactNode }> = ({ t0, cuts, kind, children }) => {
   const f = useCurrentFrame();
   const t = t0 + f / FPS;
   const c = cuts.filter((k) => k[0] <= t).pop() ?? [t0, 1, 50, 50, 0];
@@ -79,7 +79,7 @@ const Hills: React.FC = () => (
 const Moon: React.FC<{ x: number; y: number; r: number }> = ({ x, y, r }) => (
   <Ink><circle cx={x} cy={y} r={r} fill="url(#h1)" opacity={0.5} /><circle cx={x} cy={y} r={r} fill="none" stroke="#F2F2F2" strokeWidth={5} /></Ink>
 );
-const Star: React.FC<{ x: number; y: number; r: number; o?: number }> = ({ x, y, r, o = 1 }) => (
+export const Star: React.FC<{ x: number; y: number; r: number; o?: number }> = ({ x, y, r, o = 1 }) => (
   <g opacity={o} style={{ filter: "drop-shadow(0 0 30px rgba(255,255,255,0.95))" }}>
     <path d={`M${x} ${y - r} Q${x + r * 0.12} ${y - r * 0.12} ${x + r} ${y} Q${x + r * 0.12} ${y + r * 0.12} ${x} ${y + r} Q${x - r * 0.12} ${y + r * 0.12} ${x - r} ${y} Q${x - r * 0.12} ${y - r * 0.12} ${x} ${y - r} Z`} fill="#F2F2F2" />
   </g>
@@ -87,7 +87,7 @@ const Star: React.FC<{ x: number; y: number; r: number; o?: number }> = ({ x, y,
 const Shepherd: React.FC<{ x: number; y: number; s: number }> = ({ x, y, s }) => (
   <g><Robe x={x} y={y} s={s} hood /><Ink><path d={`M${x + 150 * s} ${y} L${x + 150 * s} ${y - 560 * s} q0 -60 -50 -60`} stroke="#F2F2F2" strokeWidth={9} fill="none" /></Ink></g>
 );
-const Manger: React.FC<{ x: number; y: number; s: number; glow: number }> = ({ x, y, s, glow }) => (
+export const Manger: React.FC<{ x: number; y: number; s: number; glow: number }> = ({ x, y, s, glow }) => (
   <g transform={`translate(${x} ${y}) scale(${s})`}>
     <ellipse cx={0} cy={-120} rx={260} ry={110} fill={`rgba(242,242,242,${0.25 * glow})`} style={{ filter: "blur(30px)" }} />
     <Ink>
