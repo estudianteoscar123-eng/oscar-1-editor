@@ -33,6 +33,7 @@ import { Navidad, NAVIDAD_TOTAL } from "./navidad/Main";
 import { SLIppo, SLIPPO_TOTAL } from "./slippo/Main";
 import { Genealogia, GENEALOGIA_TOTAL } from "./genealogia/Main";
 import { Lazaro, LAZARO_TOTAL } from "./lazaro/Main";
+import { SLProy, SLPROY_TOTAL } from "./slproy/Main";
 import { FranklRef } from "./frankl/Ref";
 import { Atraccion } from "./atraccion/Main";
 import { TresTomas } from "./tres-tomas/Main";
@@ -80,6 +81,7 @@ export const Main = () => {
       <Composition id="SLIppo" component={SLIppo} durationInFrames={SLIPPO_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Genealogia" component={Genealogia} durationInFrames={GENEALOGIA_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Lazaro" component={Lazaro} durationInFrames={LAZARO_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="SLProy" component={SLProy} durationInFrames={SLPROY_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Ladron" component={Ladron} durationInFrames={LADRON_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLVegeta" component={SL} defaultProps={{ video: "vegeta" as const }} durationInFrames={SL_TOTAL.vegeta} fps={30} width={1080} height={1920} />
       <Composition id="SLLee" component={SL} defaultProps={{ video: "lee" as const }} durationInFrames={SL_TOTAL.lee} fps={30} width={1080} height={1920} />
