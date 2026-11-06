@@ -22,7 +22,8 @@ video-editor/output/
 video-editor/public/vesna/voz.wav
 video-editor/public/pedro/voz.wav
 video-editor/public/pedro/mezcla.wav
-video-editor/public/sl/
+video-editor/public/sl/*
+!video-editor/public/sl/*.json
 video-editor/public/ladron/*.wav
 video-editor/public/david/*.wav
 video-editor/public/jonas/*.wav
@@ -47,3 +48,6 @@ video-editor/public/genealogia/*.wav
 video-editor/public/lazaro/*.wav
 video-editor/public/sl-proy/*.wav
 video-editor/public/sl-proy/*.mp4
+video-editor/public/sl-fuerte/*.wav
+video-editor/public/sl-fuerte/*.mp4
+video-editor/tools/whisper/models/
