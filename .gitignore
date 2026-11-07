@@ -17,7 +17,10 @@ video-editor/public/suerte/*.wav
 video-editor/public/pieza/*.wav
 video-editor/public/illus-color/
 video-editor/public/d8c/*.wav
-video-editor/public/zk/
+video-editor/public/zk/*
+!video-editor/public/zk/songs/
+video-editor/public/zk/songs/*
+!video-editor/public/zk/songs/*.mp3
 video-editor/output/
 video-editor/public/vesna/voz.wav
 video-editor/public/pedro/voz.wav

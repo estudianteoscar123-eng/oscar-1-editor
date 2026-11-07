@@ -61,11 +61,13 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Regla del usuario: cada video debe superar claramente al anterior.
 
 ## Música (regla fija, nov. 2026)
-- Solo 3 canciones para ZK, en `video-editor/public/zk/songs/`:
-  - zk1 (60 s, Do mayor, 65 BPM): empieza suave, sube a los 20 s, pico en el 42 s → historias con giro (alinear el pico con el momento fuerte).
-  - zk2 (60 s, La menor, 65 BPM): oscura y pareja, corte a los 55 s → estilo Dark y tensión constante.
-  - zk3 (5:37, Mi mayor, 81 BPM): intro de 40 s y luego estable; golpe tipo logo al final (cortar antes de 5:30) → finales esperanzadores.
-- Una sola canción por video (nunca dos en el mismo video), elegida según cuál conecte más con el guion (potencial viral). Nunca otra fuera de estas 3.
+- Solo 5 canciones para ZK, guardadas en el repo en `video-editor/public/zk/songs/` (zk1–zk5.mp3):
+  - zk1 (60 s): oscura y pareja, baja a los 55 s.
+  - zk2 (53 s): oscura, golpe tipo logo a los 49 s → cortar antes de 48,5 s.
+  - zk3 (5:37): intro suave de ~37 s y luego estable; golpe final → cortar antes de 5:30.
+  - zk4 (35 s): tensión media, golpe a los 31 s → cortar antes de 30,5 s.
+  - zk5 (60 s): crece desde suave hasta el pico a partir de los 34 s → alinear el pico con el momento fuerte.
+- Una sola canción por video, elegida según el guion; no repetir la del video anterior. Nunca otra fuera de estas 5.
 - Cortar siempre antes de cualquier sonido de logo final.
 
 ## Miniatura dentro del video (regla fija, ZK y SL)
