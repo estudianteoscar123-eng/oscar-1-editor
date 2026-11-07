@@ -36,6 +36,7 @@ import { Lazaro, LAZARO_TOTAL } from "./lazaro/Main";
 import { SLProy, SLPROY_TOTAL } from "./slproy/Main";
 import { SLFuerte, SLFUERTE_TOTAL } from "./slfuerte/Main";
 import { Angeles, ANGELES_TOTAL } from "./angeles/Main";
+import { Muerte, MUERTE_TOTAL } from "./muerte/Main";
 import { SLLee, SLLEE_TOTAL } from "./sllee/Main";
 import { FranklRef } from "./frankl/Ref";
 import { Atraccion } from "./atraccion/Main";
@@ -87,6 +88,7 @@ export const Main = () => {
       <Composition id="SLProy" component={SLProy} durationInFrames={SLPROY_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLFuerte" component={SLFuerte} durationInFrames={SLFUERTE_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Angeles" component={Angeles} durationInFrames={ANGELES_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="Muerte" component={Muerte} durationInFrames={MUERTE_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLSinTalento" component={SLLee} durationInFrames={SLLEE_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Ladron" component={Ladron} durationInFrames={LADRON_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLVegeta" component={SL} defaultProps={{ video: "vegeta" as const }} durationInFrames={SL_TOTAL.vegeta} fps={30} width={1080} height={1920} />
