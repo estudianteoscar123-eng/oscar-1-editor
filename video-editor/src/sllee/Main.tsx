@@ -22,12 +22,12 @@ const GOLD = "#F5B51C", RED = "#D42A3C", WHITE = "#F4F4F4";
 const norm = (x: string) => x.toLowerCase().replace(/[^a-záéíóúñ0-9 ]/g, "");
 const wt = (w: string, after = 0) => T.words.find((x) => norm(x[0]) === w && x[1] >= after)?.[1] ?? 0;
 const wend = (w: string, after = 0) => T.words.find((x) => norm(x[0]) === w && x[1] >= after)?.[2] ?? 0;
-const ABRE = wt("ábrete"), VER = wt("estad"), VANO = wt("vano"), OCHO = wt("ocho"), GOLP = wt("golpes"), PERS = wt("perseverancia");
+const ABRE = wt("ábrete"), VER = wt("estad"), VANO = wt("vano"), OCHO = wt("ocho", END - 5), GOLP = wt("golpes"), PERS = wt("perseverancia");
 const CARDS: { from: number; to: number; lines: Line[] }[] = [
   { from: 0, to: wend("ábrete") + 0.15, lines: [{ txt: "¿Y SI NO TIENES", at: 0, kind: "small" }, { txt: "TALENTO?", at: 0, kind: "big", color: GOLD }] },
   { from: PERS - 0.2, to: wend("también", PERS) + 0.2, lines: [{ txt: "EL DON DE LA", at: PERS - 0.2, kind: "small" }, { txt: "PERSEVERANCIA", at: PERS, kind: "big", color: GOLD, italic: true }] },
   { from: VER - 0.3, to: VANO + 0.9, lines: [{ txt: "1 CORINTIOS 15:58", at: VER - 0.3, kind: "small" }, { txt: "«ESTAD FIRMES", at: VER, kind: "mid" }, { txt: "Y CONSTANTES»", at: wt("constantes", VER), kind: "mid" }, { txt: "VUESTRO TRABAJO NO ES", at: wt("trabajo", VER), kind: "small" }, { txt: "EN VANO", at: VANO, kind: "big", color: GOLD }] },
-  { from: wt("esfuerzo", OCHO - 3) - 0.1, to: END, lines: [{ txt: "EL ESFUERZO TE ABRE", at: wt("esfuerzo", OCHO - 3) - 0.1, kind: "small" }, { txt: "LAS OCHO", at: OCHO - 0.2, kind: "big", color: GOLD }] },
+  { from: wt("esfuerzo", OCHO - 2) - 0.1, to: END, lines: [{ txt: "EL ESFUERZO TE ABRE", at: wt("esfuerzo", OCHO - 2) - 0.1, kind: "small" }, { txt: "LAS OCHO", at: OCHO - 0.2, kind: "big", color: GOLD }] },
 ];
 const HITS = [0.1, ABRE, GOLP, PERS, OCHO];
 const PULSE = T.beats.filter((b) => (b > wt("cuatrocientas") && b < wt("mientras")) || (b > VANO && b < END - 0.5));
