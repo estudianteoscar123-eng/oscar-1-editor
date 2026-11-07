@@ -51,3 +51,5 @@ video-editor/public/sl-proy/*.mp4
 video-editor/public/sl-fuerte/*.wav
 video-editor/public/sl-fuerte/*.mp4
 video-editor/tools/whisper/models/
+video-editor/public/sl-lee/*.wav
+video-editor/public/sl-lee/*.mp4
