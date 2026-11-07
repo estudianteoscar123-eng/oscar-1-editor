@@ -41,6 +41,7 @@ Medir con `ficha-referencias.md`: volumen de la voz, fondo, efectos por cada 10 
 
 ## Título (regla fija)
 Al terminar cada video se entrega su título: corto, en forma de pregunta y pensado para que lo abran (alto CTR).
+- El título nunca repite lo que se dice en el video, ni el gancho ni el cierre. Debe aportar un ángulo nuevo que dé curiosidad.
 
 ## Fórmula viral (análisis de nov. 2026: nuestros 2 mejores frente a los 3 últimos y 7 refs de @detras_del_dato)
 Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre al que Jesús le prometió el paraíso") y lo que no (David, Jonás, Pedro sobre el agua en POV "tú"):
