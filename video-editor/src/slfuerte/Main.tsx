@@ -48,28 +48,40 @@ const GROUPS: G[] = (() => {
   out.forEach((g, i) => { const nx = out[i + 1]; g.e = Math.min(nx ? nx.s : g.e + 0.5, g.e + 0.45); });
   return out;
 })();
-const clean = (x: string) => x.replace(/[.,;:]+$/g, "").toUpperCase();
-const Subs: React.FC<{ t: number; f: number }> = ({ t, f }) => {
-  const g = GROUPS.find((x) => t >= x.s - 0.04 && t < x.e);
-  if (!g) return null;
-  const inP = ip(t - (g.s - 0.04), [0, 0.16], [0, 1]);
-  const outP = ip(g.e - t, [0, 0.08], [0, 1]);
+const clean = (x: string) => x.replace(/[.,;:«»"]+$/g, "").replace(/^[«"]+/, "").toUpperCase();
+const STOP = new Set(["el", "la", "los", "las", "de", "del", "que", "y", "a", "en", "un", "una", "no", "se", "te", "lo", "es", "por", "para", "con", "al", "tu", "mi", "me", "su", "sus", "más", "pero", "eso", "esa", "este", "esta", "ser", "o", "si", "ya", "le"]);
+const PALETTE = ["#F5B51C", "#F4EDE0", "#D42A3C", "#6FB3FF", "#F5B51C", "#E8E0D0"];
+const KEYI = (g: G) => {
+  let best = g.w.length - 1, sc = -1;
+  g.w.forEach((w, i) => { const c = clean(w[0]).toLowerCase(); const v = STOP.has(c) ? 0 : c.length + i * 0.5; if (v > sc) { sc = v; best = i; } });
+  return best;
+};
+// estilo especial (como el gancho): línea pequeña manuscrita + palabra clave grande con textura, color variado
+const Subs: React.FC<{ t: number; f: number }> = ({ t }) => {
+  const gi = GROUPS.findIndex((x) => t >= x.s - 0.04 && t < x.e);
+  if (gi < 0) return null;
+  const g = GROUPS[gi];
+  const k = KEYI(g);
+  const key = g.w[k];
+  const small = g.w.filter((_, i) => i !== k);
+  const inP = ip(t - (g.s - 0.04), [0, 0.14], [0, 1]);
+  const outP = ip(g.e - t, [0, 0.07], [0, 1]);
+  const keyOn = t >= key[1] - 0.03;
+  const pop = keyOn ? ip(t - key[1], [0, 0.09, 0.22], [1.28, 0.97, 1]) : 0.9;
+  const col = g.d ? "#FFE3A6" : PALETTE[(gi * 7 + key[0].length) % PALETTE.length];
+  const txt = clean(key[0]);
+  const size = Math.min(176, 880 / Math.max(3, txt.length * 0.7));
   return (
-    <div style={{ position: "absolute", left: 50, right: 50, top: 1150, display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "baseline", gap: "0 18px", opacity: inP * outP, transform: `translateY(${(1 - inP) * 34}px)`, filter: inP < 1 ? `blur(${(1 - inP) * 6}px)` : undefined }}>
-      {g.d ? <span style={{ fontFamily: BODY, fontWeight: 700, fontSize: 64, color: "#FFE08A", opacity: 0.8 }}>«</span> : null}
-      {g.w.map((w, i) => {
-        const on = t >= w[1] - 0.03 && t < (g.w[i + 1]?.[1] ?? g.e);
-        const past = t >= (g.w[i + 1]?.[1] ?? g.e);
-        const fut = t < w[1] - 0.03;
-        const pop = on ? ip(t - w[1], [0, 0.08, 0.2], [1.22, 1.1, 1.08]) : 1;
-        const col = on ? GOLD : g.d ? "#FFF3D1" : "#FFFFFF";
-        return (
-          <span key={i} style={{ display: "inline-block", fontFamily: BODY, fontWeight: 700, fontStyle: g.d ? "italic" : "normal", fontSize: g.d ? 60 : 66, letterSpacing: 1, color: col, opacity: fut ? 0.32 : past ? 0.92 : 1, transform: `scale(${pop})`, transformOrigin: "50% 70%", textShadow: on ? `0 0 26px rgba(245,181,28,0.55), 0 4px 10px rgba(0,0,0,0.95)` : "0 4px 10px rgba(0,0,0,0.95), 0 0 2px rgba(0,0,0,0.9)" }}>{clean(w[0])}</span>
-        );
-      })}
-      {g.d ? <span style={{ fontFamily: BODY, fontWeight: 700, fontSize: 64, color: "#FFE08A", opacity: 0.8 }}>»</span> : null}
-      {g.d ? <div style={{ flexBasis: "100%", height: 0 }} /> : null}
-      {g.d ? <div style={{ height: 5, width: `${ip(t, [g.s, g.e], [10, 46])}%`, background: `linear-gradient(90deg, rgba(245,181,28,0), ${GOLD}, rgba(245,181,28,0))`, marginTop: 10, borderRadius: 3 }} /> : null}
+    <div style={{ position: "absolute", left: 60, right: 60, top: 1060, textAlign: "center", opacity: inP * outP, transform: `translateY(${(1 - inP) * 26}px)` }}>
+      {small.length ? (
+        <div style={{ fontFamily: "S2Kalam", fontWeight: 700, fontSize: 58, color: g.d ? "#FFF0CF" : "#F2F2F2", transform: "skewX(-10deg)", letterSpacing: 2, lineHeight: 1.05, textShadow: "0 3px 10px rgba(0,0,0,0.9)" }}>
+          {g.d && small.some((w) => t >= w[1] - 0.03) ? "«" : ""}
+          {small.map((w, i) => <span key={i} style={{ opacity: t >= w[1] - 0.03 ? 1 : 0, marginRight: 14 }}>{clean(w[0])}</span>)}
+        </div>
+      ) : null}
+      <div style={{ fontFamily: g.d || gi % 3 === 1 ? "S2FatI" : "S2Fat", fontStyle: g.d || gi % 3 === 1 ? "italic" : "normal", fontWeight: 900, fontSize: size, color: col, lineHeight: 0.95, letterSpacing: 3, whiteSpace: "nowrap", opacity: keyOn ? 1 : 0, transform: `scale(${pop})`, filter: "url(#s2grunge) drop-shadow(0 6px 14px rgba(0,0,0,0.85))" }}>
+        {txt}{g.d && k === g.w.length - 1 ? "»" : ""}
+      </div>
     </div>
   );
 };
