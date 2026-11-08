@@ -117,13 +117,13 @@ const C4: React.FC<{ t0: number }> = ({ t0 }) => (
       const a2 = eo(ip(t, [at("manzana", 3) - 0.05, at("manzana", 3) + 0.2], [0, 1]));
       return (
         <>
-          <g opacity={ip(t, [t0, t0 + 0.2], [0, 1]) * ip(t, [at("malum") - 0.2, at("malum")], [1, 0.35])}>
+          <g opacity={ip(t, [t0, t0 + 0.2], [0, 1]) * ip(t, [at("malum") - 0.2, at("malum")], [1, 0])}>
             <Ink><rect x={260} y={420} width={560} height={300} rx={20} fill="#050505" stroke="#F2F2F2" strokeWidth={6} /></Ink>
             <text x={540} y={560} textAnchor="middle" fontFamily="Georgia, serif" fontWeight={700} fontSize={72} fill="#F2F2F2" letterSpacing={8}>VULGATA</text>
             <text x={540} y={650} textAnchor="middle" fontFamily="Georgia, serif" fontSize={50} fill="#F2F2F2" opacity={0.75} letterSpacing={6}>AÑO 405</text>
           </g>
           <g transform={`translate(540 960) scale(${0.7 + m * 0.3})`} opacity={m}>
-            <text x={0} y={0} textAnchor="middle" fontFamily="Georgia, serif" fontWeight={700} fontSize={190} fill="#F2F2F2" letterSpacing={14} filter="url(#ink)">MALUM</text>
+            <text x={0} y={0} textAnchor="middle" fontFamily="Georgia, serif" fontWeight={700} fontSize={150} fill="#F2F2F2" letterSpacing={6} filter="url(#ink)">MALUM</text>
           </g>
           <path d="M440 1020 L280 1220" stroke="#F2F2F2" strokeWidth={8} strokeDasharray={260} strokeDashoffset={260 * (1 - a1)} />
           <path d="M640 1020 L800 1220" stroke="#F2F2F2" strokeWidth={8} strokeDasharray={260} strokeDashoffset={260 * (1 - a2)} />
@@ -157,7 +157,7 @@ const C5: React.FC<{ t0: number }> = ({ t0 }) => (
 );
 // 6 · a quién dejaron de creerle: la serpiente susurra "no moriréis" (Gn 3:4)
 const C6: React.FC<{ t0: number }> = ({ t0 }) => (
-  <Shot t0={t0} kind={0} cuts={[[t0, 1.0, 50, 50], [at("sino"), 1.3, 62, 45, 2], [at("creerle"), 1.15, 45, 55, -2]]}>
+  <Shot t0={t0} kind={0} cuts={[[t0, 1.0, 50, 50], [at("sino"), 1.25, 58, 52, 2], [at("creerle"), 1.15, 45, 55, -2]]}>
     {(t) => {
       const crack = eo(ip(t, [at("creerle") - 0.05, at("creerle") + 0.25], [0, 1]));
       const sway = Math.sin(t * 3) * 14;
@@ -173,8 +173,8 @@ const C6: React.FC<{ t0: number }> = ({ t0 }) => (
           <path d={`M${515 + sway} 690 l-26 -6 m26 6 l-24 10`} stroke={RED} strokeWidth={5} fill="none" />
           <Robe x={330} y={1500} s={0.95} />
           <Ground y={1500} />
-          <Serif txt="«NO MORIRÉIS»" y={460} size={78} ls={4} o={ip(t, [at("problema"), at("problema") + 0.2], [0, 0.95])} />
-          <Serif txt="GÉNESIS 3:4" y={540} size={44} ls={8} o={ip(t, [at("problema") + 0.1, at("problema") + 0.3], [0, 0.7])} />
+          <Serif txt="«NO MORIRÉIS»" y={1680} size={78} ls={4} o={ip(t, [at("problema"), at("problema") + 0.2], [0, 0.95])} />
+          <Serif txt="GÉNESIS 3:4" y={1760} size={44} ls={8} o={ip(t, [at("problema") + 0.1, at("problema") + 0.3], [0, 0.7])} />
           <Brush d="M330 1000 L360 1120 L300 1220 L350 1340" p={crack} w={22} len={400} v />
         </>
       );
