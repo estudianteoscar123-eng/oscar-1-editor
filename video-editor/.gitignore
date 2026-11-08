@@ -23,3 +23,5 @@ video-editor/public/frankl/*.mp4
 public/maniqui/*.glb
 public/pelea/frames/
 public/pelea/*.wav
+video-editor/public/reyes/*.wav
+video-editor/public/manzana/*.wav

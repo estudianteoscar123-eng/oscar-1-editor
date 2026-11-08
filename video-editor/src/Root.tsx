@@ -37,6 +37,8 @@ import { SLProy, SLPROY_TOTAL } from "./slproy/Main";
 import { SLFuerte, SLFUERTE_TOTAL } from "./slfuerte/Main";
 import { Angeles, ANGELES_TOTAL } from "./angeles/Main";
 import { Muerte, MUERTE_TOTAL } from "./muerte/Main";
+import { Reyes, REYES_TOTAL } from "./reyes/Main";
+import { Manzana, MANZANA_TOTAL } from "./manzana/Main";
 import { SLLee, SLLEE_TOTAL } from "./sllee/Main";
 import { SLGohan, SLGOHAN_TOTAL } from "./slgohan/Main";
 import { SLGoku, SLGOKU_TOTAL } from "./slgoku/Main";
@@ -91,6 +93,8 @@ export const Main = () => {
       <Composition id="SLFuerte" component={SLFuerte} durationInFrames={SLFUERTE_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Angeles" component={Angeles} durationInFrames={ANGELES_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Muerte" component={Muerte} durationInFrames={MUERTE_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="Reyes" component={Reyes} durationInFrames={REYES_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="Manzana" component={Manzana} durationInFrames={MANZANA_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLSinTalento" component={SLLee} durationInFrames={SLLEE_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLGohan" component={SLGohan} durationInFrames={SLGOHAN_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLGoku" component={SLGoku} durationInFrames={SLGOKU_TOTAL} fps={30} width={1080} height={1920} />
