@@ -8,7 +8,7 @@ Video de referencia: `video-editor/output/pedro-volvio-v2.mp4` · código: `vide
 - Todo dibujado y animado con código (SVG/CSS en Remotion). Sin imágenes de IA, sin vídeo real, sin marcas de agua, sin "EP. 01" ni "mañana…".
 
 ## Guion
-- Gancho en el primer segundo: promesa, paradoja o pregunta.
+- Gancho en el primer segundo con la fórmula fija de `zk/GANCHO_VIRAL.md` (sujeto + acción extraordinaria + consecuencia + contradicción, que dispara una pregunta automática sin escribirla). Se aplica también a SL.
 - Datos concretos: nombres, años, cifras.
 - Un giro con "Pero…", "Entonces…" o "Semanas después…".
 - Cierre que interpela: "¿Y tú…?".
