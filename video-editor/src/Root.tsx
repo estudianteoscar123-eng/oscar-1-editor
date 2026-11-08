@@ -100,7 +100,7 @@ export const Main = () => {
       <Composition id="SLSinTalento" component={SLLee} durationInFrames={SLLEE_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLGohan" component={SLGohan} durationInFrames={SLGOHAN_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLSpider" component={SLSpider} durationInFrames={SLSPIDER_TOTAL} fps={30} width={1080} height={1920} />
-      <Composition id="SLVegeta" component={SLVegeta} durationInFrames={SLVEGETA_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="SLOrgullo" component={SLVegeta} durationInFrames={SLVEGETA_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLGoku" component={SLGoku} durationInFrames={SLGOKU_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Ladron" component={Ladron} durationInFrames={LADRON_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLVegeta" component={SL} defaultProps={{ video: "vegeta" as const }} durationInFrames={SL_TOTAL.vegeta} fps={30} width={1080} height={1920} />
