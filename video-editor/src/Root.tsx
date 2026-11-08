@@ -41,6 +41,8 @@ import { Reyes, REYES_TOTAL } from "./reyes/Main";
 import { Manzana, MANZANA_TOTAL } from "./manzana/Main";
 import { SLLee, SLLEE_TOTAL } from "./sllee/Main";
 import { SLGohan, SLGOHAN_TOTAL } from "./slgohan/Main";
+import { SLSpider, SLSPIDER_TOTAL } from "./slspider/Main";
+import { SLVegeta, SLVEGETA_TOTAL } from "./slvegeta/Main";
 import { SLGoku, SLGOKU_TOTAL } from "./slgoku/Main";
 import { FranklRef } from "./frankl/Ref";
 import { Atraccion } from "./atraccion/Main";
@@ -97,6 +99,8 @@ export const Main = () => {
       <Composition id="Manzana" component={Manzana} durationInFrames={MANZANA_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLSinTalento" component={SLLee} durationInFrames={SLLEE_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLGohan" component={SLGohan} durationInFrames={SLGOHAN_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="SLSpider" component={SLSpider} durationInFrames={SLSPIDER_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="SLVegeta" component={SLVegeta} durationInFrames={SLVEGETA_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLGoku" component={SLGoku} durationInFrames={SLGOKU_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Ladron" component={Ladron} durationInFrames={LADRON_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLVegeta" component={SL} defaultProps={{ video: "vegeta" as const }} durationInFrames={SL_TOTAL.vegeta} fps={30} width={1080} height={1920} />
