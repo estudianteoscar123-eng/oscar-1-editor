@@ -47,7 +47,7 @@ const CAM: Key[] = [
   k(at("entonces"), [35, 6.5, 15], [44, 0, 0], 46, 0.6),
   k(at("arrodillaron"), [40.2, 1.6, 9.5], [43, 0.4, 4], 36),
   k(at("solo"), [44.2, 1.3, 3.6], [41.8, 1.2, 1.6], 32),
-  k(at("lamieron") - 0.1, [43.4, 1.45, 2.7], [41.8, 1.4, 1.6], 28),
+  k(at("lamieron") - 0.1, [43.9, 1.5, 3.1], [41.8, 1.35, 1.6], 30),
   k(at("esos"), [0, 4.2, 13], [0, 1, 0], 42, 0.55),
   k(at("frente"), [0, 24, -34], [0, 0, -98], 52, 0.6),
   k(at("langostas"), [-22, 6, -62], [0, 1, -92], 46),
@@ -67,9 +67,9 @@ const CAM: Key[] = [
   k(at("pelear"), [-4.5, 1.7, -77], [0, 1.3, -83], 36),
   k(at("huyen"), [0, 16, -52], [0, 0, -100], 50),
   k(T_DAWN, [0, 3, 13], [0, 6, -10], 46, 0.6),
-  k(at("con", 0) > T_DAWN ? at("con", 0) : at("con", 1), [0, 11, 17], [0, 0, -10], 48),
+  k(at("con", 3), [0, 11, 17], [0, 0, -10], 48),
   k(at("salvamos") - 0.3, [4.5, 3.6, 11.5], [0, 1.2, -5], 44),
-  k(at("con", 2) || at("con", 1), [0, 2.2, 10.5], [0, 1.4, 1], 38),
+  k(at("con", 4), [0, 2.2, 10.5], [0, 1.4, 1], 38),
   k(END - 0.45, ...HOOK, 38, 0.4),
 ];
 
@@ -93,7 +93,7 @@ const armyAt = (t: number): Inst[] => {
     if (t < T_LEAVE && t > at("mandó") + 0.2) r = Math.PI * ip(t, at("mandó") + 0.2 + hash(i) * 0.4, at("mandó") + 0.8 + hash(i) * 0.4);
     if (t >= at("primero") && t < T_LEAVE) r = 0;
     if (ghost) {
-      const showAll = t >= at("con", 1) - 0.1 && t < (at("con", 2) || at("con", 1) + 3.5);
+      const showAll = t >= at("con", 3) - 0.1 && t < at("con", 4);
       if (!keep300(i) && !showAll) return [];
       if (!keep300(i)) o = 0.85;
       return [{ ...a, o, h: keep300(i) ? "#8C8F96" : "#C9C2B5" }];
@@ -191,8 +191,8 @@ const World: React.FC<{ t: number }> = ({ t }) => {
       {/* soldados en el río: casi todos de rodillas con la cara en el agua */}
       {t >= T_RIVER - 0.3 && t < T_300 ? <Crowd max={60} items={Array.from({ length: 46 }, (_, i) => ({ p: [42.7, -0.25, -18 + i * 0.85] as V3, skip: Math.abs(-18 + i * 0.85 - 1.6) < 2.6 || Math.abs(-18 + i * 0.85 + 4.4) < 1.6, r: Math.PI / 2, lie: 1.05 + Math.sin(t * 3 + i) * 0.05, c: ["#4B6A8C", "#5C7A5A", "#7A6A55"][i % 3] })).filter((x) => !x.skip)} /> : null}
       {t >= T_RIVER - 0.3 && t < T_300 ? [0, 1].map((i) => (
-        <Person key={i} pos={[41.8, -0.18, 1.6 - i * 6]} rot={1.35} s={0.92} robe="#4B6A8C" hair="#8C8F96" t={t} seed={30 + i} expr={i === 0 && t > at("lamieron") - 0.2 ? "smug" : "calm"}
-          armR={[0.35, 2.0 + Math.sin(t * 6) * 0.15]} armL={[0.2, 0.5]} lean={0.1} />
+        <Person key={i} pos={[41.8, -0.18, 1.6 - i * 6]} rot={0.95} s={0.92} robe="#4B6A8C" hair="#8C8F96" t={t} seed={30 + i} expr={i === 0 && t > at("lamieron") - 0.2 ? "smug" : "calm"}
+          armR={[-0.55, 1.95 + Math.sin(t * 6) * 0.06]} armL={[0.2, 0.5]} lean={0.1} />
       )) : null}
       {t >= T_RIVER - 0.3 && t < T_300 ? <Person pos={[37.5, 0, 6]} rot={1.6} robe="#3F7E6E" trim="#C9A548" hair="#5A3A22" beard="#5A3A22" t={t} seed={4} expr="calm" /> : null}
       {/* Madián */}
@@ -265,12 +265,12 @@ const Overlay: React.FC<{ t: number }> = ({ t }) => {
     <>
       {box(<>32.000 <span style={{ color: "#FF6A1F" }}>→</span> 10.000</>, at("quedaban"), at("dios") + 0.3, 92)}
       {box(<>10.000 <span style={{ color: "#FF6A1F" }}>→</span> 300</>, at("esos") + 0.1, at("frente") - 0.1, 96)}
-      {box("JUECES 7:2", at("explicó"), at("con", 1) - 0.1, 70)}
+      {box("JUECES 7:2", at("explicó"), at("con", 3) - 0.1, 70)}
     </>
   );
 };
 
-const COVER_T = at("lamieron") + 0.3;
+const COVER_T = at("solo") + 0.6;
 export const Gedeon: React.FC = () => {
   const f = useCurrentFrame();
   const cover = f < 3;
