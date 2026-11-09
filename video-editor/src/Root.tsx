@@ -41,6 +41,7 @@ import { Reyes, REYES_TOTAL } from "./reyes/Main";
 import { Manzana, MANZANA_TOTAL } from "./manzana/Main";
 import { Elias, ELIAS_TOTAL } from "./elias/Main";
 import { Gedeon, GEDEON_TOTAL } from "./gedeon/Main";
+import { Dv2Demo, DV2_TOTAL } from "./dv2/Demo";
 import { SLLee, SLLEE_TOTAL } from "./sllee/Main";
 import { SLGohan, SLGOHAN_TOTAL } from "./slgohan/Main";
 import { SLSpider, SLSPIDER_TOTAL } from "./slspider/Main";
@@ -101,6 +102,7 @@ export const Main = () => {
       <Composition id="Manzana" component={Manzana} durationInFrames={MANZANA_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Elias" component={Elias} durationInFrames={ELIAS_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Gedeon" component={Gedeon} durationInFrames={GEDEON_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="Dv2Demo" component={Dv2Demo} durationInFrames={DV2_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLSinTalento" component={SLLee} durationInFrames={SLLEE_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLGohan" component={SLGohan} durationInFrames={SLGOHAN_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLSpider" component={SLSpider} durationInFrames={SLSPIDER_TOTAL} fps={30} width={1080} height={1920} />
