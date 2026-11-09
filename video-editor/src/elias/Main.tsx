@@ -4,7 +4,7 @@ import { AbsoluteFill, Sequence, staticFile, useCurrentFrame } from "remotion";
 import { ThreeCanvas } from "@remotion/three";
 import data from "../../public/elias/words.json";
 import { Captions, FPS, S, Word, groupWords } from "../kit/Kit";
-import { CamRig, Cloud, Embers, Fire, Glow, Jar, Key, Peak, Person, Rain, Rock, Sky, Terrain, V3, eo, hash, ip, mix } from "../k3/Kit3D";
+import { CamRig, Cloud, Embers, Fire, Glow, Jar, Key, Person, Rain, Rock, Sky, Terrain, V3, eo, hash, ip, mix } from "../k3/Kit3D";
 
 // ZK 3D · Elías en el Carmelo (1 Reyes 18). Un solo plano continuo; la cámara viaja entre los dos altares.
 const TH = 0.1;
@@ -29,7 +29,7 @@ const BUILD0 = at("arma");
 
 const ALTM: [V3, V3] = [[0.4, 2.5, 5.0], [0, 1.0, 0]];
 const ELIF: [V3, V3] = [[1.0, 1.75, 3.5], [2.4, 1.6, 1.2]];
-const PROF: [V3, V3] = [[-12.6, 1.9, -1.9], [-14, 1.45, -5.4]];
+const PROF: [V3, V3] = [[-12.0, 2.2, 0.3], [-14, 1.45, -5.4]];
 const IDF: [V3, V3] = [[-15.0, 3.2, -7.4], [-15.5, 3.0, -11]];
 const k = (t: number, v: [V3, V3], fov = 36, e?: number, push?: number): Key => ({ t, p: v[0], l: v[1], fov, e, push });
 const KEYS_CAM: Key[] = [
@@ -49,13 +49,13 @@ const KEYS_CAM: Key[] = [
   k(at("dormido"), IDF, 34),
   k(at("saltan"), [[-10.5, 3.6, 0.5], [-14, 1, -6]], 42),
   k(at("cuchillos"), PROF, 32),
-  k(at("chispa"), [[-13.3, 1.5, -4.4], [-14, 1.0, -6]], 30),
-  k(at("turno"), [[0.2, 2.2, 5.2], [1.3, 1.2, 0.6]], 38, 0.5),
+  k(at("chispa"), [[-12.3, 2.0, -3.1], [-14, 1.1, -6]], 30),
+  k(at("turno"), [[0.6, 2.0, 4.8], [2.4, 1.35, 1.2]], 36, 0.5),
   k(at("piedras") - 0.6, [[0.2, 5.8, 3.4], [0, 0.4, 0]], 40),
   k(at("zanja"), [[2.4, 1.6, 3.2], [0.4, 0.2, 0.6]], 38),
   k(at("agua", 1) - 0.1, ALTM, 38),
   k(at("vez"), [[0.9, 2.3, 3.6], [-0.2, 1.3, 0.2]], 36),
-  k(at("dos"), [[-2.6, 2.6, 3.0], [0, 1.1, 0]], 38),
+  k(at("dos"), [[2.9, 2.5, 3.3], [0, 1.1, 0]], 38),
   k(at("tres", 1), [[0.3, 1.2, 3.8], [0, 1.0, 0]], 38),
   k(at("llena"), [[2.0, 1.0, 2.6], [0.4, 0.2, 0.8]], 34),
   k(at("profetas", 1), PROF, 34),
@@ -69,7 +69,7 @@ const KEYS_CAM: Key[] = [
   k(at("piedras", 1) - 0.1, [[1.6, 1.3, 2.9], [0, 0.6, 0]], 34),
   k(at("agua", 2) - 0.1, [[2.0, 1.0, 2.6], [0.4, 0.2, 0.8]], 34),
   k(at("ese", 1), [[-2, 8, 18], [-5, 2, -4]], 44, 0.6),
-  k(at("volvió") - 0.2, [[1.0, 1.45, 3.4], [2.4, 1.95, 1.2]], 32),
+  k(at("volvió") - 0.2, [[0.5, 1.3, 4.4], [2.4, 1.85, 1.2]], 36),
   k(END - 0.45, [[0.9, 2.3, 3.6], [-0.2, 1.3, 0.2]], 36, 0.4),
 ];
 
@@ -192,7 +192,14 @@ const Prophets: React.FC<{ t: number }> = ({ t }) => {
       {Array.from({ length: 80 }, (_, i) => {
         const a = Math.PI * (1.05 + hash(i + 50) * 0.9);
         const r = 9 + hash(i + 80) * 9;
-        return <mesh key={i} position={[BAAL[0] + Math.cos(a) * r, 0.6 + (shock ? 0 : Math.abs(Math.sin(t * 6 + i)) * (t > at("gritan", 1) && t < at("chispa") ? 0.25 : 0)), BAAL[2] + Math.sin(a) * r]}><capsuleGeometry args={[0.3, 0.7, 4, 8]} /><meshStandardMaterial color={i % 2 ? "#8E2A26" : "#6E1D29"} /></mesh>;
+        const y = shock ? 0 : Math.abs(Math.sin(t * 6 + i)) * (t > at("gritan", 1) && t < at("chispa") ? 0.25 : 0);
+        return (
+          <group key={i} position={[BAAL[0] + Math.cos(a) * r, y, BAAL[2] + Math.sin(a) * r]} scale={0.9}>
+            <mesh position={[0, 0.55, 0]}><cylinderGeometry args={[0.22, 0.36, 0.95, 8]} /><meshStandardMaterial color={i % 2 ? "#9E2B25" : "#7A1E2C"} /></mesh>
+            <mesh position={[0, 1.35, 0]}><sphereGeometry args={[0.33, 12, 10]} /><meshStandardMaterial color="#F6F1E8" /></mesh>
+            <mesh position={[0, 1.78, 0]}><coneGeometry args={[0.22, 0.45, 8]} /><meshStandardMaterial color="#C9A548" /></mesh>
+          </group>
+        );
       })}
     </group>
   );
@@ -232,7 +239,12 @@ const World: React.FC<{ t: number }> = ({ t }) => {
       <Terrain color={ground} />
       {/* grietas de la sequía */}
       {Array.from({ length: 30 }, (_, i) => <mesh key={i} position={[(hash(i) - 0.5) * 26 - 4, 0.03, (hash(i + 9) - 0.5) * 20]} rotation={[-Math.PI / 2, 0, hash(i + 4) * 6]}><planeGeometry args={[1.4 + hash(i + 2) * 1.6, 0.05]} /><meshBasicMaterial color="#8A6136" transparent opacity={0.7 * (1 - storm)} /></mesh>)}
-      {[[-60, -6, -120, 40, 50], [30, -8, -140, 46, 60], [-130, -8, -60, 40, 44], [110, -10, -90, 50, 52]].map((m, i) => <Peak key={i} pos={[m[0], m[1] + m[4] / 2 - 10, m[2]]} r={m[3]} h={m[4]} color={mix("#C99A6B", "#5A6271", storm)} />)}
+      {[[-60, -120, 46, 26], [10, -150, 60, 34], [-140, -70, 44, 22], [110, -100, 56, 28], [70, -170, 40, 30], [-100, -160, 50, 30]].map((m, i) => <mesh key={i} position={[m[0], -14, m[1]]} scale={[m[2], m[3], m[2] * 0.8]}><icosahedronGeometry args={[1, 1]} /><meshStandardMaterial color={mix(i % 2 ? "#9C8E6A" : "#8C8A62", "#4F5866", storm)} flatShading roughness={1} /></mesh>)}
+      {Array.from({ length: 34 }, (_, i) => { const x = (hash(i + 300) - 0.5) * 70 - 4, z = -8 - hash(i + 310) * 40 + (i % 3) * 14; if (Math.hypot(x, z) < 6 || Math.hypot(x + 14, z + 6) < 10) return null; const sc = 0.6 + hash(i + 320) * 1.0; return (
+        <group key={i} position={[x, 0, z]} scale={sc}>
+          <mesh position={[0, 0.5, 0]}><cylinderGeometry args={[0.08, 0.12, 1, 6]} /><meshStandardMaterial color="#6B4A2E" /></mesh>
+          <mesh position={[0, 1.3, 0]} scale={[1.2, 0.8, 1.2]} castShadow><icosahedronGeometry args={[0.8, 0]} /><meshStandardMaterial color={mix(i % 2 ? "#7E9A4A" : "#6C8A3E", "#4E5E3E", storm)} flatShading /></mesh>
+        </group>); })}
       <mesh position={[120, -9, 40]} rotation={[-Math.PI / 2, 0, 0]}><planeGeometry args={[220, 400]} /><meshStandardMaterial color={mix("#3BA3D9", "#40607A", storm)} roughness={0.2} /></mesh>
       {Array.from({ length: 16 }, (_, i) => <Rock key={i} pos={[(hash(i + 30) - 0.5) * 34 - 5, 0.15, (hash(i + 40) - 0.5) * 26 - 2]} s={0.5 + hash(i) * 1.1} color="#B8996F" seed={i + 60} />)}
       <Altar t={t} />
@@ -252,7 +264,7 @@ const World: React.FC<{ t: number }> = ({ t }) => {
         <group>
           <mesh position={[0, 30, 0]}><cylinderGeometry args={[1.5 * column, 1.1 * column, 60, 20, 1, true]} /><meshBasicMaterial color="#FFF2C2" transparent opacity={0.85 * column} /></mesh>
           <Glow pos={[0, 2, 0]} s={22 * column} color="#FFD27A" o={column} />
-          <pointLight position={[0, 6, 2]} color="#FFE7B0" intensity={600 * column} distance={40} />
+          <pointLight position={[0, 6, 2]} color="#FFE7B0" intensity={220 * column} distance={40} />
         </group>
       ) : null}
       <Fire pos={[0, 1.0, 0]} s={1.35} t={t} o={fireT} light={1.4} />
