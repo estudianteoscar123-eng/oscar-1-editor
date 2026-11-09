@@ -60,10 +60,10 @@ const KEYS_CAM: Key[] = [
   k(at("llena"), [[2.0, 1.0, 2.6], [0.4, 0.2, 0.8]], 34),
   k(at("profetas", 1), PROF, 34),
   k(at("verás"), IDF, 36, 0.5),
-  k(at("rayo") - 0.1, [[-14.8, 4.0, -8.6], [-15.3, 3.9, -11]], 30),
+  k(at("rayo") - 0.1, [[-13.0, 3.7, -8.2], [-14.4, 3.6, -11.2]], 32),
   k(at("elías", 1), [[-7, 6, 14], [-7, 1, -4]], 44, 0.55),
   k(at("empapó"), [[1.3, 1.5, 2.6], [0, 0.95, 0]], 32),
-  k(at("ora"), [[1.2, 0.8, 3.9], [2.4, 2.0, 1.2]], 36),
+  k(at("ora"), [[0.9, 1.25, 4.8], [2.4, 1.85, 1.2]], 40),
   k(T_FIRE - 0.05, [[0.5, 4.5, 16], [0, 8, 0]], 46, 0.35),
   k(at("quema"), [[2.2, 2.3, 4.4], [0, 1.3, 0]], 38),
   k(at("piedras", 1) - 0.1, [[1.6, 1.3, 2.9], [0, 0.6, 0]], 34),
@@ -150,9 +150,9 @@ const Idol: React.FC<{ t: number }> = ({ t }) => {
       <mesh position={[0, 3.55, 0]}><coneGeometry args={[0.3, 0.8, 8]} /><meshStandardMaterial color="#C9A548" metalness={0.5} roughness={0.35} /></mesh>
       {[-1, 1].map((sd) => <mesh key={sd} position={[0.38 * sd, 3.35, 0]} rotation={[0, 0, -sd * 0.7]}><coneGeometry args={[0.07, 0.5, 6]} /><meshStandardMaterial color="#C9A548" metalness={0.5} /></mesh>)}
       {[-1, 1].map((sd) => <mesh key={sd} position={[0.15 * sd, 3.05, 0.4]}><sphereGeometry args={[0.06, 8, 6]} /><meshBasicMaterial color={zz ? "#2a2018" : "#1a120c"} /></mesh>)}
-      <group position={[0.55, 2.5, 0]} rotation={[0, 0, -2.4]}>
+      <group position={[0.55, 2.5, 0]} rotation={[0, 0, -0.6]}>
         <mesh position={[0, 0.55, 0]}><cylinderGeometry args={[0.1, 0.12, 1.1, 6]} /><meshStandardMaterial color="#9E8A62" metalness={0.35} /></mesh>
-        <group position={[0.05, 1.25, 0]} rotation={[0, 0, 2.4]}>
+        <group position={[0.05, 1.25, 0]} rotation={[0, 0, 0.6]}>
           <mesh position={[0, 0.0, 0]} rotation={[0, 0, 0.5]}><boxGeometry args={[0.12, 0.6, 0.08]} /><meshStandardMaterial color="#F2C94C" emissive="#FFD34D" emissiveIntensity={0.3 + flash * 6} /></mesh>
           <mesh position={[0.15, -0.45, 0]} rotation={[0, 0, -0.5]}><boxGeometry args={[0.12, 0.6, 0.08]} /><meshStandardMaterial color="#F2C94C" emissive="#FFD34D" emissiveIntensity={0.3 + flash * 6} /></mesh>
           {flash > 0.02 ? <Glow pos={[0.05, -0.2, 0.2]} s={3.5 * flash + 0.5} color="#FFE27A" o={flash} /> : null}
