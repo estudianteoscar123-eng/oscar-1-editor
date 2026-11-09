@@ -23,8 +23,8 @@ type K = [number, number, number, number, number]; // t, x, y, z, foco
 const KEYF: { t: number; e: number; k: K }[] = [
   { t: 0, e: 0, k: [0, 0, -470, -700, 0] },
   { t: 0.95, e: 0.0, k: [0.95, 20, -440, -540, 0] },
-  { t: 1.75, e: 0.8, k: [1.75, -150, -760, -2500, 1000] },
-  { t: 2.62, e: 0.0, k: [2.62, 250, -700, -2200, 1000] },
+  { t: 1.75, e: 0.8, k: [1.75, -120, -640, -1500, 700] },
+  { t: 2.62, e: 0.0, k: [2.62, 160, -600, -1250, 700] },
   { t: 3.12, e: 0.5, k: [3.12, 9000, -520, -900, 600] },
   { t: 4.55, e: 0.0, k: [4.55, 9080, -430, 1500, 2300] },
   { t: 5.4, e: 0.85, k: [5.4, 9180, -300, 2200, 2700] },
@@ -50,12 +50,14 @@ const L: React.FC<{ cam: Cam; d: number; x: number; y: number; children: React.R
   const k = F / dz;
   const sx = 540 + (x - cam.x) * k, sy = 960 + (y - cam.y) * k;
   if (sx < -6000 * k - 400 || sx > 1080 + 6000 * k + 400) return null;
-  const b = noBlur ? 0 : Math.min(18, Math.abs(d - cam.fd) / 160 + cam.blur);
-  return (
-    <div style={{ position: "absolute", left: 0, top: 0, transform: `translate(${sx}px, ${sy}px) scale(${k})`, transformOrigin: "0 0", filter: b > 0.4 ? `blur(${b / Math.max(k, 0.25)}px)` : undefined, opacity: o, zIndex: Math.round(100000 - d) }}>
+  const b = noBlur ? 0 : Math.min(10, Math.abs(d - cam.fd) / 260 + cam.blur);
+  const inner = (
+    <div style={{ position: "absolute", left: 0, top: 0, transform: `translate(${sx}px, ${sy}px) scale(${k})`, transformOrigin: "0 0" }}>
       <svg width={1} height={1} style={{ overflow: "visible", position: "absolute" }}>{children}</svg>
     </div>
   );
+  // desenfoque en espacio de pantalla (barato): solo cuando se nota
+  return <div style={{ position: "absolute", inset: 0, opacity: o, zIndex: Math.round(100000 - d), filter: b >= 2.5 ? `blur(${Math.round(b)}px)` : undefined }}>{inner}</div>;
 };
 
 // ---------- dibujos de tinta ----------
@@ -63,37 +65,38 @@ const W = "#F2F2F2";
 const Gideon: React.FC<{ t: number }> = ({ t }) => {
   const blink = (t % 2.6) > 2.48;
   const br = Math.sin(t * 2.2) * 4;
-  const wind = Math.sin(t * 3.1) * 10;
+  const wind = Math.sin(t * 3.1) * 14;
   const look = ip(t, 2.4, 2.7, 0, 9);
   return (
     <g filter="url(#ink)">
-      {/* manto que ondea */}
-      <path d={`M-120 -380 Q-230 -180 -250 ${-10} L${-200 + wind} 0 L${230 + wind} 0 Q 250 -200 130 -380 Z`} fill="#070707" stroke={W} strokeWidth={6} />
-      <path d={`M40 -370 Q 160 -200 ${210 + wind} 0 L${230 + wind} 0 Q 250 -200 130 -380 Z`} fill="url(#h1)" opacity={0.75} />
-      {/* luz de contra roja */}
-      <path d={`M-120 -380 Q-230 -180 -250 -10`} fill="none" stroke={RED} strokeWidth={9} opacity={0.9} />
-      {/* cuerpo y cinto */}
-      <path d={`M-110 -400 Q-150 -${210 + br} -170 -20 L170 -20 Q150 -${210 + br} 110 -400 Z`} fill="#050505" stroke={W} strokeWidth={6} />
-      <path d="M-150 -170 L150 -170" stroke={RED} strokeWidth={14} />
-      <path d="M60 -380 Q 120 -210 150 -30" fill="none" stroke="url(#h2)" strokeWidth={60} opacity={0.5} />
-      {/* lanza */}
-      <path d="M210 -720 L190 0" stroke={W} strokeWidth={7} />
-      <path d="M210 -760 L196 -700 L224 -700 Z" fill={W} />
-      <path d="M150 -330 Q190 -350 205 -330" stroke={W} strokeWidth={14} fill="none" strokeLinecap="round" />
+      {/* capa que ondea detrás */}
+      <path d={`M-95 -400 C-200 -300 -250 -150 ${-300 + wind} 10 L${-60 + wind * 0.5} -20 C-40 -150 -60 -300 -95 -400 Z`} fill="#070707" stroke={W} strokeWidth={5} />
+      <path d={`M-95 -400 C-200 -300 -250 -150 ${-300 + wind} 10`} fill="none" stroke={RED} strokeWidth={10} />
+      {/* túnica con pliegues */}
+      <path d={`M-85 -410 C-120 -${300 + br} -150 -150 -175 0 L175 0 C150 -150 120 -${300 + br} 85 -410 Q0 -440 -85 -410 Z`} fill="#050505" stroke={W} strokeWidth={6} />
+      <path d={`M30 -400 C80 -280 120 -140 150 0 L175 0 C150 -150 120 -${300 + br} 85 -410 Z`} fill="url(#h1)" opacity={0.8} />
+      {[-60, -10, 40].map((x, i) => <path key={i} d={`M${x} -330 C${x - 10} -220 ${x + 8} -120 ${x - 6} 0`} stroke={W} strokeWidth={3} fill="none" opacity={0.55} />)}
+      <path d="M-128 -200 Q0 -180 128 -200" stroke={RED} strokeWidth={13} fill="none" />
+      {/* brazo y lanza */}
+      <path d="M95 -380 C140 -330 160 -280 175 -235" stroke={W} strokeWidth={30} strokeLinecap="round" fill="none" />
+      <path d="M95 -380 C140 -330 160 -280 175 -235" stroke="#050505" strokeWidth={20} strokeLinecap="round" fill="none" />
+      <path d="M200 -760 L182 20" stroke={W} strokeWidth={7} />
+      <path d="M201 -800 L188 -735 L214 -735 Z" fill={W} />
+      <circle cx={180} cy={-232} r={17} fill="#050505" stroke={W} strokeWidth={5} />
       {/* cabeza */}
-      <g transform={`translate(0 ${-525 + br * 0.5})`}>
-        <circle r={98} fill="#060606" stroke={W} strokeWidth={6} />
-        <path d="M-98 0 A98 98 0 0 1 -60 -78" fill="none" stroke={RED} strokeWidth={10} />
-        <path d="M-92 -30 Q0 -150 92 -30 Q60 -80 0 -88 Q-60 -80 -92 -30 Z" fill={W} opacity={0.92} />
-        {/* barba de tinta */}
-        <path d="M-80 25 Q-70 110 0 130 Q70 110 80 25 Q40 60 0 62 Q-40 60 -80 25 Z" fill="url(#h1)" stroke={W} strokeWidth={4} />
-        {[-1, 1].map((s) => (
-          <g key={s}>
-            <path d={`M${s * 52 - 22} -28 L${s * 52 + 22} ${-28 + s * 4}`} stroke={W} strokeWidth={7} strokeLinecap="round" />
-            {blink ? <path d={`M${s * 40 - 14 + look} -6 L${s * 40 + 14 + look} -6`} stroke={W} strokeWidth={6} /> : <ellipse cx={s * 40 + look} cy={-6} rx={11} ry={15} fill={W} />}
+      <g transform={`translate(0 ${-515 + br * 0.5})`}>
+        <circle r={96} fill="#060606" stroke={W} strokeWidth={6} />
+        <path d="M-96 6 A96 96 0 0 1 -56 -78" fill="none" stroke={RED} strokeWidth={11} />
+        <path d="M-90 -28 Q-60 -105 0 -100 Q70 -100 92 -26 Q55 -62 0 -66 Q-50 -64 -90 -28 Z" fill="url(#h1)" stroke={W} strokeWidth={5} />
+        <path d="M-70 36 C-64 96 -28 124 0 126 C28 124 64 96 70 36 C40 60 20 56 0 56 C-20 56 -40 60 -70 36 Z" fill="url(#h2)" stroke={W} strokeWidth={5} />
+        
+        {[-1, 1].map((s2) => (
+          <g key={s2}>
+            <path d={`M${s2 * 40 - 20} -30 L${s2 * 40 + 20} ${-30 + s2 * 5}`} stroke={W} strokeWidth={7} strokeLinecap="round" />
+            {blink ? <path d={`M${s2 * 36 - 12 + look} -6 L${s2 * 36 + 12 + look} -6`} stroke={W} strokeWidth={6} /> : <ellipse cx={s2 * 36 + look} cy={-6} rx={10} ry={14} fill={W} />}
           </g>
         ))}
-        <path d="M-22 48 Q0 54 22 48" stroke={W} strokeWidth={5} fill="none" />
+        <path d="M-18 34 Q0 40 18 34" stroke={W} strokeWidth={5} fill="none" />
       </g>
     </g>
   );
@@ -159,14 +162,14 @@ export const Dv2Demo: React.FC = () => {
       <AbsoluteFill style={{ filter: "contrast(1.08)" }}>
         {/* ===== colina de Gedeón ===== */}
         <L cam={c} d={9000} x={0} y={-900} noBlur><circle r={900} fill="#FF5A1F" opacity={0.16} /><circle r={420} fill="#FF7A2A" opacity={0.2} /></L>
-        {[2600, 1900, 1400, 1000].map((d, i) => <L key={d} cam={c} d={d} x={0} y={-60 - i * 10}><Ridge n={[90, 80, 64, 52][i]} w={[9000, 7000, 5600, 4600][i]} t={t} seed={i * 3 + 1} s={[1.1, 1.05, 1, 1][i]} /></L>)}
+        {[3000, 2200, 1600, 1150, 800, 520].map((d, i) => <L key={d} cam={c} d={d} x={0} y={-30 + i * 6}><Ridge n={[110, 100, 90, 80, 70, 60][i]} w={[11000, 8800, 7000, 5600, 4600, 3800][i]} t={t} seed={i * 3 + 1} s={[2.6, 2.5, 2.4, 2.3, 2.2, 2.1][i]} /></L>)}
         <L cam={c} d={1250} x={0} y={-420} o={0.5}><rect x={-6000} y={-120} width={12000} height={260} fill="url(#fogR)" /></L>
         <L cam={c} d={60} x={0} y={0}>
           <path d="M-3500 40 Q-1200 -40 0 -10 Q1400 20 3500 -30 L3500 3000 L-3500 3000 Z" fill="#040404" stroke={W} strokeWidth={4} />
           <path d="M-3500 40 Q-1200 -40 0 -10 Q1400 20 3500 -30 L3500 600 L-3500 600 Z" fill="url(#h2)" opacity={0.25} />
         </L>
         <L cam={c} d={0} x={0} y={0}><Gideon t={t} /></L>
-        <L cam={c} d={-320} x={-380} y={30}>{Array.from({ length: 26 }, (_, i) => <path key={i} d={`M${i * 34} 0 Q${i * 34 + 10 + Math.sin(t * 2 + i) * 14} -90 ${i * 34 + Math.sin(t * 2.4 + i) * 30} ${-170 - hash(i) * 120}`} stroke={W} strokeWidth={6} fill="none" opacity={0.85} />)}</L>
+
         {/* ===== valle de Madián ===== */}
         {Array.from({ length: 16 }, (_, row) => {
           const d = 300 + row * 260;
