@@ -23,7 +23,8 @@ Video de referencia: `video-editor/output/pedro-volvio-v2.mp4` · código: `vide
 - Datos en pantalla: etiquetas, globos de diálogo, contadores y marcadores (✕ → ❤).
 - Gradación final: brillo ×1,18, contraste ×1,12, saturación ×1,12.
 
-## Subtítulos (los actuales, fijados)
+## Subtítulos (los actuales, fijados — regla del usuario: NUNCA cambiarlos, tampoco en el estilo 3D)
+- Los del kit (`Captions` de `src/kit/Kit.tsx`) con la palabra clave enmarcada en rojo (#D30F17), como en los videos Dark.
 - Arriba (y ≈ 250), Poppins 600 a 62 px, blanco con sombra.
 - De 1 a 3 palabras por bloque; las no dichas al 32 % de opacidad.
 - Palabra clave enmarcada en azul (#4FA3FF).
