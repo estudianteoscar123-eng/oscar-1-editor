@@ -22,7 +22,7 @@ const at = (w: string, n = 0) => WORDS.filter((x) => clean(x.w) === w)[n]?.s ?? 
 const G: V3 = [0, 0, 4];
 const SOL: V3 = [8, 0, 4];
 const CAMP: V3 = [0, 0, -95];
-const RING = 42;
+const RING = 40;
 const T_LEAVE = at("fueron");
 const T_RIVER = at("entonces");
 const T_300 = at("esos");
@@ -42,33 +42,33 @@ const CAM: Key[] = [
   k(at("primero"), [0.9, 1.8, 7.2], [0, 1.6, 4], 30),
   k(at("fueron"), [11, 7, 7], [0, 0.5, -12], 46),
   k(at("quedaban"), [0, 5.5, 11], [0, 0.5, -8], 44),
-  k(at("dios"), [0.9, 0.9, 7.6], [0, 3.4, 3.4], 40),
+  k(at("dios"), [2.4, 1.3, 8.8], [0, 2.4, 4], 40),
   k(at("todavía"), [0.9, 1.75, 7.0], [0, 1.6, 4], 30),
   k(at("entonces"), [35, 6.5, 15], [44, 0, 0], 46, 0.6),
-  k(at("arrodillaron"), [40.6, 1.5, 4.5], [43, 0.5, 0.5], 36),
-  k(at("solo"), [39.6, 1.6, 5.2], [41.2, 1.25, 1.6], 32),
-  k(at("lamieron") - 0.1, [40.4, 1.5, 3.7], [41.2, 1.4, 1.6], 26),
+  k(at("arrodillaron"), [40.2, 1.6, 9.5], [43, 0.4, 4], 36),
+  k(at("solo"), [44.2, 1.3, 3.6], [41.8, 1.2, 1.6], 32),
+  k(at("lamieron") - 0.1, [43.4, 1.45, 2.7], [41.8, 1.4, 1.6], 28),
   k(at("esos"), [0, 4.2, 13], [0, 1, 0], 42, 0.55),
   k(at("frente"), [0, 24, -34], [0, 0, -98], 52, 0.6),
   k(at("langostas"), [-22, 6, -62], [0, 1, -92], 46),
   k(at("camellos"), [14.5, 1.7, -60.5], [17, 1.4, -66], 36),
   k(at("armas"), [9.2, 2.0, 8.6], [8, 1.3, 4.2], 38, 0.55),
-  k(at("trompeta"), [7.2, 1.5, 6.4], [7.55, 1.3, 4.6], 26),
-  k(at("cántaro"), [8.9, 1.45, 6.4], [8.45, 1.25, 4.6], 26),
-  k(at("antorcha"), [8.6, 1.95, 5.6], [8.45, 1.35, 4.6], 24),
+  k(at("trompeta"), [7.45, 1.1, 6.0], [7.6, 1.2, 4.6], 28),
+  k(at("cántaro"), [8.6, 1.05, 6.0], [8.4, 1.15, 4.6], 28),
+  k(at("antorcha"), [8.5, 1.8, 5.4], [8.4, 1.15, 4.6], 26),
   k(at("ni"), [6.2, 0.9, 6.6], [7.0, 0.1, 5.2], 32),
   k(at("media") - 0.1, [-12, 9, -34], [0, 0, -88], 48, 0.6),
   k(at("rodean"), [0, 34, -38], [0, 0, -95], 54),
-  k(T_BREAK - 0.1, [1.9, 1.7, -53.6], [0, 1.4, -50], 34, 0.4),
+  k(T_BREAK - 0.1, [2.6, 1.9, -54.4], [0, 1.4, -50], 38, 0.4),
   k(at("levantan"), [0, 30, -36], [0, 0, -95], 54, 0.5),
-  k(at("gritan"), [1.5, 1.55, -53.2], [0, 1.75, -50], 32),
-  k(at("señor"), [-2.2, 0.9, -53.2], [0, 2.1, -50], 40),
-  k(at("oscuridad"), [6, 2.2, -74], [0, 1.2, -82], 40, 0.5),
-  k(at("pelear"), [-4.5, 1.7, -76], [0, 1.3, -82], 36),
+  k(at("gritan"), [1.6, 1.6, -53.6], [0, 1.75, -50], 32),
+  k(at("señor"), [-2.0, 1.0, -53.8], [0, 2.1, -50], 40),
+  k(at("oscuridad"), [5, 2.2, -75], [0, 1.2, -83], 40, 0.5),
+  k(at("pelear"), [-4.5, 1.7, -77], [0, 1.3, -83], 36),
   k(at("huyen"), [0, 16, -52], [0, 0, -100], 50),
   k(T_DAWN, [0, 3, 13], [0, 6, -10], 46, 0.6),
   k(at("con", 0) > T_DAWN ? at("con", 0) : at("con", 1), [0, 11, 17], [0, 0, -10], 48),
-  k(at("salvamos") - 0.3, [3.2, 2.1, 8.6], [0, 1.4, -1], 38),
+  k(at("salvamos") - 0.3, [4.5, 3.6, 11.5], [0, 1.2, -5], 44),
   k(at("con", 2) || at("con", 1), [0, 2.2, 10.5], [0, 1.4, 1], 38),
   k(END - 0.45, ...HOOK, 38, 0.4),
 ];
@@ -103,7 +103,7 @@ const armyAt = (t: number): Inst[] => {
   });
 };
 // madianitas: tiendas sin fin
-const TENTS = Array.from({ length: 300 }, (_, i) => ({ x: ((i % 20) - 9.5) * 4.2 + (hash(i) - 0.5) * 1.6, z: CAMP[2] - (Math.floor(i / 20) - 7) * 4.2 + (hash(i + 3) - 0.5) * 1.6, c: ["#C98A4B", "#8E5A9E", "#3E7C8C", "#B5473A", "#D9B26A"][i % 5], s: 1 + hash(i + 5) * 0.5 }));
+const TENTS = Array.from({ length: 300 }, (_, i) => ({ x: ((i % 20) - 9.5) * 4.2 + (hash(i) - 0.5) * 1.6, z: CAMP[2] - (Math.floor(i / 20) - 7) * 4.2 + (hash(i + 3) - 0.5) * 1.6, c: ["#C98A4B", "#8E5A9E", "#3E7C8C", "#B5473A", "#D9B26A"][i % 5], s: 1 + hash(i + 5) * 0.5 })).filter((tt) => Math.hypot(tt.x, tt.z + 80) > 11);
 const dummy = new THREE.Object3D();
 const Tents: React.FC = () => {
   const mesh = React.useMemo(() => {
@@ -169,7 +169,7 @@ const World: React.FC<{ t: number }> = ({ t }) => {
     <>
       <Sky top={top} bot={bot} />
       <fog attach="fog" args={[mix(mix("#F2E2B8", "#E39A72", dk), "#141C36", n), 40, 200]} />
-      <hemisphereLight args={[mix(mix("#FFF4DC", "#FFC8A0", dk), "#3A4A80", n), mix("#7A6A40", "#101420", n), 1.3 - n * 0.75]} />
+      <hemisphereLight args={[mix(mix("#FFF4DC", "#FFC8A0", dk), "#3A4A80", n), mix("#7A6A40", "#101420", n), 1.3 - n * 0.5]} />
       <directionalLight position={[40, 60 - dk * 40, 30]} intensity={3.0 * (1 - n * 0.85) * (1 - dk * 0.3)} color={mix("#FFE8C0", "#9FB2FF", n)} castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-40} shadow-camera-right={40} shadow-camera-top={40} shadow-camera-bottom={-40} />
       {n > 0.05 ? <>
         <Glow pos={[-60, 70, -200]} s={40} color="#DDE6FF" o={n} />
@@ -189,15 +189,16 @@ const World: React.FC<{ t: number }> = ({ t }) => {
       {Array.from({ length: 18 }, (_, i) => <Rock key={i} pos={[42.4 + hash(i) * 0.6, 0.1, -30 + i * 3.5]} s={0.4 + hash(i + 3) * 0.5} color="#A08E78" seed={i + 70} />)}
       <Crowd items={armyAt(t)} />
       {/* soldados en el río: casi todos de rodillas con la cara en el agua */}
-      {t >= T_RIVER - 0.3 && t < T_300 ? <Crowd max={60} items={Array.from({ length: 46 }, (_, i) => ({ p: [42.7, -0.25, -18 + i * 0.85] as V3, r: Math.PI / 2, lie: 1.05 + Math.sin(t * 3 + i) * 0.05, c: ["#4B6A8C", "#5C7A5A", "#7A6A55"][i % 3] }))} /> : null}
+      {t >= T_RIVER - 0.3 && t < T_300 ? <Crowd max={60} items={Array.from({ length: 46 }, (_, i) => ({ p: [42.7, -0.25, -18 + i * 0.85] as V3, skip: Math.abs(-18 + i * 0.85 - 1.6) < 2.6 || Math.abs(-18 + i * 0.85 + 4.4) < 1.6, r: Math.PI / 2, lie: 1.05 + Math.sin(t * 3 + i) * 0.05, c: ["#4B6A8C", "#5C7A5A", "#7A6A55"][i % 3] })).filter((x) => !x.skip)} /> : null}
       {t >= T_RIVER - 0.3 && t < T_300 ? [0, 1].map((i) => (
-        <Person key={i} pos={[41.2, -0.18, 1.6 - i * 6]} rot={1.1} s={0.92} robe="#4B6A8C" hair="#8C8F96" t={t} seed={30 + i} expr={i === 0 && t > at("lamieron") - 0.2 ? "smug" : "calm"}
+        <Person key={i} pos={[41.8, -0.18, 1.6 - i * 6]} rot={1.35} s={0.92} robe="#4B6A8C" hair="#8C8F96" t={t} seed={30 + i} expr={i === 0 && t > at("lamieron") - 0.2 ? "smug" : "calm"}
           armR={[0.35, 2.0 + Math.sin(t * 6) * 0.15]} armL={[0.2, 0.5]} lean={0.1} />
       )) : null}
       {t >= T_RIVER - 0.3 && t < T_300 ? <Person pos={[37.5, 0, 6]} rot={1.6} robe="#3F7E6E" trim="#C9A548" hair="#5A3A22" beard="#5A3A22" t={t} seed={4} expr="calm" /> : null}
       {/* Madián */}
       <Tents />
       {Array.from({ length: 26 }, (_, i) => <Camel key={i} pos={[(i < 6 ? 17 + i * 1.6 : (hash(i) - 0.5) * 80), 0, i < 6 ? -66 - (i % 2) * 1.8 : CAMP[2] + (hash(i + 2) - 0.5) * 56]} rot={hash(i + 5) * 6} t={t} seed={i} />)}
+      {n > 0.05 ? <Fire pos={[0, 0, -80]} s={0.6} t={t} o={n * (1 - flee * 0.6)} light={1.2} /> : null}
       {n > 0.05 ? Array.from({ length: 10 }, (_, i) => <Fire key={i} pos={[((i % 5) - 2) * 14, 0, CAMP[2] - 10 + Math.floor(i / 5) * 18]} s={0.5} t={t + i} o={n * 0.8 * (1 - flee * 0.5)} light={i % 4 === 0 ? 0.6 : 0} />) : null}
       {/* los 300 rodean el campamento */}
       {n > 0.05 ? (() => {
@@ -247,7 +248,7 @@ const World: React.FC<{ t: number }> = ({ t }) => {
           talk={t >= at("primero") && t < T_LEAVE}
           armL={t >= at("primero") && t < T_LEAVE ? [1.1, 0.6] : [0.15, 0.1]} armR={t >= at("primero") && t < T_LEAVE ? [1.1, 0.6] : [0.15, 0.1]} />
       ) : null}
-      {t >= at("dios") - 0.1 && t < T_RIVER ? <><mesh position={[0, 20, 3.6]}><cylinderGeometry args={[1.0, 1.6, 40, 16, 1, true]} /><meshBasicMaterial color="#FFF3C8" transparent opacity={0.25 * ip(t, at("dios") - 0.1, at("dios") + 0.4)} side={THREE.DoubleSide} depthWrite={false} /></mesh><Glow pos={[0, 2.5, 4]} s={6} color="#FFF0C0" o={0.5} /></> : null}
+      {t >= at("dios") - 0.1 && t < T_RIVER ? <><mesh position={[0, 20, 3.6]}><cylinderGeometry args={[1.0, 1.6, 40, 16, 1, true]} /><meshBasicMaterial color="#FFF3C8" transparent opacity={0.13 * ip(t, at("dios") - 0.1, at("dios") + 0.4)} side={THREE.DoubleSide} depthWrite={false} /></mesh><Glow pos={[0, 2.5, 4]} s={6} color="#FFF0C0" o={0.5} /></> : null}
       {t >= T_DAWN ? <Glow pos={[0, 30, -60]} s={60} color="#FFE7B0" o={0.7 * dawn} /> : null}
       {n > 0.05 && t >= T_BREAK ? <Embers pos={[0, 2, -50]} t={t} n={40} o={1} spread={4} /> : null}
     </>
