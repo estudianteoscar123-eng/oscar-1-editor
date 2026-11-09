@@ -11,6 +11,7 @@ export const Crowd: React.FC<{ items: Inst[]; max?: number; hat?: "helmet" | "co
     const mk = (g: THREE.BufferGeometry, rough = 0.85, metal = 0) => {
       const m = new THREE.InstancedMesh(g, new THREE.MeshStandardMaterial({ roughness: rough, metalness: metal }), max);
       m.castShadow = true;
+      m.frustumCulled = false;
       m.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(max * 3), 3);
       return m;
     };

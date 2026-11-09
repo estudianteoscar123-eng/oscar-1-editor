@@ -57,7 +57,7 @@ const CAM: Key[] = [
   k(at("cántaro"), [8.6, 1.05, 6.0], [8.4, 1.15, 4.6], 28),
   k(at("antorcha"), [8.5, 1.8, 5.4], [8.4, 1.15, 4.6], 26),
   k(at("ni"), [6.2, 0.9, 6.6], [7.0, 0.1, 5.2], 32),
-  k(at("media") - 0.1, [-12, 9, -34], [0, 0, -88], 48, 0.6),
+  k(at("media") - 0.1, [3, 7, -44], [0, 0.5, -85], 46, 0.6),
   k(at("rodean"), [0, 34, -38], [0, 0, -95], 54),
   k(T_BREAK - 0.1, [2.6, 1.9, -54.4], [0, 1.4, -50], 38, 0.4),
   k(at("levantan"), [0, 30, -36], [0, 0, -95], 54, 0.5),
@@ -170,7 +170,7 @@ const World: React.FC<{ t: number }> = ({ t }) => {
       <Sky top={top} bot={bot} />
       <fog attach="fog" args={[mix(mix("#F2E2B8", "#E39A72", dk), "#141C36", n), 40, 200]} />
       <hemisphereLight args={[mix(mix("#FFF4DC", "#FFC8A0", dk), "#3A4A80", n), mix("#7A6A40", "#101420", n), 1.3 - n * 0.5]} />
-      <directionalLight position={[40, 60 - dk * 40, 30]} intensity={3.0 * (1 - n * 0.85) * (1 - dk * 0.3)} color={mix("#FFE8C0", "#9FB2FF", n)} castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-40} shadow-camera-right={40} shadow-camera-top={40} shadow-camera-bottom={-40} />
+      <directionalLight position={[40, 60 - dk * 40, 30]} intensity={3.0 * (1 - n * 0.7) * (1 - dk * 0.3)} color={mix("#FFE8C0", "#9FB2FF", n)} castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-40} shadow-camera-right={40} shadow-camera-top={40} shadow-camera-bottom={-40} />
       {n > 0.05 ? <>
         <Glow pos={[-60, 70, -200]} s={40} color="#DDE6FF" o={n} />
         <mesh position={[-60, 70, -201]}><circleGeometry args={[6, 24]} /><meshBasicMaterial color="#F4F1E0" transparent opacity={n} fog={false} /></mesh>
@@ -178,7 +178,7 @@ const World: React.FC<{ t: number }> = ({ t }) => {
       </> : null}
       <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow><planeGeometry args={[700, 700]} /><meshStandardMaterial color={ground} roughness={1} /></mesh>
       {[[-90, -230, 70, 34], [40, -260, 90, 46], [180, -120, 70, 30], [-200, -60, 70, 28], [110, 60, 60, 26], [-120, 80, 60, 24]].map((m, i) => <mesh key={i} position={[m[0], -12, m[1]]} scale={[m[2], m[3], m[2] * 0.8]}><icosahedronGeometry args={[1, 1]} /><meshStandardMaterial color={mix(mix("#8FA05A", "#9A7E5A", i % 2), "#1E2840", n)} flatShading roughness={1} /></mesh>)}
-      {Array.from({ length: 40 }, (_, i) => { const x = (hash(i + 400) - 0.5) * 120, z = 30 - hash(i + 410) * 160; if (Math.abs(x) < 16 && z > -24 && z < 12) return null; if (Math.abs(x - 44) < 6) return null; if (Math.hypot(x - CAMP[0], z - CAMP[2]) < 50) return null; const sc = 0.7 + hash(i + 420) * 1.2; return (
+      {Array.from({ length: 40 }, (_, i) => { const x = (hash(i + 400) - 0.5) * 120, z = 30 - hash(i + 410) * 160; if (Math.abs(x) < 16 && z > -24 && z < 12) return null; if (Math.abs(x - 44) < 6) return null; if (Math.hypot(x - CAMP[0], z - CAMP[2]) < 50) return null; if (z < -25 && z > -62 && Math.abs(x) < 24) return null; const sc = 0.7 + hash(i + 420) * 1.2; return (
         <group key={i} position={[x, 0, z]} scale={sc}>
           <mesh position={[0, 0.6, 0]}><cylinderGeometry args={[0.1, 0.14, 1.2, 6]} /><meshStandardMaterial color="#6B4A2E" /></mesh>
           <mesh position={[0, 1.6, 0]} scale={[1.2, 0.9, 1.2]} castShadow><icosahedronGeometry args={[0.9, 0]} /><meshStandardMaterial color={mix(i % 2 ? "#6E9A48" : "#5E8A3E", "#1A2A2A", n)} flatShading /></mesh>
