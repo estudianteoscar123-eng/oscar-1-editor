@@ -97,6 +97,7 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Si no hay nada nuevo que decir, no hay título: la imagen sola.
 
 ## Bucle y ritmo (regla fija, nov. 2026)
+- En el guion entregado el cierre NUNCA reescribe el inicio (el usuario lo copia tal cual a la voz): la última frase queda abierta y conecta sola con la primera al repetirse el video.
 - Todo video es cíclico: la última frase queda abierta y se completa con la primera ("Mándaselo a quien todavía no sabe que…" → "Los Reyes Magos nunca…"). El último plano empalma con el primero y la música no se cierra; el espectador no debe notar que el video acabó.
 - Ritmo rápido: un plano cada 0,6–0,9 s y trazos que se dibujan en 0,25 s o menos (nunca revelados lentos). Algo se mueve en cada fotograma y hay transiciones de 4–6 fotogramas (barrido, zoom a través del objeto).
 - Variar la canción: no repetir la del video anterior.
