@@ -44,6 +44,7 @@ import { Gedeon, GEDEON_TOTAL } from "./gedeon/Main";
 import { Dv2Demo, DV2_TOTAL } from "./dv2/Demo";
 import { Naaman, NAAMAN_TOTAL } from "./naaman/Main";
 import { Jerico, JERICO_TOTAL } from "./jerico/Main";
+import { SLMob1, SLMob2, SLMOB1_TOTAL, SLMOB2_TOTAL } from "./slmob/Main";
 import { SLLee, SLLEE_TOTAL } from "./sllee/Main";
 import { SLGohan, SLGOHAN_TOTAL } from "./slgohan/Main";
 import { SLSpider, SLSPIDER_TOTAL } from "./slspider/Main";
@@ -107,6 +108,10 @@ export const Main = () => {
       <Composition id="Dv2Demo" component={Dv2Demo} durationInFrames={DV2_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Naaman" component={Naaman} durationInFrames={NAAMAN_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Jerico" component={Jerico} durationInFrames={JERICO_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="SLMob1" component={SLMob1} durationInFrames={SLMOB1_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
+      <Composition id="SLMob1M" component={SLMob1} durationInFrames={SLMOB1_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: true }} />
+      <Composition id="SLMob2" component={SLMob2} durationInFrames={SLMOB2_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
+      <Composition id="SLMob2M" component={SLMob2} durationInFrames={SLMOB2_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: true }} />
       <Composition id="SLSinTalento" component={SLLee} durationInFrames={SLLEE_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLGohan" component={SLGohan} durationInFrames={SLGOHAN_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLSpider" component={SLSpider} durationInFrames={SLSPIDER_TOTAL} fps={30} width={1080} height={1920} />
