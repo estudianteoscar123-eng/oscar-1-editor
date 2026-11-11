@@ -96,34 +96,34 @@ export const Gigantes: React.FC = () => {
       <Sky cam={c} t={t} glow={c.y < -2500 ? "rgba(255,240,200,0.35)" : "rgba(211,15,23,0.75)"} stars={c.y < -2500 ? 1 : 0.4} />
       <AbsoluteFill style={{ filter: "contrast(1.08)" }}>
         {/* ===== tierra antes del diluvio ===== */}
-        <L cam={c} d={6000} x={0} y={-1400} noBlur>{Array.from({ length: 7 }, (_, i) => <ellipse key={i} cx={(i - 3) * 1300} cy={(i % 2) * 120} rx={900} ry={260} fill="#160909" stroke={W} strokeWidth={4} opacity={0.9} />)}</L>
-        {[2600, 1500].map((d, i) => <L key={d} cam={c} d={d} x={0} y={-30}><Hills w={[11000, 8000][i]} seed={i + 2} amp={[90, 60][i]} hatch={i === 1} /></L>)}
-        <L cam={c} d={900} x={-1500} y={0}><Giant t={t} s={2.4} seed={5} spear walk={Math.sin(t * 0.5) * 80} /></L>
-        <L cam={c} d={300} x={300} y={0}><Giant t={t} s={2.8} seed={3} spear={t > at("eran")} walk={0} /></L>
-        {Array.from({ length: 7 }, (_, i) => <L key={i} cam={c} d={150 + (i % 2) * 30} x={-500 + i * 180} y={0}><g transform="scale(0.36)"><Person t={t + i} seed={40 + i} head={i % 2 ? "hood" : "hair"} cape={false} expr={t > at("eran") ? "closed" : "shock"} armL={t > at("eran") && t < at("pero") ? 150 : 15} armR={t > at("eran") && t < at("pero") ? 150 : 15} look={-6} /></g></L>)}
+        <L noBlur cam={c} d={6000} x={0} y={-1400}>{Array.from({ length: 7 }, (_, i) => <ellipse key={i} cx={(i - 3) * 1300} cy={(i % 2) * 120} rx={900} ry={260} fill="#160909" stroke={W} strokeWidth={4} opacity={0.9} />)}</L>
+        {[2600, 1500].map((d, i) => <L noBlur key={d} cam={c} d={d} x={0} y={-30}><Hills w={[11000, 8000][i]} seed={i + 2} amp={[90, 60][i]} hatch={i === 1} /></L>)}
+        <L noBlur cam={c} d={900} x={-1500} y={0}><Giant t={t} s={2.4} seed={5} spear walk={Math.sin(t * 0.5) * 80} /></L>
+        <L noBlur cam={c} d={300} x={300} y={0}><Giant t={t} s={2.8} seed={3} spear={t > at("eran")} walk={0} /></L>
+        {Array.from({ length: 7 }, (_, i) => <L noBlur key={i} cam={c} d={150 + (i % 2) * 30} x={-500 + i * 180} y={0}><g transform="scale(0.36)"><Person t={t + i} seed={40 + i} head={i % 2 ? "hood" : "hair"} cape={false} expr={t > at("eran") ? "closed" : "shock"} armL={t > at("eran") && t < at("pero") ? 150 : 15} armR={t > at("eran") && t < at("pero") ? 150 : 15} look={-6} /></g></L>)}
         {/* ===== el cielo: algo baja ===== */}
-        {Array.from({ length: 30 }, (_, i) => <L key={i} cam={c} d={900 + hash(i) * 2000} x={(hash(i + 1) - 0.5) * 5000} y={-2800 - hash(i + 2) * 1400} o={0.8} noBlur><circle r={7 + hash(i + 3) * 6} fill={W} /></L>)}
-        <L cam={c} d={800} x={0} y={-3300}><ellipse cx={0} cy={0} rx={600} ry={220} fill="#FFF2C8" opacity={0.3} /><path d="M-400 0 Q0 -60 400 0 Q0 60 -400 0 Z" fill="#FFF8E0" opacity={0.7} /></L>
-        {[-1, 0, 1].map((i) => <L key={i} cam={c} d={700} x={i * 380} y={-3200 + descend * 900}><g transform="scale(0.8)"><Being t={t} seed={60 + i} glow={1} /></g></L>)}
+        {Array.from({ length: 30 }, (_, i) => <L noBlur key={i} cam={c} d={900 + hash(i) * 2000} x={(hash(i + 1) - 0.5) * 5000} y={-2800 - hash(i + 2) * 1400} o={0.8}><circle r={7 + hash(i + 3) * 6} fill={W} /></L>)}
+        <L noBlur cam={c} d={800} x={0} y={-3300}><ellipse cx={0} cy={0} rx={600} ry={220} fill="#FFF2C8" opacity={0.3} /><path d="M-400 0 Q0 -60 400 0 Q0 60 -400 0 Z" fill="#FFF8E0" opacity={0.7} /></L>
+        {[-1, 0, 1].map((i) => <L noBlur key={i} cam={c} d={700} x={i * 380} y={-3200 + descend * 900}><g transform="scale(0.8)"><Being t={t} seed={60 + i} glow={1} /></g></L>)}
         {/* ===== Génesis 6 ===== */}
-        <L cam={c} d={2400} x={GEN} y={-40}><Hills w={9000} seed={9} amp={50} /></L>
-        {[-1, 1].map((sd, i) => <L key={i} cam={c} d={60} x={GEN - 380 + unite * 140 * (sd > 0 ? 0 : 1) + i * 300} y={0}><g transform="scale(0.95)"><Being t={t} seed={70 + i} glow={1 - unite * 0.4} /></g></L>)}
-        {[0, 1].map((i) => <L key={i} cam={c} d={60} x={GEN + 380 - unite * 140 + i * 300} y={0}><g transform="scale(0.85)"><Person t={t} seed={80 + i} head="hood" cape={false} expr={unite > 0.5 ? "calm" : "shock"} flip /></g></L>)}
-        <L cam={c} d={500} x={GEN + 200} y={0} o={born}><g transform={`scale(${0.8 + born * 2})`} opacity={0.85}><Person t={t} seed={90} head="helmet" cape expr="smug" sash={RED} /></g></L>
+        <L noBlur cam={c} d={2400} x={GEN} y={-40}><Hills w={9000} seed={9} amp={50} /></L>
+        {[-1, 1].map((sd, i) => <L noBlur key={i} cam={c} d={60} x={GEN - 380 + unite * 140 * (sd > 0 ? 0 : 1) + i * 300} y={0}><g transform="scale(0.95)"><Being t={t} seed={70 + i} glow={1 - unite * 0.4} /></g></L>)}
+        {[0, 1].map((i) => <L noBlur key={i} cam={c} d={60} x={GEN + 380 - unite * 140 + i * 300} y={0}><g transform="scale(0.85)"><Person t={t} seed={80 + i} head="hood" cape={false} expr={unite > 0.5 ? "calm" : "shock"} flip /></g></L>)}
+        <L noBlur cam={c} d={500} x={GEN + 200} y={0} o={born}><g transform={`scale(${0.8 + born * 2})`} opacity={0.85}><Person t={t} seed={90} head="helmet" cape expr="smug" sash={RED} /></g></L>
         {/* ===== los espías ===== */}
-        <L cam={c} d={2600} x={SPY} y={-40}><Hills w={9000} seed={13} amp={70} /></L>
-        <L cam={c} d={1400} x={SPY + 300} y={0}><Giant t={t} s={3.0} seed={7} spear walk={Math.sin(t * 0.7) * 160} /></L>
-        <L cam={c} d={900} x={SPY - 900} y={0}><Giant t={t} s={2.6} seed={8} walk={Math.sin(t * 0.6 + 1) * 120} /></L>
-        {[-1, 0, 1].map((i) => <L key={i} cam={c} d={20} x={SPY - 120 + i * 230} y={30}><g transform="scale(0.5)"><Person t={t} seed={100 + i} head="hood" beard={i !== 0} cape={false} expr={t > at("ver") ? "shock" : "calm"} look={4} armR={i === 0 ? 150 : 20} /></g></L>)}
-        <L cam={c} d={10} x={SPY + 40} y={-230}><g transform="scale(0.6)"><Grapes /></g></L>
-        <L cam={c} d={-20} x={SPY} y={40}><path d="M-700 0 Q-500 -260 -200 -200 Q100 -300 300 -180 Q600 -240 760 0 L760 300 L-700 300 Z" fill={INK} stroke={W} strokeWidth={6} /><path d="M-700 0 Q-500 -260 -200 -200 Q100 -300 300 -180" fill="none" stroke={RED} strokeWidth={4} opacity={0.6} /></L>
-        <L cam={c} d={0} x={SPY + 380} y={-200} o={loc}><g transform={`scale(${0.4 + loc * 0.6})`}><Locust /></g></L>
+        <L noBlur cam={c} d={2600} x={SPY} y={-40}><Hills w={9000} seed={13} amp={70} /></L>
+        <L noBlur cam={c} d={1400} x={SPY + 300} y={0}><Giant t={t} s={3.0} seed={7} spear walk={Math.sin(t * 0.7) * 160} /></L>
+        <L noBlur cam={c} d={900} x={SPY - 900} y={0}><Giant t={t} s={2.6} seed={8} walk={Math.sin(t * 0.6 + 1) * 120} /></L>
+        {[-1, 0, 1].map((i) => <L noBlur key={i} cam={c} d={20} x={SPY - 120 + i * 230} y={30}><g transform="scale(0.5)"><Person t={t} seed={100 + i} head="hood" beard={i !== 0} cape={false} expr={t > at("ver") ? "shock" : "calm"} look={4} armR={i === 0 ? 150 : 20} /></g></L>)}
+        <L noBlur cam={c} d={10} x={SPY + 40} y={-230}><g transform="scale(0.6)"><Grapes /></g></L>
+        <L noBlur cam={c} d={-20} x={SPY} y={40}><path d="M-700 0 Q-500 -260 -200 -200 Q100 -300 300 -180 Q600 -240 760 0 L760 300 L-700 300 Z" fill={INK} stroke={W} strokeWidth={6} /><path d="M-700 0 Q-500 -260 -200 -200 Q100 -300 300 -180" fill="none" stroke={RED} strokeWidth={4} opacity={0.6} /></L>
+        <L noBlur cam={c} d={0} x={SPY + 380} y={-200} o={loc}><g transform={`scale(${0.4 + loc * 0.6})`}><Locust /></g></L>
         {/* ===== ¿ángeles u hombres? ===== */}
-        <L cam={c} d={300} x={DEB} y={-60}><path d="M-3000 0 L3000 0" stroke={W} strokeWidth={3} opacity={0.4} /><path d="M0 -1400 L0 400" stroke={RED} strokeWidth={8} opacity={0.7} /></L>
-        <L cam={c} d={0} x={DEB - 300} y={0} o={angel}><g transform="scale(0.85)"><Being t={t} seed={110} glow={0} wings={1} fallen /></g></L>
-        <L cam={c} d={0} x={DEB + 300} y={0} o={man}><g transform="scale(0.85)"><Person t={t} seed={111} head="helmet" beard cape sash={RED} expr="smug" /></g></L>
-        <L cam={c} d={-40} x={DEB} y={-560} o={q}><text x={0} y={0} textAnchor="middle" fontFamily="Georgia, serif" fontWeight={700} fontSize={520} fill={RED} opacity={0.9} style={{ filter: "drop-shadow(0 0 30px rgba(211,15,23,0.8))" }}>?</text></L>
-        <L cam={c} d={200} x={DEB} y={-300}><Smoke t={t} seed={5} n={5} /></L>
+        <L noBlur cam={c} d={300} x={DEB} y={-60}><path d="M-3000 0 L3000 0" stroke={W} strokeWidth={3} opacity={0.4} /><path d="M0 -1400 L0 400" stroke={RED} strokeWidth={8} opacity={0.7} /></L>
+        <L noBlur cam={c} d={0} x={DEB - 300} y={0} o={angel}><g transform="scale(0.85)"><Being t={t} seed={110} glow={0} wings={1} fallen /></g></L>
+        <L noBlur cam={c} d={0} x={DEB + 300} y={0} o={man}><g transform="scale(0.85)"><Person t={t} seed={111} head="helmet" beard cape sash={RED} expr="smug" /></g></L>
+        <L noBlur cam={c} d={-40} x={DEB} y={-560} o={q}><text x={0} y={0} textAnchor="middle" fontFamily="Georgia, serif" fontWeight={700} fontSize={520} fill={RED} opacity={0.9} style={{ filter: "drop-shadow(0 0 30px rgba(211,15,23,0.8))" }}>?</text></L>
+        <L noBlur cam={c} d={200} x={DEB} y={-300}><Smoke t={t} seed={5} n={5} /></L>
       </AbsoluteFill>
       <Embers t={t} cam={c} o={0.7} />
       <Finish f={f} t={t} flash={lightning * 0.35 + 0.4 * Math.exp(-Math.max(0, t - at("padres")) * 5) * (t >= at("padres") ? 1 : 0)} />
