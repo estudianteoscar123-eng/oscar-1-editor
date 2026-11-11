@@ -102,7 +102,7 @@ export const Gigantes: React.FC = () => {
         <L cam={c} d={300} x={300} y={0}><Giant t={t} s={2.8} seed={3} spear={t > at("eran")} walk={0} /></L>
         {Array.from({ length: 7 }, (_, i) => <L key={i} cam={c} d={150 + (i % 2) * 30} x={-500 + i * 180} y={0}><g transform="scale(0.36)"><Person t={t + i} seed={40 + i} head={i % 2 ? "hood" : "hair"} cape={false} expr={t > at("eran") ? "closed" : "shock"} armL={t > at("eran") && t < at("pero") ? 150 : 15} armR={t > at("eran") && t < at("pero") ? 150 : 15} look={-6} /></g></L>)}
         {/* ===== el cielo: algo baja ===== */}
-        {Array.from({ length: 30 }, (_, i) => <L key={i} cam={c} d={900 + hash(i) * 2000} x={(hash(i + 1) - 0.5) * 5000} y={-2800 - hash(i + 2) * 1400} o={0.8}><circle r={7 + hash(i + 3) * 6} fill={W} /></L>)}
+        {Array.from({ length: 30 }, (_, i) => <L key={i} cam={c} d={900 + hash(i) * 2000} x={(hash(i + 1) - 0.5) * 5000} y={-2800 - hash(i + 2) * 1400} o={0.8} noBlur><circle r={7 + hash(i + 3) * 6} fill={W} /></L>)}
         <L cam={c} d={800} x={0} y={-3300}><ellipse cx={0} cy={0} rx={600} ry={220} fill="#FFF2C8" opacity={0.3} /><path d="M-400 0 Q0 -60 400 0 Q0 60 -400 0 Z" fill="#FFF8E0" opacity={0.7} /></L>
         {[-1, 0, 1].map((i) => <L key={i} cam={c} d={700} x={i * 380} y={-3200 + descend * 900}><g transform="scale(0.8)"><Being t={t} seed={60 + i} glow={1} /></g></L>)}
         {/* ===== Génesis 6 ===== */}
