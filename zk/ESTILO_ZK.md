@@ -1,5 +1,7 @@
 # ZK — estilo aprobado (versión de referencia: "Pedro v2")
 
+> Regla fija de producción (ZK y SL): 2 videos por marca, entregados juntos, en máximo 15 minutos. Ver `zk/REGLAS_PRODUCCION.md`.
+
 Este es el estándar de ZK. Todo video nuevo se construye y se mide contra él.
 Video de referencia: `video-editor/output/pedro-volvio-v2.mp4` · código: `video-editor/src/pedro/Main.tsx` · kit: `video-editor/src/kit/Kit.tsx`.
 
