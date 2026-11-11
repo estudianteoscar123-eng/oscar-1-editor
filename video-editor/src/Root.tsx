@@ -47,6 +47,7 @@ import { Jerico, JERICO_TOTAL } from "./jerico/Main";
 import { SLMob1, SLMob2, SLMOB1_TOTAL, SLMOB2_TOTAL } from "./slmob/Main";
 import { Pared, PARED_TOTAL } from "./pared/Main";
 import { Gigantes, GIGANTES_TOTAL } from "./gigantes/Main";
+import { SLLee2, SLIppo2, SLLEE2_TOTAL, SLIPPO2_TOTAL } from "./slmob/V3";
 import { SLLee, SLLEE_TOTAL } from "./sllee/Main";
 import { SLGohan, SLGOHAN_TOTAL } from "./slgohan/Main";
 import { SLSpider, SLSPIDER_TOTAL } from "./slspider/Main";
@@ -112,6 +113,8 @@ export const Main = () => {
       <Composition id="Jerico" component={Jerico} durationInFrames={JERICO_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Pared" component={Pared} durationInFrames={PARED_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Gigantes" component={Gigantes} durationInFrames={GIGANTES_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="SLLee2" component={SLLee2} durationInFrames={SLLEE2_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
+      <Composition id="SLIppo2" component={SLIppo2} durationInFrames={SLIPPO2_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLMob1" component={SLMob1} durationInFrames={SLMOB1_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLMob1M" component={SLMob1} durationInFrames={SLMOB1_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: true }} />
       <Composition id="SLMob2" component={SLMob2} durationInFrames={SLMOB2_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
