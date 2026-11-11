@@ -21,6 +21,12 @@
 - Palabras emocionales más grandes, en el color del video (uno distinto por video, nunca amarillo), con brillo y borde oscuro.
 - Sin bloques repetidos ni parpadeos.
 
+## Tipografías (referencia del usuario, nov. 2026)
+- Familia base moderna y limpia tipo SF Pro / Helvetica / GG Sans → se usa Inter 800–900 (libre) y DM Sans.
+- Golpe tipo Impact → Anton. Palabra emocional con trazo de pincel tipo Belligerent Madness → Permanent Marker / Kaushan (o el archivo original si el usuario lo envía).
+- Estilo de la referencia: blanco, peso fuerte, sombra suave y larga hacia abajo (efecto 3D), sin bordes duros.
+- Color del video: Rock Lee = verde; Ippo = rojo.
+
 ## Sonido
 - Voces aisladas de los diálogos; nunca cortar el final de las palabras del narrador.
 - Música muy por debajo de la voz (~15 dB), una sola canción por video; si llegan dos canciones, una por video.
