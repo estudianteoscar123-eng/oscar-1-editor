@@ -34,3 +34,10 @@
 
 ## Control
 - Revisar fotogramas: fuera planos de otras series, caras de youtubers, créditos o textos ajenos.
+
+## Estilo "drama" (referencia del usuario, nov. 2026 · análisis a 30 fps de 5 videos)
+- 60 s exactos. Historia contada con los diálogos de los propios personajes (sin narrador o casi), gancho emocional en la primera frase.
+- Cortes: plano mediano 0,45–1,5 s (mínimo 4–5 fotogramas); 17–56 cortes por minuto. Mezcla de planos con barras negras (4:5 / 16:9 centrado) y pantalla completa.
+- Blanco y negro: 2–20 % del video, entra en seco en el corte de la frase emocional (1–6 s) y vuelve al color fundiendo en ~6 fotogramas; viñeta fuerte.
+- Subtítulos al centro (sobre el pecho): palabra pequeña en cursiva aparece primero (fundido 3–4 fotogramas) y ~10 fotogramas después la palabra grande condensada (Anton/Bebas) con sombra dura; la palabra clave cambia de blanco/gris a color neón en ~10 fotogramas. Otras fuentes: serif condensada fina (tristeza) y pincel rojo (golpe). Puntos suspensivos que crecen uno cada ~3 fotogramas.
+- Audio muy fuerte: master −7 a −9 LUFS y música casi al nivel de la voz (en las pausas queda a −10/−15 dB).
