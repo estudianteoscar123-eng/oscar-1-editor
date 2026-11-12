@@ -56,7 +56,7 @@ const Subs: React.FC<{ t: number; groups: G[]; keys: Set<string>; accent: string
   );
 };
 
-export const SLV3Core: React.FC<{ tl: TL3; dir: string; accent: string; keys: string[]; cover: [string, string]; cta: string; music?: boolean }> = ({ tl, dir, accent, keys, cover, cta, music }) => {
+export const SLV3Core: React.FC<{ tl: TL3; dir: string; accent: string; keys: string[]; cover: [string, string]; cta: string; music?: boolean; bw?: string[] }> = ({ tl, dir, accent, keys, cover, cta, music, bw }) => {
   const f = useCurrentFrame();
   const t = f / FPS;
   const groups = React.useMemo(() => groupsOf(tl.words), [tl]);
@@ -69,10 +69,13 @@ export const SLV3Core: React.FC<{ tl: TL3; dir: string; accent: string; keys: st
   const ctaW = tl.words.find((w) => clean(w[0]).toLowerCase() === "comenta");
   const ctaOn = ctaW ? ip(t, [ctaW[1], ctaW[1] + 0.2], [0, 1]) * (tl.words.some((w) => w[3] === "D" && w[1] > ctaW[1] && t > w[1] - 0.1) ? 0 : 1) : 0;
   const isCover = f < 3;
+  const bwT = React.useMemo(() => tl.words.filter((w) => (bw ?? []).includes(clean(w[0]).toLowerCase())).map((w) => w[1]), [tl, bw]);
+  const bwLast = bwT.filter((h) => h <= t + 0.02).pop() ?? -9;
+  const gray = isCover ? 0 : ip(t - bwLast, [0, 1.6, 1.8], [1, 1, 0]);
   const cam = `translate(${(random(`x${f}`) - 0.5) * 12 * kick}px, ${(random(`y${f}`) - 0.5) * 12 * kick}px) scale(${1 + 0.05 * kick})`;
   return (
     <AbsoluteFill style={{ background: "#000" }}>
-      <AbsoluteFill style={{ transform: cam }}>
+      <AbsoluteFill style={{ transform: cam, filter: gray > 0.01 ? `grayscale(${gray}) contrast(${1 + 0.15 * gray})` : undefined }}>
         {tl.shots.map((s, i) => {
           const from = i === 0 ? 0 : S(s.T);
           const dur = Math.max(1, S(s.T1) - from);
