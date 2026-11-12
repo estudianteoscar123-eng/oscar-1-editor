@@ -91,10 +91,6 @@ export const SLV3Core: React.FC<{ tl: TL3; dir: string; accent: string; keys: st
       </AbsoluteFill>
       <AbsoluteFill style={{ background: "radial-gradient(ellipse 95% 75% at 50% 45%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.42) 100%)" }} />
       <AbsoluteFill style={{ background: "#fff", opacity: flash }} />
-      <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, opacity: 0.05, mixBlendMode: "screen", pointerEvents: "none" }}>
-        <filter id="v3g"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves={1} seed={f % 5} /><feColorMatrix type="saturate" values="0" /></filter>
-        <rect width={1080} height={1920} filter="url(#v3g)" />
-      </svg>
       {isCover ? (
         <div style={{ position: "absolute", left: 40, right: 40, top: 1180, textAlign: "center" }}>
           <div style={{ position: "absolute", inset: "-140px -60px", background: "radial-gradient(ellipse 65% 55% at 50% 50%, rgba(0,0,0,0.6), rgba(0,0,0,0) 70%)" }} />
