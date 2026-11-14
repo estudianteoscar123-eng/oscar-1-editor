@@ -41,3 +41,12 @@
 - Blanco y negro: 2–20 % del video, entra en seco en el corte de la frase emocional (1–6 s) y vuelve al color fundiendo en ~6 fotogramas; viñeta fuerte.
 - Subtítulos al centro (sobre el pecho): palabra pequeña en cursiva aparece primero (fundido 3–4 fotogramas) y ~10 fotogramas después la palabra grande condensada (Anton/Bebas) con sombra dura; la palabra clave cambia de blanco/gris a color neón en ~10 fotogramas. Otras fuentes: serif condensada fina (tristeza) y pincel rojo (golpe). Puntos suspensivos que crecen uno cada ~3 fotogramas.
 - Audio muy fuerte: master −7 a −9 LUFS y música casi al nivel de la voz (en las pausas queda a −10/−15 dB).
+
+## Dirección fija del canal (nov. 2026, decisión del usuario)
+- SL = TikTok, videos de 1 minuto exacto (ni más ni menos). YouTube largo es para ZK, no para SL.
+- Temática: motivación, crecimiento personal, reflexión y superación, contada con anime (personajes que empiezan perdiendo; preferir anime actual y popular).
+- Mezcla obligatoria: narración del usuario + diálogos canónicos del personaje en doblaje latino (~50/50, alternando cada 5–8 s).
+- Una sola plantilla de portada durante 20 videos: cara grande del personaje + su NOMBRE en serif de dos colores.
+- Sin "comenta [palabra]" al final; cierre con pregunta al espectador que empalma con el inicio.
+- Material solo en 1080p; se procesa antes de que llegue la voz.
+- Noticias: solo si el protagonista es un personaje de anime/estreno de anime; personas reales no entran en SL (rompen la identidad del canal).
