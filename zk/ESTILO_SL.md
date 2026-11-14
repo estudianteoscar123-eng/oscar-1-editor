@@ -52,3 +52,6 @@
 - Sin "comenta [palabra]" al final; cierre con pregunta al espectador que empalma con el inicio.
 - Material solo en 1080p; se procesa antes de que llegue la voz.
 - Noticias: solo como gancho cuando un estreno o personaje de ficción está en tendencia; personas reales no entran en SL.
+- Marketing de alto impacto: gancho llamativo, curiosidad, re-gancho; nada genérico.
+- Acabado visual "caro": material 1080p, gradación cinematográfica, tipografías elegantes combinadas (cursiva fina + condensada gruesa + serif), sin plantillas genéricas.
+- Subtítulos SIEMPRE centrados en la pantalla (centro vertical y horizontal, dentro de la zona segura), nunca arriba ni abajo.
