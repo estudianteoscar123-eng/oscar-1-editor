@@ -44,9 +44,11 @@
 
 ## Dirección fija del canal (nov. 2026, decisión del usuario)
 - SL = TikTok, videos de 1 minuto exacto (ni más ni menos). YouTube largo es para ZK, no para SL.
-- Temática: motivación, crecimiento personal, reflexión y superación, contada con anime (personajes que empiezan perdiendo; preferir anime actual y popular).
+- Temática: motivación, crecimiento personal, reflexión y superación en formato story time. Fuente: películas, anime o caricaturas (lo que mejor cuente el dolor).
+- Cada video nace de un DOLOR real y masivo (soledad, no ser suficiente, rechazo, esfuerzo sin resultado, perder a alguien, sentirse atrasado) y un personaje que lo vive, para que el espectador se identifique sin darse cuenta.
+- Estructura fija: problema inicial → solución temporal → problema aún mayor → solución permanente.
 - Mezcla obligatoria: narración del usuario + diálogos canónicos del personaje en doblaje latino (~50/50, alternando cada 5–8 s).
 - Una sola plantilla de portada durante 20 videos: cara grande del personaje + su NOMBRE en serif de dos colores.
 - Sin "comenta [palabra]" al final; cierre con pregunta al espectador que empalma con el inicio.
 - Material solo en 1080p; se procesa antes de que llegue la voz.
-- Noticias: solo si el protagonista es un personaje de anime/estreno de anime; personas reales no entran en SL (rompen la identidad del canal).
+- Noticias: solo como gancho cuando un estreno o personaje de ficción está en tendencia; personas reales no entran en SL.
