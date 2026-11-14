@@ -50,6 +50,7 @@ import { Gigantes, GIGANTES_TOTAL } from "./gigantes/Main";
 import { Jesus, JESUS_TOTAL, Querubin, QUERUBIN_TOTAL } from "./jesus/Main";
 import { SLLee2, SLIppo2, SLLEE2_TOTAL, SLIPPO2_TOTAL } from "./slmob/V3";
 import { SLSpi1, SLSpi2, SLSPI1_TOTAL, SLSPI2_TOTAL } from "./slmob/Spi";
+import { SLRocky, SLNaruto, SLROCKY_TOTAL, SLNARUTO_TOTAL } from "./slmob/Drama";
 import { SLLee, SLLEE_TOTAL } from "./sllee/Main";
 import { SLGohan, SLGOHAN_TOTAL } from "./slgohan/Main";
 import { SLSpider, SLSPIDER_TOTAL } from "./slspider/Main";
@@ -121,6 +122,8 @@ export const Main = () => {
       <Composition id="SLIppo2" component={SLIppo2} durationInFrames={SLIPPO2_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLSpi1" component={SLSpi1} durationInFrames={SLSPI1_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLSpi2" component={SLSpi2} durationInFrames={SLSPI2_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
+      <Composition id="SLRocky" component={SLRocky} durationInFrames={SLROCKY_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
+      <Composition id="SLNaruto" component={SLNaruto} durationInFrames={SLNARUTO_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLMob1" component={SLMob1} durationInFrames={SLMOB1_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLMob1M" component={SLMob1} durationInFrames={SLMOB1_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: true }} />
       <Composition id="SLMob2" component={SLMob2} durationInFrames={SLMOB2_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
