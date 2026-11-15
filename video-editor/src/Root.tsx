@@ -48,6 +48,7 @@ import { SLMob1, SLMob2, SLMOB1_TOTAL, SLMOB2_TOTAL } from "./slmob/Main";
 import { Pared, PARED_TOTAL } from "./pared/Main";
 import { Gigantes, GIGANTES_TOTAL } from "./gigantes/Main";
 import { Jesus, JESUS_TOTAL, Querubin, QUERUBIN_TOTAL } from "./jesus/Main";
+import { Lucifer, LUCIFER_TOTAL, Nombre, NOMBRE_TOTAL } from "./jesus/ZK3";
 import { SLLee2, SLIppo2, SLLEE2_TOTAL, SLIPPO2_TOTAL } from "./slmob/V3";
 import { SLSpi1, SLSpi2, SLSPI1_TOTAL, SLSPI2_TOTAL } from "./slmob/Spi";
 import { SLRocky, SLNaruto, SLROCKY_TOTAL, SLNARUTO_TOTAL } from "./slmob/Drama";
@@ -118,6 +119,8 @@ export const Main = () => {
       <Composition id="Gigantes" component={Gigantes} durationInFrames={GIGANTES_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Jesus" component={Jesus} durationInFrames={JESUS_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Querubin" component={Querubin} durationInFrames={QUERUBIN_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="Lucifer" component={Lucifer} durationInFrames={LUCIFER_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="Nombre" component={Nombre} durationInFrames={NOMBRE_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLLee2" component={SLLee2} durationInFrames={SLLEE2_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLIppo2" component={SLIppo2} durationInFrames={SLIPPO2_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLSpi1" component={SLSpi1} durationInFrames={SLSPI1_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
