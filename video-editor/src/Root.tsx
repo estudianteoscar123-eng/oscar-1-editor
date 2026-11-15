@@ -49,7 +49,7 @@ import { Pared, PARED_TOTAL } from "./pared/Main";
 import { Gigantes, GIGANTES_TOTAL } from "./gigantes/Main";
 import { Jesus, JESUS_TOTAL, Querubin, QUERUBIN_TOTAL } from "./jesus/Main";
 import { Lucifer, LUCIFER_TOTAL, Nombre, NOMBRE_TOTAL } from "./jesus/ZK3";
-import { Serpiente, SERPIENTE_TOTAL, Gehena, GEHENA_TOTAL } from "./jesus/ZK4";
+import { Serpiente, SERPIENTE_TOTAL, Gehena, GEHENA_TOTAL } from "./jesus/ZK5";
 import { SLLee2, SLIppo2, SLLEE2_TOTAL, SLIPPO2_TOTAL } from "./slmob/V3";
 import { SLSpi1, SLSpi2, SLSPI1_TOTAL, SLSPI2_TOTAL } from "./slmob/Spi";
 import { SLRocky, SLNaruto, SLROCKY_TOTAL, SLNARUTO_TOTAL } from "./slmob/Drama";

@@ -117,3 +117,4 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Interacción indirecta (nunca pedir like/comentario): afirmación que divide, pregunta que el video no responde, cierre "esto es para…" que invita a enviar, bucle.
 - Temas con atractivo masivo (miedo, misterio, lo prohibido), no solo para creyentes.
 - La música influye en el alcance (dato del usuario): elegirla por emoción del guion, que suba en el giro y nunca repetir la del video anterior. Registrar qué canción llevó cada video para cruzarlo con las visitas (Lucifer = zk5 → mejor resultado; Nombre = zk1).
+- Dinamismo = CONTENIDO, no cámara (corrección del usuario): una escena nueva cada ~1,2 s, personajes y objetos que actúan (caminan, caen, se transforman, señalan, arden), transición distinta en cada cambio (atravesar con zoom, barrido, iris, caída, rebobinado). La cámara solo empuja suave; los reencuadres mecánicos cada 0,6 s se ven básicos.
