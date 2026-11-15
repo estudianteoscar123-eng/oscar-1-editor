@@ -109,7 +109,8 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Pocos y estratégicos: solo donde suman (un giro, un dato clave, un golpe de rojo). Nunca de relleno ni en cada corte; dejar tramos sin efectos.
 
 ## Resultados nov. 2026 y reglas nuevas
-- Ganadora: serie "¿Así era…?" (personaje conocido + cómo era de verdad). Lucifer 3.655 TT / 7.537 IG; Jesús 2.591 TT.
+- Lo que gana es el MECANISMO, no el título: figura que todos conocen + verdad oculta que contradice la imagen popular + revelación visual (Lucifer 3.655 TT / 7.537 IG; Jesús 2.591 TT).
+- Nunca repetir fórmula de título ni de portada: cada video con gancho, pregunta y diseño propios (regla del usuario: nada genérico ni repetitivo).
 - Portada con figura o cara siempre: "¿Su nombre?" (rectángulo con símbolos) quedó en 1.039 TT pese a 6.089 IG.
 - Publicar en TikTok e Instagram (IG: 255,5k visualizaciones en 30 días).
 - Dinamismo: un cambio visual cada 0,5–0,7 s, 3–4 eventos por frase (zoom de golpe, sacudida, destello, partículas, reencuadre), nada quieto.
