@@ -14,8 +14,10 @@ export const Toon2D: React.FC<{ t: number }> = ({ t }) => {
   const P = (x: number, y: number) => `${CX + x} ${CY + y + br}`;
   return (
     <svg width={1080} height={1920} style={{ position: "absolute", inset: 0 }}>
+      <g transform="translate(0 -85)">
       <defs>
         <radialGradient id="hd" cx="40%" cy="38%" r="68%"><stop offset="0%" stopColor="#FFFFFF" /><stop offset="62%" stopColor="#F7F7FA" /><stop offset="88%" stopColor="#DCDDE8" /><stop offset="100%" stopColor="#B9BBD0" /></radialGradient>
+        <linearGradient id="hsh" x1="0" y1="0" x2="1" y2="0.35"><stop offset="0%" stopColor="#B9BBD0" stopOpacity="0" /><stop offset="62%" stopColor="#B9BBD0" stopOpacity="0" /><stop offset="100%" stopColor="#9A9DB8" stopOpacity="0.75" /></linearGradient>
         <linearGradient id="jk" x1="0" y1="0" x2="1" y2="0.2"><stop offset="0%" stopColor="#0C0C10" /><stop offset="38%" stopColor="#2C2C33" /><stop offset="70%" stopColor="#1A1A20" /><stop offset="100%" stopColor="#09090C" /></linearGradient>
         <linearGradient id="gd" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#FFF0A0" /><stop offset="45%" stopColor="#F2C42C" /><stop offset="100%" stopColor="#C99410" /></linearGradient>
         <linearGradient id="lg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#09090B" /><stop offset="60%" stopColor="#2A2A30" /><stop offset="100%" stopColor="#0B0B0E" /></linearGradient>
@@ -27,10 +29,10 @@ export const Toon2D: React.FC<{ t: number }> = ({ t }) => {
       {/* piernas: muslo hacia delante (escorzo) y caída por el borde del asiento */}
       {[-1, 1].map((sd) => (
         <g key={sd}>
-          <path d={`M${530 + sd * 48} 1330 C ${530 + sd * 54} 1400, ${530 + sd * 60} 1420, ${530 + sd * 62} 1450 C ${530 + sd * 66} 1600, ${530 + sd * 72} 1720, ${530 + sd * 80} 1830`} stroke="url(#lg)" strokeWidth={24} fill="none" strokeLinecap="round" />
-          <path d={`M${530 + sd * 48} 1330 C ${530 + sd * 54} 1400, ${530 + sd * 60} 1420, ${530 + sd * 62} 1450 C ${530 + sd * 66} 1600, ${530 + sd * 72} 1720, ${530 + sd * 80} 1830`} stroke={L} strokeWidth={30} fill="none" strokeLinecap="round" opacity={0.0} />
-          <ellipse cx={530 + sd * 92} cy={1850} rx={50} ry={32} fill="#111114" stroke={L} strokeWidth={4} />
-          <ellipse cx={530 + sd * 80} cy={1840} rx={20} ry={8} fill="#3A3A42" opacity={0.6} />
+          <path d={`M${530 + sd * 48} 1330 C ${530 + sd * 56} 1380, ${530 + sd * 66} 1410, ${530 + sd * 72} 1440 C ${530 + sd * 80} 1580, ${530 + sd * 96} 1720, ${530 + sd * 104} 1830`} stroke="url(#lg)" strokeWidth={24} fill="none" strokeLinecap="round" />
+          <path d={`M${530 + sd * 48} 1330 C ${530 + sd * 56} 1380, ${530 + sd * 66} 1410, ${530 + sd * 72} 1440 C ${530 + sd * 80} 1580, ${530 + sd * 96} 1720, ${530 + sd * 104} 1830`} stroke={L} strokeWidth={30} fill="none" strokeLinecap="round" opacity={0.0} />
+          <ellipse cx={530 + sd * 116} cy={1850} rx={50} ry={32} fill="#111114" stroke={L} strokeWidth={4} />
+          <ellipse cx={530 + sd * 104} cy={1840} rx={20} ry={8} fill="#3A3A42" opacity={0.6} />
         </g>
       ))}
       {/* cuerpo de frijol: chaqueta negra con capucha, cierre y bolsillos */}
@@ -42,18 +44,15 @@ export const Toon2D: React.FC<{ t: number }> = ({ t }) => {
         <path d="M430 1140 L486 1152 L482 1162 M630 1140 L574 1152 L578 1162" stroke="#ECECEC" strokeWidth={5} strokeLinecap="round" fill="none" />
         <path d="M455 945 Q530 1000 605 945 Q600 920 588 912 Q530 955 472 912 Q460 920 455 945 Z" fill="#202027" stroke={L} strokeWidth={5} />
       </g>
-      {/* brazo derecho apoyado en el apoyabrazos */}
-      <path d="M640 1010 C 700 1060, 780 1110, 860 1100" stroke="url(#lg)" strokeWidth={19} fill="none" strokeLinecap="round" />
-      <circle cx={885} cy={1096} r={40} fill="#121215" stroke={L} strokeWidth={4} />
-      <circle cx={874} cy={1084} r={12} fill="#3A3A42" opacity={0.5} />
       {/* cabeza */}
       <g>
         <ellipse cx={CX} cy={CY + br} rx={246} ry={232} fill="url(#hd)" stroke={L} strokeWidth={9} />
+        <ellipse cx={CX} cy={CY + br} rx={241} ry={227} fill="url(#hsh)" />
         {/* reflejo lavanda del borde (izquierda y arriba) */}
         <path d={`M${P(-226, 60)} C ${P(-250, -60)} ${P(-170, -190)} ${P(-30, -222)}`} stroke="#9C99C8" strokeWidth={9} fill="none" opacity={0.75} />
         {/* línea del pelo: banda oscura con raya al centro */}
-        <path d={`M${P(-235, -40)} C ${P(-200, -150)} ${P(-90, -196)} ${P(10, -200)}`} stroke={L} strokeWidth={21} fill="none" strokeLinecap="round" />
-        <path d={`M${P(34, -200)} C ${P(120, -196)} ${P(200, -160)} ${P(236, -70)}`} stroke={L} strokeWidth={21} fill="none" strokeLinecap="round" />
+        <path d={`M${P(-244, 30)} C ${P(-240, -40)} ${P(-200, -150)} ${P(-150, -175)} S ${P(-90, -196)} ${P(10, -200)}`} stroke={L} strokeWidth={21} fill="none" strokeLinecap="round" />
+        <path d={`M${P(34, -200)} C ${P(120, -196)} ${P(200, -160)} ${P(236, -70)} S ${P(246, 10)} ${P(244, 30)}`} stroke={L} strokeWidth={21} fill="none" strokeLinecap="round" />
         <path d={`M${P(-222, -20)} C ${P(-190, -132)} ${P(-90, -178)} ${P(10, -182)} M${P(34, -182)} C ${P(120, -178)} ${P(196, -144)} ${P(222, -60)}`} stroke="#A8A6CF" strokeWidth={5} fill="none" opacity={0.7} />
         <g filter="url(#soft)">
           {/* cejas: bloques grises suaves */}
@@ -74,7 +73,7 @@ export const Toon2D: React.FC<{ t: number }> = ({ t }) => {
           <path d={`M${P(-200, -42)} L${P(-182, -52)}`} stroke="#55555C" strokeWidth={7} strokeLinecap="round" />
         </g>
         {/* corona inclinada con brillo y emblema */}
-        <g transform={`translate(0 ${br}) rotate(3 ${CX} ${CY - 250})`}>
+        <g transform={`translate(0 ${br}) rotate(4 ${CX} ${CY - 214}) translate(${CX} ${CY - 214}) scale(1.22) translate(${-CX} ${-(CY - 214)})`}>
           <path d={`M${CX - 132} ${CY - 215} L${CX - 128} ${CY - 290} L${CX - 100} ${CY - 250} L${CX - 80} ${CY - 330} L${CX - 52} ${CY - 262} L${CX - 18} ${CY - 345} L${CX + 12} ${CY - 262} L${CX + 50} ${CY - 330} L${CX + 76} ${CY - 254} L${CX + 108} ${CY - 312} L${CX + 128} ${CY - 240} L${CX + 136} ${CY - 215} Z`} fill="url(#gd)" stroke={L} strokeWidth={5} strokeLinejoin="round" />
           {[[-128, -296], [-80, -336], [-18, -352], [50, -336], [108, -318]].map(([x, y], i) => <circle key={i} cx={CX + x} cy={CY + y} r={12} fill="url(#gd)" stroke={L} strokeWidth={4} />)}
           <path d={`M${CX - 134} ${CY - 214} L${CX + 136} ${CY - 214} L${CX + 132} ${CY - 252} L${CX - 128} ${CY - 252} Z`} fill="#F4D04A" stroke={L} strokeWidth={4} />
@@ -87,9 +86,20 @@ export const Toon2D: React.FC<{ t: number }> = ({ t }) => {
       <path d="M420 1010 C 392 1070, 410 1092, 458 1056 C 500 1022, 528 990, 548 958" stroke="url(#lg)" strokeWidth={19} fill="none" strokeLinecap="round" />
       <circle cx={556} cy={944} r={43} fill="#121215" stroke={L} strokeWidth={4} />
       <circle cx={544} cy={930} r={13} fill="#3A3A42" opacity={0.5} />
+      </g>
     </svg>
   );
 };
+// brazo derecho apoyado sobre el apoyabrazos (va encima de la capa 3D delantera)
+export const ArmRest2D: React.FC<{ t: number }> = ({ t }) => (
+  <svg width={1080} height={1920} style={{ position: "absolute", inset: 0 }}>
+    <defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#09090B" /><stop offset="60%" stopColor="#2A2A30" /><stop offset="100%" stopColor="#0B0B0E" /></linearGradient></defs>
+    <path d={`M640 ${927 + Math.sin(t * 2.1) * 1.5} C 720 900, 820 868, 905 862`} stroke="url(#lg2)" strokeWidth={19} fill="none" strokeLinecap="round" />
+    <ellipse cx={936} cy={892} rx={38} ry={8} fill="rgba(0,0,0,0.55)" />
+    <circle cx={934} cy={858} r={38} fill="#121215" stroke="#24242A" strokeWidth={4} />
+    <circle cx={922} cy={846} r={12} fill="#3A3A42" opacity={0.5} />
+  </svg>
+);
 export const King25: React.FC = () => {
   const f = useCurrentFrame();
   const t = f / 30;
@@ -106,6 +116,7 @@ export const King25: React.FC = () => {
           <KingScene t={t} char={false} layer="fg" />
         </ThreeCanvas>
       </AbsoluteFill>
+      <ArmRest2D t={t} />
       <AbsoluteFill style={{ background: "radial-gradient(ellipse 80% 66% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,10,0.5) 100%)" }} />
       <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, opacity: 0.07, mixBlendMode: "overlay" }}>
         <filter id="gr"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves={1} seed={Math.floor(random(`g${f}`) * 50)} /></filter>

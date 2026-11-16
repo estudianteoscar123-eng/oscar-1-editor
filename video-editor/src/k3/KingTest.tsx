@@ -119,9 +119,9 @@ const Ceo: React.FC<{ t: number }> = ({ t }) => {
 };
 export const KingScene: React.FC<{ t: number; char?: boolean; layer?: "all" | "bg" | "fg" }> = ({ t, char = true, layer = "all" }) => {
   const cam = useThree((s) => s.camera) as THREE.PerspectiveCamera;
-  if (char) { cam.position.set(0.05, 2.05, 5.7); } else { cam.position.set(-1.45, 1.25, 4.6); }
+  if (char) { cam.position.set(0.05, 2.05, 5.7); } else { cam.position.set(-1.35, 1.8, 4.5); }
   cam.fov = 38; cam.near = 0.05; cam.far = 60;
-  if (char) cam.lookAt(0.05, 1.82, 0); else cam.lookAt(0.3, 1.85, 0); cam.updateProjectionMatrix();
+  if (char) cam.lookAt(0.05, 1.82, 0); else cam.lookAt(0.3, 1.38, 0); cam.updateProjectionMatrix();
   const bg = layer !== "fg", fg = layer !== "bg";
   return (
     <>
@@ -136,7 +136,7 @@ export const KingScene: React.FC<{ t: number; char?: boolean; layer?: "all" | "b
       <Ol geo={Bx(1.1, 0.2, 0.2)} color="#D9A62A" pos={[2.55, 3.0, -1.4]} w={0.03} />
       {/* trono escalonado */}
       <Tier y={4.2} z={-1.45} w={2.4} t={t} /><Tier y={3.25} z={-1.25} w={2.6} t={t} /><Tier y={2.3} z={-1.0} w={2.9} t={t} /><Tier y={1.35} z={-0.75} w={3.1} t={t} />
-      <Ol geo={Bx(2.0, 0.55, 1.3)} color="#2B3134" pos={[0, 0.72, 0]} w={0.01} />
+      <Ol geo={Bx(2.0, 0.55, 1.3)} color="#2B3134" pos={[0, 0.72, 0]} w={0.01} /><Ol geo={Bx(1.9, 0.08, 1.2)} color="#4A5156" pos={[0, 1.03, 0.02]} w={0.012} rough={0.8} />
       <mesh position={[0, 0.85, 0.66]}><boxGeometry args={[1.85, 0.08, 0.01]} /><meshStandardMaterial color="#C8F000" emissive="#B8E600" emissiveIntensity={0.9} /></mesh>
       </> : null}
       {fg ? [-1, 1].map((sd) => <group key={sd} position={[sd * 1.25, 0.95, 0.15]}><Ol geo={Bx(0.55, 1.0, 1.6)} color="#2B3134" w={0.01} /><Ol geo={Bx(0.57, 0.08, 1.62)} color="#F2F2F0" pos={[0, 0.52, 0]} w={0.01} glow={0.5} /><mesh position={[0, 0.25, 0.81]}><boxGeometry args={[0.5, 0.07, 0.01]} /><meshStandardMaterial color="#C8F000" emissive="#B8E600" emissiveIntensity={0.9} /></mesh><Fan t={t} pos={[0, -0.12, 0.81]} s={0.8} /></group>) : null}
