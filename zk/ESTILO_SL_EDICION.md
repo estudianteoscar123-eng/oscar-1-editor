@@ -72,3 +72,9 @@ El usuario solo graba el talking head. El B-roll se reemplaza por:
 - **Anime** = la EMOCIÓN (lo que se siente). Escenas 1080p, crop 9:16 centrado en cara, grade desaturado, B/N en dolor, 1–2 líneas de diálogo doblaje latino por video.
 - **Motion graphics** = la IDEA (el concepto/dato). Kit fijo: fondo crema #E9E6E0 / negro #0E0E0E, texto negro/blanco, sans + serif itálica, UN acento rojo #C1121F. Elementos: tipografía cinética, íconos de línea que se dibujan, contadores (horas de pantalla, días), reloj, barras de progreso, calendario tachado, notificaciones apiladas, gráfica que cae/sube, split "tú vs él", cursor de máquina de escribir. Cortes secos + wipe de máscara crema↔video. Cero 3D, cero glow, cero emojis.
 - Reparto 1:00 ≈ 40% talking head · 35% anime · 25% motion. Ningún plano > 4 s. Hook 0–3 s siempre anime o motion, nunca la cara primero.
+
+## Reglas confirmadas (usuario)
+- Duración MÍNIMO 1:00 (guion ~170–190 palabras).
+- Usuario graba y habla a cámara; yo hago ideas, guiones y edición. Subtítulos = los de las referencias.
+- Anime y motion NO son relleno: son SOPORTE del mensaje — cada uno debe hacer que la frase se entienda y se sienta más. Si un plano no precisa el mensaje, se quita.
+- Cero caídas de retención, cero errores. Excelencia en cada video.
