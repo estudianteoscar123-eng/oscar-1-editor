@@ -43,7 +43,7 @@ const Tier: React.FC<{ y: number; z: number; w: number; t: number }> = ({ y, z, 
     <Ol geo={Bx(w, 0.9, 0.5)} color="#2B3134" rough={0.6} w={0.008} />
     <Ol geo={Bx(w + 0.02, 0.07, 0.52)} color="#F2F2F0" pos={[0, 0.47, 0]} w={0.01} glow={0.5} />
     <mesh position={[0, 0.33, 0.26]}><boxGeometry args={[w * 0.92, 0.06, 0.01]} /><meshStandardMaterial color="#C8F000" emissive="#B8E600" emissiveIntensity={0.9} /></mesh>
-    {[-1, 0, 1].map((k) => <Fan key={k} t={t} pos={[k * (w / 3.2), -0.07, 0.26]} />)}
+    {[-1.5, -0.5, 0.5, 1.5].map((k) => <Fan key={k} t={t} pos={[k * (w / 4.3), -0.07, 0.26]} s={0.82} />)}
   </group>
 );
 const Face: React.FC = () => {
@@ -117,28 +117,31 @@ const Ceo: React.FC<{ t: number }> = ({ t }) => {
     </group>
   );
 };
-export const KingScene: React.FC<{ t: number; char?: boolean }> = ({ t, char = true }) => {
+export const KingScene: React.FC<{ t: number; char?: boolean; layer?: "all" | "bg" | "fg" }> = ({ t, char = true, layer = "all" }) => {
   const cam = useThree((s) => s.camera) as THREE.PerspectiveCamera;
-  if (char) { cam.position.set(0.05, 2.05, 5.7); } else { cam.position.set(-1.7, 1.35, 5.0); }
+  if (char) { cam.position.set(0.05, 2.05, 5.7); } else { cam.position.set(-1.45, 1.25, 4.6); }
   cam.fov = 38; cam.near = 0.05; cam.far = 60;
-  if (char) cam.lookAt(0.05, 1.82, 0); else cam.lookAt(0.35, 1.95, 0); cam.updateProjectionMatrix();
+  if (char) cam.lookAt(0.05, 1.82, 0); else cam.lookAt(0.3, 1.85, 0); cam.updateProjectionMatrix();
+  const bg = layer !== "fg", fg = layer !== "bg";
   return (
     <>
-      <color attach="background" args={["#262C45"]} />
+      {bg ? <color attach="background" args={["#262C45"]} /> : null}
       <hemisphereLight args={["#DDE6FF", "#2A3A1A", 0.7]} />
       <directionalLight position={[-2.5, 4, 5]} intensity={2.2} color="#FFFFFF" castShadow shadow-mapSize={[2048, 2048]} shadow-radius={8} shadow-bias={-0.0004} />
       <directionalLight position={[3, 3, -2]} intensity={1.2} color="#B8C8FF" />
+      {bg ? <>
       {/* pared azul y marco amarillo */}
       <mesh position={[0, 3, -1.6]}><planeGeometry args={[12, 8]} /><meshStandardMaterial color="#2E3658" roughness={0.9} /></mesh>
       <Ol geo={Bx(0.2, 2.4, 0.2)} color="#D9A62A" pos={[2.05, 1.8, -1.4]} w={0.03} />
       <Ol geo={Bx(1.1, 0.2, 0.2)} color="#D9A62A" pos={[2.55, 3.0, -1.4]} w={0.03} />
       {/* trono escalonado */}
-      <Tier y={3.25} z={-1.25} w={2.6} t={t} /><Tier y={2.3} z={-1.0} w={2.9} t={t} /><Tier y={1.35} z={-0.75} w={3.1} t={t} />
+      <Tier y={4.2} z={-1.45} w={2.4} t={t} /><Tier y={3.25} z={-1.25} w={2.6} t={t} /><Tier y={2.3} z={-1.0} w={2.9} t={t} /><Tier y={1.35} z={-0.75} w={3.1} t={t} />
       <Ol geo={Bx(2.0, 0.55, 1.3)} color="#2B3134" pos={[0, 0.72, 0]} w={0.01} />
       <mesh position={[0, 0.85, 0.66]}><boxGeometry args={[1.85, 0.08, 0.01]} /><meshStandardMaterial color="#C8F000" emissive="#B8E600" emissiveIntensity={0.9} /></mesh>
-      {[-1, 1].map((sd) => <group key={sd} position={[sd * 1.25, 0.95, 0.15]}><Ol geo={Bx(0.55, 1.0, 1.6)} color="#2B3134" w={0.01} /><Ol geo={Bx(0.57, 0.08, 1.62)} color="#F2F2F0" pos={[0, 0.52, 0]} w={0.01} glow={0.5} /><mesh position={[0, 0.25, 0.81]}><boxGeometry args={[0.5, 0.07, 0.01]} /><meshStandardMaterial color="#C8F000" emissive="#B8E600" emissiveIntensity={0.9} /></mesh><Fan t={t} pos={[0, -0.12, 0.81]} s={0.8} /></group>)}
-      <mesh position={[0, 0.02, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow><planeGeometry args={[12, 12]} /><meshStandardMaterial color="#2E7A2A" roughness={0.9} /></mesh>
-      <Ol geo={Bx(2.2, 0.45, 1.5)} color="#2B3134" pos={[0, 0.23, 0.1]} w={0.01} />
+      </> : null}
+      {fg ? [-1, 1].map((sd) => <group key={sd} position={[sd * 1.25, 0.95, 0.15]}><Ol geo={Bx(0.55, 1.0, 1.6)} color="#2B3134" w={0.01} /><Ol geo={Bx(0.57, 0.08, 1.62)} color="#F2F2F0" pos={[0, 0.52, 0]} w={0.01} glow={0.5} /><mesh position={[0, 0.25, 0.81]}><boxGeometry args={[0.5, 0.07, 0.01]} /><meshStandardMaterial color="#C8F000" emissive="#B8E600" emissiveIntensity={0.9} /></mesh><Fan t={t} pos={[0, -0.12, 0.81]} s={0.8} /></group>) : null}
+      {bg ? <><mesh position={[0, 0.02, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow><planeGeometry args={[12, 12]} /><meshStandardMaterial color="#2E7A2A" roughness={0.9} /></mesh>
+      <Ol geo={Bx(2.2, 0.45, 1.5)} color="#2B3134" pos={[0, 0.23, 0.1]} w={0.01} /></> : null}
       {char ? <Ceo t={t} /> : null}
     </>
   );
