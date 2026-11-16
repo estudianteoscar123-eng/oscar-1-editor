@@ -66,3 +66,9 @@ Formato base: **persona a cámara (talking head) + B-roll cinematográfico propi
    - música baja continua;
    - duración 1:00.
 3. **Las escenas de personaje (story time)** entran como si fueran B-roll, con el mismo sistema tipográfico.
+
+## DECISIÓN (usuario): sin B-roll grabado → Motion graphics + Anime
+El usuario solo graba el talking head. El B-roll se reemplaza por:
+- **Anime** = la EMOCIÓN (lo que se siente). Escenas 1080p, crop 9:16 centrado en cara, grade desaturado, B/N en dolor, 1–2 líneas de diálogo doblaje latino por video.
+- **Motion graphics** = la IDEA (el concepto/dato). Kit fijo: fondo crema #E9E6E0 / negro #0E0E0E, texto negro/blanco, sans + serif itálica, UN acento rojo #C1121F. Elementos: tipografía cinética, íconos de línea que se dibujan, contadores (horas de pantalla, días), reloj, barras de progreso, calendario tachado, notificaciones apiladas, gráfica que cae/sube, split "tú vs él", cursor de máquina de escribir. Cortes secos + wipe de máscara crema↔video. Cero 3D, cero glow, cero emojis.
+- Reparto 1:00 ≈ 40% talking head · 35% anime · 25% motion. Ningún plano > 4 s. Hook 0–3 s siempre anime o motion, nunca la cara primero.
