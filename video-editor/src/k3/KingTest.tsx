@@ -117,10 +117,11 @@ const Ceo: React.FC<{ t: number }> = ({ t }) => {
     </group>
   );
 };
-const Scene: React.FC<{ t: number }> = ({ t }) => {
+export const KingScene: React.FC<{ t: number; char?: boolean }> = ({ t, char = true }) => {
   const cam = useThree((s) => s.camera) as THREE.PerspectiveCamera;
-  cam.position.set(0.05, 2.05, 5.7); cam.fov = 38; cam.near = 0.05; cam.far = 60;
-  cam.lookAt(0.05, 1.82, 0); cam.updateProjectionMatrix();
+  if (char) { cam.position.set(0.05, 2.05, 5.7); } else { cam.position.set(-1.7, 1.35, 5.0); }
+  cam.fov = 38; cam.near = 0.05; cam.far = 60;
+  if (char) cam.lookAt(0.05, 1.82, 0); else cam.lookAt(0.35, 1.95, 0); cam.updateProjectionMatrix();
   return (
     <>
       <color attach="background" args={["#262C45"]} />
@@ -138,7 +139,7 @@ const Scene: React.FC<{ t: number }> = ({ t }) => {
       {[-1, 1].map((sd) => <group key={sd} position={[sd * 1.25, 0.95, 0.15]}><Ol geo={Bx(0.55, 1.0, 1.6)} color="#2B3134" w={0.01} /><Ol geo={Bx(0.57, 0.08, 1.62)} color="#F2F2F0" pos={[0, 0.52, 0]} w={0.01} glow={0.5} /><mesh position={[0, 0.25, 0.81]}><boxGeometry args={[0.5, 0.07, 0.01]} /><meshStandardMaterial color="#C8F000" emissive="#B8E600" emissiveIntensity={0.9} /></mesh><Fan t={t} pos={[0, -0.12, 0.81]} s={0.8} /></group>)}
       <mesh position={[0, 0.02, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow><planeGeometry args={[12, 12]} /><meshStandardMaterial color="#2E7A2A" roughness={0.9} /></mesh>
       <Ol geo={Bx(2.2, 0.45, 1.5)} color="#2B3134" pos={[0, 0.23, 0.1]} w={0.01} />
-      <Ceo t={t} />
+      {char ? <Ceo t={t} /> : null}
     </>
   );
 };
@@ -148,7 +149,7 @@ export const KingTest: React.FC = () => {
     <AbsoluteFill style={{ background: "#000" }}>
       <AbsoluteFill style={{ filter: "contrast(1.05) saturate(1.1) brightness(1.05)" }}>
         <ThreeCanvas width={1080} height={1920} shadows gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.15 }}>
-          <Scene t={f / 30} />
+          <KingScene t={f / 30} />
         </ThreeCanvas>
       </AbsoluteFill>
       <AbsoluteFill style={{ background: "radial-gradient(ellipse 80% 66% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,10,0.55) 100%)" }} />
