@@ -78,3 +78,6 @@ El usuario solo graba el talking head. El B-roll se reemplaza por:
 - Usuario graba y habla a cámara; yo hago ideas, guiones y edición. Subtítulos = los de las referencias.
 - Anime y motion NO son relleno: son SOPORTE del mensaje — cada uno debe hacer que la frase se entienda y se sienta más. Si un plano no precisa el mensaje, se quita.
 - Cero caídas de retención, cero errores. Excelencia en cada video.
+
+## Formato de entrega de guiones
+- SL y ZK: SOLO el texto que el usuario lee (texto plano para voz). Nada de tablas ni indicaciones de edición.
