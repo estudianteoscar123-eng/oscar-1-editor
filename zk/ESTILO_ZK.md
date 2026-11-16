@@ -118,3 +118,9 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Temas con atractivo masivo (miedo, misterio, lo prohibido), no solo para creyentes.
 - La música influye en el alcance (dato del usuario): elegirla por emoción del guion, que suba en el giro y nunca repetir la del video anterior. Registrar qué canción llevó cada video para cruzarlo con las visitas (Lucifer = zk5 → mejor resultado; Nombre = zk1).
 - Dinamismo = CONTENIDO, no cámara (corrección del usuario): una escena nueva cada ~1,2 s, personajes y objetos que actúan (caminan, caen, se transforman, señalan, arden), transición distinta en cada cambio (atravesar con zoom, barrido, iris, caída, rebobinado). La cámara solo empuja suave; los reencuadres mecánicos cada 0,6 s se ven básicos.
+
+## Formato 3D "Eres…" (desde nov. 2026, referencia: videos de Jensen Huang y Trump)
+- Duración 45–60 s (reemplaza el límite de 29 s para este formato).
+- Narración en segunda persona ("Eres Judas…") con un dato verificable cada 3–4 s, giro y escándalo al final.
+- Kit 3D propio: muñecos de cabeza redonda con caras expresivas, escenarios llenos de objetos, cambio de plano cada ~1 s, barridos con desenfoque entre escenarios, datos en carteles del escenario y tablet "REAL" con arte clásico o foto real.
+- Subtítulos: SIN cambios (Kit Captions con la palabra clave enmarcada en rojo).
