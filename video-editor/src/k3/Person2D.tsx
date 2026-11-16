@@ -66,11 +66,11 @@ export const Person2D: React.FC<Person2DP> = (p) => {
       <defs>
         <radialGradient id={`hd${id}`} cx="40%" cy="38%" r="68%"><stop offset="0%" stopColor="#FFFFFF" /><stop offset="62%" stopColor="#F7F7FA" /><stop offset="88%" stopColor="#DCDDE8" /><stop offset="100%" stopColor="#B9BBD0" /></radialGradient>
         <linearGradient id={`rb${id}`} x1="0" y1="0" x2="1" y2="0.2"><stop offset="0%" stopColor={robe2 ?? robe} stopOpacity={1} /><stop offset="40%" stopColor={robe} /><stop offset="100%" stopColor={robe2 ?? "#000"} stopOpacity={robe2 ? 1 : 0.85} /></linearGradient>
-        <filter id={`gl${id}`} x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="40" /></filter>
-        <filter id={`sh${id}`} x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14" /></filter>
+        <radialGradient id={`gl${id}`}><stop offset="0%" stopColor="#FFE9A8" stopOpacity="0.9" /><stop offset="100%" stopColor="#FFE9A8" stopOpacity="0" /></radialGradient>
+        <radialGradient id={`sh${id}`}><stop offset="0%" stopColor="#000" stopOpacity="0.55" /><stop offset="100%" stopColor="#000" stopOpacity="0" /></radialGradient>
       </defs>
-      {p.glow ? <ellipse cx={0} cy={-470} rx={360} ry={520} fill="#FFE9A8" opacity={0.55 * p.glow} filter={`url(#gl${id})`} /> : null}
-      <ellipse cx={0} cy={6} rx={170} ry={26} fill="rgba(0,0,0,0.5)" filter={`url(#sh${id})`} />
+      {p.glow ? <ellipse cx={0} cy={-470} rx={420} ry={600} fill={`url(#gl${id})`} opacity={0.6 * p.glow} /> : null}
+      <ellipse cx={0} cy={6} rx={190} ry={34} fill={`url(#sh${id})`} />
       <g transform={`translate(0 ${by}) rotate(${p.lean ?? 0} 0 -300)`}>
         {/* piernas */}
         {[-1, 1].map((sd) => {

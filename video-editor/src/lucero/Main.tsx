@@ -35,7 +35,7 @@ const Lights: React.FC<{ m: Mood }> = ({ m }) => {
   const c = { heaven: ["#DDE2FF", "#3A2A6A", 0.9, "#FFF2D6", 1.8], candle: ["#FFD9A0", "#3A2410", 0.55, "#FFC47A", 1.0], palace: ["#FFE8C0", "#6A4A2A", 0.9, "#FFE0A8", 2.4], dawn: ["#FFD0B0", "#4A2A3A", 0.8, "#FFB070", 2.4], night: ["#7088D8", "#10142A", 0.6, "#A8B8FF", 0.9], dark: ["#8A3A3A", "#140808", 0.5, "#FF6A4A", 1.2] }[m] as [string, string, number, string, number];
   return (<>
     <hemisphereLight args={[c[0], c[1], c[2]]} />
-    <directionalLight position={[-3.5, 6, 5]} intensity={c[4]} color={c[3]} castShadow shadow-mapSize={[2048, 2048]} shadow-radius={6} shadow-bias={-0.0004}><orthographicCamera attach="shadow-camera" args={[-9, 9, 9, -9, 0.1, 30]} /></directionalLight>
+    <directionalLight position={[-3.5, 6, 5]} intensity={c[4]} color={c[3]} castShadow shadow-mapSize={[1024, 1024]} shadow-radius={4} shadow-bias={-0.0004}><orthographicCamera attach="shadow-camera" args={[-9, 9, 9, -9, 0.1, 30]} /></directionalLight>
   </>);
 };
 const Stars: React.FC<{ t: number; n?: number }> = ({ t, n = 140 }) => {
@@ -163,7 +163,7 @@ export const Lucero: React.FC = () => {
   const cite = CITES.find(([a, b]) => t >= a && t < b);
   return (
     <AbsoluteFill style={{ background: "#000" }}>
-      <AbsoluteFill style={{ filter: `contrast(1.06) saturate(1.15) brightness(1.04) blur(${1.1 + whip * 6}px)`, transform: `translateX(${whip * (i % 2 ? 70 : -70)}px) scale(${1 + whip * 0.06})` }}>
+      <AbsoluteFill style={{ filter: `contrast(1.06) saturate(1.15) brightness(1.04)${whip > 0.05 ? ` blur(${whip * 6}px)` : ""}`, transform: `translateX(${whip * (i % 2 ? 70 : -70)}px) scale(${1 + whip * 0.06})` }}>
         <ThreeCanvas width={1080} height={1920} shadows gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.1 }}>
           <Cam shots={SHOTS} t={t} />
           <Scene3D t={t} i={i} />
