@@ -11,19 +11,19 @@ import { Robe } from "../adultera/Dark";
 // ZK Dark v4 · dinamismo de CONTENIDO: una escena nueva cada ~1,2 s, personajes y objetos que se mueven
 // (caminan, caen, se encogen, señalan, arden), transición distinta en cada cambio (atravesar con zoom, barrido, iris, rebobinado).
 // La cámara solo empuja suave; nada de reencuadres mecánicos.
-const TH = 0.1;
-const RED = "#D30F17", W = "#F2F2F2", INK = "#050505", GOLD = "#E8C66A";
-const ip = (v: number, a: number, b: number, o0 = 0, o1 = 1) => interpolate(v, [a, b], [o0, o1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-type Raw = { chunks: { text: string; timestamp: [number, number] }[] };
-const words = (d: Raw, fix: Record<string, string>): Word[] => d.chunks.map((c, i) => { const w = c.text.trim(); return { w: fix[`${i}`] ?? fix[w] ?? w, s: c.timestamp[0] + TH, e: (c.timestamp[1] ?? c.timestamp[0] + 0.3) + TH }; });
-const clean = (w: string) => w.toLowerCase().replace(/[^a-záéíóúñ0-9]/g, "");
-const finder = (ws: Word[]) => (w: string, n = 0) => ws.filter((x) => clean(x.w) === w)[n]?.s ?? 0;
-const Ink: React.FC<{ children: React.ReactNode }> = ({ children }) => <g filter="url(#ink)">{children}</g>;
-const Glow: React.FC<{ x: number; y: number; r: number; o?: number; c?: string }> = ({ x, y, r, o = 1, c = "242,242,242" }) => <circle cx={x} cy={y} r={r} fill={`rgba(${c},${0.18 * o})`} style={{ filter: "blur(40px)" }} />;
-const Tag: React.FC<{ t: number; a: number; b: number; txt: string; y?: number }> = ({ t, a, b, txt, y = 1700 }) => <Serif txt={txt} y={y} size={58} ls={8} o={ip(t, a, a + 0.15) * ip(t, b - 0.15, b, 1, 0)} />;
+export const TH = 0.1;
+export const RED = "#D30F17", W = "#F2F2F2", INK = "#050505", GOLD = "#E8C66A";
+export const ip = (v: number, a: number, b: number, o0 = 0, o1 = 1) => interpolate(v, [a, b], [o0, o1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+export type Raw = { chunks: { text: string; timestamp: [number, number] }[] };
+export const words = (d: Raw, fix: Record<string, string>): Word[] => d.chunks.map((c, i) => { const w = c.text.trim(); return { w: fix[`${i}`] ?? fix[w] ?? w, s: c.timestamp[0] + TH, e: (c.timestamp[1] ?? c.timestamp[0] + 0.3) + TH }; });
+export const clean = (w: string) => w.toLowerCase().replace(/[^a-záéíóúñ0-9]/g, "");
+export const finder = (ws: Word[]) => (w: string, n = 0) => ws.filter((x) => clean(x.w) === w)[n]?.s ?? 0;
+export const Ink: React.FC<{ children: React.ReactNode }> = ({ children }) => <g filter="url(#ink)">{children}</g>;
+export const Glow: React.FC<{ x: number; y: number; r: number; o?: number; c?: string }> = ({ x, y, r, o = 1, c = "242,242,242" }) => <circle cx={x} cy={y} r={r} fill={`rgba(${c},${0.18 * o})`} style={{ filter: "blur(40px)" }} />;
+export const Tag: React.FC<{ t: number; a: number; b: number; txt: string; y?: number }> = ({ t, a, b, txt, y = 1700 }) => <Serif txt={txt} y={y} size={58} ls={8} o={ip(t, a, a + 0.15) * ip(t, b - 0.15, b, 1, 0)} />;
 
 // escena con transición de entrada (0 zoom a través, 1 barrido izq, 2 barrido der, 3 iris, 4 caída desde arriba) y empuje suave
-const Scene: React.FC<{ t: number; a: number; b: number; tr?: number; push?: number; children: React.ReactNode }> = ({ t, a, b, tr = 0, push = 0.08, children }) => {
+export const Scene: React.FC<{ t: number; a: number; b: number; tr?: number; push?: number; children: React.ReactNode }> = ({ t, a, b, tr = 0, push = 0.08, children }) => {
   if (t < a - 0.01 || t >= b) return null;
   const k = ip(t, a, a + 0.22);
   const e = 1 - Math.pow(1 - k, 3);
@@ -42,7 +42,7 @@ const Scene: React.FC<{ t: number; a: number; b: number; tr?: number; push?: num
     </g>
   );
 };
-const Flames: React.FC<{ t: number; x: number; y: number; w: number; h: number; n?: number; o?: number }> = ({ t, x, y, w, h, n = 9, o = 1 }) => (
+export const Flames: React.FC<{ t: number; x: number; y: number; w: number; h: number; n?: number; o?: number }> = ({ t, x, y, w, h, n = 9, o = 1 }) => (
   <g opacity={o}>
     {Array.from({ length: n }, (_, i) => {
       const fx = x - w / 2 + (i + 0.5) * (w / n);
@@ -51,10 +51,10 @@ const Flames: React.FC<{ t: number; x: number; y: number; w: number; h: number; 
     })}
   </g>
 );
-const Sparks: React.FC<{ t: number; n?: number; c?: string }> = ({ t, n = 22, c = "#FF8A3A" }) => (
+export const Sparks: React.FC<{ t: number; n?: number; c?: string }> = ({ t, n = 22, c = "#FF8A3A" }) => (
   <g>{Array.from({ length: n }, (_, i) => { const sp = 0.25 + random(`s${i}`) * 0.5; const p = (t * sp + random(`p${i}`)) % 1; const x = 80 + random(`x${i}`) * 920 + Math.sin(t * 2 + i) * 30; return <circle key={i} cx={x} cy={1900 - p * 1900} r={2 + random(`r${i}`) * 4} fill={c} opacity={Math.sin(p * Math.PI)} />; })}</g>
 );
-const Shell: React.FC<{ f: number; t: number; cover: [string, string]; ws: Word[]; keys: Set<string>; audio: string; hits: number[]; tint: string; children: React.ReactNode }> = ({ f, t, cover, ws, keys, audio, hits, tint, children }) => {
+export const Shell: React.FC<{ f: number; t: number; cover: [string, string]; ws: Word[]; keys: Set<string>; audio: string; hits: number[]; tint: string; children: React.ReactNode }> = ({ f, t, cover, ws, keys, audio, hits, tint, children }) => {
   const last = hits.filter((h) => h <= t).pop() ?? -9;
   const sh = f < 3 ? 0 : Math.exp(-(t - last) * 10);
   const jx = (random(`jx${f}`) - 0.5) * 16 * sh, jy = (random(`jy${f}`) - 0.5) * 16 * sh;
@@ -115,7 +115,7 @@ const Book: React.FC<{ t: number; open: number; hl: number }> = ({ t, open, hl }
     <g transform={`translate(${620 + ip(hl, 0, 1, 0, 200)} ${1000 + Math.sin(t * 3) * 10})`}><circle r={70} fill="rgba(255,255,255,0.08)" stroke={GOLD} strokeWidth={10} /><path d="M50 50 L120 120" stroke={GOLD} strokeWidth={18} strokeLinecap="round" /></g>
   </g>
 );
-const Animal: React.FC<{ kind: "lion" | "sheep" | "bird"; x: number; y: number; t: number; s?: number }> = ({ kind, x, y, t, s = 1 }) => (
+export const Animal: React.FC<{ kind: "lion" | "sheep" | "bird"; x: number; y: number; t: number; s?: number }> = ({ kind, x, y, t, s = 1 }) => (
   <g transform={`translate(${x} ${y + (kind === "bird" ? Math.sin(t * 6) * 12 : Math.abs(Math.sin(t * 8)) * -8)}) scale(${s})`}><Ink>
     {kind === "lion" ? <><ellipse cx={0} cy={0} rx={110} ry={60} fill="#0B0807" stroke={W} strokeWidth={5} /><circle cx={100} cy={-40} r={60} fill="#0B0807" stroke={GOLD} strokeWidth={9} />{[-70, -20, 30, 70].map((lx) => <path key={lx} d={`M${lx} 50 l0 60`} stroke={W} strokeWidth={10} />)}</> : null}
     {kind === "sheep" ? <><ellipse cx={0} cy={0} rx={90} ry={60} fill="#EDEDED" stroke={W} strokeWidth={5} /><ellipse cx={90} cy={-20} rx={30} ry={22} fill="#0B0807" stroke={W} strokeWidth={4} />{[-40, 40].map((lx) => <path key={lx} d={`M${lx} 50 l0 50`} stroke={W} strokeWidth={9} />)}</> : null}
@@ -131,7 +131,7 @@ const Eve: React.FC<{ t: number; x: number; y: number; reach: number; s?: number
     {[-25, 25].map((lx, i) => <path key={lx} d={`M${lx} 0 l${Math.sin(t * 7 + i * 3) * 18} 80`} stroke={W} strokeWidth={14} strokeLinecap="round" />)}
   </Ink></g>
 );
-const Beam: React.FC<{ t: number; o: number }> = ({ t, o }) => (
+export const Beam: React.FC<{ t: number; o: number }> = ({ t, o }) => (
   <g opacity={o}>
     <path d="M540 0 L360 1150 L720 1150 Z" fill="rgba(255,244,214,0.18)" />
     {Array.from({ length: 6 }, (_, i) => <path key={i} d={`M540 0 L${300 + i * 96} 1150`} stroke="rgba(255,244,214,0.18)" strokeWidth={6} opacity={0.5 + 0.5 * Math.sin(t * 5 + i)} />)}
@@ -243,7 +243,7 @@ const W2 = words(d2 as unknown as Raw, { "gejena,": "Gehena,", "gejena": "Gehena
 const a2 = finder(W2);
 export const GEHENA_TOTAL = S(22.4);
 const K2 = new Set(["jesús", "infierno", "imaginario", "palabra", "gehena", "existía", "valle", "jerusalén", "reyes", "judá", "hijos", "fuego", "maldito", "mente", "advertirte"]);
-const Jesus: React.FC<{ t: number; x: number; y: number; s?: number; arm?: number; eyes?: number }> = ({ t, x, y, s = 1, arm = 0, eyes = 0 }) => (
+export const Jesus: React.FC<{ t: number; x: number; y: number; s?: number; arm?: number; eyes?: number }> = ({ t, x, y, s = 1, arm = 0, eyes = 0 }) => (
   <g transform={`translate(${x} ${y}) scale(${s})`}>
     <Ink>
       <path d={`M-150 0 Q-140 -300 -90 -420 L90 -420 Q140 -300 ${150 + Math.sin(t * 3) * 12} 0 Z`} fill="#F2F2F2" stroke={W} strokeWidth={6} />

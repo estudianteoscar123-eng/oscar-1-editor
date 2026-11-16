@@ -56,6 +56,7 @@ import { Judas3D, JUDAS3D_TOTAL } from "./judas3d/Main";
 import { KingTest } from "./k3/KingTest";
 import { King25 } from "./k3/King25";
 import { Lucero, LUCERO_TOTAL } from "./lucero/Main";
+import { Abismo, ABISMO_TOTAL, Legion, LEGION_TOTAL } from "./jesus/ZK6";
 import { SLLee2, SLIppo2, SLLEE2_TOTAL, SLIPPO2_TOTAL } from "./slmob/V3";
 import { SLSpi1, SLSpi2, SLSPI1_TOTAL, SLSPI2_TOTAL } from "./slmob/Spi";
 import { SLRocky, SLNaruto, SLROCKY_TOTAL, SLNARUTO_TOTAL } from "./slmob/Drama";
@@ -136,6 +137,8 @@ export const Main = () => {
       <Composition id="KingTest" component={KingTest} durationInFrames={30} fps={30} width={1080} height={1920} />
       <Composition id="King25" component={King25} durationInFrames={60} fps={30} width={1080} height={1920} />
       <Composition id="Lucero" component={Lucero} durationInFrames={LUCERO_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="Abismo" component={Abismo} durationInFrames={ABISMO_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="Legion" component={Legion} durationInFrames={LEGION_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLLee2" component={SLLee2} durationInFrames={SLLEE2_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLIppo2" component={SLIppo2} durationInFrames={SLIPPO2_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLSpi1" component={SLSpi1} durationInFrames={SLSPI1_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
