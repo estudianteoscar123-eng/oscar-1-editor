@@ -155,3 +155,6 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Voz: clonada (OmniVoice con referencia de su narración), sin eco.
 - El usuario solo publica y reporta resultados. Todo lo demás (idea, guion, voz, edición, miniatura, título) es mío.
 - Prioridad: retención (3 primeros segundos + mantener) > interacción. Ideas con demanda probada (adaptar outliers de la competencia). Jamás genérico ni con cara de IA.
+- Subtítulos SOLO cuando hagan falta (frase clave, dato, número). Cuando el foco es el personaje/acción: sin subtítulos (shorts y largos).
+- Todo debe entenderlo cualquier persona del mundo: lenguaje simple, imagen que explique sola.
+- Filtrar ideas/guiones de forma crítica; producir en masa sin sacrificar calidad; definir un estilo y exprimirlo.
