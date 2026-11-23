@@ -5,7 +5,7 @@ import { AbsoluteFill } from "remotion";
 const HeadBall: React.FC<{ cx: number; cy: number; r: number; id: string; rimO?: number; cyan?: [number, number]; hi?: [number, number] }> = ({ cx, cy, r, id, rimO = 13, cyan, hi = [0.36, 0.4] }) => (
   <g>
     <defs>
-      <radialGradient id={`g${id}`} cx={`${hi[0] * 100}%`} cy={`${hi[1] * 100}%`} r="70%"><stop offset="0%" stopColor="#34343F" /><stop offset="45%" stopColor="#15151B" /><stop offset="100%" stopColor="#070709" /></radialGradient>
+      <radialGradient id={`g${id}`} cx={`${hi[0] * 100}%`} cy={`${hi[1] * 100}%`} r="70%"><stop offset="0%" stopColor="#2A2D3C" /><stop offset="40%" stopColor="#111219" /><stop offset="100%" stopColor="#050507" /></radialGradient>
       {cyan ? <clipPath id={`c${id}`}><rect x={cx + r * cyan[0]} y={cy + r * cyan[1]} width={r * 2} height={r * 2} /></clipPath> : null}
     </defs>
     <circle cx={cx} cy={cy} r={r + rimO} fill="#FFB86C" />
@@ -17,11 +17,11 @@ const W = "#FFFFFF";
 export const RigTest2: React.FC = () => (
   <AbsoluteFill style={{ background: "#000" }}>
     {/* ---------- fondo (ligeramente desenfocado) ---------- */}
-    <AbsoluteFill style={{ filter: "blur(1.6px)" }}>
+    <AbsoluteFill style={{ filter: "blur(1.2px)" }}>
       <svg width={1920} height={1080}>
         <defs>
-          <linearGradient id="wl" x1="0" y1="0" x2="1" y2="0.2"><stop offset="0%" stopColor="#F6E9C2" /><stop offset="70%" stopColor="#FFF6D0" /><stop offset="100%" stopColor="#F4E8C6" /></linearGradient>
-          <linearGradient id="lw" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#F3AE52" /><stop offset="100%" stopColor="#E89A40" /></linearGradient>
+          <linearGradient id="wl" x1="0" y1="0" x2="1" y2="0.2"><stop offset="0%" stopColor="#F4E6BE" /><stop offset="60%" stopColor="#FEF6CE" /><stop offset="100%" stopColor="#F6EBC8" /></linearGradient>
+          <linearGradient id="lw" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#F2A84A" /><stop offset="100%" stopColor="#EE9C3E" /></linearGradient>
         </defs>
         <rect width={1920} height={1080} fill="url(#wl)" />
         {/* tablero de corcho */}
@@ -47,15 +47,17 @@ export const RigTest2: React.FC = () => (
         <rect x={1710} y={452} width={64} height={100} rx={16} fill="#3EC860" />
         <rect x={1830} y={450} width={96} height={100} rx={18} fill="#7A7AF0" />
         {/* pupitres derecha */}
-        <rect x={1633} y={760} width={180} height={250} fill="#9E6A3A" /><path d="M1633 745 L 1810 745 L 1814 790 L 1636 790 Z" fill="#E6A86A" /><rect x={1660} y={762} width={90} height={6} fill="#4A7AE0" />
-        <rect x={1802} y={622} width={130} height={208} fill="#B98A5A" /><rect x={1838} y={828} width={90} height={32} fill="#9A5AD8" /><rect x={1765} y={858} width={160} height={40} fill="#E6A86A" /><rect x={1866} y={895} width={60} height={6} fill="#4A7AE0" /><rect x={1946} y={868} width={30} height={22} fill="#F4E04A" />
+        <rect x={1610} y={771} width={160} height={240} fill="#9E6A3A" /><path d="M1596 744 L 1766 744 L 1770 772 L 1598 772 Z" fill="#E6A86A" /><rect x={1616} y={754} width={90} height={6} fill="#4A7AE0" />
+        <rect x={1764} y={622} width={170} height={208} fill="#B98A5A" /><rect x={1838} y={828} width={90} height={32} fill="#9A5AD8" /><rect x={1765} y={858} width={160} height={40} fill="#E6A86A" /><rect x={1866} y={895} width={60} height={6} fill="#4A7AE0" /><rect x={1946} y={868} width={30} height={22} fill="#F4E04A" />
         <rect x={1765} y={896} width={160} height={110} fill="#9E6A3A" />
         {/* niño del fondo derecho */}
-        <rect x={1640} y={690} width={90} height={56} rx={26} fill="#6A82D8" />
-        <HeadBall cx={1812} cy={572} r={122} id="k2" rimO={6} hi={[0.4, 0.4]} />
-        <path d="M1690 528 Q 1700 450 1812 448 Q 1924 450 1934 528 Q 1914 520 1900 530 Q 1880 516 1860 528 Q 1840 516 1820 528 Q 1800 516 1780 528 Q 1760 516 1740 528 Q 1720 516 1700 530 Z" fill="#4C4A6C" />
+        <path d="M1600 744 Q 1600 690 1650 684 L 1700 690 L 1700 744 Z" fill="#6A82D8" /><path d="M1690 690 Q 1740 690 1760 744 L 1700 744 Z" fill="#1A1A22" />
+        <HeadBall cx={1800} cy={574} r={122} id="k2" rimO={6} hi={[0.4, 0.4]} />
+        <path d="M1678 530 Q 1688 452 1800 450 Q 1912 452 1922 530 Q 1902 522 1888 532 Q 1868 518 1848 530 Q 1828 518 1808 530 Q 1788 518 1768 530 Q 1748 518 1728 530 Q 1708 518 1688 532 Z" fill="#4C4A6C" />
         {[1760, 1838].map((x) => <g key={x}><ellipse cx={x} cy={578} rx={20} ry={23} fill={W} /><circle cx={x - 3} cy={579} r={8} fill="#0A0A0E" /></g>)}
-        <rect x={1746} y={532} width={30} height={9} rx={4} fill={W} /><rect x={1822} y={532} width={34} height={9} rx={4} fill={W} />
+        <rect x={1746} y={534} width={30} height={9} rx={4} fill={W} /><rect x={1822} y={534} width={34} height={9} rx={4} fill={W} />
+        <defs><linearGradient id="ray" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#FFF3C0" stopOpacity="0.35" /><stop offset="100%" stopColor="#FFF3C0" stopOpacity="0" /></linearGradient></defs>
+        <path d="M1380 540 L 1520 540 L 1700 1003 L 1520 1003 Z" fill="url(#ray)" />
         {[[1452, 707], [1595, 723], [1565, 750], [1455, 770]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={4} fill="#FFF2A0" />)}
       </svg>
     </AbsoluteFill>
@@ -78,10 +80,10 @@ export const RigTest2: React.FC = () => (
       <path d="M800 818 L 832 812 L 812 948 L 782 952 Z" fill={W} /><path d="M902 826 L 940 822 L 918 966 L 886 968 Z" fill={W} />
       {/* cabeza */}
       <HeadBall cx={1016} cy={440} r={368} id="m" rimO={14} cyan={[0.6, -0.55]} hi={[0.33, 0.36]} />
-      {/* mano arriba con lápiz (delante, con contorno de luz) */}
-      <path d="M690 160 Q 680 95 735 82 L 820 74 Q 860 80 862 120 L 858 240 Q 800 262 720 246 Q 688 220 690 160 Z" fill="#FFB86C" transform="translate(-8 0)" />
-      <path d="M690 160 Q 680 95 735 82 L 820 74 Q 860 80 862 120 L 858 240 Q 800 262 720 246 Q 688 220 690 160 Z" fill="#0E0E12" />
-      <path d="M750 252 L 835 74" stroke="#F6C42A" strokeWidth={24} strokeLinecap="butt" /><path d="M744 250 L 758 270 L 762 244 Z" fill="#2A2A2A" /><path d="M752 240 L 768 246" stroke="#E0A820" strokeWidth={6} />
+      {/* mano arriba con lápiz */}
+      <path d="M700 252 Q 676 170 694 112 Q 708 76 750 76 L 838 76 Q 862 118 852 176 Q 836 246 770 262 Q 726 268 700 252 Z" fill="#FFB86C" transform="translate(-10 4)" />
+      <path d="M700 252 Q 676 170 694 112 Q 708 76 750 76 L 838 76 Q 862 118 852 176 Q 836 246 770 262 Q 726 268 700 252 Z" fill="#0C0D12" />
+      <path d="M760 246 L 842 76" stroke="#F8C52C" strokeWidth={26} /><path d="M753 242 L 760 268 L 771 250 Z" fill="#2A2A2A" /><path d="M774 218 L 800 230" stroke="#E2A61E" strokeWidth={5} />
       {/* cejas preocupadas */}
       <path d="M826 350 L 916 322" stroke={W} strokeWidth={30} strokeLinecap="round" /><path d="M1118 322 L 1206 350" stroke={W} strokeWidth={30} strokeLinecap="round" />
       {/* ojos */}
@@ -90,33 +92,31 @@ export const RigTest2: React.FC = () => (
       {/* boca */}
       <path d="M906 604 Q 990 668 1100 590" stroke={W} strokeWidth={32} strokeLinecap="round" fill="none" />
       {/* gota */}
-      <path d="M1300 322 Q 1286 372 1300 400 Q 1316 372 1300 322 Z" fill="#B8E2F4" />
+      <path d="M1300 318 Q 1278 372 1286 392 Q 1300 410 1314 392 Q 1322 372 1300 318 Z" fill="#BFE4F6" />
       {/* hoja y mano en la barbilla */}
-      <g transform="rotate(57 1312 616)"><rect x={1312} y={616} width={520} height={440} fill="#FFFFFF" /><rect x={1312} y={616} width={520} height={440} fill="none" stroke="#E4DCC8" strokeWidth={10} /></g>
-      <circle cx={1158} cy={765} r={100} fill="#0C0C10" />
-      <circle cx={1130} cy={730} r={60} fill="#1A1A22" opacity={0.5} />
+      <g transform="rotate(57 1280 612)"><rect x={1280} y={612} width={520} height={440} fill="#FFFFFF" /><rect x={1280} y={612} width={520} height={440} fill="none" stroke="#E4DCC8" strokeWidth={10} /></g>
+      <circle cx={1120} cy={757} r={98} fill="#0C0D12" />
+      <circle cx={1095} cy={722} r={52} fill="#1C1E28" opacity={0.6} />
       {/* ---- niña de gafas en primer plano ---- */}
       <path d="M-10 1003 L 0 880 Q 140 840 330 860 Q 480 870 540 1003 Z" fill="#C04A56" />
       <circle cx={325} cy={995} r={18} fill="#F4C02A" />
-      <HeadBall cx={190} cy={650} r={292} id="g" rimO={8} hi={[0.4, 0.38]} />
+      <defs><clipPath id="gtop"><rect x={-200} y={300} width={700} height={250} /></clipPath></defs><circle cx={190} cy={650} r={300} fill="#FFB86C" clipPath="url(#gtop)" /><HeadBall cx={190} cy={650} r={292} id="g" rimO={0} hi={[0.4, 0.38]} />
       {/* trenza */}
-      {[[462, 770, 58], [420, 880, 58], [462, 980, 60]].map(([x, y, r], i) => <g key={i}><circle cx={x + 3} cy={y} r={r + 4} fill="#A8E2F2" /><circle cx={x} cy={y} r={r} fill="#3A2C58" /><path d={`M${x - 30} ${y - 30} L ${x + 28} ${y + 26}`} stroke="#5E4E86" strokeWidth={8} strokeLinecap="round" /></g>)}
-      {/* ojos somnolientos tras las gafas */}
-      <ellipse cx={232} cy={628} rx={52} ry={34} fill={W} /><rect x={176} y={588} width={112} height={34} fill="#121218" /><circle cx={262} cy={628} r={15} fill="#0A0A0E" />
-      <ellipse cx={378} cy={625} rx={42} ry={28} fill={W} /><rect x={332} y={590} width={92} height={30} fill="#121218" /><circle cx={402} cy={626} r={13} fill="#0A0A0E" />
-      <path d="M196 534 L 274 550" stroke={W} strokeWidth={20} strokeLinecap="round" /><path d="M360 606 L 402 614" stroke={W} strokeWidth={14} strokeLinecap="round" />
-      {/* gafas */}
-      <ellipse cx={230} cy={615} rx={76} ry={120} fill="#5A4A7A" opacity={0.25} stroke="#2E2048" strokeWidth={22} />
-      <circle cx={395} cy={615} r={110} fill="#5A4A7A" opacity={0.25} />
-      <circle cx={395} cy={615} r={110} fill="none" stroke="#2E2048" strokeWidth={22} />
-      <path d="M186 566 Q 196 534 218 524" stroke="#C8C8D8" strokeWidth={9} strokeLinecap="round" fill="none" />
-      <path d="M312 584 Q 330 550 356 540" stroke="#C8C8D8" strokeWidth={9} strokeLinecap="round" fill="none" />
+      {[[456, 786, 52, 76], [427, 884, 58, 60], [440, 972, 56, 58]].map(([x, y, rx, ry], i) => <g key={i}><ellipse cx={x + 6} cy={y} rx={rx} ry={ry} fill="#A8E2F2" /><ellipse cx={x} cy={y} rx={rx} ry={ry} fill="#3B2D5B" /><path d={`M${x - rx * 0.5} ${y - ry * 0.55} L ${x + rx * 0.45} ${y + ry * 0.5}`} stroke="#5E4E86" strokeWidth={8} strokeLinecap="round" /></g>)}
+      {/* lentes (relleno translúcido) */}
+      <ellipse cx={242} cy={616} rx={57} ry={118} fill="#4A3E66" opacity={0.45} />
+      <circle cx={392} cy={605} r={112} fill="#4A3E66" opacity={0.4} />
+      {/* ojos medio cerrados (párpado recto arriba) */}
+      <path d="M190 604 L 266 604 Q 266 650 228 650 Q 190 650 190 604 Z" fill={W} /><circle cx={254} cy={624} r={14} fill="#0A0A0E" />
+      <path d="M357 608 L 405 608 Q 405 648 381 648 Q 357 648 357 608 Z" fill={W} /><circle cx={396} cy={628} r={12} fill="#0A0A0E" />
+      <path d="M198 534 L 270 552" stroke={W} strokeWidth={22} strokeLinecap="round" /><path d="M366 618 L 408 606" stroke={W} strokeWidth={12} strokeLinecap="round" />
+      {/* monturas */}
+      <ellipse cx={242} cy={616} rx={57} ry={118} fill="none" stroke="#2E2048" strokeWidth={20} />
+      <circle cx={392} cy={605} r={112} fill="none" stroke="#2E2048" strokeWidth={22} />
+      <path d="M306 600 Q 318 556 352 538" stroke="#C8C8D8" strokeWidth={9} strokeLinecap="round" fill="none" opacity={0.85} />
       <circle cx={440} cy={615} r={40} fill="#F4525A" />
       <path d="M250 744 L 383 744" stroke={W} strokeWidth={22} strokeLinecap="round" />
     </svg>
-    {/* bloom cálido y viñeta */}
-    <AbsoluteFill style={{ background: "radial-gradient(ellipse at 80% 45%, rgba(255,214,140,.22) 0%, rgba(255,214,140,0) 60%)" }} />
-    <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 65%, rgba(60,30,0,.18) 100%)" }} />
     <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 76, background: "#000" }} /><div style={{ position: "absolute", left: 0, top: 1003, width: 1920, height: 77, background: "#000" }} />
   </AbsoluteFill>
 );
