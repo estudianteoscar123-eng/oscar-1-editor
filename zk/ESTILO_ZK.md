@@ -131,3 +131,13 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Tema libre (mundo, historia, ciencia, hipótesis "¿qué pasaría si…?"), pero SIEMPRE dentro de la Biblia: la Biblia es el suelo; se camina sobre ella, se toman sus objetos, nunca se sale de ella. Ej: "¿Qué pasaría si quedaras atrapado en la época de Sansón?".
 - Estilo visual: pendiente de referencias del usuario.
 - Conexión YouTube vía Composio con alias "ZK".
+
+## Referencias YouTube "¿Y si…?" (5 videos, 8–12 min, 1920x1080 60fps) — análisis
+- 2D vectorial con volumen: degradados suaves, sombras de contacto, bruma de profundidad (fondo desenfocado/lavado), luz cálida de ventana, letterbox negro.
+- Personaje: cabeza negra redonda con cara emoji blanca (ojos/cejas/boca), pelo de trazos, cuerpo simple con ropa de color, guantes negros. Extras = siluetas grises.
+- Sets muy detallados (cuarto, salón, feria, azotea, ciudad de noche) con props con texto ("OFERTA $99", "FERIA", relojes).
+- Narración 2ª persona presente ("Suena tu alarma… abres la ventana"), gancho con número/misterio en 0–7 s, contadores en pantalla (8 231 478 902, cuenta regresiva, "DÍA 45").
+- Subtítulos: palabra por palabra, amarillo/naranja Bebas-like con contorno oscuro, cerca del personaje, solo en diálogos/frases clave.
+- Cortes: mediana 2–3.5 s; cámara con paneos/zoom lentos; personajes con animación sutil (respirar, parpadeo, gesto).
+- Audio a -14 LUFS, música de fondo continua.
+- Adaptación ZK: mismo motor, "¿Y si…?" dentro de la Biblia, paletas más oscuras (noche, fuego, desierto).
