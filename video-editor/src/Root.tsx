@@ -61,7 +61,7 @@ import { SLLee2, SLIppo2, SLLEE2_TOTAL, SLIPPO2_TOTAL } from "./slmob/V3";
 import { SLSpi1, SLSpi2, SLSPI1_TOTAL, SLSPI2_TOTAL } from "./slmob/Spi";
 import { Pascua } from "./yt/Pascua";
 import { ThumbA, ThumbB } from "./yt/Thumb";
-import { ThumbC } from "./yt/Thumb2";
+import { ThumbC, ThumbD } from "./yt/Thumb2";
 import { DemoPersonaje, DemoEscena, DemoCamara } from "./yt/Demo";
 import { SLCine1, SLCine2, SLCINE1_TOTAL, SLCINE2_TOTAL } from "./slmob/Cine";
 import { SLRocky, SLNaruto, SLROCKY_TOTAL, SLNARUTO_TOTAL } from "./slmob/Drama";
@@ -149,6 +149,7 @@ export const Main = () => {
       <Composition id="SLSpi1" component={SLSpi1} durationInFrames={SLSPI1_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLSpi2" component={SLSpi2} durationInFrames={SLSPI2_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLRocky" component={SLRocky} durationInFrames={SLROCKY_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
+      <Composition id="ThumbD" component={ThumbD} durationInFrames={1} fps={30} width={1280} height={720} />
       <Composition id="ThumbC" component={ThumbC} durationInFrames={1} fps={30} width={1280} height={720} />
       <Composition id="ThumbA" component={ThumbA} durationInFrames={1} fps={30} width={1280} height={720} />
       <Composition id="ThumbB" component={ThumbB} durationInFrames={1} fps={30} width={1280} height={720} />
