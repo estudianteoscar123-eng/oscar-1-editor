@@ -141,3 +141,7 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Cortes: mediana 2–3.5 s; cámara con paneos/zoom lentos; personajes con animación sutil (respirar, parpadeo, gesto).
 - Audio a -14 LUFS, música de fondo continua.
 - Adaptación ZK: mismo motor, "¿Y si…?" dentro de la Biblia, paletas más oscuras (noche, fuego, desierto).
+
+## Voz IA (VoiceStudio / OmniVoice) — instalado en /home/user/tools/VoiceStudio (.venv CPU)
+- Script: video-editor/tools/voz/tts.py. ~30 s de cómputo por 5 s de audio (48 pasos, CPU).
+- Diseño de voz por atributos (género, edad, tono). Español OK. Verificar cada toma con transcripción: ~1 de 3 sale mal.
