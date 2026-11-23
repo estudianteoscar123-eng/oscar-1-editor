@@ -64,6 +64,7 @@ import { ZKLargo, ZKL_TOTAL } from "./yt/ZKLargo";
 import { ReelYsi, REEL1_TOTAL } from "./yt/ReelYsi";
 import { RigTest } from "./yt/Rig2";
 import { RigTest2 } from "./yt/RigTest2";
+import { YReel, YREEL_TOTAL } from "./yt/YReel";
 import { ThumbA, ThumbB } from "./yt/Thumb";
 import { ThumbC, ThumbD } from "./yt/Thumb2";
 import { DemoPersonaje, DemoEscena, DemoCamara } from "./yt/Demo";
@@ -153,6 +154,8 @@ export const Main = () => {
       <Composition id="SLSpi1" component={SLSpi1} durationInFrames={SLSPI1_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLSpi2" component={SLSpi2} durationInFrames={SLSPI2_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLRocky" component={SLRocky} durationInFrames={SLROCKY_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
+      <Composition id="YReelYT" component={YReel} durationInFrames={YREEL_TOTAL} fps={30} width={1920} height={1080} defaultProps={{ vertical: false }} />
+      <Composition id="YReelShort" component={YReel} durationInFrames={YREEL_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ vertical: true }} />
       <Composition id="RigTest2" component={RigTest2} durationInFrames={1} fps={30} width={1920} height={1080} />
       <Composition id="RigTest" component={RigTest} durationInFrames={1} fps={30} width={1920} height={1080} />
       <Composition id="ReelYsi" component={ReelYsi} durationInFrames={REEL1_TOTAL} fps={30} width={1080} height={1920} />
