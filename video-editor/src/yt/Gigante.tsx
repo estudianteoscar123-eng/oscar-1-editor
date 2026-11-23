@@ -21,11 +21,11 @@ const SixHand: React.FC<{ x: number; y: number; s: number; rot?: number; count?:
   const fingers = [-62, -38, -14, 10, 34, 58];
   return (
     <g transform={`translate(${x} ${y}) rotate(${rot}) scale(${s})`} filter="url(#rim)">
-      <path d="M-150 120 Q -170 -10 -120 -60 L 120 -60 Q 170 -10 150 120 Q 130 230 0 240 Q -130 230 -150 120 Z" fill="#0C0D12" />
+      <path d="M-120 120 Q -140 -10 -100 -60 L 100 -60 Q 140 -10 120 120 Q 104 220 0 230 Q -104 220 -120 120 Z" fill="#0C0D12" /><rect x={-70} y={200} width={140} height={260} rx={50} fill="#0C0D12" />
       {fingers.map((a, i) => {
-        const len = 190 + (i === 2 || i === 3 ? 30 : i === 0 || i === 5 ? -40 : 0);
+        const len = 250 + (i === 2 || i === 3 ? 40 : i === 0 || i === 5 ? -60 : 0);
         const wig = Math.sin(t * 3 + i) * 2;
-        return <g key={i} transform={`rotate(${a + wig})`}><rect x={-26} y={-60 - len} width={52} height={len + 20} rx={26} fill="#0C0D12" />
+        return <g key={i} transform={`rotate(${a + wig})`}><rect x={-22} y={-50 - len} width={44} height={len + 20} rx={22} fill="#0C0D12" />
           {count > i ? <g transform={`translate(0 ${-60 - len - 46})`}><circle r={34} fill="#FFF" /><text y={13} textAnchor="middle" fontFamily="YCap" fontSize={40} fill="#0C0D12">{i + 1}</text></g> : null}</g>;
       })}
       <path d="M-150 60 Q -230 20 -250 -60" stroke="#0C0D12" strokeWidth={56} strokeLinecap="round" fill="none" opacity={0} />
@@ -69,7 +69,7 @@ const ZKCap: React.FC<{ txt: string; t: number; a: number; b: number; y: number 
 export const Gigante: React.FC = () => {
   const f = useCurrentFrame();
   const t = f / FPS, END = GIG_TOTAL / FPS;
-  const tS1 = at("seis"), tY1 = ws.find((w) => norm(w.w) === "y" && w.s > tS1)?.s ?? tS1 + 1.4, tE = at("está"), tL = at("los"), tY2 = last("y");
+  const tS1 = at("6"), tY1 = ws.find((w) => norm(w.w) === "y" && w.s > tS1)?.s ?? tS1 + 1.4, tE = at("está") || 99, tL = at("los") || 99, tY2 = (last("y") > tY1 + 0.1 ? last("y") : 99);
   const tPie = at("pie");
   const sh = t < tS1 ? 0 : t < tY1 ? 1 : t < tE ? 2 : t < tL ? 3 : t < tY2 ? 4 : 5;
   const lt = t - [0, tS1, tY1, tE, tL, tY2][sh];
