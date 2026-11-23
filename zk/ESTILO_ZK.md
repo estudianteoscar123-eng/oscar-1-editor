@@ -145,3 +145,13 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 ## Voz IA (VoiceStudio / OmniVoice) — instalado en /home/user/tools/VoiceStudio (.venv CPU)
 - Script: video-editor/tools/voz/tts.py. ~30 s de cómputo por 5 s de audio (48 pasos, CPU).
 - Diseño de voz por atributos (género, edad, tono). Español OK. Verificar cada toma con transcripción: ~1 de 3 sale mal.
+
+## REGLAS VIGENTES (usuario, tras reels de 10 s con personaje réplica)
+- Personaje réplica "¿Y si…?" (YChar) APROBADO. Visual del video YouTube aprobado.
+- Efectos: mínimos, solo cuando sean necesarios; fuego/etc. permitido pero NUNCA repetir el mismo efecto. Nada genérico.
+- Subtítulos amarillos: PROHIBIDOS. Shorts usan los subtítulos ZK originales (palabra clave en marco rojo #D30F17).
+- Shorts: contenido APARTE del video largo (no recortes), < 30 s, 9:16, música: solo las 2 canciones que da el usuario, alternándolas (guardarlas en public/zk/songs).
+- YouTube largo: sin música. Uno cada 2 días.
+- Voz: clonada (OmniVoice con referencia de su narración), sin eco.
+- El usuario solo publica y reporta resultados. Todo lo demás (idea, guion, voz, edición, miniatura, título) es mío.
+- Prioridad: retención (3 primeros segundos + mantener) > interacción. Ideas con demanda probada (adaptar outliers de la competencia). Jamás genérico ni con cara de IA.
