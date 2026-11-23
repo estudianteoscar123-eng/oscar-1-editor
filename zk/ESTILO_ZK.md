@@ -124,3 +124,10 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Narración en segunda persona ("Eres Judas…") con un dato verificable cada 3–4 s, giro y escándalo al final.
 - Kit 3D propio: muñecos de cabeza redonda con caras expresivas, escenarios llenos de objetos, cambio de plano cada ~1 s, barridos con desenfoque entre escenarios, datos en carteles del escenario y tablet "REAL" con arte clásico o foto real.
 - Subtítulos: SIN cambios (Kit Captions con la palabra clave enmarcada en rojo).
+
+## YouTube ZK (largo diario) — concepto "burbuja bíblica"
+- ZK y SL son proyectos SEPARADOS: cuentas, estilos, guiones y automatizaciones distintas. Nunca mezclar.
+- 1 video diario 4–6 min (máx 6) en YouTube ZK; de cada uno salen 3 Reels/Shorts de ~60 s autónomos (no "Parte 1/2/3").
+- Tema libre (mundo, historia, ciencia, hipótesis "¿qué pasaría si…?"), pero SIEMPRE dentro de la Biblia: la Biblia es el suelo; se camina sobre ella, se toman sus objetos, nunca se sale de ella. Ej: "¿Qué pasaría si quedaras atrapado en la época de Sansón?".
+- Estilo visual: pendiente de referencias del usuario.
+- Conexión YouTube vía Composio con alias "ZK".
