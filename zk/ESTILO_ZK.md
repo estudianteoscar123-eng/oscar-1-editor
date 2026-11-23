@@ -158,3 +158,4 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Subtítulos SOLO cuando hagan falta (frase clave, dato, número). Cuando el foco es el personaje/acción: sin subtítulos (shorts y largos).
 - Todo debe entenderlo cualquier persona del mundo: lenguaje simple, imagen que explique sola.
 - Filtrar ideas/guiones de forma crítica; producir en masa sin sacrificar calidad; definir un estilo y exprimirlo.
+- Música Shorts: public/zk/songs/short1.mp3, short2.mp3, short3.mp3. Rotar: nunca la misma que el short anterior. Siempre por debajo de la voz; debe combinar con el mensaje.
