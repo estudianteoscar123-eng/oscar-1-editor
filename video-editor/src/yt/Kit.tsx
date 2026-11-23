@@ -31,9 +31,10 @@ export type Pose = {
 export type CharP = {
   id: string; x: number; y: number; s?: number; t: number; facing?: 1 | -1; pose?: Pose;
   robe?: string; robe2?: string; sash?: string; hood?: boolean; light?: number; lightX?: number; holdR?: React.ReactNode;
+  holdL?: React.ReactNode; hair?: "spiky" | "long" | "bald" | "band" | "wig"; hairColor?: string; beard?: string; dress?: boolean; collar?: string; talk?: boolean; band?: string;
 };
 const BLK = "#111114";
-export const Character: React.FC<CharP> = ({ id, x, y, s = 1, t, facing = 1, pose = {}, robe = "#B86B3C", robe2 = "#7E3F1F", sash = "#E2B866", hood, light = 0, lightX = 1, holdR }) => {
+export const Character: React.FC<CharP> = ({ id, x, y, s = 1, t, facing = 1, pose = {}, robe = "#B86B3C", robe2 = "#7E3F1F", sash = "#E2B866", hood, light = 0, lightX = 1, holdR, holdL, hair = "spiky", hairColor = "#111114", beard, dress, collar, talk, band = "#C9A15A" }) => {
   const walk = pose.walk;
   const ph = walk !== undefined ? walk * Math.PI * 2 : 0;
   const isWalk = walk !== undefined;
@@ -57,8 +58,9 @@ export const Character: React.FC<CharP> = ({ id, x, y, s = 1, t, facing = 1, pos
     return { sx, sy, ex, ey, hx, hy };
   };
   const L = arm(-1, armL), R = arm(1, armR);
-  const mo = pose.mouthOpen ?? 0;
-  const mouth = pose.mouth ?? "flat";
+  const tk = talk ? Math.abs(Math.sin(t * 13.5 + Math.sin(t * 5) * 1.5)) : 0;
+  const mo = talk ? tk : pose.mouthOpen ?? 0;
+  const mouth = talk ? (tk > 0.25 ? "o" : "flat") : pose.mouth ?? "flat";
   const lx = look[0] * 10, ly = look[1] * 8;
   const g = `${id}`;
   const ArmEl = ({ a, front }: { a: ReturnType<typeof arm>; front: boolean }) => (
@@ -94,8 +96,10 @@ export const Character: React.FC<CharP> = ({ id, x, y, s = 1, t, facing = 1, pos
         <ArmEl a={L} front={false} />
         {/* túnica */}
         <g transform={`translate(0 ${breath * 0.3})`}>
-          <path d="M-50 -286 C -70 -250, -78 -160, -86 -70 Q 0 -52 86 -70 C 78 -160, 70 -250, 50 -286 Q 0 -298 -50 -286 Z" fill={`url(#rb${g})`} />
-          <path d="M-50 -286 C -70 -250, -78 -160, -86 -70 Q 0 -52 86 -70 C 78 -160, 70 -250, 50 -286 Q 0 -298 -50 -286 Z" fill={`url(#lt${g})`} />
+          <path d={dress ? "M-50 -286 C -72 -250, -84 -140, -100 -10 Q 0 6 100 -10 C 84 -140, 72 -250, 50 -286 Q 0 -298 -50 -286 Z" : "M-50 -286 C -70 -250, -78 -160, -86 -70 Q 0 -52 86 -70 C 78 -160, 70 -250, 50 -286 Q 0 -298 -50 -286 Z"} fill={`url(#rb${g})`} />
+          <path d={dress ? "M-50 -286 C -72 -250, -84 -140, -100 -10 Q 0 6 100 -10 C 84 -140, 72 -250, 50 -286 Q 0 -298 -50 -286 Z" : "M-50 -286 C -70 -250, -78 -160, -86 -70 Q 0 -52 86 -70 C 78 -160, 70 -250, 50 -286 Q 0 -298 -50 -286 Z"} fill={`url(#lt${g})`} />
+          {collar ? <path d="M-54 -280 Q 0 -230 54 -280" stroke={collar} strokeWidth={16} fill="none" strokeLinecap="round" /> : null}
+          {collar ? <path d="M-46 -268 Q 0 -222 46 -268" stroke="#1E5FA8" strokeWidth={5} fill="none" /> : null}
           <path d="M-18 -284 L 0 -244 L 18 -284" stroke={robe2} strokeWidth={6} fill="none" strokeLinecap="round" />
           <path d="M-74 -168 Q 0 -150 74 -168" stroke={sash} strokeWidth={15} fill="none" />
           <path d="M40 -162 L 52 -112" stroke={sash} strokeWidth={9} strokeLinecap="round" />
@@ -109,9 +113,13 @@ export const Character: React.FC<CharP> = ({ id, x, y, s = 1, t, facing = 1, pos
           <circle r={62} fill={`url(#hd${g})`} />
           <path d="M-46 -38 A 62 62 0 0 1 24 -58" stroke="#FFFFFF" strokeOpacity={0.12} strokeWidth={6} fill="none" strokeLinecap="round" />
           {light > 0 ? <circle r={62} fill="none" stroke="#FFB65A" strokeOpacity={0.5 * light} strokeWidth={5} strokeDasharray="120 400" transform={`rotate(${lightX > 0 ? -40 : 140})`} /> : null}
-          {!hood ? [[-30, -50, -42, -78], [-10, -60, -14, -92], [12, -60, 18, -90], [32, -48, 50, -72], [-44, -34, -66, -50]].map(([a, b, c, d], i) => (
-            <path key={i} d={`M${a} ${b} Q ${(a + c) / 2 + 6} ${(b + d) / 2} ${c} ${d}`} stroke={BLK} strokeWidth={6} fill="none" strokeLinecap="round" />
+          {!hood && hair === "spiky" ? [[-30, -50, -42, -78], [-10, -60, -14, -92], [12, -60, 18, -90], [32, -48, 50, -72], [-44, -34, -66, -50]].map(([a, b, c, d], i) => (
+            <path key={i} d={`M${a} ${b} Q ${(a + c) / 2 + 6} ${(b + d) / 2} ${c} ${d}`} stroke={hairColor} strokeWidth={6} fill="none" strokeLinecap="round" />
           )) : null}
+          {!hood && hair === "long" ? <path d="M-66 -10 C -74 -70, -30 -74, 0 -72 C 40 -74, 76 -60, 68 0 C 78 60, 70 110, 60 130 L 40 120 C 50 70, 56 30, 50 0 L -50 0 C -56 30, -50 70, -40 120 L -60 130 C -72 100, -78 50, -66 -10 Z" fill={hairColor} /> : null}
+          {!hood && hair === "band" ? <g><path d="M-60 -24 Q 0 -46 60 -24" stroke={band} strokeWidth={11} fill="none" />{[[-20, -58, -26, -84], [6, -62, 8, -90], [28, -54, 40, -78]].map(([a, b, c, d], i) => <path key={i} d={`M${a} ${b} Q ${(a + c) / 2 + 5} ${(b + d) / 2} ${c} ${d}`} stroke={hairColor} strokeWidth={6} fill="none" strokeLinecap="round" />)}</g> : null}
+          {!hood && hair === "wig" ? <path d="M-68 10 C -74 -60, -40 -70, 0 -70 C 40 -70, 74 -60, 68 10 L 70 60 L 50 62 L 48 0 L -48 0 L -50 62 L -70 60 Z" fill={hairColor} /> : null}
+          {beard ? <path d="M-52 4 C -54 70, -20 92, 0 96 C 20 92, 54 70, 52 4 C 40 30, 20 34, 0 34 C -20 34, -40 30, -52 4 Z" fill={beard} transform={`translate(${lx} ${ly})`} /> : null}
           {/* cara */}
           <g transform={`translate(${lx} ${ly})`}>
             {[-1, 1].map((sd) => (
@@ -124,13 +132,14 @@ export const Character: React.FC<CharP> = ({ id, x, y, s = 1, t, facing = 1, pos
             {mouth === "smile" ? <path d="M-16 22 Q 0 34 16 22" stroke="#FFF" strokeWidth={5} fill="none" strokeLinecap="round" /> : null}
             {mouth === "flat" ? <path d="M-11 26 L 11 26" stroke="#FFF" strokeWidth={5} strokeLinecap="round" /> : null}
             {mouth === "worry" ? <path d="M-14 30 Q 0 20 14 30" stroke="#FFF" strokeWidth={5} fill="none" strokeLinecap="round" /> : null}
-            {mouth === "o" ? <ellipse cx={0} cy={28} rx={8 + mo * 3} ry={9 + mo * 6} fill="#FFF" /> : null}
+            {mouth === "o" ? <ellipse cx={0} cy={28} rx={8 + mo * 3} ry={4 + mo * 9} fill={beard ? "#3A2A20" : "#FFF"} /> : null}
             {mouth === "grin" ? <path d="M-20 18 Q 0 44 20 18 Z" fill="#FFF" /> : null}
           </g>
         </g>
         {/* brazo delantero */}
         <ArmEl a={R} front />
         {holdR ? <g transform={`translate(${R.hx} ${R.hy})`}>{holdR}</g> : null}
+        {holdL ? <g transform={`translate(${L.hx} ${L.hy})`}>{holdL}</g> : null}
       </g>
     </g>
   );
