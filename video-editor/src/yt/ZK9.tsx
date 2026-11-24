@@ -135,14 +135,14 @@ export const ZKNoe: React.FC = () => {
   const tArco = FN("arco"), tDesp = FN("despues"), tVin = FN("vina"), tHizo = FN("hizo"), tEmb = FN("emborr"), tTien = FN("tienda"), tCam = FN("cam"), tSal = FN("salio"), tDesperto = FN("desperto"), tMald = FN("maldijo"), tNieto = FN("nieto"), tBib = FN("biblia");
   const cam = camPath(t, [
     [0, 480, 1290, 1.5], [tArco - 0.4, 520, 1200, 1.35], [tDesp - 0.1, 560, 1150, 1.2], [tVin + 0.2, 620, 1180, 1.0],
-    [tHizo, 560, 1250, 2.1], [tEmb + 0.5, 1300, 1250, 1.7], [tCam - 0.2, 1330, 1250, 1.6], [tSal + 0.6, 1150, 1260, 1.45],
-    [tDesperto + 0.3, 1300, 1240, 1.6], [tMald + 0.4, 1150, 1250, 1.55], [tBib, 900, 1180, 1.15], [T - 0.1, 480, 1290, 1.5],
+    [tHizo, 560, 1250, 2.1], [tEmb + 0.5, 1340, 1210, 2.3], [tCam - 0.2, 1300, 1200, 2.2], [tSal + 0.6, 1190, 1210, 2.0],
+    [tDesperto + 0.3, 1360, 1200, 2.0], [tMald + 0.4, 1300, 1200, 1.9], [tBib, 900, 1180, 1.15], [T - 0.1, 480, 1290, 1.5],
   ]);
   const rb = io(t, tArco - 0.15, tArco + 0.4) * (1 - io(t, tDesp + 0.5, tDesp + 1.2)) + io(t, tBib, tBib + 0.6) * (1 - io(t, T - 0.6, T - 0.05));
   const crack = io(t, tArco + 0.3, tArco + 0.7) * (1 - io(t, tDesp + 0.5, tDesp + 1.2)) + io(t, tBib + 0.6, tBib + 1.0) * (1 - io(t, T - 0.6, T - 0.05));
   const sway = Math.sin(t * 3) * 6 * io(t, tHizo, tEmb + 0.3);
   const tentIn = io(t, tEmb + 0.3, tEmb + 0.8) * (1 - io(t, tDesperto, tDesperto + 0.4));
-  const camX = 1220 - io(t, tSal, tSal + 1.2) * 190;
+  const camX = 1250 - io(t, tSal, tSal + 1.2) * 150;
   const camOn = io(t, tCam - 0.2, tCam + 0.15) * (1 - io(t, tBib, tBib + 0.6));
   const noeOut = io(t, tDesperto, tDesperto + 0.4) * (1 - io(t, tBib, tBib + 0.6));
   const nin = io(t, tNieto - 0.25, tNieto + 0.1) * (1 - io(t, tBib, tBib + 0.6));
@@ -155,14 +155,14 @@ export const ZKNoe: React.FC = () => {
         <L cam={cam} dep={0.85}><Mountain p={P} /></L>
         <L cam={cam} dep={1}>
           <Ground p={P} />
-          <g transform="translate(1360 1330) scale(0.62)"><Tent glow={io(t, tEmb, tEmb + 0.5)} inside={tentIn} t={t} /></g>
-          <Person x={camX} y={1345} s={0.4} look={CAM} face={-1} t={t} op={camOn} />
-          <Person x={1450} y={1345} s={0.4} look={NOE} face={-1} t={t} op={noeOut} armUp={pulse} />
-          <Person x={camX - 80} y={1345} s={0.26} look={NIN} face={1} t={t} op={nin} />
+          <g transform="translate(1380 1335) scale(0.85)"><Tent glow={io(t, tEmb, tEmb + 0.5)} inside={tentIn} t={t} /></g>
+          <Person x={camX} y={1345} s={0.5} look={CAM} face={-1} t={t} op={camOn} />
+          <Person x={1560} y={1350} s={0.5} look={NOE} face={-1} t={t} op={noeOut} armUp={pulse} />
+          <Person x={camX - 95} y={1345} s={0.32} look={NIN} face={1} t={t} op={nin} />
           <Person x={400} y={1660} s={1} look={NOE} cup t={t} tilt={-1.5 + sway * 0.3} />
           <Pill x={760} y={1110} txt="GÉNESIS 9:20" p={P} on={io(t, tVin, tVin + 0.3) * (1 - io(t, tHizo - 0.1, tHizo + 0.1))} lx={700} ly={1190} />
-          <Pill x={camX} y={1040} txt="CAM" p={P} on={io(t, tCam, tCam + 0.3) * (1 - io(t, tDesperto - 0.2, tDesperto + 0.1))} lx={camX} ly={1100} />
-          <Pill x={camX - 80} y={1150} txt="CANAÁN · NIETO" p={P} on={nin} lx={camX - 80} ly={1215} />
+          <Pill x={camX} y={985} txt="CAM" p={P} on={io(t, tCam, tCam + 0.3) * (1 - io(t, tDesperto - 0.2, tDesperto + 0.1))} lx={camX} ly={1020} />
+          <Pill x={camX - 20} y={1090} txt="CANAÁN · NIETO" p={P} on={nin} lx={camX - 95} ly={1135} />
           <Pill x={560} y={1060} txt="GÉNESIS 9:25" p={P} on={io(t, tBib, tBib + 0.3) * (1 - io(t, T - 0.7, T - 0.3))} lx={430} ly={1080} />
         </L>
         <rect width={1080} height={1920} fill={RED} opacity={pulse * 0.12} />
