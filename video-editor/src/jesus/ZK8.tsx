@@ -56,7 +56,7 @@ export const ZKGigante2: React.FC = () => {
   const f = useCurrentFrame();
   const t = f < 3 ? 0.9 : f / FPS;
   const s1 = G("6"), y1 = WG.find((w) => w.s > s1 && /^y$/i.test(w.w))?.s ?? s1 + 1.5, pie = G("pie"), no = G("no"), ven = G("venía"), des = G("desafió"), has = G("hasta"), ult = G("y", -1);
-  const hits = [s1, y1, pie, no, ven, des, has, ult];
+  const hits = [s1, y1, pie, no, G("está"), ven, des, has, ult];
   const keys = new Set(["dedos", "24", "veinticuatro", "mano", "pie", "samuel", "goliat", "israel", "jonatán", "mató", "extraño"]);
   return (
     <Shell f={f} t={t} cover={["24", "DEDOS"]} ws={WG} keys={keys} audio="zk8/gig.wav" hits={hits} tint="rgba(20,0,0,0.85)">
@@ -72,16 +72,21 @@ export const ZKGigante2: React.FC = () => {
       </Scene>
       <Scene t={t} a={y1} b={no} tr={4} push={0.05}>
         <Floor y={1580} />
-        <g transform={`translate(540 ${t < pie ? 1560 - (1 - ip(t, y1, pie)) * 900 : 1560})`}><Ink>
+        <g transform={`translate(540 ${t < pie ? 1560 - (1 - ip(t, y1, pie)) * 560 : 1560})`}><Ink>
           <rect x={-90} y={-620} width={180} height={520} rx={60} fill={BK} stroke={W} strokeWidth={7} />
           <path d="M-260 -40 Q -270 -140 -150 -150 L 220 -150 Q 300 -140 300 -40 Q 300 20 220 20 L -200 20 Q -270 20 -260 -40 Z" fill={BK} stroke={W} strokeWidth={7} />
           {[-210, -130, -50, 30, 110, 190].map((x) => <ellipse key={x} cx={x + 60} cy={-6} rx={36} ry={30} fill={BK} stroke={W} strokeWidth={6} />)}
         </Ink>{t > pie ? [-210, -130, -50, 30, 110, 190].map((x, i) => <circle key={x} cx={x + 60} cy={-6} r={11} fill={RED} opacity={ip(t, pie + i * 0.05, pie + i * 0.05 + 0.1)} />) : null}</g>
         {t > pie ? <g opacity={1 - ip(t, pie, pie + 0.7)}>{Array.from({ length: 12 }, (_, i) => <path key={i} d={`M540 1580 L ${540 + Math.cos((i / 12) * Math.PI + Math.PI) * (220 + ip(t, pie, pie + 0.5) * 520)} ${1580 + Math.sin((i / 12) * Math.PI + Math.PI) * 150}`} stroke={W} strokeWidth={6} strokeLinecap="round" />)}</g> : null}
       </Scene>
-      <Scene t={t} a={no} b={ven} tr={1} push={0.06}>
-        <Scroll t={t} hl={ip(t, no + 0.8, no + 1.3)} />
-        <Tag t={t} a={no + 0.9} b={ven} txt="2 SAMUEL 21:20" y={1640} />
+      <Scene t={t} a={no} b={G("está")} tr={1} push={0.08}>
+        <Floor />
+        <Giant t={t} x={540} y={1640} s={1.1} />
+        <g transform="translate(540 560)"><text textAnchor="middle" fontFamily="Georgia, serif" fontWeight={700} fontSize={110} fill={W} filter="url(#ink)">LEYENDA</text><rect x={-300} y={-40} width={600 * ip(t, no + 0.5, no + 0.8)} height={14} fill={RED} /></g>
+      </Scene>
+      <Scene t={t} a={G("está")} b={ven} tr={2} push={0.06}>
+        <Scroll t={t} hl={ip(t, G("está") + 0.5, G("está") + 1.0)} />
+        <Tag t={t} a={G("está") + 0.6} b={ven} txt="2 SAMUEL 21:20" y={1640} />
       </Scene>
       <Scene t={t} a={ven} b={des} tr={2} push={0.08}>
         <Ink><path d="M120 1500 L 120 900 L 960 900 L 960 1500 Z" fill={BK} stroke={W} strokeWidth={6} /><path d="M420 1500 L 420 1150 Q 540 1040 660 1150 L 660 1500 Z" fill="#000" stroke={W} strokeWidth={6} /></Ink>
@@ -138,49 +143,74 @@ export const ZKANG_TOTAL = Math.round((WA[WA.length - 1].e + 0.3) * FPS);
 export const ZKAngel: React.FC = () => {
   const f = useCurrentFrame();
   const t = f < 3 ? 8.2 : f / FPS;
-  const se = N("se"), un = N("un"), al = N("al"), el = N("el"), yal = WA.find((w) => w.s > N("tierra") && /^y$/i.test(w.w))?.s ?? N("allí") - 0.2, est = N("está"), lo = N("y", -1);
-  const hits = [se, un, al, el, yal, est, lo];
-  const keys = new Set(["185.000", "mil", "soldados", "ángel", "noche", "cuerpos", "senaquerib", "hijos", "reyes", "aterrador", "despertaron"]);
+  // tiempos exactos por índice de palabra (evita que "el" o "y" caigan en la palabra equivocada)
+  const S = (i: number) => WA[Math.min(i, WA.length - 1)].s;
+  const se = S(2), no = S(7), un = S(9), al = S(19), el = S(24), yal = S(31), est = S(38), lo = S(44), bas = S(49), para = S(56);
+  const hits = [se, no, un, al, el, yal, est, lo, bas, para];
+  const keys = new Set(["185.000", "soldados", "ángel", "despertaron", "cuerpos", "senaquerib", "hijos", "reyes", "aterrador", "noche", "matar"]);
+  const camp = (n: number) => Array.from({ length: n }, (_, i) => <Tent key={i} x={60 + (i % 10) * 108 + (Math.floor(i / 10) % 2) * 50} y={1300 + Math.floor(i / 10) * 150} s={0.6 + Math.floor(i / 10) * 0.15} />);
   return (
     <Shell f={f} t={t} cover={["UNA", "NOCHE"]} ws={WA} keys={keys} audio="zk8/ang.wav" hits={hits} tint="rgba(10,0,20,0.85)">
+      {/* 1 · 185.000 (empalma con el final) */}
       <Scene t={t} a={0} b={se} tr={3} push={0.1}>
-        <Floor y={1500} />
-        {Array.from({ length: 40 }, (_, i) => <Tent key={i} x={60 + (i % 10) * 108 + (Math.floor(i / 10) % 2) * 50} y={1300 + Math.floor(i / 10) * 150} s={0.6 + Math.floor(i / 10) * 0.15} />)}
-        <text x={540} y={780} textAnchor="middle" fontFamily="Georgia, serif" fontWeight={700} fontSize={190} fill={RED} filter="url(#ink)">{Math.round(ip(t, 0.1, Math.max(0.2, se - 0.2)) * 185000).toLocaleString("es")}</text>
+        <Floor y={1500} />{camp(40)}
+        <text x={540} y={780} textAnchor="middle" fontFamily="Georgia, serif" fontWeight={700} fontSize={200} fill={RED} filter="url(#ink)">{(180000 + Math.round(ip(t, 0, 0.7) * 5000)).toLocaleString("es")}</text>
       </Scene>
-      <Scene t={t} a={se} b={un} tr={0} push={0.06}>
+      {/* 2 · se fueron a dormir */}
+      <Scene t={t} a={se} b={no} tr={4} push={0.08}>
         <circle cx={800} cy={420} r={90} fill={BK} stroke={W} strokeWidth={6} filter="url(#ink)" />
         <Floor y={1300} />
         {Array.from({ length: 9 }, (_, i) => <Body key={i} x={180 + (i % 3) * 330} y={1450 + Math.floor(i / 3) * 170} s={0.9} />)}
       </Scene>
+      {/* 3 · y no despertaron: un rostro que se apaga */}
+      <Scene t={t} a={no} b={un} tr={0} push={0.12}>
+        <g transform="translate(540 980)"><Ink><circle r={330} fill={BK} stroke={W} strokeWidth={9} /></Ink>
+          {[-110, 110].map((x) => <path key={x} d={`M${x - 60} 0 Q ${x} ${40 * ip(t, no + 0.4, no + 1.2)} ${x + 60} 0`} stroke={W} strokeWidth={14} fill="none" strokeLinecap="round" />)}
+          <circle r={360} fill="none" stroke={RED} strokeWidth={10} opacity={ip(t, no + 1.0, no + 1.4)} /></g>
+      </Scene>
+      {/* 4 · un solo ángel pasó por el campamento */}
       <Scene t={t} a={un} b={al} tr={2} push={0.08}>
         <Floor y={1500} />
         {Array.from({ length: 30 }, (_, i) => <Tent key={i} x={60 + (i % 10) * 108} y={1520 + Math.floor(i / 10) * 140} s={0.7} />)}
-        <Angel t={t} x={540 + Math.sin(t * 0.8) * 60} y={1350} s={1.15} wing={ip(t, un, un + 1.0)} sword={ip(t, un + 0.8, al - 0.1)} />
+        <Angel t={t} x={300 + ip(t, un, al) * 480} y={1350} s={1.15} wing={ip(t, un, un + 1.0)} sword={ip(t, un + 0.8, al - 0.1)} />
       </Scene>
+      {/* 5 · al amanecer, solo cuerpos */}
       <Scene t={t} a={al} b={el} tr={4} push={0.06}>
         <Glow x={540} y={1100} r={520} o={0.7} c="211,15,23" />
         <Floor y={1400} />
         {Array.from({ length: 15 }, (_, i) => <Body key={i} x={110 + (i % 5) * 215} y={1500 + Math.floor(i / 5) * 150} s={0.7} />)}
-        <Tag t={t} a={al + 0.3} b={el} txt="AL AMANECER" y={760} />
+        <Tag t={t} a={al + 0.2} b={el} txt="AL AMANECER" y={760} />
       </Scene>
+      {/* 6 · el rey Senaquerib huye */}
       <Scene t={t} a={el} b={yal} tr={1} push={0.07}>
         <Floor />
-        <King x={420 + ip(t, el, yal) * 260} y={1640} s={0.9} t={t} />
-        <Tag t={t} a={el + 0.3} b={yal} txt="SENAQUERIB" y={620} />
+        <King x={300 + ip(t, el, yal) * 480} y={1640} s={0.9} t={t} />
+        <Tag t={t} a={el + 0.6} b={yal} txt="SENAQUERIB" y={620} />
       </Scene>
+      {/* 7 · lo mataron sus propios hijos */}
       <Scene t={t} a={yal} b={est} tr={3} push={0.09}>
         <Glow x={540} y={1000} r={440} o={0.8} c="211,15,23" />
         <Floor />
         <King x={540} y={1640} s={0.95} t={t} />
         {[-1, 1].map((sd) => <g key={sd}><Robe x={540 + sd * 300} y={1700} s={0.75} hood /><path d={`M${540 + sd * 260} 1440 L ${540 + sd * (150 - ip(t, yal + 0.6, yal + 1.0) * 60)} ${1360}`} stroke={RED} strokeWidth={14} strokeLinecap="round" /></g>)}
       </Scene>
+      {/* 8 · la cita */}
       <Scene t={t} a={est} b={lo} tr={1} push={0.06}>
         <Scroll t={t} hl={ip(t, est + 0.6, est + 1.1)} />
         <Tag t={t} a={est + 0.7} b={lo} txt="2 REYES 19:35" y={1640} />
       </Scene>
-      <Scene t={t} a={lo} b={99} tr={0} push={0.05}>
-        <Angel t={t} x={540} y={1600 + ip(t, lo, lo + 3) * 200} s={1.9 + ip(t, lo, lo + 3) * 0.6} wing={1} sword={0.3} />
+      {/* 9 · lo más aterrador: el ángel levanta la espada */}
+      <Scene t={t} a={lo} b={bas} tr={0} push={0.05}>
+        <Angel t={t} x={540} y={1700} s={1.9} wing={1} sword={ip(t, lo + 0.5, bas)} />
+      </Scene>
+      {/* 10 · una sola noche: la luna cruza el cielo en un instante */}
+      <Scene t={t} a={bas} b={para} tr={2} push={0.05}>
+        <Floor y={1500} />{camp(30)}
+        <g transform={`translate(${150 + ip(t, bas, para) * 780} ${520 - Math.sin(ip(t, bas, para) * Math.PI) * 260})`}><circle r={80} fill={BK} stroke={W} strokeWidth={7} filter="url(#ink)" /></g>
+      </Scene>
+      {/* 11 · para matar a… (vuelve al campamento del inicio) */}
+      <Scene t={t} a={para} b={99} tr={3} push={0.1}>
+        <Floor y={1500} />{camp(40)}
       </Scene>
     </Shell>
   );
