@@ -206,10 +206,10 @@ const Jar: React.FC<{ x: number; y: number; s: number; fill: number; i: number }
     <clipPath id={`jc${i}`}><path d="M-80 -330 L 80 -330 Q 120 -200 105 -40 Q 100 0 60 0 L -60 0 Q -100 0 -105 -40 Q -120 -200 -80 -330 Z" /></clipPath>
     <path d="M-80 -330 L 80 -330 Q 120 -200 105 -40 Q 100 0 60 0 L -60 0 Q -100 0 -105 -40 Q -120 -200 -80 -330 Z" fill="url(#stone)" />
     <g clipPath={`url(#jc${i})`} opacity={0.9}>
-      <rect x={-130} y={-330 * fill} width={260} height={340} fill="#3A0810" />
+      <rect x={-130} y={-330 * fill} width={260} height={340} fill="#6A0E18" />
       <rect x={-130} y={-330 * fill} width={260} height={8} fill="#8A1420" opacity={fill > 0.02 ? 1 : 0} />
     </g>
-    <path d="M-80 -330 L 80 -330 Q 120 -200 105 -40 Q 100 0 60 0 L -60 0 Q -100 0 -105 -40 Q -120 -200 -80 -330 Z" fill="url(#stone)" opacity={0.55} />
+    <path d="M-80 -330 L 80 -330 Q 120 -200 105 -40 Q 100 0 60 0 L -60 0 Q -100 0 -105 -40 Q -120 -200 -80 -330 Z" fill="url(#stone)" opacity={0.22} />
     <rect x={-92} y={-350} width={184} height={26} rx={6} fill="#3A3438" />
     <path d="M80 -330 Q 120 -200 105 -40" stroke={P.rim} strokeWidth={4} fill="none" />
     {[-240, -160].map((yy) => <path key={yy} d={`M-104 ${yy} Q 0 ${yy + 14} 106 ${yy}`} stroke="#141214" strokeWidth={3} fill="none" opacity={0.6} />)}
@@ -217,7 +217,7 @@ const Jar: React.FC<{ x: number; y: number; s: number; fill: number; i: number }
 );
 const Bottle: React.FC<{ x: number; y: number; s: number }> = ({ x, y, s }) => (
   <g transform={`translate(${x} ${y}) scale(${s})`}>
-    <path d="M-9 0 L -9 -34 Q -9 -42 -3 -46 L -3 -60 L 3 -60 L 3 -46 Q 9 -42 9 -34 L 9 0 Z" fill="#1E0C10" />
+    <path d="M-9 0 L -9 -34 Q -9 -42 -3 -46 L -3 -60 L 3 -60 L 3 -46 Q 9 -42 9 -34 L 9 0 Z" fill="#2E1016" />
     <path d="M6 -34 L 6 -4" stroke={P.rim} strokeWidth={2} opacity={0.8} />
   </g>
 );
@@ -262,13 +262,13 @@ const Courtyard: React.FC<{ t: number }> = ({ t }) => (
 );
 export const ZKCana: React.FC = () => {
   const f = useCurrentFrame(), t = f / FPS, T = ZKCANA_TOTAL / FPS;
-  const tCopa = FC("copa"), tSeis = FC("seis"), tCien = FC("cien"), tSeisc = FC("seiscientos"), tOch = FC("ochocientas"), tRaro = FC("raro"), tInv = FC("invitados"), tAun = FC("aun"), tMejor = FC("mejor"), tPrim = FC("primer"), tSalv = FC("salvar");
+  const tCopa = FC("copa"), tSeis = FC("seis"), tCien = FC("100", 0, FC("cien")), tSeisc = FC("600", 0, FC("seiscientos")), tOch = FC("800", 0, FC("ochocientas")), tRaro = FC("raro"), tInv = FC("invitados"), tAun = FC("aun"), tMejor = FC("mejor"), tPrim = FC("primer"), tSalv = FC("salvar");
   const cam = camPath(t, [
-    [0, 1000, 1560, 2.3], [tCopa + 0.3, 1000, 1540, 2.1], [tSeis + 0.4, 1700, 1420, 1.05], [tCien + 0.4, 1560, 1360, 1.5],
-    [tSeisc + 0.2, 1700, 1500, 1.0], [tOch + 0.6, 1700, 1600, 0.95], [tInv, 450, 1260, 1.25], [tAun + 0.3, 650, 1260, 1.35],
-    [tMejor + 0.4, 820, 1240, 1.55], [tPrim + 0.3, 1000, 1200, 0.82], [tSalv, 1100, 1350, 1.2], [T - 0.1, 1000, 1560, 2.3],
+    [0, 1000, 1600, 3.0], [tCopa + 0.3, 1000, 1590, 2.7], [tSeis - 0.15, 1000, 1580, 2.6], [tSeis + 0.4, 1755, 1520, 0.95], [tCien + 0.4, 1640, 1480, 1.35],
+    [tSeisc + 0.2, 1755, 1560, 0.95], [tOch + 0.6, 1755, 1720, 0.92], [tRaro + 0.1, 1700, 1700, 0.95], [tInv, 420, 1230, 1.8], [tAun + 0.3, 600, 1230, 1.8],
+    [tMejor + 0.4, 760, 1200, 1.9], [tPrim - 0.15, 740, 1210, 1.85], [tPrim + 0.3, 1300, 1380, 0.85], [tSalv, 1100, 1500, 1.4], [T - 0.1, 1000, 1600, 3.0],
   ]);
-  const jarX = (i: number) => 1300 + i * 165;
+  const jarX = (i: number) => 1180 + i * 230;
   const fillAt = (i: number) => io(t, tSeis + 0.3 + i * 0.22, tSeis + 0.9 + i * 0.22);
   const nB = Math.round(800 * io(t, tOch - 0.3, tOch + 1.0) * (1 - io(t, tInv + 0.6, tInv + 1.2)));
   const cupX = io(t, tCopa, tCopa + 0.3);
@@ -286,17 +286,17 @@ export const ZKCana: React.FC = () => {
           <rect x={-160} y={1255} width={1000} height={40} fill="#2A1A14" /><rect x={-160} y={1255} width={1000} height={8} fill={P.rim} opacity={0.6} />
           <rect x={-140} y={1295} width={960} height={60} fill="#140C0A" />
           {Array.from({ length: 9 }, (_, i) => <path key={i} d={`M${-120 + i * 110} 1255 l 10 -26 l 10 26 Z`} fill="#6A6670" />)}
-          <Person x={900} y={1350} s={0.34} look={GST} face={-1} t={t} cup={steward > 0} armUp={steward * 0.9} op={1} />
-          <Person x={1150} y={1420} s={0.4} look={JES} face={1} t={t} op={jes} />
+          <Person x={760} y={1350} s={0.34} look={GST} face={-1} t={t} cup={steward > 0} armUp={steward * 0.9} op={1} />
+          <Person x={1080} y={1520} s={0.5} look={JES} face={1} t={t} op={jes} />
           {/* seis tinajas */}
-          {Array.from({ length: 6 }, (_, i) => <Jar key={i} i={i} x={jarX(i)} y={1460} s={0.5} fill={fillAt(i)} />)}
+          {Array.from({ length: 6 }, (_, i) => <Jar key={i} i={i} x={jarX(i)} y={1640} s={0.82} fill={fillAt(i)} />)}
           {/* 800 botellas */}
           {Array.from({ length: nB }, (_, k) => {
-            const per = 40, row = Math.floor(k / per), col = k % per;
-            return <Bottle key={k} x={1220 + col * 24 + (row % 2) * 12} y={1720 - row * 9} s={0.42} />;
+            const per = 30, row = Math.floor(k / per), col = k % per;
+            return <Bottle key={k} x={1200 + col * 38 + (row % 2) * 19} y={1745 + row * 22} s={0.75 + row * 0.03} />;
           })}
           {/* la copa del inicio */}
-          <g transform="translate(1000 1640) scale(1.5)">
+          <g transform="translate(1000 1660) scale(2.2)">
             <ellipse cx={8} cy={2} rx={40} ry={6} fill={P.shadow} />
             <path d="M-20 -44 L 20 -44 Q 18 -14 0 -8 Q -18 -14 -20 -44 Z" fill="#6A6670" />
             <path d="M-18 -38 L 18 -38 Q 16 -18 0 -12 Q -16 -18 -18 -38 Z" fill="#5A0A12" />
@@ -304,17 +304,17 @@ export const ZKCana: React.FC = () => {
             <path d="M20 -44 Q 18 -14 0 -8" stroke={P.rim} strokeWidth={2} fill="none" />
             <path d="M-34 -70 L 34 0 M 34 -70 L -34 0" stroke={RED} strokeWidth={6} strokeLinecap="round" strokeDasharray={100} strokeDashoffset={100 * (1 - cupX)} opacity={1 - io(t, tSeis, tSeis + 0.3)} />
           </g>
-          <Pill x={1000} y={1470} txt="1 COPA" p={P} on={cupX * (1 - io(t, tSeis - 0.1, tSeis + 0.2))} />
-          <Pill x={jarX(2)} y={1180} txt="≈100 LITROS C/U" p={P} on={io(t, tCien, tCien + 0.3) * (1 - io(t, tSeisc - 0.1, tSeisc + 0.1))} lx={jarX(2)} ly={1270} />
-          <Pill x={1720} y={1150} txt={`${Math.round(600 * io(t, tSeisc, tSeisc + 0.8))} LITROS`} p={P} on={io(t, tSeisc, tSeisc + 0.2) * (1 - io(t, tOch - 0.1, tOch + 0.1))} />
-          <Pill x={1720} y={1150} txt={`${nB} BOTELLAS`} p={P} on={io(t, tOch, tOch + 0.2) * (1 - io(t, tInv - 0.2, tInv + 0.1))} />
-          <Pill x={900} y={1100} txt="«EL MEJOR VINO»" p={P} on={io(t, tMejor, tMejor + 0.3) * (1 - io(t, tPrim - 0.1, tPrim + 0.2))} lx={900} ly={1150} />
-          <Pill x={1150} y={1120} txt="JUAN 2:11" p={P} on={io(t, tPrim + 0.3, tPrim + 0.6) * (1 - io(t, T - 0.7, T - 0.3))} lx={1150} ly={1170} />
+          <Pill x={1000} y={1450} txt="1 COPA" p={P} on={cupX * (1 - io(t, tSeis - 0.1, tSeis + 0.2))} />
+          <Pill x={jarX(2)} y={1260} txt="≈100 LITROS C/U" p={P} on={io(t, tCien, tCien + 0.3) * (1 - io(t, tSeisc - 0.1, tSeisc + 0.1))} lx={jarX(2)} ly={1340} />
+          <Pill x={1755} y={1250} txt={`${Math.round(600 * io(t, tSeisc, tSeisc + 0.8))} LITROS`} p={P} on={io(t, tSeisc, tSeisc + 0.2) * (1 - io(t, tOch - 0.1, tOch + 0.1))} />
+          <Pill x={1755} y={1300} txt={`${nB} BOTELLAS`} p={P} on={io(t, tOch, tOch + 0.2) * (1 - io(t, tInv - 0.2, tInv + 0.1))} />
+          <Pill x={760} y={1060} txt="«EL MEJOR VINO»" p={P} on={io(t, tMejor, tMejor + 0.3) * (1 - io(t, tPrim - 0.1, tPrim + 0.2))} lx={760} ly={1120} />
+          <Pill x={1080} y={1150} txt="JUAN 2:11" p={P} on={io(t, tPrim + 0.3, tPrim + 0.6) * (1 - io(t, T - 0.7, T - 0.3))} lx={1080} ly={1200} />
         </L>
         <Dust cam={cam} t={t} />
       </svg>
       <Film f={f} p={P} />
-      <Cap f={f} W={WC} keys={new Set(["vino", "copa", "seis", "cien", "seiscientos", "ochocientas", "mejor", "fiesta"])} />
+      <Cap f={f} W={WC} keys={new Set(["vino", "copa", "seis", "cien", "100", "600", "800", "seiscientos", "ochocientas", "mejor", "fiesta"])} />
       <Audio src={staticFile("zk9/cana.wav")} />
       <Audio src={staticFile("zk/songs/short1.mp3")} volume={(fr) => 0.1 * (1 - io(fr / FPS, T - 0.5, T))} />
     </AbsoluteFill>
