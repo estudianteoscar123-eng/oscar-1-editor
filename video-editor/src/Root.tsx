@@ -67,6 +67,7 @@ import { RigTest2 } from "./yt/RigTest2";
 import { YReel, YREEL_TOTAL } from "./yt/YReel";
 import { Gigante, GIG_TOTAL } from "./yt/Gigante";
 import { ZKGigante, ZKGIG_TOTAL } from "./jesus/ZK7";
+import { ZKGigante2, ZKGIG2_TOTAL, ZKAngel, ZKANG_TOTAL } from "./jesus/ZK8";
 import { ThumbA, ThumbB } from "./yt/Thumb";
 import { ThumbC, ThumbD } from "./yt/Thumb2";
 import { DemoPersonaje, DemoEscena, DemoCamara } from "./yt/Demo";
@@ -156,6 +157,8 @@ export const Main = () => {
       <Composition id="SLSpi1" component={SLSpi1} durationInFrames={SLSPI1_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLSpi2" component={SLSpi2} durationInFrames={SLSPI2_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
       <Composition id="SLRocky" component={SLRocky} durationInFrames={SLROCKY_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ music: false }} />
+      <Composition id="ZKGigante2" component={ZKGigante2} durationInFrames={ZKGIG2_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="ZKAngel" component={ZKAngel} durationInFrames={ZKANG_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="ZKGigante" component={ZKGigante} durationInFrames={ZKGIG_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="Gigante" component={Gigante} durationInFrames={GIG_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="YReelYT" component={YReel} durationInFrames={YREEL_TOTAL} fps={30} width={1920} height={1080} defaultProps={{ vertical: false }} />
