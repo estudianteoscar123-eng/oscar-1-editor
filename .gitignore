@@ -111,3 +111,7 @@ video-editor/public/zk8/*.wav
 video-editor/public/ad/*.wav
 video-editor/public/est3/*.wav
 video-editor/est3.log
+
+# temporales de la voz clonada
+*_raw*.wav
+*.16k.wav
