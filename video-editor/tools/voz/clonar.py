@@ -49,9 +49,10 @@ def main():
         if best is None or (last_ok, hit) > (best[1], best[2]): best = (raw, last_ok, hit)
         if hit >= 0.95 and last_ok: break
     raw = best[0]
-    # masterizado SIN recortar: solo retraso inicial y cola de silencio
+    # masterizado: arranca en la 1ª sílaba (cero silencio inicial), compuerta suave contra respiraciones,
+    # pausas largas acortadas a 0,2 s; nunca corta palabras ni el final
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', raw, '-af',
-                    'adelay=100,highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=5:release=80,apad=pad_dur=0.5,loudnorm=I=-15:TP=-1.5',
+                    'highpass=f=70,agate=threshold=0.02:ratio=3:range=0.06:attack=4:release=150,silenceremove=start_periods=1:start_threshold=-42dB:start_silence=0.02:stop_periods=-1:stop_duration=0.3:stop_threshold=-42dB:stop_silence=0.2,acompressor=threshold=-20dB:ratio=3:attack=5:release=80,apad=pad_dur=0.5,loudnorm=I=-15:TP=-1.5',
                     '-ar', '48000', f'{out}.wav'], check=True)
     segs, _ = asr.transcribe(load16(f'{out}.wav'), language='es', word_timestamps=True, vad_filter=False)
     ch = [{'text': w.word, 'timestamp': [round(w.start, 2), round(w.end, 2)]} for s in segs for w in s.words]

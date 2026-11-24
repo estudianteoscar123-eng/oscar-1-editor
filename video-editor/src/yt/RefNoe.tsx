@@ -14,11 +14,11 @@ const WS = (d as unknown as R).chunks.map((c) => ({ w: c.text.trim().replace("No
 export const REFNOE_TOTAL = Math.round((WS[WS.length - 1].e + 0.6) * FPS);
 const RED = "#D30F17";
 const KEYS = new Set(["noé", "arcoíris"]);
-const cl = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-const io = (v: number, a: number, b: number) => { const p = cl((v - a) / (b - a)); return p * p * (3 - 2 * p); };
+export const cl = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+export const io = (v: number, a: number, b: number) => { const p = cl((v - a) / (b - a)); return p * p * (3 - 2 * p); };
 const at = (k: string) => WS.find((w) => w.w.toLowerCase().startsWith(k))?.s ?? 0;
 
-type Pal = {
+export type Pal = {
   sky: [string, string, string, string]; sun: string; glow: string; ground: [string, string]; mtnFar: string; mtn: string; mtnSh: string; snow: string;
   tuft: string; vine: string; vineSh: string; robe: string; robeSh: string; mantle: string; mantleSh: string; skin: string; skinSh: string; hair: string;
   rim: string; shadow: string; pill: string; pillDot: string; dust: string; night: boolean; rainbow: string[];
@@ -30,7 +30,7 @@ const DAY: Pal = {
   rim: "#FFD9A0", shadow: "rgba(70,35,20,0.38)", pill: "rgba(30,18,24,0.72)", pillDot: "#FFB24A", dust: "#FFE2B0", night: false,
   rainbow: ["#D9675F", "#E59A5C", "#E5C96A", "#86B46E", "#6C93C4", "#8A78B8"],
 };
-const DARK: Pal = {
+export const DARK: Pal = {
   sky: ["#030409", "#0A0E1E", "#1A0E1C", "#3A0E14"], sun: "#E8E4DA", glow: "rgba(211,15,23,0.45)", ground: ["#342022", "#0C0809"],
   mtnFar: "#24151C", mtn: "#150D12", mtnSh: "#0A0609", snow: "#5A4A52", tuft: "#060405", vine: "#1C2116", vineSh: "#0E120A",
   robe: "#6A5C50", robeSh: "#352C26", mantle: "#4A0C10", mantleSh: "#260608", skin: "#7A5440", skinSh: "#43291E", hair: "#BDB6AE",
@@ -52,8 +52,8 @@ const Layer: React.FC<{ t: number; dep: number; children: React.ReactNode }> = (
   return <g transform={`translate(540 960) scale(${zz}) translate(${-x} ${-y})`}>{children}</g>;
 };
 
-const HZ = 1080; // horizonte
-const Sky: React.FC<{ p: Pal; t: number }> = ({ p, t }) => (
+export const HZ = 1080; // horizonte
+export const Sky: React.FC<{ p: Pal; t: number }> = ({ p, t }) => (
   <g>
     <rect x={-600} y={-400} width={2300} height={HZ + 400} fill="url(#rsky)" /><rect x={-600} y={HZ - 2} width={2300} height={900} fill={p.sky[3]} />
     {p.night ? Array.from({ length: 90 }, (_, i) => <circle key={i} cx={-300 + rnd(i) * 1700} cy={-300 + rnd(i + 50) * (HZ + 100)} r={1 + rnd(i + 9) * 2.2} fill="#fff" opacity={(0.25 + rnd(i + 3) * 0.6) * (0.75 + 0.25 * Math.sin(t * 3 + i))} />) : null}
@@ -66,7 +66,7 @@ const Sky: React.FC<{ p: Pal; t: number }> = ({ p, t }) => (
     ))}
   </g>
 );
-const Rainbow: React.FC<{ p: Pal; on: number; crack: number }> = ({ p, on, crack }) => (
+export const Rainbow: React.FC<{ p: Pal; on: number; crack: number }> = ({ p, on, crack }) => (
   <g opacity={on * (1 - crack * 0.75)} style={{ mixBlendMode: p.night ? "normal" : "screen" }}>
     {p.rainbow.map((c, i) => (
       <path key={i} d={`M${-60 + i * 22} ${HZ + 20} A ${640 - i * 22} ${640 - i * 22} 0 0 1 ${1220 - i * 22} ${HZ + 20}`} stroke={c} strokeWidth={p.night ? 5 : 22} fill="none" opacity={p.night ? 0.55 : 0.6} strokeDasharray={p.night ? "2400" : undefined} strokeDashoffset={p.night ? 2400 * (1 - on) : undefined} />
@@ -74,7 +74,7 @@ const Rainbow: React.FC<{ p: Pal; on: number; crack: number }> = ({ p, on, crack
     {crack > 0 ? <path d="M600 460 L 578 560 L 622 640 L 590 760" stroke={RED} strokeWidth={11} fill="none" strokeLinecap="round" strokeDasharray={420} strokeDashoffset={420 * (1 - crack)} /> : null}
   </g>
 );
-const Mountain: React.FC<{ p: Pal }> = ({ p }) => (
+export const Mountain: React.FC<{ p: Pal }> = ({ p }) => (
   <g>
     <rect x={-600} y={HZ - 4} width={2300} height={700} fill={p.ground[0]} /><path d={`M-400 ${HZ} L 120 ${HZ - 170} L 300 ${HZ - 120} L 520 ${HZ - 210} L 760 ${HZ - 110} L 1500 ${HZ} Z`} fill={p.mtnFar} opacity={0.8} />
     <path d={`M140 ${HZ} L 600 ${HZ - 300} Q 690 ${HZ - 360} 760 ${HZ - 300} L 1260 ${HZ} Z`} fill={p.mtn} />
@@ -88,7 +88,7 @@ const Mountain: React.FC<{ p: Pal }> = ({ p }) => (
     </g>
   </g>
 );
-const Ground: React.FC<{ p: Pal }> = ({ p }) => {
+export const Ground: React.FC<{ p: Pal }> = ({ p }) => {
   const vp = 700; // punto de fuga de las hileras de la viña
   return (
     <g>
@@ -123,7 +123,7 @@ const Ground: React.FC<{ p: Pal }> = ({ p }) => {
 };
 
 // Noé con proporciones reales (≈ 6,8 cabezas), sombreado plano en dos tonos, luz desde la derecha
-const Noah: React.FC<{ p: Pal; t: number; tilt: number }> = ({ p, t, tilt }) => {
+export const Noah: React.FC<{ p: Pal; t: number; tilt: number }> = ({ p, t, tilt }) => {
   const br = Math.sin(t * 2.2) * 2; // respiración
   return (
     <g>
@@ -167,7 +167,7 @@ const Noah: React.FC<{ p: Pal; t: number; tilt: number }> = ({ p, t, tilt }) => 
   );
 };
 
-const Pill: React.FC<{ x: number; y: number; txt: string; p: Pal; on: number; lx?: number; ly?: number }> = ({ x, y, txt, p, on, lx, ly }) => {
+export const Pill: React.FC<{ x: number; y: number; txt: string; p: Pal; on: number; lx?: number; ly?: number }> = ({ x, y, txt, p, on, lx, ly }) => {
   const w = txt.length * 26 + 90;
   return (
     <g opacity={on} transform={`translate(${x} ${y + (1 - on) * 16})`}>
@@ -199,7 +199,7 @@ const Cap: React.FC<{ f: number }> = ({ f }) => {
   );
 };
 
-const Film: React.FC<{ f: number; p: Pal }> = ({ f, p }) => (
+export const Film: React.FC<{ f: number; p: Pal }> = ({ f, p }) => (
   <>
     <svg width={1080} height={1920} style={{ position: "absolute", mixBlendMode: "overlay", opacity: p.night ? 0.32 : 0.22 }}>
       <filter id="rgrain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves={2} seed={f % 8} /><feColorMatrix type="saturate" values="0" /></filter>
