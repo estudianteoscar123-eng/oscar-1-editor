@@ -64,6 +64,7 @@ import { ZKLargo, ZKL_TOTAL } from "./yt/ZKLargo";
 import { ReelYsi, REEL1_TOTAL } from "./yt/ReelYsi";
 import { RigTest } from "./yt/Rig2";
 import { RigTest2 } from "./yt/RigTest2";
+import { Antes, Despues, AD_TOTAL } from "./yt/AntesDespues";
 import { YReel, YREEL_TOTAL } from "./yt/YReel";
 import { Gigante, GIG_TOTAL } from "./yt/Gigante";
 import { ZKGigante, ZKGIG_TOTAL } from "./jesus/ZK7";
@@ -163,6 +164,8 @@ export const Main = () => {
       <Composition id="Gigante" component={Gigante} durationInFrames={GIG_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="YReelYT" component={YReel} durationInFrames={YREEL_TOTAL} fps={30} width={1920} height={1080} defaultProps={{ vertical: false }} />
       <Composition id="YReelShort" component={YReel} durationInFrames={YREEL_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ vertical: true }} />
+      <Composition id="Antes" component={Antes} durationInFrames={AD_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="Despues" component={Despues} durationInFrames={AD_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="RigTest2" component={RigTest2} durationInFrames={1} fps={30} width={1920} height={1080} />
       <Composition id="RigTest" component={RigTest} durationInFrames={1} fps={30} width={1920} height={1080} />
       <Composition id="ReelYsi" component={ReelYsi} durationInFrames={REEL1_TOTAL} fps={30} width={1080} height={1920} />

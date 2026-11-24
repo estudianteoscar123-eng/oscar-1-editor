@@ -83,7 +83,7 @@ export const Despues: React.FC = () => {
       </svg>
       <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 60%, rgba(0,0,0,.35) 100%)" }} />
       {/* subtítulo de la referencia: pequeño, arriba, clave en recuadro */}
-      <Captions f={f} groups={groupWords(WD)} keys={new Set(["noé", "arcoíris"])} hl="#3A7BFF" y={250} />
+      <Captions f={f} groups={groupWords(WD)} keys={new Set(["noé", "arco", "iris"])} hl="#3A7BFF" y={250} />
       <Audio src={staticFile("ad/despues.wav")} />
     </AbsoluteFill>
   );
