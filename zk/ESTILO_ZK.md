@@ -160,3 +160,13 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Filtrar ideas/guiones de forma crítica; producir en masa sin sacrificar calidad; definir un estilo y exprimirlo.
 - Música Shorts: public/zk/songs/short1.mp3, short2.mp3, short3.mp3. Rotar: nunca la misma que el short anterior. Siempre por debajo de la voz; debe combinar con el mensaje.
 - DECISIÓN: Shorts vuelven al estilo original ZK Dark (ZK5/ZK6/ZK7). El estilo réplica ¿Y si…? queda SOLO para videos largos de YouTube.
+
+## REFERENCIA TIKTOK (7 videos @detras_del_dato31) — formato a replicar en Shorts
+- 54–62 s, 9:16. Pregunta cotidiana con demanda (drogas, dinero, cuerpo, finales de series).
+- Seg 0: la imagen literal de la pregunta, grande y al centro (porro ardiendo, ojo rojo, cabeza calva, horda zombi, lingotes). Voz desde el cuadro 0 diciendo la pregunta.
+- Seg 1–3: giro que rompe un mito ("y no es por el humo", "no es la gorra ni el champú").
+- Guion: cifras concretas + comparaciones cotidianas (lo que pesa una vaca, como una manguera, una llave en su cerradura). Cada frase = un cambio visual.
+- Visual: ilustración 2.5D detallada y saturada, UN escenario continuo con cámara que viaja/acerca (pocos cortes duros: 3–11 por video), objetos que se transforman, cifras y etiquetas integradas en la escena.
+- Subtítulo pequeño arriba, 1–3 palabras, palabra clave resaltada en un recuadro azul. No tapa la imagen.
+- Narrador tranquilo y claro, sin música protagonista.
+- Adaptación bíblica: "¿Por qué Jesús sudó sangre?", "¿Te acuerdas cómo terminó Sansón?", "¿Cuánto oro tenía Salomón?", "¿Cuánto pesaba la armadura de Goliat?", "¿Qué le pasa al cuerpo en una crucifixión?".
