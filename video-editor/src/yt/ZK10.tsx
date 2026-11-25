@@ -19,7 +19,7 @@ const W: Wd[] = (() => {
   raw.forEach((w) => { const pv = out[out.length - 1]; if (pv && pv.w === "me" && w.w.startsWith("día")) { pv.w = "medía"; pv.e = w.e; } else out.push({ ...w }); });
   return out;
 })();
-const nrm = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+export const nrm = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
 const F = (k: string, nth = 0, d = -1) => W.filter((w) => nrm(w.w).startsWith(nrm(k)))[nth]?.s ?? d;
 const FE = (k: string, nth = 0, d = -1) => W.filter((w) => nrm(w.w).startsWith(nrm(k)))[nth]?.e ?? d;
 export const ZKGOL_TOTAL = Math.round((W[W.length - 1].e + 0.45) * FPS);
@@ -39,11 +39,11 @@ const tCayo = F("cayo", 0, 11.7);
 const tCara = F("cara", 0, 12.6);
 const CUTS = [0, tTres, tArm, tDav, tSolo, tTiro, tDir, tGig];
 const shotAt = (t: number) => { let i = 0; while (i < CUTS.length - 1 && t >= CUTS[i + 1]) i++; return i; };
-const kick = (t: number, t0: number, amp: number, k = 7) => (t < t0 ? 0 : amp * Math.exp(-(t - t0) * k));
-const shake = (t: number, amp: number) => [Math.sin(t * 93) * amp, Math.cos(t * 71) * amp];
+export const kick = (t: number, t0: number, amp: number, k = 7) => (t < t0 ? 0 : amp * Math.exp(-(t - t0) * k));
+export const shake = (t: number, amp: number) => [Math.sin(t * 93) * amp, Math.cos(t * 71) * amp];
 
 // ---------------- dibujos ----------------
-const Defs = () => (
+export const Defs = () => (
   <defs>
     <linearGradient id="gsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#030409" /><stop offset="55%" stopColor="#0C0F20" /><stop offset="85%" stopColor="#2A0C14" /><stop offset="100%" stopColor="#5A1014" /></linearGradient>
     <linearGradient id="gground" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#24161A" /><stop offset="100%" stopColor="#08050A" /></linearGradient>
@@ -58,7 +58,7 @@ const Defs = () => (
     <radialGradient id="stoneg" cx="35%" cy="30%"><stop offset="0%" stopColor="#9A9490" /><stop offset="60%" stopColor="#5A5450" /><stop offset="100%" stopColor="#1E1A18" /></radialGradient>
   </defs>
 );
-const Valley: React.FC<{ t: number }> = ({ t }) => (
+export const Valley: React.FC<{ t: number }> = ({ t }) => (
   <g>
     <rect x={-1000} y={-1000} width={3080} height={2300} fill="url(#gsky)" />
     {Array.from({ length: 80 }, (_, i) => <circle key={i} cx={-500 + rnd(i) * 2080} cy={-200 + rnd(i + 40) * 1200} r={1 + rnd(i + 7) * 2} fill="#fff" opacity={0.2 + rnd(i + 3) * 0.5} />)}
@@ -74,7 +74,7 @@ const Valley: React.FC<{ t: number }> = ({ t }) => (
 );
 
 // Goliat de frente: pies en (0,0), ~1700 de alto
-const Goliath: React.FC<{ crack?: number; t: number; glow?: number }> = ({ crack = 0, t, glow = 0 }) => (
+export const Goliath: React.FC<{ crack?: number; t: number; glow?: number }> = ({ crack = 0, t, glow = 0 }) => (
   <g>
     <ellipse cx={0} cy={6} rx={330} ry={40} fill="rgba(0,0,0,0.6)" />
     {[-1, 1].map((sd) => (
@@ -121,14 +121,14 @@ const Goliath: React.FC<{ crack?: number; t: number; glow?: number }> = ({ crack
     ) : null}
   </g>
 );
-const Stone: React.FC<{ r: number }> = ({ r }) => (
+export const Stone: React.FC<{ r: number }> = ({ r }) => (
   <g>
     <ellipse cx={0} cy={0} rx={r * 1.12} ry={r} fill="url(#stoneg)" />
     {[0, 1, 2, 3, 4].map((i) => <circle key={i} cx={(rnd(i + 70) - 0.5) * r * 1.3} cy={(rnd(i + 80) - 0.5) * r * 1.2} r={r * 0.06} fill="#2A2624" opacity={0.6} />)}
     <path d={`M${r * 0.8} ${-r * 0.5} A ${r * 1.12} ${r} 0 0 1 ${r * 0.6} ${r * 0.8}`} stroke={P.rim} strokeWidth={r * 0.07} fill="none" />
   </g>
 );
-const Speed: React.FC<{ t: number; n?: number; op?: number }> = ({ t, n = 60, op = 0.5 }) => (
+export const Speed: React.FC<{ t: number; n?: number; op?: number }> = ({ t, n = 60, op = 0.5 }) => (
   <g>
     {Array.from({ length: n }, (_, i) => {
       const a = rnd(i + 5) * Math.PI * 2, ph = (t * 3.5 + rnd(i)) % 1, r0 = 250 + ph * 1300, len = 120 + ph * 400;
@@ -136,7 +136,7 @@ const Speed: React.FC<{ t: number; n?: number; op?: number }> = ({ t, n = 60, op
     })}
   </g>
 );
-const Pill: React.FC<{ x: number; y: number; txt: string; on: number; big?: boolean }> = ({ x, y, txt, on, big }) => {
+export const Pill: React.FC<{ x: number; y: number; txt: string; on: number; big?: boolean }> = ({ x, y, txt, on, big }) => {
   const fs = big ? 64 : 40, w = txt.length * fs * 0.66 + 100, h = fs * 1.75;
   return (
     <g opacity={cl(on)} transform={`translate(${x} ${y}) scale(${0.7 + 0.3 * io(on, 0, 1) + kick(on, 0.5, 0)})`}>
@@ -362,7 +362,7 @@ const Cap: React.FC<{ f: number }> = ({ f }) => {
   );
 };
 
-const Sfx: React.FC<{ at: number; src: string; vol?: number }> = ({ at, src, vol = 1 }) => (
+export const Sfx: React.FC<{ at: number; src: string; vol?: number }> = ({ at, src, vol = 1 }) => (
   <Sequence from={Math.max(0, Math.round(at * FPS))} layout="none"><Audio src={staticFile(`zk10/sfx/${src}.wav`)} volume={vol} /></Sequence>
 );
 
