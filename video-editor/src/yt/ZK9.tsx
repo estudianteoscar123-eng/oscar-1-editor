@@ -52,8 +52,8 @@ const Cap: React.FC<{ f: number; W: Wd[]; keys: Set<string> }> = ({ f, W, keys }
 };
 
 // ---------- persona (proporciones reales, dos tonos, borde de luz rojo) ----------
-type Look = { robe: string; robeSh: string; mantle: string; mantleSh: string; skin: string; skinSh: string; hair: string; beard?: "long" | "short" | "none" };
-const Person: React.FC<{ x: number; y: number; s: number; look: Look; face?: 1 | -1; tilt?: number; cup?: boolean; armUp?: number; t: number; op?: number }> = ({ x, y, s, look, face = 1, tilt = 0, cup, armUp = 0, t, op = 1 }) => {
+export type Look = { robe: string; robeSh: string; mantle: string; mantleSh: string; skin: string; skinSh: string; hair: string; beard?: "long" | "short" | "none" };
+export const Person: React.FC<{ x: number; y: number; s: number; look: Look; face?: 1 | -1; tilt?: number; cup?: boolean; armUp?: number; t: number; op?: number }> = ({ x, y, s, look, face = 1, tilt = 0, cup, armUp = 0, t, op = 1 }) => {
   const br = Math.sin(t * 2.2 + x) * 2;
   const lk = look;
   return (
@@ -105,10 +105,10 @@ const Person: React.FC<{ x: number; y: number; s: number; look: Look; face?: 1 |
   );
 };
 const NOE: Look = { robe: "#6A5C50", robeSh: "#352C26", mantle: "#4A0C10", mantleSh: "#260608", skin: "#7A5440", skinSh: "#43291E", hair: "#BDB6AE", beard: "long" };
-const CAM: Look = { robe: "#3E4450", robeSh: "#1E2128", mantle: "#2A2018", mantleSh: "#140F0B", skin: "#6E4A36", skinSh: "#3A2418", hair: "#1A1210", beard: "short" };
+export const CAM: Look = { robe: "#3E4450", robeSh: "#1E2128", mantle: "#2A2018", mantleSh: "#140F0B", skin: "#6E4A36", skinSh: "#3A2418", hair: "#1A1210", beard: "short" };
 const NIN: Look = { robe: "#5A5048", robeSh: "#2C2622", mantle: "#3A3028", mantleSh: "#1C1612", skin: "#7A5440", skinSh: "#43291E", hair: "#1A1210", beard: "none" };
 const JES: Look = { robe: "#B8B0A4", robeSh: "#6A645C", mantle: "#7A0A10", mantleSh: "#40060A", skin: "#7A5440", skinSh: "#43291E", hair: "#2A1A12", beard: "short" };
-const GST: Look = { robe: "#4A4250", robeSh: "#24202A", mantle: "#3A2A30", mantleSh: "#1C1418", skin: "#6E4A36", skinSh: "#3A2418", hair: "#1A1210", beard: "short" };
+export const GST: Look = { robe: "#4A4250", robeSh: "#24202A", mantle: "#3A2A30", mantleSh: "#1C1418", skin: "#6E4A36", skinSh: "#3A2418", hair: "#1A1210", beard: "short" };
 
 const Tent: React.FC<{ glow: number; inside: number; t: number }> = ({ glow, inside, t }) => {
   const fl = 0.85 + 0.15 * Math.sin(t * 11) * Math.sin(t * 7.3);
@@ -171,7 +171,7 @@ export const ZKNoe: React.FC = () => {
       <Film f={f} p={P} />
       <Cap f={f} W={WN} keys={new Set(["noe", "arcoiris", "vino", "desnudo", "cam", "nieto"])} />
       <Audio src={staticFile("zk9/noe.wav")} />
-      <Audio src={staticFile("zk/songs/short3.mp3")} volume={(fr) => 0.1 * (1 - io(fr / FPS, T - 0.5, T))} />
+      <Audio src={staticFile("zk/songs/short3.mp3")} volume={(fr) => 0.22 * (1 - io(fr / FPS, T - 0.5, T))} />
     </AbsoluteFill>
   );
 };
@@ -316,7 +316,7 @@ export const ZKCana: React.FC = () => {
       <Film f={f} p={P} />
       <Cap f={f} W={WC} keys={new Set(["vino", "copa", "seis", "cien", "100", "600", "800", "seiscientos", "ochocientas", "mejor", "fiesta"])} />
       <Audio src={staticFile("zk9/cana.wav")} />
-      <Audio src={staticFile("zk/songs/short1.mp3")} volume={(fr) => 0.1 * (1 - io(fr / FPS, T - 0.5, T))} />
+      <Audio src={staticFile("zk/songs/short1.mp3")} trimBefore={45 * FPS} volume={(fr) => 0.22 * (1 - io(fr / FPS, T - 0.5, T))} />
     </AbsoluteFill>
   );
 };
