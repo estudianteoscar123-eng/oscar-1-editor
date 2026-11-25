@@ -6,7 +6,9 @@ import dgd from "../../public/zk11/gedeon.json";
 import { FPS, KFONT, groupWords } from "../kit/Kit";
 import { rnd } from "./Kit";
 import { DARK, Film, cl, io } from "./RefNoe";
-import { Defs, Pill, Sfx, Speed, Valley, kick, nrm, shake } from "./ZK10";
+import { Defs, Pill, Sfx, Valley, kick, nrm, shake as zshake } from "./ZK10";
+// cámara: solo un leve pulso en los golpes clave (nada de temblores ni destellos constantes)
+const shake = (t: number, a: number) => zshake(t, a * 0.2);
 
 // Shorts ZK · sistema "dopamina": un plano nuevo cada ~1,5 s, ángulos distintos, golpes de cámara,
 // sonido en cada acción, cifras como etiquetas, música en su parte fuerte desde el cuadro 0, final que vuelve al inicio.
@@ -30,7 +32,7 @@ const Cap: React.FC<{ f: number; W: Wd[]; keys: Set<string> }> = ({ f, W, keys }
     <div style={{ position: "absolute", top: 300, left: 70, right: 70, textAlign: "center", fontFamily: KFONT, fontWeight: 700, fontSize: 64, lineHeight: 1.3, color: "#fff", textShadow: "0 4px 14px rgba(0,0,0,0.85)" }}>
       {groups[gi].map((w, i) => {
         const on = t >= w.s - 0.06 || (gi === 0 && i === 0), k = on && keys.has(nrm(w.w));
-        const pop = k ? 1 + kick(t, w.s - 0.06, 0.25, 12) : 1;
+        const pop = 1;
         return (
           <React.Fragment key={i}>
             {i ? " " : ""}
@@ -45,18 +47,15 @@ const Cap: React.FC<{ f: number; W: Wd[]; keys: Set<string> }> = ({ f, W, keys }
 // Marco común: corte con "barrido", golpe de zoom al entrar, grano, subtítulo, voz y música
 const Frame: React.FC<{ f: number; cuts: number[]; T: number; W: Wd[]; keys: Set<string>; voice: string; song: string; songFrom: number; children: (i: number, lt: number, dur: number) => React.ReactNode }> = ({ f, cuts, T, W, keys, voice, song, songFrom, children }) => {
   const t = f / FPS, i = shotOf(cuts, t), lt = t - cuts[i], dur = (cuts[i + 1] ?? T) - cuts[i];
-  const punch = 1 + kick(lt, 0, 0.1, 9);
-  const whip = i > 0 ? 1 - io(lt, 0, 0.13) : 0;
   return (
     <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
-      <AbsoluteFill style={{ transform: `translateX(${whip * (i % 2 ? 260 : -260)}px) scale(${punch})`, filter: whip > 0.05 ? `blur(${whip * 14}px)` : undefined }}>
+      <AbsoluteFill>
         {children(i, lt, dur)}
       </AbsoluteFill>
       <Film f={f} p={P} />
       <Cap f={f} W={W} keys={keys} />
       <Audio src={staticFile(voice)} />
       <Audio src={staticFile(song)} trimBefore={Math.round(songFrom * FPS)} volume={(fr) => 0.3 * (1 - io(fr / FPS, T - 0.4, T))} />
-      {cuts.slice(1).map((c, k) => <Sfx key={k} at={c - 0.12} src="whoosh" vol={0.5} />)}
     </AbsoluteFill>
   );
 };
@@ -160,16 +159,15 @@ export const ZKSanson: React.FC = () => {
                     return <Soldier key={`${row}-${col}`} x={540 + (col - (n - 1) / 2) * (110 + d * 380)} y={y} s={s} t={t} run />;
                   })).reverse()}
                 </g>
-                <Speed t={t} n={40} op={0.35} />
               </Svg>
             );
           }
           if (i === 2) { // la quijada: el arma
-            const z = 1 + kick(t, sHue, 0.35, 8), rot = -18 + lt * 10;
+            const z = 1, rot = -18 + lt * 10;
             return (
               <Svg>
                 <rect width={1080} height={1920} fill="#05050A" />
-                <circle cx={540} cy={1060} r={520} fill="url(#rglowg)" opacity={0.5 + kick(t, sHue, 0.5, 4)} />
+                <circle cx={540} cy={1060} r={520} fill="url(#rglowg)" opacity={0.55} />
                 <g transform={`translate(540 1080) rotate(${rot}) scale(${z * (0.9 + io(lt, 0, dur) * 0.25)})`}><Jaw s={1.25} /></g>
                 <Pill x={540} y={1480} txt="QUIJADA DE BURRO" on={io(t, sHue, sHue + 0.25)} big />
               </Svg>
@@ -204,7 +202,6 @@ export const ZKSanson: React.FC = () => {
                   }).sort(() => 0)}
                   {Array.from({ length: 20 }, (_, k) => <circle key={k} cx={rnd(k + 40) * 1080} cy={1500 + rnd(k + 41) * 400} r={30 + rnd(k) * 60} fill="#2A1C1C" opacity={0.4} />)}
                 </g>
-                <Speed t={t} n={50} op={0.45} />
                 <Pill x={540} y={700} txt="FILISTEOS" on={io(lt, 0.1, 0.3)} />
               </Svg>
             );
@@ -226,7 +223,6 @@ export const ZKSanson: React.FC = () => {
                     return <circle key={k} cx={-140 + rnd(k + 9) * 280 + (snap ? (rnd(k + 2) - 0.5) * 900 * spread : 0)} cy={60 - life * 420} r={(6 + rnd(k + 5) * 14) * (1 - life)} fill={k % 3 ? "#FF7A2A" : "#FFC04A"} opacity={burn * (1 - life)} />;
                   })}
                 </g>
-                <rect width={1080} height={1920} fill="#fff" opacity={snap && t - sFue - 0.2 < 0.07 ? 0.6 : 0} />
               </Svg>
             );
           }
@@ -255,7 +251,7 @@ export const ZKSanson: React.FC = () => {
           }
           if (i === 7) { // contrapicado: Sansón alza la quijada contra el cielo rojo
             const up = io(lt, 0, 0.5);
-            const flash = Math.sin(t * 9) > 0.93 ? 1 : 0;
+            const flash = 0;
             return (
               <Svg>
                 <g transform={`translate(540 1920) scale(${1.25 + lt * 0.08}) rotate(${-2 + lt * 2}) translate(-540 -1920)`}>
@@ -289,16 +285,8 @@ export const ZKSanson: React.FC = () => {
           );
         }}
       </Frame>
-      <Sfx at={0} src="crowd" vol={0.7} />
-      <Sfx at={0} src="boom" vol={0.8} />
-      <Sfx at={sMil} src="crowd" vol={0.9} />
-      <Sfx at={sHue} src="hit" vol={0.9} />
-      <Sfx at={sFil} src="crowd" vol={0.9} />
-      <Sfx at={sQue + 0.5} src="fire" vol={0.9} />
-      <Sfx at={sFue + 0.2} src="boom" vol={1} />
-      <Sfx at={sFre} src="whoosh" vol={0.6} />
-      {Array.from({ length: 10 }, (_, k) => <Sfx key={k} at={sTer + k * ((sSue + 0.3 - sTer) / 10)} src="hit" vol={0.35} />)}
-      <Sfx at={sMil2} src="boom" vol={0.9} />
+      <Sfx at={sHue} src="hit" vol={0.5} />
+      <Sfx at={sFue + 0.2} src="boom" vol={0.7} />
     </>
   );
 };
@@ -388,9 +376,8 @@ export const ZKGedeon: React.FC = () => {
               <Svg>
                 <rect width={1080} height={1920} fill="#0A0A10" />
                 <g transform={`translate(${540 + sx} ${1060 + sy}) scale(${1.0 + lt * 0.15}) translate(-540 -1060)`}><ArmyGrid keep={keep} t={t} /></g>
-                <rect width={1080} height={1920} fill={RED} opacity={kick(t, gDem, 0.25, 4)} />
                 <text x={540} y={1610} textAnchor="middle" fontFamily={KFONT} fontWeight={800} fontSize={200} fill="#fff">{n.toLocaleString("es")}</text>
-                <g opacity={io(t, gDem, gDem + 0.1)} transform={`translate(540 800) scale(${1 + kick(t, gDem, 0.6, 10)}) rotate(-4)`}>
+                <g opacity={io(t, gDem, gDem + 0.1)} transform={`translate(540 800) rotate(-4)`}>
                   <text x={0} y={0} textAnchor="middle" fontFamily={KFONT} fontWeight={800} fontSize={120} fill={RED} style={{ filter: "drop-shadow(0 8px 30px rgba(0,0,0,0.9))" }}>DEMASIADOS</text>
                 </g>
               </Svg>
@@ -401,7 +388,7 @@ export const ZKGedeon: React.FC = () => {
               <Svg>
                 <rect width={1080} height={1920} fill="#0A0A10" />
                 <g transform={`translate(540 1060) scale(${1.3 + io(lt, 0, dur) * 1.6}) translate(-540 -1060)`}><ArmyGrid keep={0} red t={t} /></g>
-                <text x={540} y={1610} textAnchor="middle" fontFamily={KFONT} fontWeight={800} fontSize={240} fill={RED} transform={`translate(540 1530) scale(${1 + kick(t, gTre, 0.5, 9)}) translate(-540 -1530)`}>300</text>
+                <text x={540} y={1610} textAnchor="middle" fontFamily={KFONT} fontWeight={800} fontSize={240} fill={RED} transform={`translate(540 1530) scale(1) translate(-540 -1530)`}>300</text>
               </Svg>
             );
           }
@@ -461,13 +448,11 @@ export const ZKGedeon: React.FC = () => {
                 <rect width={1080} height={1920} fill="#07060A" />
                 <g transform={`translate(${540 + sx} ${1250 + sy}) scale(${1.5 - br * 0.3})`}><Jar broken={br} t={t} /></g>
                 {Array.from({ length: 300 }, (_, k) => { const on = br > rnd(k) ; const a = (k / 300) * Math.PI * 2; return on ? <circle key={k} cx={540 + Math.cos(a) * (420 + rnd(k + 3) * 80)} cy={1150 + Math.sin(a) * (700 + rnd(k + 4) * 80)} r={6} fill="#FFB04A" opacity={0.9} /> : null; })}
-                <rect width={1080} height={1920} fill="#fff" opacity={t >= gRom + 0.1 && t < gRom + 0.17 ? 0.7 : 0} />
               </Svg>
             );
           }
           // caos: el enemigo se mata entre ellos
           const [sx, sy] = shake(t, 10 + kick(t, gMat, 20, 5));
-          const fl = Math.sin(t * 22) > 0.6 ? 1 : 0;
           return (
             <Svg>
               <g transform={`translate(${540 + sx} ${1300 + sy}) scale(${1.25 + lt * 0.1}) rotate(${Math.sin(lt * 3) * 2}) translate(-540 -1300)`}>
@@ -482,24 +467,13 @@ export const ZKGedeon: React.FC = () => {
                   );
                 })}
               </g>
-              <rect width={1080} height={1920} fill={RED} opacity={fl * 0.12} />
               <Pill x={540} y={1700} txt="JUECES 7:22" on={io(lt, 0.3, 0.5)} />
             </Svg>
           );
         }}
       </Frame>
-      <Sfx at={0} src="crowd" vol={0.6} />
-      <Sfx at={gDem} src="boom" vol={0.9} />
-      <Sfx at={gTre} src="hit" vol={0.8} />
-      <Sfx at={gCie} src="riser" vol={0.6} />
-      <Sfx at={gTrom - 0.2} src="horn" vol={0.8} />
-      <Sfx at={gCan} src="tick" vol={0.8} />
-      <Sfx at={gAnt} src="fire" vol={0.7} />
-      <Sfx at={gRom + 0.1} src="shatter" vol={1} />
-      <Sfx at={gRom + 0.1} src="boom" vol={0.9} />
-      <Sfx at={gRom + 0.3} src="horn" vol={0.8} />
-      <Sfx at={gEne - 0.2} src="crowd" vol={1} />
-      {Array.from({ length: 6 }, (_, k) => <Sfx key={k} at={gEne + k * 0.35} src="hit" vol={0.4} />)}
+      <Sfx at={gRom + 0.1} src="shatter" vol={0.6} />
+      <Sfx at={gRom + 0.1} src="boom" vol={0.6} />
     </>
   );
 };

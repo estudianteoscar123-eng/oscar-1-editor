@@ -170,3 +170,8 @@ Lo que funcionó (Pedro "juró que nunca lo negaría", el ladrón "único hombre
 - Subtítulo pequeño arriba, 1–3 palabras, palabra clave resaltada en un recuadro azul. No tapa la imagen.
 - Narrador tranquilo y claro, sin música protagonista.
 - Adaptación bíblica: "¿Por qué Jesús sudó sangre?", "¿Te acuerdas cómo terminó Sansón?", "¿Cuánto oro tenía Salomón?", "¿Cuánto pesaba la armadura de Goliat?", "¿Qué le pasa al cuerpo en una crucifixión?".
+
+## Efectos (regla del usuario)
+- Pocos y estratégicos: cortes limpios, sin barridos con desenfoque, sin golpes de zoom en cada corte, sin destellos ni temblores constantes, sin líneas de velocidad.
+- Sonido: solo 1-2 golpes por video en el momento clave; nada de efectos sintéticos de relleno.
+- Siempre elegante y profesional; nunca efectos que se vean de IA o básicos.
