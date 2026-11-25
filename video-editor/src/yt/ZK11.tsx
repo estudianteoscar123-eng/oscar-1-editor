@@ -83,7 +83,7 @@ const Soldier: React.FC<{ x: number; y: number; s: number; t: number; run?: bool
   );
 };
 // Sansón de espaldas: pelo largo en 7 trenzas, hombros anchos; pies en (0,0), ~1500 de alto
-const SamsonBack: React.FC<{ t: number; arms?: number }> = ({ t, arms = 0 }) => (
+const SamsonBack: React.FC<{ t: number; arms?: number; jaw?: boolean }> = ({ t, arms = 0, jaw }) => (
   <g>
     <ellipse cx={0} cy={6} rx={300} ry={40} fill="rgba(0,0,0,0.6)" />
     <path d="M-120 -700 L -150 0 L -40 0 L 0 -520 L 40 0 L 150 0 L 120 -700 Z" fill="#160E0C" />
@@ -93,10 +93,11 @@ const SamsonBack: React.FC<{ t: number; arms?: number }> = ({ t, arms = 0 }) => 
     <path d="M0 -1250 L 0 -800" stroke="#3A2418" strokeWidth={8} opacity={0.7} />
     <path d="M290 -1260 Q 300 -1000 170 -760" stroke={P.rim} strokeWidth={7} fill="none" />
     {[-1, 1].map((sd) => (
-      <g key={sd} transform={`rotate(${sd * arms * 55} ${sd * 280} -1240)`}>
+      <g key={sd} transform={`rotate(${-sd * arms * 140} ${sd * 280} -1240)`}>
         <path d={`M${sd * 270} -1270 Q ${sd * 400} -1100 ${sd * 380} -800 L ${sd * 300} -790 Q ${sd * 300} -1050 ${sd * 210} -1200 Z`} fill="#5A3A28" />
         <ellipse cx={sd * 345} cy={-770} rx={48} ry={56} fill="#4A2E20" />
         {sd > 0 ? <path d="M400 -1100 Q 395 -900 380 -800" stroke={P.rim} strokeWidth={6} fill="none" /> : null}
+        {sd > 0 && jaw ? <g transform="translate(350 -700) rotate(80) scale(0.75)"><Jaw /></g> : null}
       </g>
     ))}
     <rect x={-70} y={-1400} width={140} height={150} fill="#3A2418" />
@@ -124,7 +125,8 @@ export const ZKSAN_TOTAL = Math.round((WS[WS.length - 1].e + 0.45) * FPS);
 const sMil = FS("mil", 0, 1.2), sUni = FS(["unica", "su"], 0, 2.2), sHue = FS("hueso", 0, 3.6), sSan = FS(["sanson"], 0, 5.0);
 const sFil = FS("filisteos", 0, 7.4), sQue = FS("quemaron", 0, 9.4) - 0.6, sFue = FS("fuego", 0, 10.6), sAga = FS(["agarro", "agarr"], 0, 11.6);
 const sFre = FS("fresca", 0, 13.2), sTer = FS(["termino", "cuando"], 0, 14.2), sMil2 = FS("mil", 1, 15.2), sSue = FS("suelo", 0, 16.4);
-const SCUTS = [0, sMil, sUni, sSan, sFil, sQue, sAga, sTer - 0.3];
+const sCu2 = FS("cuerdas", 1, 11.7), sTod = FS("todavia", 0, 16.7);
+const SCUTS = [0, sMil, sUni, sSan, sFil, sCu2 - 0.1, sAga, sTod - 0.1, sTer - 0.3];
 
 export const ZKSanson: React.FC = () => {
   const f = useCurrentFrame(), t = f / FPS, T = ZKSAN_TOTAL / FPS;
@@ -238,14 +240,29 @@ export const ZKSanson: React.FC = () => {
                   <g transform={`translate(540 ${1100 - lift * 260}) rotate(${-20 + lift * 25}) scale(${1 + lift * 0.3})`}>
                     <ellipse cx={20} cy={40} rx={330} ry={60} fill="rgba(0,0,0,0.5)" opacity={1 - lift} />
                     <Jaw s={0.95} />
-                    <g transform={`translate(${-60} ${-700 + grab * 640})`}>
-                      <path d="M-120 -900 L -110 -60 Q -100 40 0 50 Q 110 40 120 -60 L 130 -900 Z" fill="#5A3A28" />
-                      <path d="M120 -60 L 130 -900" stroke={P.rim} strokeWidth={6} />
-                      {[0, 1, 2, 3].map((q) => <ellipse key={q} cx={-75 + q * 50} cy={40} rx={26} ry={42} fill="#4A2E20" />)}
+                    <g transform={`translate(${-40} ${-760 + grab * 700})`}>
+                      <path d="M-70 -900 Q -80 -400 -95 -120 Q -110 -40 -60 10 L 70 10 Q 110 -40 100 -120 Q 85 -400 80 -900 Z" fill="#5A3A28" />
+                      <path d="M-70 -900 Q -80 -400 -95 -120 Q -110 -40 -60 10 L -20 10 Q -40 -300 -20 -900 Z" fill="#3A2418" />
+                      <path d="M80 -900 Q 85 -400 100 -120" stroke={P.rim} strokeWidth={6} fill="none" />
+                      {[0, 1, 2, 3].map((q) => <path key={q} d={`M${-70 + q * 44} 0 q -6 ${60 + grab * 20} ${18} ${70 + grab * 20} q 22 -4 20 -70 Z`} fill="#5A3A28" stroke="#3A2418" strokeWidth={4} />)}
+                      <path d="M95 -110 q 60 30 50 110 q -20 20 -40 -10 Z" fill="#4A2E20" />
                     </g>
                   </g>
                 </g>
                 <Pill x={540} y={1560} txt="JUECES 15:15" on={io(lt, 0.3, 0.5)} />
+              </Svg>
+            );
+          }
+          if (i === 7) { // contrapicado: Sansón alza la quijada contra el cielo rojo
+            const up = io(lt, 0, 0.5);
+            const flash = Math.sin(t * 9) > 0.93 ? 1 : 0;
+            return (
+              <Svg>
+                <g transform={`translate(540 1920) scale(${1.25 + lt * 0.08}) rotate(${-2 + lt * 2}) translate(-540 -1920)`}>
+                  <Valley t={t} />
+                  <rect width={1080} height={1920} fill={RED} opacity={0.15 + flash * 0.2} />
+                  <g transform="translate(540 2080) scale(0.68)"><SamsonBack t={t} arms={up} jaw /></g>
+                </g>
               </Svg>
             );
           }
@@ -266,7 +283,7 @@ export const ZKSanson: React.FC = () => {
                 <circle cx={540} cy={1100} r={30} fill="#120A08" />
                 <circle cx={540} cy={1100} r={200} fill="none" stroke={RED} strokeWidth={4} opacity={0.6} />
               </g>
-              <text x={540} y={1560} textAnchor="middle" fontFamily={KFONT} fontWeight={800} fontSize={190} fill="#fff" style={{ filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.9))" }}>{n.toLocaleString("es")}</text>
+              <text x={540} y={1560} textAnchor="middle" fontFamily={KFONT} fontWeight={800} fontSize={190} fill="#fff" style={{ filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.9))" }}>{n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</text>
               <Pill x={540} y={1680} txt="JUECES 15:16" on={io(t, sSue, sSue + 0.3)} />
             </Svg>
           );
@@ -294,7 +311,7 @@ const gDios = FG("dios", 0, 2.4), gDem = FG("demasiados", 0, 3.6), gRed = FG("re
 const gCon = FG("contra", 0, 6.4), gCie = FG(["ciento", "135"], 0, 6.8), gMan = FG("manos", 0, 8.6), gTrom = FG("trompetas", 0, 9.0);
 const gCan = FG("cantaros", 0, 9.6), gAnt = FG("antorchas", 0, 10.4), gMed = FG("medianoche", 0, 11.6), gRom = FG("rompieron", 0, 12.6);
 const gEne = FG("enemigo", 0, 14.0), gMat = FG("mato", 0, 14.8);
-const GCUTS = [0, gDios, gRed, gCon, gTrom - 0.3, gCan - 0.1, gAnt - 0.1, gMed, gRom, gEne - 0.2];
+const GCUTS = [0, gDios, gRed, gCon, gMan - 0.25, gCan - 0.1, gAnt - 0.1, gMed, gRom, gEne - 0.2];
 
 const ArmyGrid: React.FC<{ keep: number; red?: boolean; t: number }> = ({ keep, red, t }) => (
   <g>
@@ -315,10 +332,10 @@ const Camp: React.FC<{ t: number; chaos?: number }> = ({ t, chaos = 0 }) => (
     {Array.from({ length: 260 }, (_, k) => {
       const row = Math.floor(k / 26), col = k % 26, d = row / 10, y = 1190 + d * d * 700, s = 0.15 + d * d * 1.2;
       const x = -300 + col * 66 + (row % 2) * 33 + rnd(k) * 20;
-      const fire = k % 7 === 0;
+      const fire = k % 4 === 0;
       return (
         <g key={k} transform={`translate(${x} ${y}) scale(${s})`}>
-          <path d="M-60 0 L 0 -70 L 60 0 Z" fill="#140C0E" /><path d="M0 -70 L 60 0" stroke={P.rim} strokeWidth={3} opacity={0.5} />
+          <path d="M-60 0 L 0 -70 L 60 0 Z" fill="#3A2A2E" /><path d="M0 -70 L 60 0 L 10 0 Z" fill="#1E1418" /><path d="M0 -70 L 60 0" stroke={P.rim} strokeWidth={3} opacity={0.8} />
           {fire ? <><circle cx={90} cy={-10} r={40} fill="url(#rglowg)" /><path d={`M80 0 Q 90 ${-40 - Math.sin(t * 9 + k) * 8} 100 0 Z`} fill="#FF7A2A" /></> : null}
         </g>
       );
@@ -393,8 +410,8 @@ export const ZKGedeon: React.FC = () => {
             const pan = io(lt, 0, dur);
             return (
               <Svg>
-                <g transform={`translate(${-300 + pan * 300} 0) scale(1.15)`}><Camp t={t} /></g>
-                <rect x={80} y={1440} width={920} height={300} rx={20} fill="rgba(0,0,0,0.7)" />
+                <g transform={`translate(540 1150) scale(1.7) translate(${-640 + pan * 200} -1180)`}><Camp t={t} /></g>
+                <rect x={80} y={1440} width={920} height={300} rx={20} fill="rgba(0,0,0,0.78)" />
                 <rect x={120} y={1490} width={Math.max(3, 840 * 300 / 135000)} height={60} fill={RED} />
                 <text x={140} y={1534} fontFamily={KFONT} fontWeight={700} fontSize={40} fill="#fff">300</text>
                 <rect x={120} y={1600} width={840 * io(t, gCie, gCie + 1.1)} height={60} fill="#8A8478" />
@@ -411,7 +428,8 @@ export const ZKGedeon: React.FC = () => {
                 <circle cx={540} cy={1080} r={520} fill="url(#rglowg)" opacity={0.5} />
                 <g transform={`translate(540 1150) rotate(${rot}) scale(${z})`}>
                   {i === 4 ? (
-                    <g><path d="M-380 120 Q -120 140 120 -40 Q 260 -150 330 -330 L 400 -300 Q 340 -80 160 40 Q -80 200 -380 190 Z" fill="#C8A878" stroke="#5A4428" strokeWidth={8} />
+                    <g><path d="M-400 150 Q -120 150 110 -30 Q 230 -130 290 -330 L 450 -280 Q 380 -40 180 80 Q -90 210 -400 170 Z" fill="#C8A878" stroke="#5A4428" strokeWidth={8} />
+                      <ellipse cx={370} cy={-305} rx={82} ry={34} transform="rotate(18 370 -305)" fill="#2A1A10" stroke="#C8A878" strokeWidth={10} />
                       {Array.from({ length: 6 }, (_, k) => <path key={k} d={`M${-300 + k * 110} ${150 - k * 50} l 30 70`} stroke="#8A6E4A" strokeWidth={6} />)}
                       <path d="M330 -330 L 400 -300" stroke={P.rim} strokeWidth={10} /></g>
                   ) : i === 5 ? <g transform="translate(0 180) scale(1.4)"><Jar t={t} /></g> : (
