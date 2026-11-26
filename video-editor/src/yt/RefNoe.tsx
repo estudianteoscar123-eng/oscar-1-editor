@@ -53,13 +53,13 @@ const Layer: React.FC<{ t: number; dep: number; children: React.ReactNode }> = (
 };
 
 export const HZ = 1080; // horizonte
-export const Sky: React.FC<{ p: Pal; t: number }> = ({ p, t }) => (
+export const Sky: React.FC<{ p: Pal; t: number; moon?: boolean }> = ({ p, t, moon = true }) => (
   <g>
     <rect x={-600} y={-400} width={2300} height={HZ + 400} fill="url(#rsky)" /><rect x={-600} y={HZ - 2} width={2300} height={900} fill={p.sky[3]} />
     {p.night ? Array.from({ length: 90 }, (_, i) => <circle key={i} cx={-300 + rnd(i) * 1700} cy={-300 + rnd(i + 50) * (HZ + 100)} r={1 + rnd(i + 9) * 2.2} fill="#fff" opacity={(0.25 + rnd(i + 3) * 0.6) * (0.75 + 0.25 * Math.sin(t * 3 + i))} />) : null}
     <circle cx={860} cy={p.night ? 470 : HZ - 150} r={p.night ? 380 : 520} fill="url(#rglow)" />
-    <circle cx={860} cy={p.night ? 470 : HZ - 150} r={p.night ? 58 : 82} fill={p.sun} />
-    {p.night ? <circle cx={884} cy={458} r={52} fill={p.sky[1]} /> : null}
+    {moon ? <circle cx={860} cy={p.night ? 470 : HZ - 150} r={p.night ? 58 : 82} fill={p.sun} /> : null}
+    {moon && p.night ? <circle cx={884} cy={458} r={52} fill={p.sky[1]} /> : null}
     {/* nubes alargadas */}
     {[[-80, 640, 520], [520, 760, 640], [120, 880, 420]].map(([x, y, w], i) => (
       <rect key={i} x={x + t * (6 + i * 3)} y={y} width={w} height={16 + i * 4} rx={10} fill={p.night ? "#1A1424" : "#F6B08A"} opacity={p.night ? 0.7 : 0.45} />

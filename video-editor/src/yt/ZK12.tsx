@@ -23,7 +23,7 @@ const Staff: React.FC<{ x: number; y: number; s: number; op?: number }> = ({ x, 
 );
 
 // ======================== MOISÉS ========================
-const WM = toW(dm as unknown as R, { "Moises": "Moisés", "Moises?": "Moisés?", "Moises.": "Moisés." });
+const WM = toW(dm as unknown as R, { "Nevo": "Nebo" });
 const FM = finder(WM);
 export const ZKMOI_TOTAL = Math.round((WM[WM.length - 1].e + 0.35) * FPS);
 const PEAK: [number, number] = [1300, 700];
@@ -59,11 +59,11 @@ const Desert: React.FC<{ t: number; trail: number }> = ({ t, trail }) => (
 );
 export const ZKMoises: React.FC = () => {
   const f = useCurrentFrame(), t = f / FPS, T = ZKMOI_TOTAL / FPS;
-  const tNoFue = FM("no", 0, 1.6), tCua = FM("cuarenta", 0, 3.6), tSub = FM("subio", 0, 6.0), tMos = FM("mostro", 0, 7.6), tPero = FM("pero", 0, 8.8);
+  const tNoFue = FM("no", 0, 1.6), tCua = FM("40", 0, FM("cuarenta", 0, 3.6)), tSub = FM("subio", 0, 6.0), tMos = FM("mostro", 0, 7.6), tPero = FM("pero", 0, 8.8);
   const tMur = FM("murio", 0, 10.8), tEnt = FM("enterro", 0, 12.6), tLug = FM("lugar", 0, 13.6), tNad = FM("nadie", 0, 14.4);
   const cam = camPath(t, [
     [0, 1250, 640, 2.2], [tNoFue + 0.4, 1150, 700, 1.9], [tCua + 0.3, 500, 1300, 0.95], [tSub - 0.1, 600, 1250, 0.95],
-    [tSub + 1.0, 1220, 860, 1.35], [tMos + 0.3, 1050, 820, 1.5], [tPero + 0.3, 600, 1000, 1.25], [tMur + 0.2, 1290, 660, 2.3],
+    [tSub + 1.0, 1220, 860, 1.35], [tMos + 0.3, 880, 880, 1.25], [tPero + 0.3, 560, 1000, 1.2], [tMur + 0.2, 1290, 660, 2.3],
     [tEnt + 0.2, 1250, 760, 1.8], [tLug + 0.5, 300, 1620, 1.4], [T - 0.9, 320, 1600, 1.5], [T - 0.05, 1250, 640, 2.2],
   ]);
   // Moisés: en la cima (gancho) → al frente de la fila en el desierto → sube → muere en la cima
@@ -78,7 +78,7 @@ export const ZKMoises: React.FC = () => {
     <AbsoluteFill style={{ background: P.sky[0], overflow: "hidden" }}>
       <svg width={1080} height={1920} style={{ position: "absolute" }}>
         <Defs p={P} />
-        <L cam={cam} dep={0.6}><Sky p={P} t={t} /></L>
+        <L cam={cam} dep={0.6}><Sky p={P} t={t} moon={false} /></L>
         <L cam={cam} dep={0.8}><PromisedLand land={land} border={border} t={t} /></L>
         <L cam={cam} dep={1}>
           <Desert t={t} trail={io(t, tCua, tCua + 1.6)} />
@@ -103,7 +103,7 @@ export const ZKMoises: React.FC = () => {
             <ellipse cx={120 + sweep * 420} cy={1640 + Math.sin(sweep * 6) * 40} rx={70} ry={20} fill="rgba(255,230,200,0.1)" />
           </g>
           <Pill x={600} y={1110} txt="40 AÑOS" p={P} on={io(t, tCua + 0.2, tCua + 0.5) * (1 - io(t, tSub - 0.2, tSub))} lx={560} ly={1180} />
-          <Pill x={720} y={890} txt="TIERRA PROMETIDA" p={P} on={io(t, tMos + 0.3, tMos + 0.6) * (1 - io(t, tMur - 0.2, tMur))} />
+          <Pill x={520} y={940} txt="TIERRA PROMETIDA" p={P} on={io(t, tMos + 0.3, tMos + 0.6) * (1 - io(t, tMur - 0.2, tMur))} />
           <Pill x={1290} y={590} txt="120 AÑOS" p={P} on={io(t, tMur + 0.4, tMur + 0.7) * (1 - io(t, tEnt + 0.2, tEnt + 0.5))} lx={1290} ly={650} />
           <Pill x={320} y={1500} txt="DEUTERONOMIO 34:6" p={P} on={io(t, tNad, tNad + 0.3) * (1 - io(t, T - 0.8, T - 0.4))} />
         </L>
@@ -123,15 +123,17 @@ const FJ = finder(WJ);
 export const ZKJON_TOTAL = Math.round((WJ[WJ.length - 1].e + 0.35) * FPS);
 const Sea: React.FC<{ t: number; dive: number }> = ({ t, dive }) => (
   <g>
-    <rect x={-1200} y={HZ} width={1500} height={1200} fill="#070C14" />
+    <path d={`M-1200 ${HZ} L 700 ${HZ} Q 420 1300 260 1460 Q 0 1640 -1200 1700 Z`} fill="#081220" />
+    <path d={`M700 ${HZ} Q 420 1300 260 1460 Q 0 1640 -1200 1700`} stroke="#5A7A90" strokeWidth={4} fill="none" opacity={0.5} />
     {Array.from({ length: 22 }, (_, i) => <path key={i} d={`M${-1100 + (i % 6) * 230 + Math.sin(t + i) * 20} ${HZ + 40 + Math.floor(i / 6) * 120} q 50 -14 100 0`} stroke="#22364A" strokeWidth={3} fill="none" opacity={0.7} />)}
-    <path d={`M300 ${HZ} Q 220 1400 120 2200 L 300 2200 Z`} fill="#2A1C1C" />
     {/* el gran pez se hunde */}
-    <g transform={`translate(-260 ${1330 + dive * 260}) rotate(${-25 + dive * 20})`} opacity={1 - dive * 0.9}>
-      <path d="M-260 40 Q -100 -120 160 -60 Q 260 -40 300 -120 L 380 -200 Q 360 -80 400 20 L 320 -30 Q 220 90 -20 110 Q -200 110 -260 40 Z" fill="#0C1018" />
+    <g transform={`translate(-330 ${1330 + dive * 200}) rotate(${-14 + dive * 14}) scale(0.85)`} opacity={1 - dive * 0.85}>
+      <path d="M-260 40 Q -100 -120 160 -60 Q 260 -40 300 -120 L 380 -200 Q 360 -80 400 20 L 320 -30 Q 220 90 -20 110 Q -200 110 -260 40 Z" fill="#24364A" />
+      <path d="M-260 40 Q -100 -120 160 -60 Q 0 -20 -260 40 Z" fill="#344A60" />
+      <circle cx={-170} cy={10} r={9} fill="#05080C" />
       <path d="M300 -120 L 380 -200 Q 360 -80 400 20" stroke={P.rim} strokeWidth={4} fill="none" />
     </g>
-    {Array.from({ length: 12 }, (_, i) => <circle key={i} cx={-200 + rnd(i) * 300} cy={1300 - ((t * 60 + rnd(i + 3) * 200) % 200)} r={4 + rnd(i + 1) * 6} fill="#9FB8D0" opacity={0.35 * (1 - dive)} />)}
+    {Array.from({ length: 12 }, (_, i) => <circle key={i} cx={-200 + rnd(i) * 300} cy={1230 - ((t * 60 + rnd(i + 3) * 200) % 200)} r={4 + rnd(i + 1) * 6} fill="#9FB8D0" opacity={0.35 * (1 - dive)} />)}
   </g>
 );
 const Nineveh: React.FC<{ t: number; repent: number }> = ({ t, repent }) => (
@@ -159,9 +161,9 @@ export const ZKJonas: React.FC = () => {
   const tNoFue = FJ("no", 0, 1.6), tPre = FJ("predico", 0, 3.4), tArr = FJ("arrepint", 0, 5.2), tPero = FJ("pero", 0, 6.4), tPid = FJ("pidio", 0, 7.6);
   const tSen = FJ("sento", 0, 9.4), tArd = FJ("ardiera", 0, 11.0), tPreg = FJ("pregunta", 0, 12.8), tLib = FJ("libro", 0, 13.4), tNun = FJ("nunca", 0, 15.0);
   const cam = camPath(t, [
-    [0, 80, 1300, 1.9], [tNoFue + 0.3, 40, 1320, 1.7], [tPre + 0.2, 1100, 1000, 1.05], [tArr + 0.4, 1250, 1000, 1.25],
+    [0, 120, 1380, 1.7], [tNoFue + 0.3, 80, 1400, 1.55], [tPre + 0.2, 1100, 1000, 1.05], [tArr + 0.4, 1250, 1000, 1.25],
     [tPero + 0.2, 520, 1250, 2.0], [tPid + 0.4, 520, 1220, 2.3], [tSen + 0.2, 760, 1120, 1.15], [tArd + 0.4, 850, 1060, 1.25],
-    [tPreg + 0.2, 560, 900, 1.5], [tNun - 0.2, 520, 1180, 1.9], [T - 0.7, 500, 1200, 2.1], [T - 0.05, 80, 1300, 1.9],
+    [tPreg + 0.2, 560, 900, 1.5], [tNun - 0.2, 520, 1180, 1.9], [T - 0.7, 500, 1200, 2.1], [T - 0.05, 120, 1380, 1.7],
   ]);
   const dive = io(t, 0.3, tPre);
   const onBeach = 1 - io(t, tPre - 0.2, tPre + 0.3) + io(t, T - 0.7, T - 0.2);
@@ -171,22 +173,22 @@ export const ZKJonas: React.FC = () => {
     <AbsoluteFill style={{ background: P.sky[0], overflow: "hidden" }}>
       <svg width={1080} height={1920} style={{ position: "absolute" }}>
         <Defs p={P} />
-        <L cam={cam} dep={0.6}><Sky p={P} t={t} /></L>
+        <L cam={cam} dep={0.6}><Sky p={P} t={t} moon={false} /></L>
         <L cam={cam} dep={0.85}><Nineveh t={t} repent={repent} /></L>
         <L cam={cam} dep={1}>
-          <rect x={300} y={HZ - 2} width={2600} height={1500} fill="url(#rground)" />
+          <rect x={-1400} y={HZ - 2} width={4300} height={1500} fill="url(#rground)" />
           <Sea t={t} dive={dive} />
           {/* el cerro al este de la ciudad */}
           <path d="M240 1500 Q 520 1180 820 1500 Z" fill="#1A1014" /><path d="M520 1265 Q 700 1330 820 1500" stroke={P.rim} strokeWidth={3} fill="none" opacity={0.6} />
           <g transform="translate(540 1300) scale(0.55)"><Booth leaves={io(t, tSen, tSen + 0.6)} /></g>
           {/* Jonás: en la playa (gancho y final) → en el cerro */}
-          <g opacity={cl(onBeach)}><Person x={80} y={1440} s={0.34} look={JON} face={1} t={t} /></g>
+          <g opacity={cl(onBeach)}><Person x={250} y={1560} s={0.38} look={JON} face={1} t={t} /></g>
           <g opacity={1 - cl(onBeach)}><Person x={540} y={1300} s={0.24} look={JON} face={1} t={t} tilt={-angry * 3} /></g>
           <circle cx={540} cy={1230} r={120} fill="url(#zglow)" opacity={angry * 0.5 * (1 - io(t, tSen, tSen + 0.4))} />
           <Pill x={1250} y={800} txt="NÍNIVE" p={P} on={io(t, tPre + 0.2, tPre + 0.5) * (1 - io(t, tArr - 0.1, tArr + 0.1))} />
           <Pill x={1250} y={800} txt="+120.000 PERSONAS" p={P} on={io(t, tArr + 0.2, tArr + 0.5) * (1 - io(t, tPero - 0.2, tPero))} />
           <Pill x={540} y={1110} txt="JONÁS 4:3" p={P} on={io(t, tPid + 0.2, tPid + 0.5) * (1 - io(t, tSen - 0.2, tSen))} lx={540} ly={1160} />
-          <Pill x={560} y={780} txt="JONÁS 4:11" p={P} on={io(t, tLib, tLib + 0.3) * (1 - io(t, T - 0.8, T - 0.4))} />
+          <Pill x={540} y={1420} txt="JONÁS 4:11" p={P} on={io(t, tLib, tLib + 0.3) * (1 - io(t, T - 0.8, T - 0.4))} />
         </L>
         <Dust cam={cam} t={t} />
       </svg>
