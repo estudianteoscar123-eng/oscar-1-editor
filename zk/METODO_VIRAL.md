@@ -49,3 +49,10 @@ Datos: vistas, % que pasa los 2–3 s, tiempo medio, % completo, segundo donde c
 - Registro de cada video (ficha + métricas) para saber qué mecanismo gana.
 - Una sola variable nueva por video para aprender rápido.
 - Cada escenario/objeto nuevo queda en la biblioteca → más rápido y mejor cada semana.
+
+## 9. Primer ganador (nov. 2026) — "¿Te acuerdas cómo terminó Noé?"
+- 58.071 vistas en Facebook (+10.181 % sobre la típica), 98,8 % no seguidores; público: hombres 25–44, México/EE. UU./Colombia. TikTok: 1.200.
+- Los de acción (Sansón, Gedeón) y dato (Caná) se quedaron en ~6.300–6.800: lo que ganó fue el MECANISMO, no los efectos.
+- Mecanismo ganador: "¿Te acuerdas cómo terminó [personaje conocido]?" → "Y no… no fue [lo que todos creen]" → hecho incómodo poco contado → final sin respuesta ("la Biblia nunca explica por qué").
+- Estilo ganador: Noé Dark (ilustración, un mundo, cámara calma continua, etiquetas píldora, subtítulo pequeño arriba con recuadro rojo).
+- Regla: exprimirlo como SERIE "¿Te acuerdas cómo terminó…?" (una variable nueva por video). Facebook es plataforma prioritaria junto a TikTok.

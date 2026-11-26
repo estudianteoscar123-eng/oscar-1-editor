@@ -10,29 +10,29 @@ import { DARK, Film, Ground, HZ, Mountain, Pill, Rainbow, Sky, cl, io, type Pal 
 // Shorts ZK · estilo "Noé Dark" (aprobado). Un solo mundo por video, cámara que viaja sin cortes,
 // la voz arranca en el cuadro 0, subtítulo pequeño arriba con la clave en recuadro rojo, final que vuelve al inicio.
 const RED = "#D30F17";
-type R = { chunks: { text: string; timestamp: [number, number] }[] };
-type Wd = { w: string; s: number; e: number };
-const toW = (d: R, fix: Record<string, string> = {}): Wd[] =>
+export type R = { chunks: { text: string; timestamp: [number, number] }[] };
+export type Wd = { w: string; s: number; e: number };
+export const toW = (d: R, fix: Record<string, string> = {}): Wd[] =>
   d.chunks.map((c) => { const w = c.text.trim(); return { w: fix[w] ?? w, s: Math.max(0, c.timestamp[0] - 0.04), e: c.timestamp[1] }; });
-const nrm = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
-const finder = (W: Wd[]) => (k: string, nth = 0, dflt = 0) => W.filter((w) => nrm(w.w).startsWith(nrm(k)))[nth]?.s ?? dflt;
+export const nrm = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+export const finder = (W: Wd[]) => (k: string, nth = 0, dflt = 0) => W.filter((w) => nrm(w.w).startsWith(nrm(k)))[nth]?.s ?? dflt;
 const P = DARK;
 
-type Key = [number, number, number, number]; // t, cx, cy, z
-const camPath = (t: number, keys: Key[]): [number, number, number] => {
+export type Key = [number, number, number, number]; // t, cx, cy, z
+export const camPath = (t: number, keys: Key[]): [number, number, number] => {
   let k = 0;
   while (k < keys.length - 1 && t > keys[k + 1][0]) k++;
   const a = keys[k], b = keys[Math.min(k + 1, keys.length - 1)];
   const u = b[0] === a[0] ? 1 : io(t, a[0], b[0]);
   return [a[1] + (b[1] - a[1]) * u, a[2] + (b[2] - a[2]) * u, a[3] + (b[3] - a[3]) * u];
 };
-const L: React.FC<{ cam: [number, number, number]; dep: number; children: React.ReactNode }> = ({ cam, dep, children }) => {
+export const L: React.FC<{ cam: [number, number, number]; dep: number; children: React.ReactNode }> = ({ cam, dep, children }) => {
   const [cx, cy, z] = cam;
   const zz = 1 + (z - 1) * dep, x = 540 + (cx - 540) * dep, y = 960 + (cy - 960) * dep;
   return <g transform={`translate(540 960) scale(${zz}) translate(${-x} ${-y})`}>{children}</g>;
 };
 
-const Cap: React.FC<{ f: number; W: Wd[]; keys: Set<string> }> = ({ f, W, keys }) => {
+export const Cap: React.FC<{ f: number; W: Wd[]; keys: Set<string> }> = ({ f, W, keys }) => {
   const t = f / FPS, groups = groupWords(W);
   const gi = groups.findIndex((g, i) => t >= (i === 0 ? 0 : g[0].s - 0.06) && t < (groups[i + 1]?.[0].s ?? 999) - 0.06);
   if (gi < 0) return null;
@@ -104,13 +104,13 @@ export const Person: React.FC<{ x: number; y: number; s: number; look: Look; fac
     </g>
   );
 };
-const NOE: Look = { robe: "#6A5C50", robeSh: "#352C26", mantle: "#4A0C10", mantleSh: "#260608", skin: "#7A5440", skinSh: "#43291E", hair: "#BDB6AE", beard: "long" };
+export const NOE: Look = { robe: "#6A5C50", robeSh: "#352C26", mantle: "#4A0C10", mantleSh: "#260608", skin: "#7A5440", skinSh: "#43291E", hair: "#BDB6AE", beard: "long" };
 export const CAM: Look = { robe: "#3E4450", robeSh: "#1E2128", mantle: "#2A2018", mantleSh: "#140F0B", skin: "#6E4A36", skinSh: "#3A2418", hair: "#1A1210", beard: "short" };
-const NIN: Look = { robe: "#5A5048", robeSh: "#2C2622", mantle: "#3A3028", mantleSh: "#1C1612", skin: "#7A5440", skinSh: "#43291E", hair: "#1A1210", beard: "none" };
-const JES: Look = { robe: "#B8B0A4", robeSh: "#6A645C", mantle: "#7A0A10", mantleSh: "#40060A", skin: "#7A5440", skinSh: "#43291E", hair: "#2A1A12", beard: "short" };
+export const NIN: Look = { robe: "#5A5048", robeSh: "#2C2622", mantle: "#3A3028", mantleSh: "#1C1612", skin: "#7A5440", skinSh: "#43291E", hair: "#1A1210", beard: "none" };
+export const JES: Look = { robe: "#B8B0A4", robeSh: "#6A645C", mantle: "#7A0A10", mantleSh: "#40060A", skin: "#7A5440", skinSh: "#43291E", hair: "#2A1A12", beard: "short" };
 export const GST: Look = { robe: "#4A4250", robeSh: "#24202A", mantle: "#3A2A30", mantleSh: "#1C1418", skin: "#6E4A36", skinSh: "#3A2418", hair: "#1A1210", beard: "short" };
 
-const Tent: React.FC<{ glow: number; inside: number; t: number }> = ({ glow, inside, t }) => {
+export const Tent: React.FC<{ glow: number; inside: number; t: number }> = ({ glow, inside, t }) => {
   const fl = 0.85 + 0.15 * Math.sin(t * 11) * Math.sin(t * 7.3);
   return (
     <g>
@@ -176,7 +176,7 @@ export const ZKNoe: React.FC = () => {
   );
 };
 
-const Defs: React.FC<{ p: Pal }> = ({ p }) => (
+export const Defs: React.FC<{ p: Pal }> = ({ p }) => (
   <defs>
     <linearGradient id="rsky" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stopColor={p.sky[0]} /><stop offset="45%" stopColor={p.sky[1]} /><stop offset="80%" stopColor={p.sky[2]} /><stop offset="100%" stopColor={p.sky[3]} />
@@ -187,7 +187,7 @@ const Defs: React.FC<{ p: Pal }> = ({ p }) => (
     <linearGradient id="stone" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#4A4448" /><stop offset="60%" stopColor="#2E2A2E" /><stop offset="100%" stopColor="#161416" /></linearGradient>
   </defs>
 );
-const Dust: React.FC<{ cam: [number, number, number]; t: number }> = ({ cam, t }) => (
+export const Dust: React.FC<{ cam: [number, number, number]; t: number }> = ({ cam, t }) => (
   <L cam={cam} dep={1.25}>
     {Array.from({ length: 40 }, (_, i) => (
       <circle key={i} cx={-300 + rnd(i + 900) * 2400 + Math.sin(t * 0.8 + i) * 20} cy={300 + ((rnd(i + 700) * 1700 - t * (12 + rnd(i) * 20) + 1700) % 1700)} r={1.5 + rnd(i + 30) * 3.5} fill={P.dust} opacity={0.3 + rnd(i + 5) * 0.4} />
