@@ -97,16 +97,18 @@ Lo replicamos cambiando películas por ANIME.
 - Sombra: drop-shadow 0/3 px, desenfoque 7 px, negro 45 %. Sin contorno.
 - Diferencia restante: el original usa una serif comercial (tipo "The Seasons") algo más fina y condensada que Gloock, y su caligrafía/pincel son otras fuentes comerciales. Con los archivos originales el calce sería exacto.
 
-## Paleta profunda SL (decisión del usuario: nada pastel; colores oscuros y con cuerpo)
-| Color | Hex (texto) | Brillo detrás | Emoción |
-|---|---|---|---|
-| Rojo sangre | #B3121B | #E0242E | golpe · peligro · error |
-| Vino | #9E1F35 | #E8456A | pasión · deseo · culpa |
-| Oro viejo | #B8862B | #E0A845 | éxito · ambición · disciplina |
-| Esmeralda | #1F7A4D | #2FB070 | esperanza · crecimiento |
-| Petróleo | #0F8094 | #35D0E6 | calma · paz · mente |
-| Azul medianoche | #1E3A7A | #4A78D8 | tristeza · soledad · noche |
-| Violeta profundo | #4B2A6E | #8A5AC8 | sueños · misterio · fe |
-| Hueso | #EDE4D3 | #FFFFFF | reflexión · verdad (neutro) |
-- Regla técnica: el color profundo SIEMPRE lleva un brillo suave de su tono claro detrás (desenfoque 13 px, 80 %) + la sombra negra; sin eso, sobre fondos oscuros no se lee.
+## Paleta SL: colores INTENSOS (decisión final del usuario)
+"Profundo" = intenso y saturado, nunca claro ni pastel. Sin neón por defecto.
+| Color | Hex | Emoción |
+|---|---|---|
+| Rojo intenso | #D0101E | golpe · peligro · error |
+| Vino intenso | #B0103A | pasión · deseo · culpa |
+| Oro intenso | #D99A0B | éxito · ambición · disciplina |
+| Esmeralda intensa | #0A9B50 | esperanza · crecimiento |
+| Agua marina oscuro (petróleo) | #0090A8 | calma · paz · mente |
+| Azul intenso | #1D47C8 | tristeza · soledad · noche |
+| Violeta intenso | #6A2BC4 | sueños · misterio · fe |
+| Hueso | #EDE4D3 | reflexión · verdad (neutro) |
+- Sombra base nítida: 0/2 px, desenfoque 4 px, negro 55 %.
+- Brillo SOLO si el contraste color/fondo medido es < 3:1; y entonces sutil (desenfoque 4 px, 50 %, tono claro del mismo color). Nunca neón decorativo.
 - Un solo color de acento por frase; el resto en blanco/hueso.
