@@ -56,3 +56,15 @@ Datos: vistas, % que pasa los 2–3 s, tiempo medio, % completo, segundo donde c
 - Mecanismo ganador: "¿Te acuerdas cómo terminó [personaje conocido]?" → "Y no… no fue [lo que todos creen]" → hecho incómodo poco contado → final sin respuesta ("la Biblia nunca explica por qué").
 - Estilo ganador: Noé Dark (ilustración, un mundo, cámara calma continua, etiquetas píldora, subtítulo pequeño arriba con recuadro rojo).
 - Regla: exprimirlo como SERIE "¿Te acuerdas cómo terminó…?" (una variable nueva por video). Facebook es plataforma prioritaria junto a TikTok.
+
+## 10. Lección de retención (Noé vs Moisés/Jonás, nov. 2026)
+- Noé: 63.768 vistas, curva casi plana tras el segundo 3 y termina ~75 %. Moisés: termina ~50 %. Jonás: ~32 %. El % que pasa los 3 s es parecido (~36–38 %): el gancho funciona igual; lo que mata es el tramo 3–11 s.
+- Causa: tras romper el mito, Moisés ("40 años caminando por el desierto") y Jonás ("predicó en Nínive y la ciudad se arrepintió") contaron lo que TODOS ya saben → la gente se va. Noé, en cambio, soltó de inmediato lo incómodo (viña → vino → borracho → desnudo), escalando cada 2–3 s.
+- Cuadro 0 de Noé ya mostraba la contradicción (un patriarca con una copa de vino). Moisés en un monte y Jonás con el pez = imagen esperada, sin tensión.
+REGLAS NUEVAS (obligatorias):
+1. Cuadro 0 = la contradicción visible (el detalle incómodo ya en pantalla).
+2. 0–3 s: pregunta + mito roto, sin pausas > 0,3 s.
+3. 3–8 s: el primer hecho incómodo DESCONOCIDO. Prohibido contexto o historia conocida.
+4. Escalar cada 2–3 s con un detalle más fuerte que el anterior.
+5. Final sin respuesta que obligue a comentar y a volver a verlo.
+6. Ninguna pausa de voz > 0,4 s en todo el video.
