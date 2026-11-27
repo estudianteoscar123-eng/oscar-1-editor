@@ -55,3 +55,9 @@
 - Marketing de alto impacto: gancho llamativo, curiosidad, re-gancho; nada genérico.
 - Acabado visual "caro": material 1080p, gradación cinematográfica, tipografías elegantes combinadas (cursiva fina + condensada gruesa + serif), sin plantillas genéricas.
 - Subtítulos SIEMPRE centrados en la pantalla (centro vertical y horizontal, dentro de la zona segura), nunca arriba ni abajo.
+
+## Nueva dirección (nov. 2026): "podcast cinematográfico" — PROPUESTA
+- El usuario a cámara estilo podcast (no habla de sí mismo): entretener + motivar + cambiar vidas. Guiones con las reglas de ZK (METODO_VIRAL §9–13: gancho distinto cada vez, revelaciones que escalan, demanda + dolor, final abierto, fácil de entender).
+- Referencias del usuario: chico con micrófono RØDE, cuarto oscuro con luz azul de fondo, subtítulo al pecho sans + serif itálica con brillo; hombre de traje con micrófono de podcast, fondo oscuro de lujo con luces cálidas, subtítulo sans blanco mínimo.
+- Diferencia: "ellos hablan, nosotros mostramos": cada idea se ilustra con escenas de anime/película (emoción) o gráficos (dato), corte cada 2–4 s.
+- Producción fácil: un set fijo, una sesión de grabación por semana (7–10 guiones con teleprompter, frase por frase), el resto lo hago yo.
