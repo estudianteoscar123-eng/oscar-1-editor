@@ -148,3 +148,8 @@ Control obligatorio antes de entregar cada frase:
 - Base: la estructura del video del hombre de traje (ventana centrada con esquinas redondeadas sobre negro, cortes cada ~1,8 s, cara ~40 % / escenas ~60 %).
 - Subtítulos SIEMPRE centrados (en el eje del cuadro, a la altura del pecho/zona donde la referencia los pone), con nuestro estilo A: entrada sans + clave Gloock/cursiva/pincel, colores intensos, 1–3 líneas que varían.
 - Fondos claros/cálidos (piel, paredes rosadas, sacos beige): oscurecido suave y difuso detrás del texto (elipse, 60 % centro → 0 % borde), nunca caja. Brillo solo si aun así el contraste < 3:1.
+
+## DECISIÓN (usuario): subtítulos = COPIA EXACTA del video de referencia, solo cambian los colores
+- Simplicidad del original: 1–2 líneas centradas, sans bold blanca (Inter 600 ≈ SF Pro) + palabra/frase clave en serif itálica fina grande (Instrument Serif Italic), líneas casi tocándose, misma posición y tamaños que el original (bloque centrado a la altura del pecho). Sin escaleras, sin caligrafía/pincel, sin oscurecidos.
+- Único cambio: el amarillo del original pasa a nuestros colores intensos según la emoción (rojo, vino, oro, esmeralda…); el blanco se queda blanco. Sombra negra corta y firme (3 px, 85 %) para que el color intenso se lea sobre fondos claros.
+- Lo anterior (escalera editorial, ritmo 3-2-1, etc.) queda como archivo, no como estilo activo.
