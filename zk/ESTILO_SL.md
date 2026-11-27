@@ -164,3 +164,10 @@ Es el mismo creador de las referencias de subtítulos. Lo que define su calidad:
 ## Regla de entrega de guiones (usuario)
 - Al usuario se le entrega SOLO el texto que debe leer, limpio y corrido (sin TÚ/ANIME, sin notas, sin títulos, sin portadas). Todo lo demás (escenas de anime, rojos, títulos, portadas) lo decido y lo hago yo internamente.
 - El guion NUNCA menciona el anime ni a sus personajes: habla de la vida real del espectador (redes, trabajo, familia, amigos, dinero, cuerpo, rutina), como Daniel Alberto. El anime solo ilustra en pantalla.
+
+## Formato de video SL v1 (nov. 2026) — implementado en src/sl/SLVideo.tsx
+- Cuadro 0 a 9:16 completo → en ~0,33 s se encoge a ventana cuadrada 1000×1000 con esquinas redondeadas sobre negro; en los últimos ~0,33 s vuelve a 9:16 (bucle).
+- Cara del usuario con gradación oscura/cálida + anime como B-roll cada 1–4 s (literal a la frase). Pausas de voz recortadas (silencios > 0,28 s).
+- Subtítulos: copia de la referencia — sans blanca (Inter 600) + palabra clave en serif itálica roja (#D0101E) con brillo suave por legibilidad sobre fondos oscuros. Solo blanco + rojo.
+- Música: una canción por video, baja y continua; voz −15 LUFS.
+- Portada: escena de anime en la ventana cuadrada + texto corto en el mismo estilo (sin la cara del usuario). Título siempre en pregunta.
