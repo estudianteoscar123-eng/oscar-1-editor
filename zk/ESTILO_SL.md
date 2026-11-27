@@ -89,3 +89,10 @@ Lo replicamos cambiando películas por ANIME.
 - Color: blanco base; clave en rojo (#E0332B) para golpe/alerta, blanco para reflexión, azul suave (#9FD0F0) para calma. Un solo color de acento por frase.
 - Sombra suave, sin contorno, sin cajas. Aparece la frase en seco o con fundido de 3–4 cuadros; sin rebotes.
 - Fuentes libres equivalentes: Inter/Instrument Sans (base) · DM Serif Display / Gloock (serif clave) · Playfair Display Italic (cierres) · Great Vibes / Pinyon Script (caligrafía) · Kaushan Script / Permanent Marker (pincel).
+
+## Estilo A definitivo — especificación medida al píxel (1080×1920) contra las 9 referencias
+- Fuentes (equivalentes libres más cercanas): Instrument Sans 500/600 (+ italic 500) para entradas/cierres · Gloock (clave serif, roja #E5352B o blanca; letter-spacing −1 a −3) · Playfair Display Italic 400 (#E6E6E6) para cierres elegantes · Alex Brush con trazo 2–2,5 px (caligrafía "exitoso") · Mr Dafoe (pincel rojo "error"). Azul calma #8DC8F2.
+- Tamaños medidos: entrada/cierre sans 41–55 px; clave serif 109–137 px; caligrafía 247 px; pincel 182 px; cursiva 56–62 px.
+- Posición: bloque a la altura del pecho, líneas base entre y≈915 y y≈1370; entrada alineada a la izquierda del bloque, cierre corrido a la derecha (escalera); interlineado muy apretado (las piezas se tocan).
+- Sombra: drop-shadow 0/3 px, desenfoque 7 px, negro 45 %. Sin contorno.
+- Diferencia restante: el original usa una serif comercial (tipo "The Seasons") algo más fina y condensada que Gloock, y su caligrafía/pincel son otras fuentes comerciales. Con los archivos originales el calce sería exacto.
