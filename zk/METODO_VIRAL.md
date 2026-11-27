@@ -87,3 +87,8 @@ Cómo pensar en su lugar:
 3. Que les guste (extra que lo multiplica).
 - Los 3 primeros segundos deciden si se queda; el resto es mantenerlo hasta el final.
 - Regla de ganchos: cada video prueba un gancho distinto; el que no funcione (bajo % que pasa los 3 s) se elimina. Video malo → encontrar el porqué → eliminar la falla.
+
+## 13. Demanda + dolor (regla del usuario)
+- Tema con demanda probada (personaje/tema que la gente ya busca y comenta).
+- Cada historia se elige porque refleja un DOLOR actual y masivo, sin decirlo directamente: traición de alguien que amabas, tenerlo todo y sentirte vacío, esforzarte y que otro se lleve el crédito, que tu familia te falle, sentirte solo con Dios en silencio, perderlo todo por un error.
+- El espectador debe pensar "esto me pasó a mí" sin que el video lo diga: el dolor se muestra en el personaje, nunca se sermonea.
