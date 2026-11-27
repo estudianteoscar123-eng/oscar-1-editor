@@ -1,0 +1,260 @@
+[
+ {
+  "from": 0.07,
+  "lines": [
+   {
+    "segs": [
+     {
+      "t": "Nadie ve",
+      "f": "Sans",
+      "s": 54,
+      "c": "#FFFFFF",
+      "ls": 0,
+      "at": 0.07
+     }
+    ],
+    "x": 225,
+    "y": 1150,
+    "anchor": "start",
+    "rot": 0,
+    "sw": 0
+   },
+   {
+    "segs": [
+     {
+      "t": "5:00",
+      "f": "Gloock",
+      "s": 200,
+      "c": "#EDE4D3",
+      "ls": -4,
+      "at": 0.51
+     }
+    ],
+    "x": 215,
+    "y": 1335,
+    "anchor": "start",
+    "rot": 0,
+    "sw": 0
+   },
+   {
+    "segs": [
+     {
+      "t": "de la mañana.",
+      "f": "Ital",
+      "s": 62,
+      "c": "#EDE4D3",
+      "ls": 0,
+      "at": 1.35
+     }
+    ],
+    "x": 880,
+    "y": 1398,
+    "anchor": "end",
+    "rot": 0,
+    "sw": 0
+   }
+  ]
+ },
+ {
+  "from": 2.44,
+  "lines": [
+   {
+    "segs": [
+     {
+      "t": "Nadie aplaude la",
+      "f": "Sans",
+      "s": 54,
+      "c": "#FFFFFF",
+      "ls": 0,
+      "at": 2.44
+     }
+    ],
+    "x": 870,
+    "y": 1160,
+    "anchor": "end",
+    "rot": 0,
+    "sw": 0
+   },
+   {
+    "segs": [
+     {
+      "t": "repetición ",
+      "f": "Ital",
+      "s": 64,
+      "c": "#EDE4D3",
+      "ls": 0,
+      "at": 3.18
+     },
+     {
+      "t": "100",
+      "f": "Gloock",
+      "s": 190,
+      "c": "#D99A0B",
+      "ls": -4,
+      "at": 3.55
+     }
+    ],
+    "x": 880,
+    "y": 1330,
+    "anchor": "end",
+    "rot": 0,
+    "sw": 0
+   }
+  ]
+ },
+ {
+  "from": 5.02,
+  "lines": [
+   {
+    "segs": [
+     {
+      "t": "Pero un día…",
+      "f": "Ital",
+      "s": 118,
+      "c": "#EDE4D3",
+      "ls": 0,
+      "at": 5.02
+     }
+    ],
+    "x": 200,
+    "y": 1290,
+    "anchor": "start",
+    "rot": 0,
+    "sw": 0
+   }
+  ]
+ },
+ {
+  "from": 6.85,
+  "lines": [
+   {
+    "segs": [
+     {
+      "t": "te van a preguntar",
+      "f": "Sans",
+      "s": 54,
+      "c": "#FFFFFF",
+      "ls": 0,
+      "at": 6.85
+     }
+    ],
+    "x": 215,
+    "y": 1195,
+    "anchor": "start",
+    "rot": 0,
+    "sw": 0
+   },
+   {
+    "segs": [
+     {
+      "t": "cómo lo ",
+      "f": "Ital",
+      "s": 64,
+      "c": "#EDE4D3",
+      "ls": 0,
+      "at": 7.96
+     },
+     {
+      "t": "hiciste.",
+      "f": "Gloock",
+      "s": 135,
+      "c": "#0A9B50",
+      "ls": -2,
+      "at": 8.34
+     }
+    ],
+    "x": 215,
+    "y": 1318,
+    "anchor": "start",
+    "rot": 0,
+    "sw": 0
+   }
+  ]
+ },
+ {
+  "from": 9.4,
+  "lines": [
+   {
+    "segs": [
+     {
+      "t": "Y la respuesta",
+      "f": "Sans",
+      "s": 52,
+      "c": "#FFFFFF",
+      "ls": 0,
+      "at": 9.4
+     }
+    ],
+    "x": 560,
+    "y": 1150,
+    "anchor": "start",
+    "rot": 0,
+    "sw": 0
+   },
+   {
+    "segs": [
+     {
+      "t": "será",
+      "f": "Ital",
+      "s": 72,
+      "c": "#EDE4D3",
+      "ls": 0,
+      "at": 10.15
+     }
+    ],
+    "x": 230,
+    "y": 1228,
+    "anchor": "start",
+    "rot": 0,
+    "sw": 0
+   },
+   {
+    "segs": [
+     {
+      "t": "aburrida.",
+      "f": "Gloock",
+      "s": 160,
+      "c": "#2457E0",
+      "ls": -2,
+      "at": 10.87
+     }
+    ],
+    "x": 540,
+    "y": 1335,
+    "anchor": "middle",
+    "rot": 0,
+    "sw": 0
+   }
+  ]
+ },
+ {
+  "from": 12.79,
+  "lines": [
+   {
+    "segs": [
+     {
+      "t": "todos ",
+      "f": "Brush",
+      "s": 170,
+      "c": "#D0101E",
+      "ls": 0,
+      "at": 12.79
+     },
+     {
+      "t": "los días.",
+      "f": "Brush",
+      "s": 170,
+      "c": "#D0101E",
+      "ls": 0,
+      "at": 13.89
+     }
+    ],
+    "x": 540,
+    "y": 1310,
+    "anchor": "middle",
+    "rot": -4,
+    "sw": 0
+   }
+  ]
+ }
+]

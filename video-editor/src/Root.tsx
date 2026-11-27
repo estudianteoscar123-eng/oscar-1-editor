@@ -73,6 +73,7 @@ import { ZKSanson, ZKSAN_TOTAL, ZKGedeon, ZKGED_TOTAL } from "./yt/ZK11";
 import { ZKMoises, ZKMOI_TOTAL, ZKJonas, ZKJON_TOTAL } from "./yt/ZK12";
 import { ZKSalomon, ZKSAL_TOTAL, ZKSansonFin, ZKSNS_TOTAL } from "./yt/ZK13";
 import { SubsA, SubsB, SUBS_TOTAL } from "./sl/SubsTest";
+import { SL15, SL15_TOTAL } from "./sl/SL15";
 import { YReel, YREEL_TOTAL } from "./yt/YReel";
 import { Gigante, GIG_TOTAL } from "./yt/Gigante";
 import { ZKGigante, ZKGIG_TOTAL } from "./jesus/ZK7";
@@ -173,6 +174,7 @@ export const Main = () => {
       <Composition id="YReelYT" component={YReel} durationInFrames={YREEL_TOTAL} fps={30} width={1920} height={1080} defaultProps={{ vertical: false }} />
       <Composition id="YReelShort" component={YReel} durationInFrames={YREEL_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ vertical: true }} />
       <Composition id="Est1ZK" component={Est1ZK} durationInFrames={EST3_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="SL15" component={SL15} durationInFrames={SL15_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLSubsA" component={SubsA} durationInFrames={SUBS_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLSubsB" component={SubsB} durationInFrames={SUBS_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="ZKSalomon" component={ZKSalomon} durationInFrames={ZKSAL_TOTAL} fps={30} width={1080} height={1920} />
