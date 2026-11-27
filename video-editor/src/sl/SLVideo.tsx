@@ -10,6 +10,37 @@ import w2 from "../../public/slv/cam2.json";
 // Subtítulos = copia de la referencia (sans blanca + palabra clave en serif itálica), 2 colores: blanco + rojo.
 loadFont({ family: "SLSans", url: staticFile("fonts/inter-latin-600-normal.woff2"), weight: "600" });
 loadFont({ family: "SLSerif", url: staticFile("fonts/instrument-serif-latin-400-italic.woff2"), weight: "400", style: "italic" });
+loadFont({ family: "TSans", url: staticFile("fonts/instrument-sans-latin-500-normal.woff2"), weight: "500" });
+loadFont({ family: "TBig", url: staticFile("fonts/gloock-latin-400-normal.woff2"), weight: "400" });
+loadFont({ family: "TItal", url: staticFile("fonts/playfair-display-latin-400-italic.woff2"), weight: "400", style: "italic" });
+
+// Títulos editoriales (gancho y frases clave). seg: [texto, fuente, tamaño, color]
+type TSeg = [string, string, number, string];
+type TLine = { segs: TSeg[]; x: number; y: number; anchor?: "start" | "middle" | "end" };
+type Title = { s: number; e: number; lines: TLine[] };
+const FONT: Record<string, [string, string, string]> = { S: ["TSans", "normal", "500"], B: ["TBig", "normal", "400"], I: ["TItal", "italic", "400"], R: ["SLSerif", "italic", "400"] };
+const W_ = "#FFFFFF";
+const Titles: React.FC<{ t: number; T: Title[] }> = ({ t, T }) => {
+  const ti = T.find((x) => t >= x.s && t < x.e);
+  if (!ti) return null;
+  return (
+    <svg width={1080} height={1920} style={{ position: "absolute" }}>
+      <defs>
+        <filter id="tsh" x="-20%" y="-50%" width="140%" height="200%"><feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#000" floodOpacity="0.7" /></filter>
+        <filter id="tgl" x="-20%" y="-60%" width="140%" height="220%"><feDropShadow dx="0" dy="0" stdDeviation="5" floodColor="#FF5A5A" floodOpacity="0.45" result="a" /><feDropShadow in="a" dx="0" dy="2" stdDeviation="4" floodColor="#000" floodOpacity="0.7" /></filter>
+      </defs>
+      {ti.lines.map((l, k) => {
+        const a = interpolate(t, [ti.s + k * 0.12, ti.s + k * 0.12 + 0.12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+        const red = l.segs.some((sg) => sg[3] === RED);
+        return (
+          <text key={k} x={l.x} y={l.y + (1 - a) * 8} textAnchor={l.anchor ?? "start"} opacity={a} filter={red ? "url(#tgl)" : "url(#tsh)"}>
+            {l.segs.map(([txt, f, size, c], j) => { const [fam, st, w] = FONT[f]; return <tspan key={j} fontFamily={fam} fontStyle={st} fontWeight={w} fontSize={size} fill={c} letterSpacing={f === "B" ? -3 : 0}>{txt}</tspan>; })}
+          </text>
+        );
+      })}
+    </svg>
+  );
+};
 
 const FPS = 30;
 const RED = "#D0101E";
@@ -30,7 +61,7 @@ const groupsOf = (W: Wd[], keys: Set<string>): Group[] => {
   };
   W.forEach((w, i) => {
     const prev = W[i - 1];
-    if (cur.length && prev && (w.s - prev.e > 0.35 || /[.,?!]$/.test(prev.w) || cur.length >= 4)) flush();
+    if (cur.length && prev && (w.s - prev.e > 0.35 || /[.,?!]$/.test(prev.w) || cur.length >= 3)) flush();
     if (keys.has(norm(w.w))) flush(w);
     else cur.push(w);
   });
@@ -44,9 +75,8 @@ const Captions: React.FC<{ t: number; G: Group[] }> = ({ t, G }) => {
   if (!g) return null;
   const a = interpolate(t, [g.s - 0.05, g.s + 0.05], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
-    <div style={{ position: "absolute", left: 90, right: 90, top: 1240, textAlign: "center", opacity: a }}>
-      {g.lead ? <div style={{ fontFamily: "SLSans", fontWeight: 600, fontSize: 58, lineHeight: 1.0, color: "#fff", textShadow: shadow, letterSpacing: -0.5 }}>{g.lead}</div> : null}
-      {g.key ? <div style={{ fontFamily: "SLSerif", fontStyle: "italic", fontSize: 128, lineHeight: 0.95, color: RED, textShadow: `0 0 16px rgba(255,60,60,0.45), ${shadow}`, marginTop: g.lead ? -6 : 0 }}>{g.key}</div> : null}
+    <div style={{ position: "absolute", left: 90, right: 90, top: 1255, textAlign: "center", opacity: a }}>
+      <div style={{ fontFamily: "SLSans", fontWeight: 600, fontSize: 46, lineHeight: 1.0, color: "#fff", textShadow: shadow, letterSpacing: -0.3 }}>{g.lead}</div>
     </div>
   );
 };
@@ -64,9 +94,10 @@ const Win: React.FC<{ f: number; total: number; children: React.ReactNode }> = (
 
 const Fill: React.CSSProperties = { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" };
 
-const SLVideo: React.FC<{ v: "v1" | "v2"; cam: string; W: Wd[]; keys: string[]; song: string; songFrom: number; songVol: number; total: number }> = ({ v, cam, W, keys, song, songFrom, songVol, total }) => {
+const SLVideo: React.FC<{ v: "v1" | "v2"; cam: string; W: Wd[]; keys: string[]; T: Title[]; song: string; songFrom: number; songVol: number; total: number }> = ({ v, cam, W, keys, T, song, songFrom, songVol, total }) => {
   const f = useCurrentFrame(), t = f / FPS;
-  const G = React.useMemo(() => groupsOf(W, new Set(keys)), [W, keys]);
+  const G = React.useMemo(() => groupsOf(W, new Set<string>()), [W]);
+  void keys;
   const clips = (edl as unknown as Record<string, Clip[]>)[v];
   return (
     <AbsoluteFill style={{ background: "#000" }}>
@@ -80,7 +111,7 @@ const SLVideo: React.FC<{ v: "v1" | "v2"; cam: string; W: Wd[]; keys: string[]; 
         <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%)" }} />
         <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.35) 100%)" }} />
       </Win>
-      {getInputProps().nocap ? null : <Captions t={t} G={G} />}
+      {getInputProps().nocap ? null : T.some((x) => t >= x.s && t < x.e) ? <Titles t={t} T={T} /> : <Captions t={t} G={G} />}
       <Audio src={staticFile(`slv/${cam}.mp4`)} />
       <Audio src={staticFile(`slv/${song}.wav`)} trimBefore={Math.round(songFrom * FPS)} volume={(fr) => songVol * interpolate(fr, [0, 3, total - 20, total], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} />
     </AbsoluteFill>
@@ -89,7 +120,17 @@ const SLVideo: React.FC<{ v: "v1" | "v2"; cam: string; W: Wd[]; keys: string[]; 
 
 const K1 = ["tu", "mal", "tarde", "distraido", "otros", "dia", "gana", "cuenta", "ajenos", "tuyas", "dormir", "casa", "viajo", "negocio", "anos", "momento", "rival", "ayer", "nadie", "ti"];
 const K2 = ["mejorar", "amigos", "advierte", "viernes", "cambiaste", "solo", "pena", "vale", "soledad", "castigo", "prueba", "entrenas", "estudias", "trabajando", "resultado", "equipo", "pasado", "despues", "convertiste"];
+const T1: Title[] = [
+  { s: 0, e: 3.25, lines: [{ segs: [["Sientes que todos", "S", 54, W_]], x: 235, y: 1110 }, { segs: [["avanzan", "B", 170, W_]], x: 540, y: 1245, anchor: "middle" }, { segs: [["menos tú.", "R", 110, RED]], x: 860, y: 1335, anchor: "end" }] },
+  { s: 6.05, e: 8.35, lines: [{ segs: [["No vas tarde.", "S", 56, W_]], x: 250, y: 1175 }, { segs: [["Vas ", "R", 100, W_], ["distraído.", "B", 145, RED]], x: 540, y: 1320, anchor: "middle" }] },
+  { s: 35.95, e: 38.6, lines: [{ segs: [["Tu único rival", "S", 54, W_]], x: 235, y: 1150 }, { segs: [["es el que fuiste", "I", 70, W_]], x: 845, y: 1225, anchor: "end" }, { segs: [["ayer.", "B", 190, RED]], x: 540, y: 1375, anchor: "middle" }] },
+];
+const T2: Title[] = [
+  { s: 0, e: 3.25, lines: [{ segs: [["Cuando empieces a mejorar,", "S", 50, W_]], x: 225, y: 1110 }, { segs: [["vas a perder", "R", 96, W_]], x: 225, y: 1200 }, { segs: [["amigos.", "B", 180, RED]], x: 860, y: 1345, anchor: "end" }] },
+  { s: 18.5, e: 20.5, lines: [{ segs: [["No es un castigo.", "S", 56, W_]], x: 250, y: 1175 }, { segs: [["Es una ", "R", 96, W_], ["prueba.", "B", 150, RED]], x: 540, y: 1320, anchor: "middle" }] },
+  { s: 27.6, e: 30.55, lines: [{ segs: [["Los que se van", "S", 54, W_]], x: 235, y: 1150 }, { segs: [["no eran tu equipo.", "I", 66, W_]], x: 845, y: 1222, anchor: "end" }, { segs: [["Eran tu ", "R", 90, W_], ["pasado.", "B", 150, RED]], x: 540, y: 1365, anchor: "middle" }] },
+];
 export const SLV1_TOTAL = Math.round(41.68 * FPS);
 export const SLV2_TOTAL = Math.round(34.55 * FPS);
-export const SLV1: React.FC = () => <SLVideo v="v1" cam="cam1" W={w1 as Wd[]} keys={K1} song="songA" songFrom={60} songVol={0.16} total={SLV1_TOTAL} />;
-export const SLV2: React.FC = () => <SLVideo v="v2" cam="cam2" W={w2 as Wd[]} keys={K2} song="songB" songFrom={0} songVol={0.11} total={SLV2_TOTAL} />;
+export const SLV1: React.FC = () => <SLVideo v="v1" cam="cam1" W={w1 as Wd[]} keys={K1} T={T1} song="songA" songFrom={60} songVol={0.16} total={SLV1_TOTAL} />;
+export const SLV2: React.FC = () => <SLVideo v="v2" cam="cam2" W={w2 as Wd[]} keys={K2} T={T2} song="songB" songFrom={0} songVol={0.11} total={SLV2_TOTAL} />;
