@@ -65,7 +65,7 @@ const Svg: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 
 // ---------------- personajes ----------------
 // soldado filisteo (tocado de plumas, escudo redondo, lanza); pies en (0,0), ~300 de alto
-const Soldier: React.FC<{ x: number; y: number; s: number; t: number; run?: boolean; face?: 1 | -1; down?: number }> = ({ x, y, s, t, run, face = 1, down = 0 }) => {
+export const Soldier: React.FC<{ x: number; y: number; s: number; t: number; run?: boolean; face?: 1 | -1; down?: number }> = ({ x, y, s, t, run, face = 1, down = 0 }) => {
   const ph = run ? Math.sin(t * 16 + x * 0.1) : 0;
   return (
     <g transform={`translate(${x} ${y}) scale(${s * face} ${s}) rotate(${down * 88} 0 0)`}>
@@ -82,7 +82,7 @@ const Soldier: React.FC<{ x: number; y: number; s: number; t: number; run?: bool
   );
 };
 // Sansón de espaldas: pelo largo en 7 trenzas, hombros anchos; pies en (0,0), ~1500 de alto
-const SamsonBack: React.FC<{ t: number; arms?: number; jaw?: boolean }> = ({ t, arms = 0, jaw }) => (
+export const SamsonBack: React.FC<{ t: number; arms?: number; jaw?: boolean }> = ({ t, arms = 0, jaw }) => (
   <g>
     <ellipse cx={0} cy={6} rx={300} ry={40} fill="rgba(0,0,0,0.6)" />
     <path d="M-120 -700 L -150 0 L -40 0 L 0 -520 L 40 0 L 150 0 L 120 -700 Z" fill="#160E0C" />
@@ -107,7 +107,7 @@ const SamsonBack: React.FC<{ t: number; arms?: number; jaw?: boolean }> = ({ t, 
     })}
   </g>
 );
-const Jaw: React.FC<{ s?: number }> = ({ s = 1 }) => (
+export const Jaw: React.FC<{ s?: number }> = ({ s = 1 }) => (
   <g transform={`scale(${s})`}>
     <path d="M-300 40 Q -280 -40 -120 -50 L 180 -60 Q 260 -70 300 -160 Q 330 -230 290 -280 L 330 -300 Q 380 -200 330 -80 Q 300 10 200 40 L -200 80 Q -290 90 -300 40 Z" fill="#D8CDB8" />
     <path d="M-300 40 Q -290 90 -200 80 L 200 40 Q 300 10 330 -80" stroke="#7A6E5C" strokeWidth={10} fill="none" />

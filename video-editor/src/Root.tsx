@@ -71,6 +71,7 @@ import { ZKNoe, ZKNOE_TOTAL, ZKCana, ZKCANA_TOTAL } from "./yt/ZK9";
 import { ZKGoliat, ZKGOL_TOTAL } from "./yt/ZK10";
 import { ZKSanson, ZKSAN_TOTAL, ZKGedeon, ZKGED_TOTAL } from "./yt/ZK11";
 import { ZKMoises, ZKMOI_TOTAL, ZKJonas, ZKJON_TOTAL } from "./yt/ZK12";
+import { ZKSalomon, ZKSAL_TOTAL, ZKSansonFin, ZKSNS_TOTAL } from "./yt/ZK13";
 import { YReel, YREEL_TOTAL } from "./yt/YReel";
 import { Gigante, GIG_TOTAL } from "./yt/Gigante";
 import { ZKGigante, ZKGIG_TOTAL } from "./jesus/ZK7";
@@ -171,6 +172,8 @@ export const Main = () => {
       <Composition id="YReelYT" component={YReel} durationInFrames={YREEL_TOTAL} fps={30} width={1920} height={1080} defaultProps={{ vertical: false }} />
       <Composition id="YReelShort" component={YReel} durationInFrames={YREEL_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ vertical: true }} />
       <Composition id="Est1ZK" component={Est1ZK} durationInFrames={EST3_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="ZKSalomon" component={ZKSalomon} durationInFrames={ZKSAL_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="ZKSansonFin" component={ZKSansonFin} durationInFrames={ZKSNS_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="ZKMoises" component={ZKMoises} durationInFrames={ZKMOI_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="ZKJonas" component={ZKJonas} durationInFrames={ZKJON_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="ZKSanson" component={ZKSanson} durationInFrames={ZKSAN_TOTAL} fps={30} width={1080} height={1920} />
