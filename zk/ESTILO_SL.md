@@ -112,3 +112,9 @@ Lo replicamos cambiando películas por ANIME.
 - Sombra base nítida: 0/2 px, desenfoque 4 px, negro 55 %.
 - Brillo SOLO si el contraste color/fondo medido es < 3:1; y entonces sutil (desenfoque 4 px, 50 %, tono claro del mismo color). Nunca neón decorativo.
 - Un solo color de acento por frase; el resto en blanco/hueso.
+
+## Ritmo de hileras 3-2-1 y columnas (aprobado en concepto, nov. 2026)
+- 1 línea = golpe (palabra sola, grande: serif, caligrafía o pincel). 2 líneas = contraste/giro. 3 líneas = idea completa con clave al medio o al final.
+- Nunca el mismo número de líneas más de 2 veces seguidas (ej. 3·1·2·3·1·2·3·1).
+- Alineación que rota: escalera izq→der, todo a la derecha, todo a la izquierda, centrado; se elige según el espacio libre (nunca sobre la cara).
+- Interlineado apretado: la línea pequeña casi toca la palabra grande; dejar aire con letras con punto/acento (i, j, ó).
