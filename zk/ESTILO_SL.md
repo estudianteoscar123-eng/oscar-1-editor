@@ -131,3 +131,5 @@ Control obligatorio antes de entregar cada frase:
 8. Prohibido lo barato: contornos gruesos, cajas, emojis, degradados en el texto, rebotes, textos torcidos sin motivo, más de 3 líneas.
 9. Prueba final: ¿parece la portada de una revista o un anuncio de marca premium? Si no, se rehace.
 - Anti-genérico en composición (usuario): nunca una frase larga en un solo estilo ni 3 líneas centradas y simétricas. La palabra con más peso de sentido es la grande (no la primera que aparece); mezclar en una misma línea pequeña + grande (ej. "o duele **siempre.**", "dejas de **negociar**"); las líneas comparten un eje (inicio o fin). Margen duro: ningún texto fuera de x 110–970 (si no entra, se reduce el grupo entero).
+- Elección del usuario (disciplina): palabras de concepto serio (disciplina, propósito, carácter…) → patrón EDITORIAL: entrada sans arriba-izq, clave en serif Gloock grande de color, cierre sans abajo-der. El pincel queda para golpes cortos y emocionales (ahora, basta, nunca). La caligrafía solo para aspiración (éxito, sueños).
+- Herramienta: video-editor/tools/subs/seq.js (maqueta por frase con márgenes automáticos) + ejemplo-secuencia.json.
