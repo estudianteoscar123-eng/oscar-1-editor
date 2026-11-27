@@ -118,3 +118,15 @@ Lo replicamos cambiando películas por ANIME.
 - Nunca el mismo número de líneas más de 2 veces seguidas (ej. 3·1·2·3·1·2·3·1).
 - Alineación que rota: escalera izq→der, todo a la derecha, todo a la izquierda, centrado; se elige según el espacio libre (nunca sobre la cara).
 - Interlineado apretado: la línea pequeña casi toca la palabra grande; dejar aire con letras con punto/acento (i, j, ó).
+
+## Regla de calidad premium (usuario): marketing profesional, estético, elegante, nunca genérico ni "IA"
+Control obligatorio antes de entregar cada frase:
+1. Jerarquía: se lee primero la palabra clave, luego la entrada, luego el cierre. Una sola protagonista por pantalla.
+2. Composición: el bloque cae sobre el pecho, centrado ópticamente (no matemáticamente), con márgenes ≥ 90 px; nunca toca la cara, el micrófono ni los bordes; nada flotando "suelto".
+3. Proporción: palabra clave 2,5–3,5× el tamaño de las líneas pequeñas; nunca dos tamaños parecidos compitiendo.
+4. Alineación con intención: escalera, derecha, izquierda o centro según el espacio libre y el sentido; las líneas comparten ejes (inicio o final) para que se vea diseñado.
+5. Color con psicología: rojo = alarma/urgencia, vino = deseo/culpa, oro = éxito/valor, esmeralda = crecimiento/esperanza, agua marina oscuro = calma, azul intenso = tristeza/soledad, violeta = sueño/fe, hueso = verdad. El color debe significar lo que dice la palabra; si no encaja, va en hueso/blanco.
+6. Máximo 1 color de acento por frase y máximo 2 familias tipográficas por frase.
+7. Nitidez: bordes limpios, sombra corta; brillo solo por contraste < 3:1.
+8. Prohibido lo barato: contornos gruesos, cajas, emojis, degradados en el texto, rebotes, textos torcidos sin motivo, más de 3 líneas.
+9. Prueba final: ¿parece la portada de una revista o un anuncio de marca premium? Si no, se rehace.
