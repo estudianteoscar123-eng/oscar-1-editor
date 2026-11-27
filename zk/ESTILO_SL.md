@@ -96,3 +96,17 @@ Lo replicamos cambiando películas por ANIME.
 - Posición: bloque a la altura del pecho, líneas base entre y≈915 y y≈1370; entrada alineada a la izquierda del bloque, cierre corrido a la derecha (escalera); interlineado muy apretado (las piezas se tocan).
 - Sombra: drop-shadow 0/3 px, desenfoque 7 px, negro 45 %. Sin contorno.
 - Diferencia restante: el original usa una serif comercial (tipo "The Seasons") algo más fina y condensada que Gloock, y su caligrafía/pincel son otras fuentes comerciales. Con los archivos originales el calce sería exacto.
+
+## Paleta profunda SL (decisión del usuario: nada pastel; colores oscuros y con cuerpo)
+| Color | Hex (texto) | Brillo detrás | Emoción |
+|---|---|---|---|
+| Rojo sangre | #B3121B | #E0242E | golpe · peligro · error |
+| Vino | #9E1F35 | #E8456A | pasión · deseo · culpa |
+| Oro viejo | #B8862B | #E0A845 | éxito · ambición · disciplina |
+| Esmeralda | #1F7A4D | #2FB070 | esperanza · crecimiento |
+| Petróleo | #0F8094 | #35D0E6 | calma · paz · mente |
+| Azul medianoche | #1E3A7A | #4A78D8 | tristeza · soledad · noche |
+| Violeta profundo | #4B2A6E | #8A5AC8 | sueños · misterio · fe |
+| Hueso | #EDE4D3 | #FFFFFF | reflexión · verdad (neutro) |
+- Regla técnica: el color profundo SIEMPRE lleva un brillo suave de su tono claro detrás (desenfoque 13 px, 80 %) + la sombra negra; sin eso, sobre fondos oscuros no se lee.
+- Un solo color de acento por frase; el resto en blanco/hueso.
