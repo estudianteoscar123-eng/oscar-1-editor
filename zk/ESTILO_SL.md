@@ -160,3 +160,6 @@ Es el mismo creador de las referencias de subtítulos. Lo que define su calidad:
 - Formatos: (a) frase-poema de 9–20 s todo en B-roll + tipografía; (b) talking head 30–65 s con B-roll cada 2–4 s; (c) lista "consejo del día / día 2".
 - Imagen: cara a cámara con micro y luz cálida lateral, fondo oscuro; B-roll que muestra literal la frase; luz ROJA o CIAN dura en los momentos de dolor; tarjetas crema con tipografía; rótulos grandes solo en la frase clave; el resto, subtítulo pequeño palabra a palabra en el pecho.
 - Para SL: mismo sistema; anime en lugar de B-roll; MÁXIMO 2 colores: blanco + rojo intenso #D0101E (el rojo solo en la palabra clave y en la luz de dolor).
+
+## Regla de entrega de guiones (usuario)
+- Al usuario se le entrega SOLO el texto que debe leer, limpio y corrido (sin TÚ/ANIME, sin notas, sin títulos, sin portadas). Todo lo demás (escenas de anime, rojos, títulos, portadas) lo decido y lo hago yo internamente.
