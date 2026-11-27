@@ -78,3 +78,14 @@ Lo replicamos cambiando películas por ANIME.
 - Subtítulos: dentro de la ventana, a media altura. Palabra por palabra, aparece en seco (sin animación). Frase de 2–4 palabras apiladas en líneas con interlineado muy apretado (se solapan). Base: sans blanca semibold (tipo SF Pro/Inter) con sombra suave. Palabra clave: serif itálica fina grande (tipo Playfair/Instrument Serif Italic) en amarillo (#E6DF3C aprox.), ~1,5× de tamaño, que se monta sobre la línea de arriba.
 - Audio: voz al frente (media -16,5 dB) y música suave continua (piano/ambient), cero silencios.
 - Guion: tesis que contradice ("La mayoría no quiere amor. Quiere distracción emocional.") → contrastes "no es X, es Y" en paralelo → profundiza → cierre aforismo que se puede citar ("Uno no se queda cuando es fácil, se queda cuando es de verdad.").
+
+## Subtítulos SL (referencia elegida por el usuario, nov. 2026) — "titular editorial"
+- Cada frase = 3 piezas apiladas en ESCALERA, centradas a la altura del pecho (nunca sobre la cara):
+  1. arriba-izquierda: entrada corta en sans blanca pequeña ("Dejar de", "¿Sabes cuál", "Esto es lo");
+  2. centro: UNA palabra clave enorme (~3× tamaño) en fuente de display;
+  3. abajo-derecha: cierre pequeño en sans o serif itálica ("es muy fácil.", "más grande", "que te conoce.").
+- Fuente de la palabra clave según la emoción (la variedad es parte del estilo):
+  serif de alto contraste (firmeza: "sobrepensar", "mejor", "motivación") · caligrafía elegante (aspiración: "exitoso") · pincel (peligro/error: "error") · serif clásica blanca (reflexión: "vives", "gente presuma").
+- Color: blanco base; clave en rojo (#E0332B) para golpe/alerta, blanco para reflexión, azul suave (#9FD0F0) para calma. Un solo color de acento por frase.
+- Sombra suave, sin contorno, sin cajas. Aparece la frase en seco o con fundido de 3–4 cuadros; sin rebotes.
+- Fuentes libres equivalentes: Inter/Instrument Sans (base) · DM Serif Display / Gloock (serif clave) · Playfair Display Italic (cierres) · Great Vibes / Pinyon Script (caligrafía) · Kaushan Script / Permanent Marker (pincel).
