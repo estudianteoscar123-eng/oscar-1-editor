@@ -143,3 +143,8 @@ Control obligatorio antes de entregar cada frase:
   · 1 "sorpresa" cada ~6–8 frases (palabra partida en dos líneas, una letra/acento en color, palabra que llega en dos tiempos, frase que se completa en la siguiente pantalla).
 - Control de frescura: dos pantallas seguidas nunca repiten alineación + fuente clave + altura; ningún patrón exacto se repite dentro de 5 frases.
 - Juicio final: si me gusta a mí y al usuario como diseño, gana sobre la regla.
+
+## Plantilla final SL = video de referencia (ventana redondeada) + nuestro estilo (nov. 2026)
+- Base: la estructura del video del hombre de traje (ventana centrada con esquinas redondeadas sobre negro, cortes cada ~1,8 s, cara ~40 % / escenas ~60 %).
+- Subtítulos SIEMPRE centrados (en el eje del cuadro, a la altura del pecho/zona donde la referencia los pone), con nuestro estilo A: entrada sans + clave Gloock/cursiva/pincel, colores intensos, 1–3 líneas que varían.
+- Fondos claros/cálidos (piel, paredes rosadas, sacos beige): oscurecido suave y difuso detrás del texto (elipse, 60 % centro → 0 % borde), nunca caja. Brillo solo si aun así el contraste < 3:1.
