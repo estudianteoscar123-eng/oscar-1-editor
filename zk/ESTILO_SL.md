@@ -163,3 +163,4 @@ Es el mismo creador de las referencias de subtítulos. Lo que define su calidad:
 
 ## Regla de entrega de guiones (usuario)
 - Al usuario se le entrega SOLO el texto que debe leer, limpio y corrido (sin TÚ/ANIME, sin notas, sin títulos, sin portadas). Todo lo demás (escenas de anime, rojos, títulos, portadas) lo decido y lo hago yo internamente.
+- El guion NUNCA menciona el anime ni a sus personajes: habla de la vida real del espectador (redes, trabajo, familia, amigos, dinero, cuerpo, rutina), como Daniel Alberto. El anime solo ilustra en pantalla.
