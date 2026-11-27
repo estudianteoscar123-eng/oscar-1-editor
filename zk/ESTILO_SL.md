@@ -61,3 +61,10 @@
 - Referencias del usuario: chico con micrófono RØDE, cuarto oscuro con luz azul de fondo, subtítulo al pecho sans + serif itálica con brillo; hombre de traje con micrófono de podcast, fondo oscuro de lujo con luces cálidas, subtítulo sans blanco mínimo.
 - Diferencia: "ellos hablan, nosotros mostramos": cada idea se ilustra con escenas de anime/película (emoción) o gráficos (dato), corte cada 2–4 s.
 - Producción fácil: un set fijo, una sesión de grabación por semana (7–10 guiones con teleprompter, frase por frase), el resto lo hago yo.
+
+## FORMATO ELEGIDO (nov. 2026, usuario): Podcast + Anime
+- El usuario habla a cámara estilo podcast; las escenas que ilustran lo que dice son SOLO anime (no películas, no motion graphics).
+- Por qué solo anime: su público viene del anime; la competencia usa películas (diferenciación); un solo lenguaje visual repetido = señal clara al algoritmo; el anime exagera la emoción interna (pensar, llorar, levantarse) mejor que una película.
+- Regla de uso: la escena de anime muestra LITERAL lo que dice la frase ("acostado pensando qué hacer con tu vida" → personaje de anime acostado mirando el techo). Reparto ~45 % cara / 55 % anime, alternando cada 2–4 s; nunca >4 s de cara sola.
+- Anime con un mismo tratamiento de color para todos los clips (unidad visual); clips cortos (1–3 s) y transformados (recorte 9:16, grade, subtítulos) para reducir riesgo de derechos.
+- Repetir el mismo formato en cada video.
