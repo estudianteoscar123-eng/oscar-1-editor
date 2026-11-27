@@ -115,3 +115,4 @@ video-editor/est3.log
 # temporales de la voz clonada
 *_raw*.wav
 *.16k.wav
+video-editor/public/sltest/
