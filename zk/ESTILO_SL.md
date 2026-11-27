@@ -171,3 +171,9 @@ Es el mismo creador de las referencias de subtítulos. Lo que define su calidad:
 - Subtítulos: copia de la referencia — sans blanca (Inter 600) + palabra clave en serif itálica roja (#D0101E) con brillo suave por legibilidad sobre fondos oscuros. Solo blanco + rojo.
 - Música: una canción por video, baja y continua; voz −15 LUFS.
 - Portada: escena de anime en la ventana cuadrada + texto corto en el mismo estilo (sin la cara del usuario). Título siempre en pregunta.
+
+## Sistema de subtítulos por momentos (como Daniel Alberto) — propuesta nov. 2026
+1. GANCHO (0–3 s): la primera frase como TÍTULO editorial de 3 piezas (sans pequeña + palabra grande serif/itálica + cierre), blanco + rojo. Es lo que retiene.
+2. CUERPO: subtítulo pequeño y limpio (Inter 600 ~46 px, blanco), 1–3 palabras, a la altura del pecho, sin palabra grande.
+3. FRASES CLAVE (2–3 por video: la verdad más fuerte y el cierre): vuelven al título editorial con la palabra que duele en rojo grande.
+- El contraste entre lo pequeño y lo grande es lo que da la sensación premium y marca el ritmo. El fondo del gancho se elige con zona tranquila para el rojo.

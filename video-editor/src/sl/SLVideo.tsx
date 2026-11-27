@@ -1,7 +1,7 @@
 import React from "react";
 import { loadFont } from "@remotion/fonts";
 import { Audio } from "@remotion/media";
-import { AbsoluteFill, Easing, OffthreadVideo, Sequence, interpolate, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Easing, OffthreadVideo, Sequence, getInputProps, interpolate, staticFile, useCurrentFrame } from "remotion";
 import edl from "../../public/slv/edl.json";
 import w1 from "../../public/slv/cam1.json";
 import w2 from "../../public/slv/cam2.json";
@@ -80,7 +80,7 @@ const SLVideo: React.FC<{ v: "v1" | "v2"; cam: string; W: Wd[]; keys: string[]; 
         <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%)" }} />
         <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.35) 100%)" }} />
       </Win>
-      <Captions t={t} G={G} />
+      {getInputProps().nocap ? null : <Captions t={t} G={G} />}
       <Audio src={staticFile(`slv/${cam}.mp4`)} />
       <Audio src={staticFile(`slv/${song}.wav`)} trimBefore={Math.round(songFrom * FPS)} volume={(fr) => songVol * interpolate(fr, [0, 3, total - 20, total], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} />
     </AbsoluteFill>
