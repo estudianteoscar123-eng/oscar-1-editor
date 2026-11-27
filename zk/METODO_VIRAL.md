@@ -80,3 +80,10 @@ Cómo pensar en su lugar:
 - Cada frase debe ganarse el siguiente segundo: si se puede quitar sin perder tensión, se quita.
 - Específico > general; mostrar > decir; tensión > información.
 - Hook distinto en cada video (variar la forma, no solo el tema): pregunta de memoria, contradicción visual muda, cifra imposible, cita textual incómoda, "en primera persona", final contado primero, objeto misterioso en cuadro 0. Registrar cuál se usó y cómo rindió.
+
+## 12. Pilares de la viralización (regla del usuario)
+1. Que lo vean COMPLETO (meta: >95 % de retención al final). Prioridad máxima.
+2. Que lo entienda CUALQUIER persona (sin saber nada de la Biblia, sin palabras difíciles, una idea por frase).
+3. Que les guste (extra que lo multiplica).
+- Los 3 primeros segundos deciden si se queda; el resto es mantenerlo hasta el final.
+- Regla de ganchos: cada video prueba un gancho distinto; el que no funcione (bajo % que pasa los 3 s) se elimina. Video malo → encontrar el porqué → eliminar la falla.
