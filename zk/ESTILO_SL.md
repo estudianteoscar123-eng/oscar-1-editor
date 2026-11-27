@@ -68,3 +68,13 @@
 - Regla de uso: la escena de anime muestra LITERAL lo que dice la frase ("acostado pensando qué hacer con tu vida" → personaje de anime acostado mirando el techo). Reparto ~45 % cara / 55 % anime, alternando cada 2–4 s; nunca >4 s de cara sola.
 - Anime con un mismo tratamiento de color para todos los clips (unidad visual); clips cortos (1–3 s) y transformados (recorte 9:16, grade, subtítulos) para reducir riesgo de derechos.
 - Repetir el mismo formato en cada video.
+
+## Referencia analizada (nov. 2026): podcast + B-roll de películas (45 s, 720×1280, 25 fps nativo)
+Lo replicamos cambiando películas por ANIME.
+- Encuadre: fondo NEGRO y una "ventana" centrada casi cuadrada (~675×715 px de 720×1280, ≈1:1,06) con esquinas redondeadas, en y≈285–1000. Todo (cara y B-roll) vive dentro de la ventana. Ventaja para anime 16:9: el recorte cuadrado pierde poco.
+- Ritmo: 25 planos en 45 s → 1,8 s de media (0,6–4,2 s); ~33 cortes/min. Cara ≈ 40 % (bloques de 2–4 s), B-roll ≈ 60 % (1–3 s por plano). Cortes secos, sin transiciones ni zooms.
+- B-roll: ilustra la EMOCIÓN de la frase (parejas, miradas, abrazos, discusiones), casi literal. Mismo tono cálido en todo.
+- Cara: plano medio frontal, saco beige + camiseta negra, fondo cálido rosado/naranja con lámparas (bokeh). Mira a cámara, manos en cuadro.
+- Subtítulos: dentro de la ventana, a media altura. Palabra por palabra, aparece en seco (sin animación). Frase de 2–4 palabras apiladas en líneas con interlineado muy apretado (se solapan). Base: sans blanca semibold (tipo SF Pro/Inter) con sombra suave. Palabra clave: serif itálica fina grande (tipo Playfair/Instrument Serif Italic) en amarillo (#E6DF3C aprox.), ~1,5× de tamaño, que se monta sobre la línea de arriba.
+- Audio: voz al frente (media -16,5 dB) y música suave continua (piano/ambient), cero silencios.
+- Guion: tesis que contradice ("La mayoría no quiere amor. Quiere distracción emocional.") → contrastes "no es X, es Y" en paralelo → profundiza → cierre aforismo que se puede citar ("Uno no se queda cuando es fácil, se queda cuando es de verdad.").
