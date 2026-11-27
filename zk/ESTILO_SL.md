@@ -153,3 +153,10 @@ Control obligatorio antes de entregar cada frase:
 - Simplicidad del original: 1–2 líneas centradas, sans bold blanca (Inter 600 ≈ SF Pro) + palabra/frase clave en serif itálica fina grande (Instrument Serif Italic), líneas casi tocándose, misma posición y tamaños que el original (bloque centrado a la altura del pecho). Sin escaleras, sin caligrafía/pincel, sin oscurecidos.
 - Único cambio: el amarillo del original pasa a nuestros colores intensos según la emoción (rojo, vino, oro, esmeralda…); el blanco se queda blanco. Sombra negra corta y firme (3 px, 85 %) para que el color intenso se lea sobre fondos claros.
 - Lo anterior (escalera editorial, ritmo 3-2-1, etc.) queda como archivo, no como estilo activo.
+
+## Referencia principal (usuario, nov. 2026): creador Daniel Alberto — 13 videos (Drive, 9–65 s)
+Es el mismo creador de las referencias de subtítulos. Lo que define su calidad:
+- Guion: tesis que pica en la 1ª frase ("La flojera no existe", "Tu cerebro está muriendo poco a poco", "Tu indisciplina tiene a perdedores pensando que están a tu nivel", "La manera en la que vives te torturará cuando seas viejo") → explicación simple en "tú" → 1 dato o ejemplo concreto (7 h de pantalla = 14 años de 50; cuaderno con 3 victorias) → frase citable → cierre fijo de marca: "Probablemente ya nunca nos volvamos a ver, así que si quieres seguir mejorando tu vida, no olvides seguirme".
+- Formatos: (a) frase-poema de 9–20 s todo en B-roll + tipografía; (b) talking head 30–65 s con B-roll cada 2–4 s; (c) lista "consejo del día / día 2".
+- Imagen: cara a cámara con micro y luz cálida lateral, fondo oscuro; B-roll que muestra literal la frase; luz ROJA o CIAN dura en los momentos de dolor; tarjetas crema con tipografía; rótulos grandes solo en la frase clave; el resto, subtítulo pequeño palabra a palabra en el pecho.
+- Para SL: mismo sistema; anime en lugar de B-roll; MÁXIMO 2 colores: blanco + rojo intenso #D0101E (el rojo solo en la palabra clave y en la luz de dolor).
