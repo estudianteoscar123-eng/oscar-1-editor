@@ -94,7 +94,7 @@ const Hall: React.FC = () => (
     {Array.from({ length: 9 }, (_, i) => <path key={i} d={`M${540 + (i - 4) * 40} 1500 L ${540 + (i - 4) * 300} 1920`} stroke="#1A1214" strokeWidth={3} />)}
   </g>
 );
-const WSA = toW(dsa as unknown as R, { Salomon: "Salomón" });
+const WSA = toW(dsa as unknown as R, { Salomon: "Salomón", "Tenías": "Tenía" });
 const FSA = finder(WSA);
 export const ZKSAL_TOTAL = Math.round((WSA[WSA.length - 1].e + 0.35) * FPS);
 export const ZKSalomon: React.FC = () => {
@@ -254,21 +254,23 @@ const BlindSamson: React.FC<{ t: number; s?: number; x?: number; y?: number }> =
 const DelilahRoom: React.FC<{ t: number; samson: number; her: number; lamp: number }> = ({ t, samson, her, lamp }) => (
   <g>
     <rect width={1080} height={1920} fill="#07050A" />
-    <circle cx={820} cy={1080} r={520} fill="url(#lampg)" opacity={lamp * (0.85 + 0.15 * Math.sin(t * 7))} />
+    <circle cx={760} cy={1150} r={700} fill="url(#lampg)" opacity={lamp * (0.95 + 0.05 * Math.sin(t * 7))} />
     <rect y={1440} width={1080} height={480} fill="#0E0A0C" />
-    <g transform="translate(820 1180)" opacity={lamp}><ellipse cx={0} cy={0} rx={50} ry={18} fill="#6A4A2A" /><Flame x={10} y={-10} s={0.35} t={t} /></g>
+    <g transform="translate(760 1250)" opacity={lamp}><ellipse cx={0} cy={0} rx={50} ry={18} fill="#6A4A2A" /><Flame x={10} y={-10} s={0.35} t={t} /></g>
     {/* ella, sentada (silueta con pelo largo) */}
     <g opacity={her} transform="translate(520 1440)">
-      <path d="M-120 0 Q -130 -120 -60 -170 L -40 -360 Q -20 -420 30 -410 Q 70 -400 70 -350 L 60 -170 Q 150 -120 160 0 Z" fill="#120A0C" />
+      <path d="M-120 0 Q -130 -120 -60 -170 L -40 -360 Q -20 -420 30 -410 Q 70 -400 70 -350 L 60 -170 Q 150 -120 160 0 Z" fill="#3A1418" />
       <path d="M30 -410 Q -40 -420 -50 -330 Q -70 -220 -40 -140 L -10 -150 Q -30 -250 10 -330 Z" fill="#050304" />
-      <path d="M70 -350 L 60 -170 Q 150 -120 160 0" stroke={RED} strokeWidth={4} fill="none" opacity={0.8} />
-      <circle cx={30} cy={-370} r={38} fill="#1A0E10" />
+      <path d="M70 -350 L 60 -170 Q 150 -120 160 0" stroke="#FFB070" strokeWidth={5} fill="none" opacity={0.9} />
+      <circle cx={30} cy={-370} r={38} fill="#6E4A36" />
       <path d="M-120 0 Q -130 -120 -60 -170" stroke={DELILAH} strokeWidth={30} fill="none" opacity={0.5} />
     </g>
     {/* él, dormido con la cabeza en sus piernas */}
     <g opacity={samson} transform="translate(560 1420)">
-      <path d="M-40 -60 Q -300 -90 -560 -40 L -560 20 Q -300 10 -40 10 Z" fill="#3A2418" />
-      <circle cx={-10} cy={-50} r={50} fill="#4A2E20" />
+      <path d="M-40 -60 Q -300 -90 -560 -40 L -560 20 Q -300 10 -40 10 Z" fill="#6E4A36" />
+      <path d="M-40 -60 Q -300 -90 -560 -40" stroke="#FFB070" strokeWidth={5} fill="none" opacity={0.8} />
+      <path d="M-560 -10 Q -300 -20 -40 -10 L -40 10 Q -300 10 -560 20 Z" fill="#3A2418" />
+      <circle cx={-10} cy={-50} r={50} fill="#7A5440" /><path d="M-60 -50 A 50 50 0 0 1 30 -80" stroke="#FFB070" strokeWidth={4} fill="none" />
       {Array.from({ length: 7 }, (_, k) => <path key={k} d={`M${-20 + k * 6} -90 Q ${40 + k * 10} -40 ${60 + k * 14} 20`} stroke="#0C0605" strokeWidth={14} fill="none" strokeLinecap="round" />)}
     </g>
   </g>
@@ -318,8 +320,8 @@ export const ZKSansonFin: React.FC = () => {
       <Push lt={lt} dur={dur} z0={1.0} z1={1.06} cy={1300}>
         <DelilahRoom t={t} samson={1} her={1} lamp={1} />
         <rect width={1080} height={1920} fill="rgba(0,0,0,0.45)" />
-        {marks.map((m, k) => <path key={k} d={`M${380 + k * 120} 820 L ${360 + k * 120} ${820 + 300 * m}`} stroke="#fff" strokeWidth={22} strokeLinecap="round" opacity={m > 0 ? 1 : 0} />)}
-        {["CUERDAS", "MIMBRES", "TELAR"].map((s, k) => <text key={k} x={370 + k * 120} y={1180} textAnchor="middle" fontFamily={KFONT} fontWeight={700} fontSize={30} fill="#C8C4D0" opacity={marks[k]}>{s}</text>)}
+        {marks.map((m, k) => <path key={k} d={`M${300 + k * 240} 820 L ${280 + k * 240} ${820 + 300 * m}`} stroke="#fff" strokeWidth={22} strokeLinecap="round" opacity={m > 0 ? 1 : 0} />)}
+        {["CUERDAS", "MIMBRES", "TELAR"].map((s, k) => <text key={k} x={290 + k * 240} y={1190} textAnchor="middle" fontFamily={KFONT} fontWeight={700} fontSize={40} fill="#C8C4D0" opacity={marks[k]}>{s}</text>)}
       </Push>
     );
   } else if (i === 4) { // a la cuarta, se lo dijo
@@ -327,8 +329,8 @@ export const ZKSansonFin: React.FC = () => {
       <Push lt={lt} dur={dur} z0={1.2} z1={1.32} cy={1300}>
         <DelilahRoom t={t} samson={1} her={1} lamp={1} />
         <rect width={1080} height={1920} fill="rgba(0,0,0,0.45)" />
-        {[0, 1, 2].map((k) => <path key={k} d={`M${380 + k * 120} 820 L ${360 + k * 120} 1120`} stroke="#fff" strokeWidth={22} strokeLinecap="round" opacity={0.5} />)}
-        <path d="M330 900 L 760 1060" stroke={RED} strokeWidth={22} strokeLinecap="round" strokeDasharray={480} strokeDashoffset={480 * (1 - io(lt, 0.1, 0.4))} />
+        {[0, 1, 2].map((k) => <path key={k} d={`M${300 + k * 240} 820 L ${280 + k * 240} 1120`} stroke="#fff" strokeWidth={22} strokeLinecap="round" opacity={0.5} />)}
+        <path d="M220 900 L 860 1060" stroke={RED} strokeWidth={22} strokeLinecap="round" strokeDasharray={480} strokeDashoffset={480 * (1 - io(lt, 0.1, 0.4))} />
         <Pill x={540} y={1260} txt="JUECES 16:17" p={P} on={io(lt, 0.4, 0.6)} />
       </Push>
     );
