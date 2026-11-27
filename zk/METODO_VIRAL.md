@@ -68,3 +68,15 @@ REGLAS NUEVAS (obligatorias):
 4. Escalar cada 2–3 s con un detalle más fuerte que el anterior.
 5. Final sin respuesta que obligue a comentar y a volver a verlo.
 6. Ninguna pausa de voz > 0,4 s en todo el video.
+
+## 11. Pensar como creador, no como IA genérica (regla del usuario)
+Señales de contenido genérico/IA que están PROHIBIDAS:
+- Frases plantilla ("¿Sabías que…?", "Esto te sorprenderá", "Descubre…", "Increíble pero cierto"), adjetivos vacíos (impactante, fascinante, increíble).
+- Contar en orden cronológico "porque sí", resumir en vez de revelar, explicar de más, moralejas finales.
+- Simetría perfecta y cierres redondos; todo con el mismo ritmo; efectos por decorar.
+- Títulos que repiten el video; miniaturas que repiten el título.
+Cómo pensar en su lugar:
+- Partir de lo que el espectador YA cree y romperlo con un detalle concreto (nombre, cifra, objeto, cita).
+- Cada frase debe ganarse el siguiente segundo: si se puede quitar sin perder tensión, se quita.
+- Específico > general; mostrar > decir; tensión > información.
+- Hook distinto en cada video (variar la forma, no solo el tema): pregunta de memoria, contradicción visual muda, cifra imposible, cita textual incómoda, "en primera persona", final contado primero, objeto misterioso en cuadro 0. Registrar cuál se usó y cómo rindió.
