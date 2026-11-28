@@ -180,3 +180,6 @@ Es el mismo creador de las referencias de subtítulos. Lo que define su calidad:
 
 ## Regla de portada (usuario): la miniatura va DENTRO del video
 - No se entregan portadas aparte: el primer cuadro del video ES la portada (escena de anime + subtítulo ESPECIAL/título editorial, nunca un subtítulo normal). Igual que en ZK.
+
+## Volumen (usuario): todos los videos se entregan FUERTES
+- Master final a −9 LUFS integrado, pico real ≤ −1 dBTP (antes −15: se oía bajo en celulares). Aplica a SL y ZK. Voz siempre clara por encima de la música.
