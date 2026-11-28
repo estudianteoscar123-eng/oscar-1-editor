@@ -107,3 +107,8 @@ REGLAS NUEVAS: cuadro 0 = título grande + imagen con contradicción; la 1ª fra
 - Diferencia que importa: Noé PREGUNTA ("¿Te acuerdas cómo terminó Noé?") y en el s 2 rompe el mito ("Y no… no fue con el arcoíris"); luego solo escándalo nuevo. Salomón/Sansón AFIRMAN y en el s 3–5 dan contexto conocido ("Era el hombre más sabio…") → ahí se van.
 - PLANTILLA OBLIGATORIA (la del ganador): pregunta sobre personaje famosísimo → mito roto a los 2 s → escándalo que escala cada 2–3 s, sin contexto → final sin respuesta + pregunta que divide. Mundo único y cámara calma como Noé. Portada = cuadro 0 con el personaje haciendo lo incómodo + título grande.
 - Paciencia: no juzgar un video antes de 48 h.
+
+## 16. Error registrado (28 nov.): Juan y David
+- Rompí la regla de ganchos: usé el MISMO gancho en los dos videos (y era el que ya falló en Moisés/Jonás). Cada video del par debe probar un gancho distinto; la plantilla de Noé fija la ESTRUCTURA (pregunta → mito roto → escándalo → final abierto), no la frase.
+- Rompí la regla título/miniatura: el título repetía lo que dice la portada. El título COMPLETA la miniatura (dice lo que ella no dice), corto y con brecha de curiosidad.
+- Control antes de entregar: [ ] gancho distinto entre los 2 videos y distinto de los últimos que fallaron · [ ] título ≠ texto de portada · [ ] título + portada juntos generan una pregunta que solo el video responde.
