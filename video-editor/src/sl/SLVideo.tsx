@@ -134,3 +134,56 @@ export const SLV1_TOTAL = Math.round(41.68 * FPS);
 export const SLV2_TOTAL = Math.round(34.55 * FPS);
 export const SLV1: React.FC = () => <SLVideo v="v1" cam="cam1" W={w1 as Wd[]} keys={K1} T={T1} song="songA" songFrom={60} songVol={0.16} total={SLV1_TOTAL} />;
 export const SLV2: React.FC = () => <SLVideo v="v2" cam="cam2" W={w2 as Wd[]} keys={K2} T={T2} song="songB" songFrom={0} songVol={0.11} total={SLV2_TOTAL} />;
+
+// ===== Edit estoico: sin voz, frases "X mató Y" en el golpe, Vinland Saga, portada = cuadro 0 =====
+const STOIC: { at: number; a: string; b: string; clip: [string, number] }[] = [
+  { at: 2.81, a: "comodidad", b: "disciplina", clip: ["a12", 0.2] },
+  { at: 4.0, a: "excusa", b: "progreso", clip: ["a_vinland", 20.8] },
+  { at: 5.22, a: "queja", b: "tiempo", clip: ["a12", 6.5] },
+  { at: 6.36, a: "ego", b: "aprendizaje", clip: ["a_vinland", 11.7] },
+  { at: 7.48, a: "ira", b: "razón", clip: ["a_vinland", 24.7] },
+  { at: 8.64, a: "miedo", b: "acción", clip: ["a12", 9.1] },
+  { at: 9.78, a: "prisa", b: "paciencia", clip: ["a_vinland", 22.1] },
+  { at: 10.96, a: "placer", b: "propósito", clip: ["a12", 14.3] },
+  { at: 12.12, a: "opinión", b: "libertad", clip: ["a12", 10.4] },
+  { at: 13.26, a: "venganza", b: "paz", clip: ["a_vinland", 7.8] },
+  { at: 14.4, a: "pasado", b: "presente", clip: ["a12", 18.2] },
+];
+const ST_END = 15.56;
+export const SLST_TOTAL = Math.round(18.6 * FPS);
+const ST_TITLES: Title[] = [
+  { s: 0, e: 2.81, lines: [{ segs: [["Esto te está", "S", 56, W_]], x: 250, y: 1150 }, { segs: [["matando", "B", 190, RED]], x: 540, y: 1300, anchor: "middle" }, { segs: [["en silencio.", "R", 96, W_]], x: 850, y: 1380, anchor: "end" }] },
+  { s: ST_END, e: 99, lines: [{ segs: [["Domínate", "B", 200, W_]], x: 540, y: 1270, anchor: "middle" }, { segs: [["o te dominarán.", "R", 104, RED]], x: 540, y: 1375, anchor: "middle" }] },
+];
+export const SLStoic: React.FC = () => {
+  const f = useCurrentFrame(), t = f / FPS, total = SLST_TOTAL;
+  const i = STOIC.findIndex((p, k) => t >= p.at && t < (STOIC[k + 1]?.at ?? ST_END));
+  const titleT = f === 0 ? 99 : t; // cuadro 0 = portada con el título completo
+  return (
+    <AbsoluteFill style={{ background: "#000" }}>
+      <Win f={f} total={total}>
+        <OffthreadVideo src={staticFile("slv/anime/a12.mp4")} muted trimBefore={Math.round(22.1 * FPS)} style={{ ...Fill, filter: "contrast(1.06)" }} />
+        {STOIC.map((p, k) => (
+          <Sequence key={k} from={Math.round(p.at * FPS)} durationInFrames={Math.round(((STOIC[k + 1]?.at ?? ST_END) - p.at) * FPS)} layout="none">
+            <OffthreadVideo src={staticFile(`slv/anime/${p.clip[0]}.mp4`)} muted trimBefore={Math.round(p.clip[1] * FPS)} style={{ ...Fill, filter: "contrast(1.06) saturate(0.92)" }} />
+          </Sequence>
+        ))}
+        <Sequence from={Math.round(ST_END * FPS)} layout="none">
+          <OffthreadVideo src={staticFile("slv/anime/a12.mp4")} muted trimBefore={Math.round(23.4 * FPS)} style={{ ...Fill, filter: "contrast(1.06)" }} />
+        </Sequence>
+        <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.6) 100%)" }} />
+        <AbsoluteFill style={{ background: "radial-gradient(ellipse 70% 22% at 50% 62%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%)" }} />
+      </Win>
+      {i >= 0 ? (
+        <div style={{ position: "absolute", left: 40, right: 40, top: 1105, textAlign: "center", whiteSpace: "nowrap" }}>
+          <span style={{ fontFamily: "SLSans", fontWeight: 600, fontSize: 70, color: "#fff", textShadow: shadow }}>{STOIC[i].a} </span>
+          <span style={{ fontFamily: "SLSerif", fontStyle: "italic", fontSize: 112, color: RED, textShadow: `0 0 14px rgba(255,60,60,0.5), ${shadow}` }}>mató</span>
+          <span style={{ fontFamily: "SLSans", fontWeight: 600, fontSize: 70, color: "#fff", textShadow: shadow }}> {STOIC[i].b}</span>
+        </div>
+      ) : (
+        <Titles t={titleT === 99 ? 1 : t} T={ST_TITLES} />
+      )}
+      <Audio src={staticFile("slv/stoic.wav")} volume={(fr) => 0.9 * interpolate(fr, [0, 2, total - 12, total], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} />
+    </AbsoluteFill>
+  );
+};
