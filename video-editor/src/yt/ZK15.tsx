@@ -206,7 +206,7 @@ export const ZKDavid2: React.FC = () => {
     [tSir, 900, 920, 1.7], [tBus - 0.05, 900, 920, 1.75], [tBus + 0.3, 700, 1000, 1.35], [tBib + 0.4, 420, 1080, 1.8], [tMur + 0.3, 460, 1080, 1.6],
     [tHij - 0.05, 460, 1080, 1.6], [tHij + 0.3, 1650, 980, 1.5], [tSal + 0.2, 1960, 900, 1.6], [tPid + 0.3, 1960, 860, 2.0], [tMat + 0.1, 1800, 960, 1.45], [T - 0.35, 1800, 960, 1.45], [T - 0.05, 560, 1080, 1.35],
   ]);
-  const nB = Math.max(3, Math.min(10, Math.round(3 + 7 * io(t, 0, tDie + 0.6))));
+  const nB = Math.max(5, Math.min(10, Math.round(5 + 5 * io(t, 0, tDie + 0.6))));
   const throwK = ((t * 2.2) % 1);
   const dead = io(t, tMur, tMur + 0.5) * (1 - io(t, T - 0.35, T - 0.05));
   const girl = io(t, tBus + 0.4, tBus + 0.8) * (1 - io(t, T - 0.35, T - 0.05));
