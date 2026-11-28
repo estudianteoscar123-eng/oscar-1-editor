@@ -40,8 +40,8 @@ const Hook: React.FC<{ t: number; until: number; lead: string; key_: string }> =
   if (t >= until) return null;
   const o = t > until - 0.15 ? (until - t) / 0.15 : 1;
   return (
-    <div style={{ position: "absolute", left: 60, right: 60, top: 300, textAlign: "center", opacity: o, fontFamily: KFONT, fontWeight: 600, color: "#fff", textShadow: "0 6px 22px rgba(0,0,0,0.85)" }}>
-      <div style={{ fontSize: 66, lineHeight: 1.1 }}>{lead}</div>
+    <div style={{ position: "absolute", left: 60, right: 60, top: 150, textAlign: "center", opacity: o, fontFamily: KFONT, fontWeight: 600, color: "#fff", textShadow: "0 6px 22px rgba(0,0,0,0.85)" }}>
+      <div style={{ fontSize: 92, lineHeight: 1.05 }}>{lead}</div>
       <div style={{ display: "inline-block", marginTop: 14, fontSize: 112, lineHeight: 1.05, background: RED, padding: "4px 26px 10px", borderRadius: 10 }}>{key_}</div>
     </div>
   );
@@ -96,7 +96,7 @@ export const ZKJuan: React.FC = () => {
   const dance = io(t, tBai - 0.2, tBai + 0.2) * (1 - io(t, tJur + 0.8, tJur + 1.2));
   const sway = Math.sin(t * 6) * 14 * dance;
   const whisper = io(t, tMad - 0.2, tMad + 0.3);
-  const reveal = io(t, tBan, tBan + 0.6);
+  const reveal = Math.max(io(t, tBan, tBan + 0.6), 1 - io(t, tY - 0.2, tY + 0.2));
   const lastHit = io(t, tDio, tDio + 0.15) * (1 - io(t, tDio + 0.3, tDio + 0.9));
   return (
     <AbsoluteFill style={{ background: P.sky[0], overflow: "hidden" }}>
@@ -123,7 +123,7 @@ export const ZKJuan: React.FC = () => {
         <Dust cam={cam} t={t} />
       </svg>
       <Film f={f} p={P} />
-      {t < tY - 0.05 ? <Hook t={t} until={tY - 0.05} lead="¿Te acuerdas cómo terminó" key_="Juan el Bautista?" /> : <Cap f={f} W={WJ as Wd[]} keys={new Set(["rio", "preso", "verdad", "bailo", "juro", "cabeza", "bandeja", "dio"])} />}
+      {t < tY - 0.05 ? <Hook t={t} until={tY - 0.05} lead="Todo por" key_="un baile." /> : <Cap f={f} W={WJ as Wd[]} keys={new Set(["rio", "preso", "verdad", "bailo", "juro", "cabeza", "bandeja", "dio"])} />}
       <Audio src={staticFile("zk14/juan.wav")} />
       <Audio src={staticFile("zk/songs/short2.mp3")} trimBefore={80 * FPS} volume={(fr) => 0.24 * (1 - io(fr / FPS, T - 0.5, T))} />
     </AbsoluteFill>
@@ -173,7 +173,7 @@ export const ZKDavid: React.FC = () => {
     [tBus + 0.3, 1100, 1140, 1.15], [tHer + 0.3, 1300, 1080, 1.6], [tAco + 0.3, 780, 1130, 1.9], [tMur + 0.2, 960, 1150, 1.25],
     [tHij + 0.2, 340, 1080, 1.5], [tHerm + 0.3, 420, 1090, 1.45], [tPed + 0.2, 800, 1140, 1.8], [T - 0.05, 760, 1130, 1.75],
   ]);
-  const blankets = io(t, tMan - 0.2, tMan + 0.6), girl = io(t, tAco - 0.2, tAco + 0.4), dead = io(t, tMur, tMur + 0.6);
+  const blankets = Math.max(io(t, tMan - 0.2, tMan + 0.6), 1 - io(t, tY - 0.2, tY + 0.2)), girl = Math.max(io(t, tAco - 0.2, tAco + 0.4), 1 - io(t, tY - 0.2, tY + 0.2)), dead = io(t, tMur, tMur + 0.6);
   const walkIn = io(t, tBus + 0.4, tAco - 0.2);
   const sons = io(t, tHij - 0.2, tHij + 0.3), kill = io(t, tHerm + 0.1, tHerm + 0.6);
   return (
@@ -203,7 +203,7 @@ export const ZKDavid: React.FC = () => {
         <Dust cam={cam} t={t} />
       </svg>
       <Film f={f} p={P} />
-      {t < tY - 0.05 ? <Hook t={t} until={tY - 0.05} lead="¿Te acuerdas cómo terminó" key_="el rey David?" /> : <Cap f={f} W={WD as Wd[]} keys={new Set(["goliat", "viejo", "calor", "mantas", "hermosa", "acostaron", "murio", "hijo", "hermano", "pedirla"])} />}
+      {t < tY - 0.05 ? <Hook t={t} until={tY - 0.05} lead="Su final" key_="no fue heroico." /> : <Cap f={f} W={WD as Wd[]} keys={new Set(["goliat", "viejo", "calor", "mantas", "hermosa", "acostaron", "murio", "hijo", "hermano", "pedirla"])} />}
       <Audio src={staticFile("zk14/david.wav")} />
       <Audio src={staticFile("zk/songs/short3.mp3")} volume={(fr) => 0.24 * (1 - io(fr / FPS, T - 0.5, T))} />
     </AbsoluteFill>
