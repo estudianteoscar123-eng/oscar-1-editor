@@ -73,6 +73,8 @@ import { ZKSanson, ZKSAN_TOTAL, ZKGedeon, ZKGED_TOTAL } from "./yt/ZK11";
 import { ZKMoises, ZKMOI_TOTAL, ZKJonas, ZKJON_TOTAL } from "./yt/ZK12";
 import { ZKSalomon, ZKSAL_TOTAL, ZKSansonFin, ZKSNS_TOTAL } from "./yt/ZK13";
 import { ZKJuan, ZKJUAN_TOTAL, ZKDavid, ZKDAVID_TOTAL } from "./yt/ZK14";
+import { ZKToonTest } from "./yt/ToonTest";
+import { ZKJuan2, ZKJUAN2_TOTAL, ZKDavid2, ZKDAVID2_TOTAL } from "./yt/ZK15";
 import { SubsA, SubsB, SUBS_TOTAL } from "./sl/SubsTest";
 import { SL15, SL15_TOTAL } from "./sl/SL15";
 import { SLV1, SLV1_TOTAL, SLV2, SLV2_TOTAL, SLStoic, SLST_TOTAL } from "./sl/SLVideo";
@@ -182,6 +184,9 @@ export const Main = () => {
       <Composition id="SL15" component={SL15} durationInFrames={SL15_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLSubsA" component={SubsA} durationInFrames={SUBS_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="SLSubsB" component={SubsB} durationInFrames={SUBS_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="ZKJuan2" component={ZKJuan2} durationInFrames={ZKJUAN2_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="ZKDavid2" component={ZKDavid2} durationInFrames={ZKDAVID2_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="ZKToonTest" component={ZKToonTest} durationInFrames={30} fps={30} width={1080} height={1920} />
       <Composition id="ZKJuan" component={ZKJuan} durationInFrames={ZKJUAN_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="ZKDavid" component={ZKDavid} durationInFrames={ZKDAVID_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="ZKSalomon" component={ZKSalomon} durationInFrames={ZKSAL_TOTAL} fps={30} width={1080} height={1920} />
