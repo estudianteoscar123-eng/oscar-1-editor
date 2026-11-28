@@ -183,3 +183,9 @@ Es el mismo creador de las referencias de subtítulos. Lo que define su calidad:
 
 ## Volumen (usuario): todos los videos se entregan FUERTES
 - Master final a −9 LUFS integrado, pico real ≤ −1 dBTP (antes −15: se oía bajo en celulares). Aplica a SL y ZK. Voz siempre clara por encima de la música.
+
+## Lectura de datos SL (28 nov. 2026) — "No vas tarde", "Vas a perder amigos", estoico
+- TikTok: 291 / 520 / 305 vistas; retención media 10 / 12 / 16 %; la mayoría se va en el s 2. FB: 519 / 559 / 258; solo 25–29 % pasa los 3 s (Noé ZK: 52 %).
+- FB marca "Hay problemas que limitan el rendimiento" en los 3 (no en ZK). Sospecha principal: contenido no original (clips sacados de edits ajenos, alguno con marca de agua) y/o música con derechos.
+- Causas: (1) cuadro 0 sin acción (cielo/paisaje con personaje diminuto, Thorfinn quieto) → la imagen no dice nada y hay que leer; (2) primera frase genérica del nicho ("Sientes que todos avanzan…"); (3) la ventana cuadrada achica la imagen justo en el s 0–1; (4) audio publicado a −15 LUFS (bajo); (5) 35–42 s es largo para una cuenta sin tracción; (6) toma a cámara con luz plana y pared gris.
+REGLAS NUEVAS SL: anime solo de fuente original (episodios), nunca de edits ajenos; cuadro 0 = momento de anime más intenso en movimiento y en primer plano (cara, golpe, lágrima); primera frase concreta y rara, no frase hecha; 15–25 s hasta probar el gancho; −9 LUFS; la cara entra después del gancho; probar una variable por video (ej. ventana cuadrada vs pantalla completa).
