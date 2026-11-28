@@ -177,3 +177,6 @@ Es el mismo creador de las referencias de subtítulos. Lo que define su calidad:
 2. CUERPO: subtítulo pequeño y limpio (Inter 600 ~46 px, blanco), 1–3 palabras, a la altura del pecho, sin palabra grande.
 3. FRASES CLAVE (2–3 por video: la verdad más fuerte y el cierre): vuelven al título editorial con la palabra que duele en rojo grande.
 - El contraste entre lo pequeño y lo grande es lo que da la sensación premium y marca el ritmo. El fondo del gancho se elige con zona tranquila para el rojo.
+
+## Regla de portada (usuario): la miniatura va DENTRO del video
+- No se entregan portadas aparte: el primer cuadro del video ES la portada (escena de anime + subtítulo ESPECIAL/título editorial, nunca un subtítulo normal). Igual que en ZK.
