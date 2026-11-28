@@ -100,3 +100,10 @@ Cómo pensar en su lugar:
 - La portada actual es un subtítulo pequeño arriba: en el feed no dice nada. Debe ser un TÍTULO grande especial dentro del cuadro 0 (como SL).
 - Facebook clasifica la página como "Comedia": señal de que el contenido no se lee como bíblico/curiosidad → hashtags y texto del post deben nombrar el tema.
 REGLAS NUEVAS: cuadro 0 = título grande + imagen con contradicción; la 1ª frase completa en ≤ 1,5 s; segunda frase = el dato escandaloso; terminar con una pregunta que divida opiniones (comentarios) y algo que dé ganas de enviarle a alguien (compartidos).
+
+## 15. Noé vs el resto (datos completos, 28 nov.)
+- Noé: 71.900 vistas, 52 % pasa los 3 s, retención final ~78 % (curva casi plana tras el s 3), 2.777 interacciones (3,9 %), 319 seguidores; despegó a las ~19 h (Facebook lo probó tarde).
+- Salomón/Sansón: 41–46 % pasan los 3 s, final 40–45 %, interacción ~2 %.
+- Diferencia que importa: Noé PREGUNTA ("¿Te acuerdas cómo terminó Noé?") y en el s 2 rompe el mito ("Y no… no fue con el arcoíris"); luego solo escándalo nuevo. Salomón/Sansón AFIRMAN y en el s 3–5 dan contexto conocido ("Era el hombre más sabio…") → ahí se van.
+- PLANTILLA OBLIGATORIA (la del ganador): pregunta sobre personaje famosísimo → mito roto a los 2 s → escándalo que escala cada 2–3 s, sin contexto → final sin respuesta + pregunta que divide. Mundo único y cámara calma como Noé. Portada = cuadro 0 con el personaje haciendo lo incómodo + título grande.
+- Paciencia: no juzgar un video antes de 48 h.
