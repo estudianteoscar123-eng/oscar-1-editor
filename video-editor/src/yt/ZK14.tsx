@@ -81,7 +81,7 @@ const Platter: React.FC<{ x: number; y: number; s: number; reveal: number }> = (
     <path d="M170 -10 Q 160 -170 0 -180" stroke={P.rim} strokeWidth={5} fill="none" />
   </g>
 );
-const WJ = toW(dj as unknown as R);
+const WJ = toW(dj as unknown as R, { bautista: "Bautista" });
 const FJ = finder(WJ);
 export const ZKJUAN_TOTAL = Math.round((WJ[WJ.length - 1].e + 0.4) * FPS);
 export const ZKJuan: React.FC = () => {
@@ -89,9 +89,9 @@ export const ZKJuan: React.FC = () => {
   const tY = FJ("y", 0, 2.4), tPre = FJ("preso", 0, 4.6), tCum = FJ("cumple", 0, 6.6), tBai = FJ("bailo", 0, 8.2), tGus = FJ("gusto", 0, 9.4), tJur = FJ("juro", 0, 10.4);
   const tMad = FJ("madre", 0, 11.8), tCab = FJ("cabeza", 0, 13.0), tBan = FJ("bandeja", 0, 14.2), tRey = FJ("rey", 2, 15.0), tDio = FJ("dio", 0, 15.8);
   const cam = camPath(t, [
-    [0, 1000, 1360, 2.4], [tY + 0.1, 1000, 1330, 2.2], [tPre, 320, 1180, 1.6], [tCum - 0.1, 330, 1180, 1.55], [tCum + 0.6, 980, 1150, 0.95],
-    [tBai + 0.2, 800, 1230, 1.55], [tGus + 0.2, 990, 1120, 1.7], [tJur + 0.6, 990, 1120, 1.8], [tMad + 0.2, 1200, 1180, 1.75],
-    [tCab + 0.1, 320, 1180, 1.9], [tBan - 0.1, 330, 1180, 1.85], [tBan + 0.3, 1000, 1340, 2.2], [tDio, 990, 1150, 1.6], [T - 0.05, 1000, 1360, 2.4],
+    [0, 1000, 1225, 2.4], [tY + 0.1, 1000, 1215, 2.2], [tPre, 320, 1290, 1.6], [tCum - 0.1, 330, 1290, 1.55], [tCum + 0.6, 980, 1120, 0.95],
+    [tBai + 0.2, 800, 1130, 1.55], [tGus + 0.2, 990, 1080, 1.7], [tJur + 0.6, 990, 1080, 1.8], [tMad + 0.2, 1150, 1110, 1.6],
+    [tCab + 0.1, 320, 1290, 1.9], [tBan - 0.1, 330, 1290, 1.85], [tBan + 0.3, 1000, 1220, 2.2], [tDio, 990, 1100, 1.5], [T - 0.05, 1000, 1225, 2.4],
   ]);
   const dance = io(t, tBai - 0.2, tBai + 0.2) * (1 - io(t, tJur + 0.8, tJur + 1.2));
   const sway = Math.sin(t * 6) * 14 * dance;
@@ -117,7 +117,6 @@ export const ZKJuan: React.FC = () => {
           <Platter x={1000} y={HZ + 168} s={0.42} reveal={reveal} />
           <Pill x={300} y={760} txt="PRESO" p={P} on={io(t, tPre, tPre + 0.3) * (1 - io(t, tCum - 0.1, tCum + 0.1))} />
           <Pill x={800} y={780} txt="MARCOS 6:22" p={P} on={io(t, tBai + 0.2, tBai + 0.5) * (1 - io(t, tGus, tGus + 0.2))} />
-          <Pill x={1000} y={720} txt="«HASTA LA MITAD DE MI REINO»" p={P} on={io(t, tJur + 0.1, tJur + 0.4) * (1 - io(t, tMad - 0.1, tMad + 0.1))} />
           <Pill x={1000} y={1050} txt="MATEO 14:11" p={P} on={io(t, tBan + 0.3, tBan + 0.6) * (1 - io(t, T - 0.6, T - 0.3))} />
         </L>
         <rect width={1080} height={1920} fill={RED} opacity={lastHit * 0.1} />
@@ -150,8 +149,8 @@ const Bed: React.FC<{ t: number; blankets: number; shiver: number; girl: number;
       <rect x={1400} y={980} width={60} height={240} fill="#2A1A10" />
       {/* David: cabeza blanca, barba */}
       <g transform={`translate(${sh} 0)`}>
-        <ellipse cx={640} cy={1110} rx={70} ry={30} fill="#D8D0C0" />
-        <circle cx={660} cy={1080} r={38} fill="#6E4A36" /><path d="M640 1090 Q 620 1130 680 1124 Q 700 1110 690 1092 Z" fill="#E8E8E8" /><path d="M628 1060 Q 650 1036 690 1056" stroke="#E8E8E8" strokeWidth={10} fill="none" />
+        <ellipse cx={640} cy={1118} rx={95} ry={36} fill="#D8D0C0" />
+        <circle cx={665} cy={1072} r={52} fill="#7A5440" /><path d="M632 1085 Q 612 1150 690 1140 Q 718 1118 706 1088 Z" fill="#E8E8E8" /><path d="M618 1050 Q 650 1012 712 1044" stroke="#E8E8E8" strokeWidth={14} fill="none" /><circle cx={685} cy={1064} r={4} fill="#0A0606" />
         {Array.from({ length: 1 + Math.round(blankets * 4) }, (_, k) => <path key={k} d={`M700 ${1150 - k * 14} Q 1000 ${1080 - k * 16} 1380 ${1150 - k * 14} L 1380 ${1160 - k * 14} L 700 ${1160 - k * 14} Z`} fill={["#4A0C10", "#3A2A44", "#5A4A30", "#2A3A2A", "#4A3A30"][k]} />)}
       </g>
       {/* la joven (Abisag) acostada al lado */}
@@ -162,7 +161,7 @@ const Bed: React.FC<{ t: number; blankets: number; shiver: number; girl: number;
     </g>
   );
 };
-const WD = toW(dd as unknown as R);
+const WD = toW(dd as unknown as R, { "Goliath?": "Goliat?", costaron: "acostaron", bautista: "Bautista" });
 const FD = finder(WD);
 export const ZKDAVID_TOTAL = Math.round((WD[WD.length - 1].e + 0.4) * FPS);
 export const ZKDavid: React.FC = () => {
@@ -170,9 +169,9 @@ export const ZKDavid: React.FC = () => {
   const tY = FD("y", 0, 2.4), tGol = FD("goliat", 0, 3.6), tVie = FD("viejo", 0, 4.4), tMan = FD("mantas", 0, 6.0), tBus = FD("buscaron", 0, 7.0), tHer = FD("hermosa", 0, 8.4);
   const tAco = FD("acostaron", 0, 9.4), tMur = FD("murio", 0, 11.4), tHij = FD("hijo", 0, 12.8), tHerm = FD("hermano", 0, 14.0), tPed = FD("pedirla", 0, 15.0);
   const cam = camPath(t, [
-    [0, 700, 1110, 2.6], [tY + 0.1, 720, 1110, 2.4], [tGol + 0.3, 900, 1100, 1.25], [tVie + 0.2, 680, 1110, 2.2], [tMan + 0.5, 900, 1130, 1.6],
-    [tBus + 0.3, 1100, 1120, 1.15], [tHer + 0.3, 1330, 1080, 1.7], [tAco + 0.3, 720, 1100, 2.3], [tMur + 0.2, 900, 1120, 1.3],
-    [tHij + 0.2, 300, 1090, 1.6], [tHerm + 0.3, 420, 1100, 1.5], [tPed + 0.2, 720, 1110, 2.3], [T - 0.05, 700, 1110, 2.6],
+    [0, 760, 1130, 1.75], [tY + 0.1, 780, 1140, 1.6], [tGol + 0.3, 1000, 1150, 1.15], [tVie + 0.2, 760, 1130, 1.9], [tMan + 0.5, 960, 1160, 1.5],
+    [tBus + 0.3, 1100, 1140, 1.15], [tHer + 0.3, 1300, 1080, 1.6], [tAco + 0.3, 780, 1130, 1.9], [tMur + 0.2, 960, 1150, 1.25],
+    [tHij + 0.2, 340, 1080, 1.5], [tHerm + 0.3, 420, 1090, 1.45], [tPed + 0.2, 800, 1140, 1.8], [T - 0.05, 760, 1130, 1.75],
   ]);
   const blankets = io(t, tMan - 0.2, tMan + 0.6), girl = io(t, tAco - 0.2, tAco + 0.4), dead = io(t, tMur, tMur + 0.6);
   const walkIn = io(t, tBus + 0.4, tAco - 0.2);
@@ -199,7 +198,7 @@ export const ZKDavid: React.FC = () => {
           <Pill x={680} y={930} txt="1 REYES 1:1" p={P} on={io(t, tVie + 0.3, tVie + 0.6) * (1 - io(t, tBus - 0.1, tBus + 0.1))} />
           <Pill x={1330} y={860} txt="ABISAG" p={P} on={io(t, tHer, tHer + 0.3) * (1 - io(t, tAco, tAco + 0.2))} />
           <Pill x={300} y={760} txt="SALOMÓN" p={P} on={sons * (1 - io(t, tHerm - 0.1, tHerm + 0.1))} />
-          <Pill x={420} y={760} txt="1 REYES 2:25" p={P} on={io(t, tHerm + 0.3, tHerm + 0.6) * (1 - io(t, tPed + 0.2, tPed + 0.5))} />
+          <Pill x={560} y={880} txt="1 REYES 2:25" p={P} on={io(t, tHerm + 0.3, tHerm + 0.6) * (1 - io(t, tPed + 0.2, tPed + 0.5))} />
         </L>
         <Dust cam={cam} t={t} />
       </svg>
