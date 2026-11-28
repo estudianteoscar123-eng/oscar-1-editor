@@ -137,22 +137,22 @@ export const SLV2: React.FC = () => <SLVideo v="v2" cam="cam2" W={w2 as Wd[]} ke
 
 // ===== Edit estoico: sin voz, frases "X mató Y" en el golpe, Vinland Saga, portada = cuadro 0 =====
 const STOIC: { at: number; a: string; b: string; clip: [string, number] }[] = [
-  { at: 2.81, a: "comodidad", b: "disciplina", clip: ["a12", 0.2] },
-  { at: 4.0, a: "excusa", b: "progreso", clip: ["a_vinland", 20.8] },
-  { at: 5.22, a: "queja", b: "tiempo", clip: ["a12", 6.5] },
-  { at: 6.36, a: "ego", b: "aprendizaje", clip: ["a_vinland", 11.7] },
-  { at: 7.48, a: "ira", b: "razón", clip: ["a_vinland", 24.7] },
-  { at: 8.64, a: "miedo", b: "acción", clip: ["a12", 9.1] },
-  { at: 9.78, a: "prisa", b: "paciencia", clip: ["a_vinland", 22.1] },
-  { at: 10.96, a: "placer", b: "propósito", clip: ["a12", 14.3] },
-  { at: 12.12, a: "opinión", b: "libertad", clip: ["a12", 10.4] },
-  { at: 13.26, a: "venganza", b: "paz", clip: ["a_vinland", 7.8] },
-  { at: 14.4, a: "pasado", b: "presente", clip: ["a12", 18.2] },
+  { at: 2.04, a: "comodidad", b: "disciplina", clip: ["a12", 0.2] },
+  { at: 2.81, a: "excusa", b: "progreso", clip: ["a_vinland", 20.8] },
+  { at: 3.6, a: "queja", b: "tiempo", clip: ["a12", 6.5] },
+  { at: 4.39, a: "ego", b: "aprendizaje", clip: ["a_vinland", 11.7] },
+  { at: 5.22, a: "ira", b: "razón", clip: ["a_vinland", 24.7] },
+  { at: 5.99, a: "miedo", b: "acción", clip: ["a12", 9.1] },
+  { at: 6.73, a: "prisa", b: "paciencia", clip: ["a_vinland", 22.1] },
+  { at: 7.48, a: "placer", b: "propósito", clip: ["a12", 14.3] },
+  { at: 8.27, a: "opinión", b: "libertad", clip: ["a12", 10.4] },
+  { at: 9.01, a: "venganza", b: "paz", clip: ["a_vinland", 7.8] },
+  { at: 9.78, a: "pasado", b: "presente", clip: ["a12", 18.2] },
 ];
-const ST_END = 15.56;
-export const SLST_TOTAL = Math.round(18.6 * FPS);
+const ST_END = 10.57;
+export const SLST_TOTAL = Math.round(12.86 * FPS);
 const ST_TITLES: Title[] = [
-  { s: 0, e: 2.81, lines: [{ segs: [["Esto te está", "S", 56, W_]], x: 250, y: 1150 }, { segs: [["matando", "B", 190, RED]], x: 540, y: 1300, anchor: "middle" }, { segs: [["en silencio.", "R", 96, W_]], x: 850, y: 1380, anchor: "end" }] },
+  { s: 0, e: 2.04, lines: [{ segs: [["Esto te está", "S", 56, W_]], x: 250, y: 1150 }, { segs: [["matando", "B", 190, RED]], x: 540, y: 1300, anchor: "middle" }, { segs: [["en silencio.", "R", 96, W_]], x: 850, y: 1380, anchor: "end" }] },
   { s: ST_END, e: 99, lines: [{ segs: [["Domínate", "B", 200, W_]], x: 540, y: 1270, anchor: "middle" }, { segs: [["o te dominarán.", "R", 104, RED]], x: 540, y: 1375, anchor: "middle" }] },
 ];
 export const SLStoic: React.FC = () => {
