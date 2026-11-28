@@ -92,3 +92,11 @@ Cómo pensar en su lugar:
 - Tema con demanda probada (personaje/tema que la gente ya busca y comenta).
 - Cada historia se elige porque refleja un DOLOR actual y masivo, sin decirlo directamente: traición de alguien que amabas, tenerlo todo y sentirte vacío, esforzarte y que otro se lleve el crédito, que tu familia te falle, sentirte solo con Dios en silencio, perderlo todo por un error.
 - El espectador debe pensar "esto me pasó a mí" sin que el video lo diga: el dolor se muestra en el personaje, nunca se sermonea.
+
+## 14. Lectura de datos (28 nov. 2026) — Salomón 1.983 · Sansón (final) 1.992 · Noé 71.900
+- 3 s: solo 41–46 % pasa los 3 s; la curva queda plana 0–2 s y cae en picada 2–5 s → la PORTADA/cuadro 0 detiene, pero la primera frase no engancha a tiempo.
+- Final: 40–45 % llega al final (mejor que Moisés/Jonás) → el cuerpo ya retiene; el problema es el arranque y la distribución.
+- Interacción muy baja (35–48 por ~2.000 vistas, casi 0 compartidos) → Facebook no lo empuja a desconocidos. Noé se compartió porque traía escándalo + algo que todos creen saber.
+- La portada actual es un subtítulo pequeño arriba: en el feed no dice nada. Debe ser un TÍTULO grande especial dentro del cuadro 0 (como SL).
+- Facebook clasifica la página como "Comedia": señal de que el contenido no se lee como bíblico/curiosidad → hashtags y texto del post deben nombrar el tema.
+REGLAS NUEVAS: cuadro 0 = título grande + imagen con contradicción; la 1ª frase completa en ≤ 1,5 s; segunda frase = el dato escandaloso; terminar con una pregunta que divida opiniones (comentarios) y algo que dé ganas de enviarle a alguien (compartidos).
